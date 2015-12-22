@@ -32,7 +32,7 @@ Att göra:
 * Specificera lagar som bör gälla
 * Testa de lagar som kan testas med QuickCheck
 * (Ev. bevisa någon eller några lagar.)
-* Rapportskrivning: i form av en "tutorial" eller föreläsningsanteckningar
+* Rapportskrivning: i form av en "tutorial" eller föreläsningsanteckningar. Om vi lyckas bra med projektet kanske vi alla blir medförfattare till en bok om "DSLsofMath" som kan bli kursbok för en senare omgång av kursen!
 
 ## Litteraturförslag:
 

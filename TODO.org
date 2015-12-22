@@ -1,0 +1,17 @@
+* TODO Läs [TFPIE-artikeln](http://www.cse.chalmers.se/~patrikj/papers/Ionescu_Jansson_DSLsofMath_TFPIE_2015_paper_preprint.pdf)
+* TODO (Pågående under hela LP3): Läs och sök fel i [kursens](https://github.com/DSLsofMath/DSLsofMath) föreläsningar + tillhörande anteckningar
+* TODO Välj ett område som fokus för arbetet:
++ "Transformer, signaler och system" samt "Reglerteknik" (som ges av S2-institutionen), eller
++ "Matematisk modellering och problemlösning" samt "Ändliga automater och formella språk", eller
++ andra kurser som ni känner skulle må bra av mer fokus på syntax, typer och funktioner.
+
+* TODO Dela upp kursmaterial från det valda området mellan er
+* TODO Läs igenom er del av kursmaterialet och anteckna oklarheter + grad av "implementerbarhet"
+* TODO Välj ett par delområden som är oklara men samtidigt bedöms implementerbara
+* TODO Designa och implementera DSL för de valda delområdena
+* TODO Specificera lagar som bör gälla
+* TODO Testa de lagar som kan testas med QuickCheck
+* TODO (Ev. bevisa någon eller några lagar.)
+* TODO Rapportskrivning: i form av en "tutorial" eller föreläsningsanteckningar.
+* TODO (Om vi lyckas bra med projektet kanske vi alla blir medförfattare till en bok om "DSLsofMath" som kan bli kursbok för en senare omgång av kursen!)
+* TODO Presentationsmaterial (demo? poster? annat?)
