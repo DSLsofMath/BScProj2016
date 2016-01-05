@@ -1,11 +1,11 @@
 2016-01-05: Github-konton
 -----------
 
-  JaJo = Jassob
-  FiLi =
-  JoOl =
-  CeRo =
-  PeNg =
+* JaJo = Jassob
+* FiLi =
+* JoOl =
+* CeRo =
+* PeNg =
 
 Handledare:
-  PaJa = patrikja
+* PaJa = patrikja
