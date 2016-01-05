@@ -1,4 +1,5 @@
 2015-12-20: Från Patrik till FiLi, JaJo, JoOl, CeRo, PeNg
+-----------
 
 Hej, och välkomna till kandidatarbetet runt kursen DSLsofMath. Jag väntar fortfarande på mer information om upplägget från de kursansvariga (för kandidatarbeteskursen) men jag tänkte kolla att ni också tänker följa kursen DSLsofMath (DAT325) som går Jan-Mars: https://www.student.chalmers.se/sp/course?course_id=24179
 
