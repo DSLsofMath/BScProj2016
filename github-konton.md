@@ -3,9 +3,9 @@
 
 * JaJo = [Jassob](https://github.com/Jassob)
 * CeRo = [TaraxacumVulgare](https://github.com/TaraxacumVulgare)
+* PeNg = [peterngc](https://github.com/peterngc)
+* JoOl = [joakimjohn](https://github.com/joakimjohn)
 * FiLi =
-* JoOl =
-* PeNg =
 
 Handledare:
 * PaJa = [patrikja](https://github.com/patrikja)
