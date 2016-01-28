@@ -13,3 +13,6 @@ Instruktioner:
     * Mittmöte
     * Slutrapport lämnas in tisdag läsvecka 7 i period 4
     * Presentation och opposition i slutet av maj / början av juni
+
+Links:
+* [TFPIE 2016](http://wiki.science.ru.nl/tfpie/TFPIE2016)
