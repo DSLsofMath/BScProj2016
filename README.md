@@ -16,3 +16,6 @@ Instruktioner:
 
 Links:
 * [TFPIE 2016](http://wiki.science.ru.nl/tfpie/TFPIE2016)
+* **Communicating Mathematics: Useful Ideas from Computer Science**,
+  Charles Wells, *American Mathematical Monthly*, May 1995.  [URL](http://www.cwru.edu/artsci/math/wells/pub/pdf/commath.pdf)
+  This article was one of the main triggers of the DSLsofMath project.
