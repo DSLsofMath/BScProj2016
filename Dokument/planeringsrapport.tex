@@ -46,28 +46,31 @@
 %\newpage
 
 \section{Bakgrund}
-Det har funnits en lång trend på utbildningen för Datateknik på
-Chalmers där studenterna haft svårigheter med kurserna “Transformer,
-Signaler och System” (TSS) och “Reglerteknik”
-%PaJa: "eftersom" verkar vara spekulation
-eftersom de bygger på kunskap inom matematik, ett ämne som studenterna
-inte fått arbeta med på ungefär ett år.
-%
-Dessa svårigheter syns bland annat i statistiken för hur många som
-klarar kurserna, under perioden från 2010 till 2016 blev i genomsnitt
-49\% av alla som skrev tentamen underkända i TSS och under samma
-period blev 47\% underkända i Reglerteknik.
+På Chalmers tekniska högskola har det funnits en lång trend
+där studenterna på utbildningen för Datateknik har haft
+svårigheter med kurserna ``Transformer, Signaler och System''
+(TSS) och “Reglerteknik”. Dessa svårigheter tror
+examinatorerna i kurserna beror till stor del på att studenterna inte är tillräckligt bekväma i det matematiska språket. Studenterna på Datateknik har inte tillräcklig vana att tolka innebörden av de matematiska beskrivningarna.
+
+Detta syns bland annat i statistiken för hur många
+datastudenter som klarar kurserna, under perioden från
+2010 till 2016 blev i genomsnitt 49\% av alla som skrev
+tentamen underkända i TSS och under samma period blev
+47\% underkända i Reglerteknik.
+Det finns även ett mörkertal i dessa siffror eftersom inte alla studenter skriver tentan.
 
 %PaJa: "för att stävja denna trend" är en för negativ formulering: se http://wiki.portal.chalmers.se/cse/pmwiki.php/FP/DSLsofMath: "For example, for CS and CSE students we will measure the percentage of students who, having taken DSLM, pass the third-year courses Transforms, signals and systems and Control Theory (Reglerteknik), which are current major stumbling blocks."
 För att minska svårigheterna som studenterna har för dessa kurser
 påbörjades ett pedagogiskt projekt (DSLsOfMath) som hittills
 resulterat i kursen “Matematikens domänspecifika språk”, där man
-använder funktionell programmering som är ett verktyg som
-studenterna har erfarenhet av och som använder en notation med
-fokus på tydlighet för att lära ut matematiska begrepp.
+använder funktionell programmering för att beskriva matematiska problem. 
+Resonemanget bakom detta var att funktionell programmering är ett
+verktyg som datastudenterna har erfarenhet av och som använder en
+notation med fokus på tydlighet som lämpar sig relativt väl för
+att lära ut matematiska begrepp.
 
-Vårt projekt uppstod som en avgrening av DSLsOfMath-projektet och
-fokuserar mer på signal- och systemteoretiska färdigheter snarare än
+Vårt projekt uppstod som en avgrening av DSLsOfMath-projektet med
+fokus mer på signal- och systemteoretiska färdigheter snarare än
 en allmän matematisk grund.
 
 \section{Syfte}
@@ -75,46 +78,39 @@ Syftet med projektet är att underlätta för studenter inom datateknik
 att ta till sig signal- och systemteoretiska ämnen genom att utnyttja
 deras kunskaper inom programmering och även göra det möjligt att
 betrakta ämnet ur en programmerares perspektiv.
-%
-Vi vill göra gapet mellan datateknik och signalteori mindre för att
-minska problemen som nämns i bakgrundsavsnittet.
+Med detta hoppas man göra gapet mellan datateknik och
+signalteori mindre och minska problemen som nämns i
+bakgrundsavsnittet.
 
 Projektet är tänkt att resultera i en handledningsguide, en så kallad
 tutorial, som kan fungera som ett komplement till de kurser som ges
-inom signalteori på den datatekniska grundutbildningen.
-%
-Denna guide ska innehålla förklaringar och programmeringsövningar som
-är anpassade för studenter på den datatekniska utbildningen.
+inom signalteori på den datatekniska grundutbildningen. Denna guide ska innehålla förklaringar och programmeringsövningar som är anpassade för studenter på den datatekniska utbildningen.
 
-\section{Programanalys}
-Uppgiften i detta projekt kommer bestå i att utarbeta en produkt som
+\section{Problemanalys}
+Uppgiften i detta projekt kommer bestå i att utarbeta en tutorial som
 komplement till kurserna “Reglerteknik” och “Transformer, signaler och
 system”.
-%PaJa: "produkt" låter lite styltigt och allmänt. Kanske "lärmaterial"?
-%
+
 För att kunna utveckla denna produkt kommer först omfattande
 förstudier behöva bedrivas innan vi utvecklar vår produkt och denna
 produkt kommer sedan behöva testas.
 
 \subsection{Förstudier}
-För att få reda på var de största svårigheterna med förståelsen inom
-ämnena och vad som kan göras för att lätta på dessa problem behöver vi
-först undersöka var dessa svårigheter ligger.
-%
-Detta kan göras genom att intervjua studenterna som har gått kursena
-samt examinatorerna och lärarna för kurserna.
+För att komma till rätta med datastudenternas största svårigheterna
+med förståelsen inom ämnena behöver vi först undersöka var dessa
+svårigheter ligger mer i detalj.
 
-För att kunna skriva en produkt med bra innehåll kommer vi även behöva
-bedriva en hel del efterforskningar och litteraturstudier inom såväl
-pedagogik som de signalteoretiska ämnen vi beskriver.
+Dessutom kommer vi även behöva bedriva en hel del efterforskningar
+och litteraturstudier inom såväl pedagogik som de signalteoretiska
+ämnen vi beskriver för att kunna skriva en produkt med korrekt och
+tydligt innehåll.
 
 \subsection{Produkten}
-Efter förstudierna kommer produkten utvecklas.
+Efter förstudierna kommer en tutorial utvecklas.
 %
-Denna kommer bestå av både löpande text och programmeringskod.
-%
-Innehållet kommer bestå av förklarande teori, exempeluppgifter samt
-övningsuppgifter med tillhörande lösningar.
+Innehållet i denna kommer bestå av förklarande teori,
+exempel inom såväl teori som programmering, samt övningar
+med tillhörande lösningar.
 
 \subsection{Testa produkten}
 Produkten kommer sedan behöva testas på den aktuella målgruppen för
@@ -126,40 +122,39 @@ förtydliga de delar studenter inom datateknik finner svårt i kurserna
 “Transform, Signal och System” och “Reglerteknik”.
 %
 Detta innebär att vi endast fokuserar på svårigheter inom dessa kurser
-och inte en handlednings guide som täcker hela själva ämnet.
+och inte ett alternativt läromaterial som täcker hela själva ämnet.
 %
 Det vill säga, produkten kommer inte bli ett underlag för motsvarande
-kurs DAT325 utan en komplement till kurserna SSY080 och ERE102.
+kurs DAT325 utan ett komplement till kurserna SSY080 och ERE103.
 
 \section{Metod}
 \subsection{Förstudier}
-För att samla in information om vilka moment i kurserna TSS och
-Reglerteknik som datastudenter har svårast för planerar vi att
-intervjua examinatorerna inom båda kurserna.
+För att samla in information om vilka moment i kurserna
+TSS och Reglerteknik som datastudenter har svårast för har
+vi intervjuat examinatorerna om de övergripande
+svårigheterna inom båda kurserna.
+Vi kommer under projektets gång ha fler intervjuer med
+examinatorerna där det läggs mer fokus på detaljer.
+Vi planerar också att fråga studenter som har läst
+kurserna vad de tyckte var svårast.
 
-Vi kommer också fråga studenter som läst kurserna vad de tyckte var
-svårast.
-
-\subsection{Produkten}
-För att kunna skapa produkten som syftar på att lära studenter om
-signalteoretiska begrepp på ett lättillgängligt sätt kommer vi studera
-pedagogik och alternativa inlärningsformer som exempelvis boken och
+För att kunna skriva en lättläst och begriplig tutorial
+kommer vi studera litteratur inom pedagogik samt
+alternativa inlärningsformer som exempelvis boken och
 hemsidan “Learn you a Haskell for great good”.
 
-Rent strukturellt planerar vi att dela upp momenten i sex delavsnitt
-som kommer att innehålla runt 15 - 20 uppgifter vardera där
-studenterna får lära sig om signalteori genom att implementera de
-inblandade typerna och relationerna som domänspecifika språk i
-Haskell.
+\subsection{Produkten}
+Rent strukturellt planerar vi att dela upp ämnet i
+sex delavsnitt som kommer att innehålla informativ text som
+förklarar delavsnittet och runt 15 - 20 uppgifter vardera.
+I uppgifterna får studenterna lära sig om signaler och
+system genom att implementera de inblandade typerna
+och relationerna som domänspecifika språk i Haskell.
 
 \subsection{Testa Produkten}
 För att testa svårighetsgraden på vår produkt kommer vi dels att testa
 gruppens uppgifter internt och förhoppningsvis hitta utomstående
-studenter som är villiga att testa det åt oss.
-%
-Vi kommer ge feedback internt på uppgifterna och även förhoppningsvis
-få feedback från de utomstående som testar produkten så vi kan
-vidareutveckla produkten.
+studenter som är villiga att testa produkten. Från dessa tester kan vi använda feedbacken för att vidareutveckla och förfina slutprodukten.
 
 \section{Tidsplan}
 \subsection{Milstolpar och delmål}
