@@ -2,21 +2,15 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage[T1]{fontenc}
-\usepackage{amssymb}
 \usepackage[swedish]{babel}
-\usepackage{amsmath}
-\usepackage{lmodern}
-\usepackage{units}
-\usepackage{icomma}
-\usepackage{color}
-\usepackage{graphicx}
-\usepackage{bbm}
-\usepackage{hyperref}
-\usepackage{pdfpages}
 \usepackage[makeroom]{cancel}
+\usepackage{amssymb, amsmath, lmodern, units, icomma, color, graphicx, bbm, hyperref, pdfpages, csquotes}
+\usepackage[backend=biber]{biblatex}
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.5em}
+
+\addbibresource{referenser.bib}
 
 \begin{document}
 
@@ -42,34 +36,44 @@
 \end{flushleft}
 \end{titlepage}
 \newpage
-%\tableofcontents
-%\newpage
+\tableofcontents
+\newpage
 
 \section{Bakgrund}
-På Chalmers tekniska högskola har det funnits en lång trend
+På Chalmers Tekniska Högskola har det funnits en lång trend
 där studenterna på utbildningen för Datateknik har haft
-svårigheter med kurserna ``Transformer, Signaler och System''
-(TSS) och “Reglerteknik”. Dessa svårigheter tror
-examinatorerna i kurserna beror till stor del på att studenterna inte är tillräckligt bekväma i det matematiska språket. Studenterna på Datateknik har inte tillräcklig vana att tolka innebörden av de matematiska beskrivningarna.
+svårigheter med kurserna \textit{Transformer, Signaler och System},
+hädanefter omnämnd som ''TSS'', och \textit{Reglerteknik}.
+Dessa svårigheter tror examinatorerna i kurserna beror till
+stor del på att studenterna inte är tillräckligt bekväma
+i det matematiska språket.
+Studenterna på Datateknik har inte tillräcklig vana att
+tolka innebörden av de matematiska beskrivningarna och är
+allmänt ovana vid matematiskt hantverk.
+Därför lägger datastudenterna det mesta av sin energi
+på att få ihop matematiken rent praktiskt,
+istället för att se vad matematiken står för.
 
 Detta syns bland annat i statistiken för hur många
 datastudenter som klarar kurserna, under perioden från
-2010 till 2016 blev i genomsnitt 49\% av alla som skrev
-tentamen underkända i TSS och under samma period blev
-47\% underkända i Reglerteknik.
-Det finns även ett mörkertal i dessa siffror eftersom inte alla studenter skriver tentan.
+2010 till 2016 blev i genomsnitt 51\% av alla som skrev
+tentamen godkända i TSS och under samma period blev
+53\% godkända i Reglerteknik \cite{tentastatistik}.
+Det finns även ett mörkertal i dessa siffror eftersom
+inte alla studenter skriver tentan, exempelvis
+valde 48 studenter utav 122 registrerade att inte
+tentera Reglerteknik 2014 \cite{kursinformation:ere102:14-15}.
 
-%PaJa: "för att stävja denna trend" är en för negativ formulering: se http://wiki.portal.chalmers.se/cse/pmwiki.php/FP/DSLsofMath: "For example, for CS and CSE students we will measure the percentage of students who, having taken DSLM, pass the third-year courses Transforms, signals and systems and Control Theory (Reglerteknik), which are current major stumbling blocks."
 För att minska svårigheterna som studenterna har för dessa kurser
-påbörjades ett pedagogiskt projekt (DSLsOfMath) som hittills
-resulterat i kursen “Matematikens domänspecifika språk”, där man
-använder funktionell programmering för att beskriva matematiska problem. 
+påbörjades ett pedagogiskt projekt, DSLsOfMath, som hittills
+resulterat i kursen \textit{Matematikens domänspecifika språk}, där man
+använder funktionell programmering för att beskriva matematiska problem \cite{kursplan:dslsofmath}.
 Resonemanget bakom detta var att funktionell programmering är ett
 verktyg som datastudenterna har erfarenhet av och som använder en
 notation med fokus på tydlighet som lämpar sig relativt väl för
-att lära ut matematiska begrepp.
+att lära ut matematiska begrepp \cite{tfpie}.
 
-Vårt projekt uppstod som en avgrening av DSLsOfMath-projektet med
+Detta projekt uppstod som en avgrening av DSLsOfMath-projektet med
 fokus mer på signal- och systemteoretiska färdigheter snarare än
 en allmän matematisk grund.
 
@@ -135,61 +139,96 @@ vi intervjuat examinatorerna om de övergripande
 svårigheterna inom båda kurserna.
 Vi kommer under projektets gång ha fler intervjuer med
 examinatorerna där det läggs mer fokus på detaljer.
-Vi planerar också att fråga studenter som har läst
-kurserna vad de tyckte var svårast.
+
+För att få information av datastudenterna om vad de tyckte
+var svårt kommer vi utarbeta en enkät om såväl kurserna
+som deras förkunskaper och analysera resultatet från denna.
 
 För att kunna skriva en lättläst och begriplig tutorial
 kommer vi studera litteratur inom pedagogik samt
 alternativa inlärningsformer som exempelvis boken och
-hemsidan “Learn you a Haskell for great good”.
+hemsidan \textit{Learn you a Haskell for great good} \cite{learnyouahaskell}.
+Litteraturen kommer väljas baserat på rekomendationer från
+projektets handledare och anställda vid Chalmers bibliotek
+samt egna efterforskningar.
+%Referens!
 
 \subsection{Produkten}
-Rent strukturellt planerar vi att dela upp ämnet i
+Programeringskoden till projektet kommer skrivas i Haskell,
+vilket från början var specifierat från instutitionen för
+Data och Informationsteknik som skapade projektet.
+Haskell är ett programeringsspråk med syntax som liknar den
+matematiska notationen. Språket har dessutom egenskaper
+som gör att det lämpar sig väl som värdspråk för ett domänspecifikt språk,
+Haskell har till exempel stöd för att skapa egna datatyper.
+Därför såg vi ingen anledning att ändra specifikationen.
+
+Rent strukturellt planerar vi att dela upp vår tutorial i
 sex delavsnitt som kommer att innehålla informativ text som
-förklarar delavsnittet och runt 15 - 20 uppgifter vardera.
+förklarar delavsnittet och runt 15 -- 20 uppgifter vardera.
 I uppgifterna får studenterna lära sig om signaler och
 system genom att implementera de inblandade typerna
 och relationerna som domänspecifika språk i Haskell.
 
-\subsection{Testa Produkten}
-För att testa svårighetsgraden på vår produkt kommer vi dels att testa
-gruppens uppgifter internt och förhoppningsvis hitta utomstående
-studenter som är villiga att testa produkten. Från dessa tester kan vi använda feedbacken för att vidareutveckla och förfina slutprodukten.
+\subsection{Testa produkten}
+För att testa svårighetsgraden på vår produkt kommer vi
+först att testa vår tutorials övningar internt. Tanken är att
+vi kommer dela upp delavsnitten så att två till tre personer
+skriver ett delavsnitt och sedan kan gruppmedlemmarna testa
+varandras arbete. På detta sätt kommer vi ha möjlighet att
+förbättra och utveckla delavsnitten innan de
+testas på andra studenter.
+
+Sedan kommer vi att testa vår tutorial på datastudenter genom
+att de får läsa texterna och göra uppgifter till ett eller flera avsnitt.
+Efter att de har läst och implementerat uppgifterna kommer de att få svara på
+frågor angående hur de upplevde texten och uppgifter i en enkät.
+I enkäten kommer vi också att testa studenternas förståelse av det avhandlade avsnittet.
+
+Utifrån dessa tester och enkäter kommer vi sedan vidareutveckla och förfina slutprodukten.
 
 \section{Tidsplan}
-\subsection{Milstolpar och delmål}
+För att göra projektet mer överskådligt ur ett
+tidsperspektiv har ett antal milstolpar tagits fram.
+Samtliga av dessa har en preliminär deadline för
+att ge gruppen något att arbeta mot.
+
+\subsection{Milstolpar}
 \begin{itemize}
-\item 10:e feb - Planeringsrapport och grov planering klar
-\item 11:e feb - Fackspråkshandledningstillfälle 1
-\item 12:e feb - Planeringsrapport inlämning
-\item 24:e feb - Intervjuer, grundläggande efterforskningar om tss och reglerkurserna klara
-\item 24:e feb - Litteraturstudier inom pedagogik klara
-\item 1:e mars - Utkast för grov tutorial klar (uppgifter ej klara)
-\item 1:a mars - Få klart ett litet avsnitt för halvtidsredovisningen, med förslag på uppgifter och text
-\item 1:a mars - Halvtidsredovisning
-\item 15:e mars - Uppgifter och utkast till text för två av sex delavsnitt i tutorial klara
-\item 22:e mars - Första utkast till rapporten klart
-\item 22:e mars - Fackspråkshandledningstillfälle 2
-\item 28:e mars - Bearbetning av feedback från fackspråk
-\item 28:e mars - Påsk
-\item 11:e april - Uppgifter och utkast till text för fyra av sex delavsnitt i tutorial klara
-\item 25:e april - Uppgifter och utkast till alla delavsnitt i tutorial klara
-\item 27:e april - Eventuell engelsk (forskningsinriktad) uppsats klar
-\item 28:e april - Andra utkast till rapporten klart
-\item 4:e maj - Tutorial klar och testad
-\item 11:e maj - Rapporten klar
-\item 13:e maj - Fackspråkshandledningstillfälle 3
-\item 16:e maj - Rapportinlämning
-\item 17:e maj - Utställning
-\item 26:e maj - Deadline för opposition
-\item 26:e - 27:e maj - Slutredovisning
-\item 1:a juni - Sista inlämningen
+ \item 2016-02-10 - Planeringsrapport och grov planering klar
+ \item 2016-02-11 - Fackspråkshandledningstillfälle 1
+ \item 2016-02-12 - Planeringsrapport inlämning
+ \item 2016-02-24 - Intervjuer, grundläggande efterforskningar om TSS och reglerkurserna klara
+ \item 2016-02-24 - Litteraturstudier inom pedagogik klara
+ \item 2016-03-01 - Utkast för grov tutorial klar (uppgifter ej klara)
+ \item 2016-03-01 - Få klart ett litet avsnitt för halvtidsredovisningen, med förslag på uppgifter och text
+ \item 2016-03-01 - Halvtidsredovisning
+ \item 2016-03-15 - Uppgifter och utkast till text för två av sex delavsnitt i tutorial klara
+ \item 2016-03-22 - Första utkast till rapporten klart
+ \item 2016-03-22 - Fackspråkshandledningstillfälle 2
+ \item 2016-03-28 - Bearbetning av feedback från fackspråk
+ \item 2016-04-11 - Uppgifter och utkast till text för fyra av sex delavsnitt i tutorial klara
+ \item 2016-04-25 - Uppgifter och utkast till alla delavsnitt i tutorial klara
+ \item 2016-04-27 - Eventuell engelsk (forskningsinriktad) uppsats klar
+ \item 2016-04-28 - Andra utkast till rapporten klart
+ \item 2016-05-04 - Tutorial klar och testad
+ \item 2016-05-11 - Rapporten klar
+ \item 2016-05-13 - Fackspråkshandledningstillfälle 3
+ \item 2016-05-16 - Rapportinlämning
+ \item 2016-05-17 - Utställning
+ \item 2016-05-26 - Deadline för opposition
+ \item 2016-05-26/27 - Slutredovisning
+ \item 2016-06-01 - Sista inlämningen
 \end{itemize}
 
 \newpage
-\subsection{Gannt schema}
+\subsection{Gantt schema}
+Nedan följer ett Gantt schema för att ge en överblick om hur gruppens arbete fördelas över projekttiden.
 \begin{figure}
     \centering
-    \includepdf[width=0.8\paperwidth]{Gannt}
+    \includepdf[width=0.8\paperwidth]{gantt}
 \end{figure}
+\newpage
+
+\printbibliography
 \end{document}
