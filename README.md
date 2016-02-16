@@ -14,6 +14,7 @@ Lärmaterialinformation
 -----------------------
 
 * [Material till tutorialen](tutorial-outline.md)
+* [Planeringsrapporten](Dokument/Planeringsrapport/planeringsrapport.md)
 * [TODOs](TODO.org)
 * [github-konton](arkiv/github-konton.md)
 
