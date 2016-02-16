@@ -1,8 +1,14 @@
 OBS: Utkast!
 ============
 
-Delområden i TSS
-================
+Introavsnitt
+------------
+
+* Komplexa tal
+
+
+Transformer, signaler och systemavsnitt
+----------------
 
 * System och signaler
   * Signalmodeller (kontinuerliga och diskreta signaler).
@@ -22,3 +28,8 @@ Delområden i TSS
   * Rekonstruktion av diskreta signaler till kontinuerliga.
 
 * I mån av tid, Filter.
+
+Reglertekniksavsnitt
+----------------------
+
+Kommer bestämmas efter att fått mer information om vad som är svårt.

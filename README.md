@@ -1,18 +1,21 @@
+Matematikens domänspecifika språk (DSLsofMath) för andra kurser
+===============================================================
+
+Detta projekt går ut på att ta fram lärmaterial för kurserna "Transformer, signaler och system" och "Reglerteknik" som ges på Datateknikprogrammet (D) under tredje årskursen.
+Detta lärmaterial ska ha ett funktionellt programmerarperspektiv för att studenter på D lättare ska kunna ta det till sig.
+
+Projektinformation
+------------------
 
 * [Projektbeskrivning](DSLsofMath_andra_kurser.md)
-* [Välkomna!](welcome.md)
+* [Instruktioner](instruktioner.md)
+
+Lärmaterialinformation
+-----------------------
+
+* [Material till tutorialen](tutorial-outline.md)
 * [TODOs](TODO.org)
 * [github-konton](github-konton.md)
-
-Instruktioner:
-* [Chalmers instruktioner för genomförandet av kandidatarbetet](https://student.portal.chalmers.se/sv/chalmersstudier/kandidat-och-examensarbete/kandidatarbete/genomforande/Sidor/Genomf%C3%B6rande.aspx)
-    * Schematid avsatt för kandidatarbete är tisdag, torsdag em och fredag fm.
-    * Projektdagbok
-    * Planeringsrapport läsvecka 4 i period 3
-    * Handledning hos Fackspråk
-    * Mittmöte
-    * Slutrapport lämnas in tisdag läsvecka 7 i period 4
-    * Presentation och opposition i slutet av maj / början av juni
 
 Links:
 * [TFPIE 2016](http://wiki.science.ru.nl/tfpie/TFPIE2016)
