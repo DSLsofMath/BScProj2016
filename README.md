@@ -7,7 +7,7 @@ Detta lärmaterial ska ha ett funktionellt programmerarperspektiv för att stude
 Projektinformation
 ------------------
 
-* [Projektbeskrivning](DSLsofMath_andra_kurser.md)
+* [Projektbeskrivning](arkiv/DSLsofMath_andra_kurser.md)
 * [Instruktioner](instruktioner.md)
 
 Lärmaterialinformation
@@ -15,7 +15,7 @@ Lärmaterialinformation
 
 * [Material till tutorialen](tutorial-outline.md)
 * [TODOs](TODO.org)
-* [github-konton](github-konton.md)
+* [github-konton](arkiv/github-konton.md)
 
 Links:
 * [TFPIE 2016](http://wiki.science.ru.nl/tfpie/TFPIE2016)
