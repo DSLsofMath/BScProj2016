@@ -1,17 +1,65 @@
-* TODO Läs [TFPIE-artikeln](http://www.cse.chalmers.se/~patrikj/papers/Ionescu_Jansson_DSLsofMath_TFPIE_2015_paper_preprint.pdf)
-* TODO (Pågående under hela LP3): Läs och sök fel i [kursens](https://github.com/DSLsofMath/DSLsofMath) föreläsningar + tillhörande anteckningar
-* TODO Välj ett område som fokus för arbetet:
-+ "Transformer, signaler och system" samt "Reglerteknik" (som ges av S2-institutionen), eller
-+ "Matematisk modellering och problemlösning" samt "Ändliga automater och formella språk", eller
-+ andra kurser som ni känner skulle må bra av mer fokus på syntax, typer och funktioner.
+* DSLsOfMath
+** IN-PROGRESS Läs och sök fel i kursen DAT325's material
+   Kursens [material](https://github.com/DSLsofMath/DSLsofMath) ligger på Github.
+   Om vi hittar något felaktigt rättar vi felet och skickar en pull-request.
 
-* TODO Dela upp kursmaterial från det valda området mellan er
-* TODO Läs igenom er del av kursmaterialet och anteckna oklarheter + grad av "implementerbarhet"
-* TODO Välj ett par delområden som är oklara men samtidigt bedöms implementerbara
-* TODO Designa och implementera DSL för de valda delområdena
-* TODO Specificera lagar som bör gälla
-* TODO Testa de lagar som kan testas med QuickCheck
-* TODO (Ev. bevisa någon eller några lagar.)
-* TODO Rapportskrivning: i form av en "tutorial" eller föreläsningsanteckningar.
-* TODO (Om vi lyckas bra med projektet kanske vi alla blir medförfattare till en bok om "DSLsofMath" som kan bli kursbok för en senare omgång av kursen!)
+* Tutorial
+** Generellt
+   * Dela upp kursmaterial mellan deltagarna
+   * Läsa igenom ens del av kursmaterialet och anteckna oklarheter + grad av "implementerbarhet"
+   * Välj ett par delområden som är oklara men samtidigt bedöms implementerbara
+   * Designa och implementera DSL för de valda delområdena
+   * Specificera lagar som bör gälla
+   * Testa de lagar som kan testas med QuickCheck
+   * (Ev. bevisa någon eller några lagar.)
+   * (Om vi lyckas bra med projektet kanske vi alla blir medförfattare till en bok om "DSLsofMath" som kan bli kursbok för en senare omgång av kursen!)
+
+*** DONE Välj ett område som fokus för arbetet:
+  Projektet kommer fokusera på "Transformer, signaler och system" och "Reglerteknik".
+
+** Deadlines
+*** IN-PROGRESS Efterforskningar
+    DEADLINE: <2016-02-24 ons>
+    * Intervjuer, grundläggande efterforskningar
+    om TSS och reglerkurserna klara.
+    * Pedagogik klart.
+*** IN-PROGRESS Ett avsnitt för halvtidsredovisning
+    DEADLINE: <2016-03-01 tis>
+*** TODO Två avsnitt klara
+    DEADLINE: <2016-03-15 tis>
+    Text och uppgifter till två avsnitt klara.
+*** TODO Fyra avsnitt klara
+    DEADLINE: <2016-04-11 mån>
+    Text och uppgifter till fyra avsnitt klara.
+*** TODO Alla (6) avsnitt klara
+    DEADLINE: <2016-04-25 mån>
+    Uppgifter och utkast till alla (6) avsnitt klara.
+*** TODO Tutorial klar och testad
+    DEADLINE: <2016-05-04 ons>
+
+* Rapport
+  Vid sidan av tutorialen kommer vi skriva en vetenskaplig rapport.
+  Om tid finns kommer vi också försöka skriva en engelsk artikel om
+  vårt projekt.
+
+** Deadlines
+*** DONE Fackspråkshandledningstillfälle 1
+    DEADLINE: <2016-02-11 tor>
+*** DONE Planeringsrapport inlämning
+    DEADLINE: <2016-02-12 fre>
+*** TODO Fackspråkshandledningstillfälle 2
+    DEADLINE: <2016-03-21 mån>
+*** TODO Första utkast till rapporten klart
+    DEADLINE: <2016-03-21 mån>
+*** TODO Andra utkast till rapporten klart
+    DEADLINE: <2016-04-28 tor>
+*** TODO Rapporten klar
+    DEADLINE: <2016-05-11 ons>
+*** TODO Fackspråkshandledningstillfälle 3
+    DEADLINE: <2016-05-13 fre>
+*** TODO Första inlämningen
+    DEADLINE: <2016-05-16 mån>
+*** TODO Sista inlämningen
+    DEADLINE: <2016-06-01 ons>
+
 * TODO Presentationsmaterial (demo? poster? annat?)
