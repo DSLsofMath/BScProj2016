@@ -16,7 +16,6 @@ Lärmaterialinformation
 * [Material till tutorialen](tutorial-outline.md)
 * [Planeringsrapporten](Dokument/Planeringsrapport/planeringsrapport.md)
 * [TODOs](TODO.org)
-* [github-konton](arkiv/github-konton.md)
 
 Links:
 * [TFPIE 2016](http://wiki.science.ru.nl/tfpie/TFPIE2016)
