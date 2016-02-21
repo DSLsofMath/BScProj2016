@@ -55,14 +55,14 @@ istället för att se vad matematiken står för.
 
 Detta syns bland annat i statistiken för hur många
 datastudenter som klarar kurserna, under perioden från
-2010 till 2016 blev i genomsnitt 51\% av alla som skrev
+2010 till 2016 blev i genomsnitt bara 51\% av alla som skrev
 tentamen godkända i TSS och under samma period blev
-53\% godkända i Reglerteknik \cite{tentastatistik}.
+bara 53\% godkända i Reglerteknik \cite{tentastatistik}.
 %TODO: Kolla vad genomsnittlig genomströmning är för kurserna i D3 eller hela kandidatdelen av D för att ge läsaren en chans att "kalibrera".
-Det finns även ett mörkertal i dessa siffror eftersom
-inte alla studenter skriver tentan, exempelvis
-valde 48 studenter utav 122 registrerade att inte
-tentera Reglerteknik 2014 \cite{kursinformation:ere102:14-15}.
+Det finns även ett mörkertal i dessa siffror eftersom inte alla
+studenter skriver tentan, exempelvis gick bara 61\% av de som var
+registrerade på Reglerteknik 2014 upp på tentan (74 studenter utav 122
+\cite{kursinformation:ere102:14-15}).
 
 För att minska svårigheterna som studenterna har för dessa kurser
 påbörjades ett pedagogiskt projekt, DSLsOfMath, som hittills
@@ -73,8 +73,8 @@ verktyg som datastudenterna har erfarenhet av och som använder en
 notation med fokus på tydlighet som lämpar sig relativt väl för
 att lära ut matematiska begrepp \cite{tfpie}.
 
-Detta projekt uppstod som en avgrening av DSLsOfMath-projektet med
-fokus mer på signal- och systemteoretiska färdigheter snarare än
+Detta kandidatprojekt uppstod som en avgrening av DSLsofMath-projektet
+med fokus mer på signal- och systemteoretiska färdigheter snarare än
 en allmän matematisk grund.
 
 \section{Syfte}
@@ -94,21 +94,19 @@ som är anpassade för studenter på den datatekniska utbildningen på Chalmers 
 
 \section{Problemanalys}
 Uppgiften i detta projekt är att utarbeta en tutorial som
-komplement till kurserna Reglerteknik och TSS.
+komplement till kurserna TSS och Reglerteknik.
 
 För att kunna utveckla denna tutorial kommer först omfattande
-förstudier behöva bedrivas innan den skrivs och den kommer även behövas testas.
+förstudier bedrivas innan den skrivs och den kommer även testas.
 
 \subsection{Förstudier}
-För att komma till rätta med datastudenternas
-största svårigheter med förståelsen inom ämnena
-behövs först en undersökning för att ta reda på
-var dessa ligger mer i detalj.
-%TODO: Allmänt sätt vore det bra att minska antalet "behöva" i texten. Strikt sett är det inte en plan att säga att något behövs. Många saker "behövs" men ni väljer att verkligen göra vissa saker. Fokusera på vad ni ska göra, inte på vad som behöver göras.
-Dessutom behövs efterforskningar och litteraturstudier
-inom såväl pedagogik som teorin bakom de tidigare
-nämnda kurserna för att kunna skriva en tutorial
-med korrekt och tydligt innehåll.
+För att komma till rätta med datastudenternas största svårigheter med
+förståelsen inom ämnena görs först en undersökning för att ta reda på
+var svårigheterna ligger mer i detalj.
+%
+Dessutom görs efterforskningar och litteraturstudier inom såväl
+pedagogik som teorin bakom de tidigare nämnda kurserna för att kunna
+skriva en tutorial med tydligt och korrekt innehåll.
 
 \subsection{Produkten}
 Efter förstudierna kommer en tutorial utvecklas.
@@ -117,18 +115,19 @@ teori, exempel inom såväl teori som programmering,
 samt övningar med tillhörande lösningar.
 
 Produktens målgrupp är studenter vid datateknikprogrammet på
-Chalmers Tekniska Högskola som läser andra eller tredje året på utbildningen.
+Chalmers som läser andra eller tredje året på utbildningen.
 
-Produkten kommer sedan behöva testas på den aktuella målgruppen för
-möjligheten att uppdatera och förbättra den slutgiltiga produkten.
+Produkten kommer sedan testas på den aktuella målgruppen för att kunna
+uppdatera och förbättra den slutgiltiga produkten.
 
 \section{Avgränsning}
-Det kommer endast fokuseras på svårigheterna inom kurserna
+Fokus ligger på \emph{svårigheterna} inom kurserna
 TSS och Reglerteknik. Det vill säga, projektet är inte tänkt
 att resultera i ett hjälpmedel som täcker allt i kurserna
 utan ska vara ett komplement som minskar svårigheterna för målgruppen.
 
 Dessutom kommer denna tutorial inte innehålla något av momenten kursen \textit{Matematikens domänspecifika språk} täcker.
+%TODO: Detta kan vara en besvärlig begränsning: lite överlapp verkar opraktiskt att utesluta.
 
 \newpage
 \section{Metod}
@@ -160,16 +159,16 @@ samt egna efterforskningar.
 \subsection{Produkten}
 Programeringskoden till projektet kommer skrivas i Haskell,
 vilket från början var specifierat från instutitionen för
-Data och Informationsteknik som skapade projektet.
+Data och Informationsteknik som föreslog projektet.
 Haskell är ett programeringsspråk med syntax som liknar den
 matematiska notationen. Språket har dessutom egenskaper
-som gör att det lämpar sig väl som värdspråk för ett domänspecifikt språk,
+som gör att det lämpar sig väl som värdspråk för ett domänspecifikt språk.
 Haskell har till exempel stöd för att skapa egna datatyper.
 Därför såg vi ingen anledning att ändra specifikationen.
 
 Rent strukturellt planerar vi att dela upp vår tutorial i
 sex delavsnitt som kommer att innehålla informativ text som
-förklarar delavsnittet och runt 15 -- 20 uppgifter vardera.
+förklarar delavsnittet och runt 15--20 uppgifter vardera.
 I uppgifterna får studenterna lära sig om signaler och
 system genom att implementera de inblandade typerna
 och relationerna som domänspecifika språk i Haskell.
@@ -177,7 +176,7 @@ och relationerna som domänspecifika språk i Haskell.
 \subsection{Testa produkten}
 För att testa svårighetsgraden på vår produkt kommer vi
 först att testa vår tutorials övningar internt. Tanken är att
-vi kommer dela upp delavsnitten så att två till tre personer
+vi delar upp delavsnitten så att två till tre personer
 skriver ett delavsnitt och sedan kan gruppmedlemmarna testa
 varandras arbete. På detta sätt kommer vi ha möjlighet att
 förbättra och utveckla delavsnitten innan de
@@ -201,27 +200,27 @@ att ge gruppen något att arbeta mot.
 \begin{itemize}
  \item 2016-02-10 - Planeringsrapport och grov planering klar
  \item 2016-02-11 - Fackspråkshandledningstillfälle 1
- \item 2016-02-12 - Planeringsrapport inlämning
+ \item 2016-02-12 - \textbf{Planeringsrapport inlämning}
  \item 2016-02-24 - Intervjuer, grundläggande efterforskningar om TSS och reglerkurserna klara
  \item 2016-02-24 - Litteraturstudier inom pedagogik klara
  \item 2016-03-01 - Utkast för grov tutorial klar (uppgifter ej klara)
  \item 2016-03-01 - Få klart ett litet avsnitt för halvtidsredovisningen, med förslag på uppgifter och text
- \item 2016-03-01 - Halvtidsredovisning
+ \item 2016-03-01 - \textbf{Halvtidsredovisning}
  \item 2016-03-15 - Uppgifter och utkast till text för två av sex delavsnitt i tutorial klara
- \item 2016-03-22 - Första utkast till rapporten klart
+ \item 2016-03-22 - \textbf{Första utkast till rapporten klart}
  \item 2016-03-22 - Fackspråkshandledningstillfälle 2
  \item 2016-03-28 - Bearbetning av feedback från fackspråk
  \item 2016-04-11 - Uppgifter och utkast till text för fyra av sex delavsnitt i tutorial klara
  \item 2016-04-25 - Uppgifter och utkast till alla delavsnitt i tutorial klara
  \item 2016-04-27 - Eventuell engelsk (forskningsinriktad) uppsats klar
- \item 2016-04-28 - Andra utkast till rapporten klart
+ \item 2016-04-28 - \textbf{Andra utkast till rapporten klart}
  \item 2016-05-04 - Tutorial klar och testad
  \item 2016-05-11 - Rapporten klar
  \item 2016-05-13 - Fackspråkshandledningstillfälle 3
  \item 2016-05-16 - Rapportinlämning
  \item 2016-05-17 - Utställning
  \item 2016-05-26 - Deadline för opposition
- \item 2016-05-26/27 - Slutredovisning
+ \item 2016-05-26/27 - \textbf{Slutredovisning}
  \item 2016-06-01 - Sista inlämningen
 \end{itemize}
 
@@ -230,7 +229,6 @@ att ge gruppen något att arbeta mot.
 Nedan följer ett Gantt schema för att ge en överblick om hur gruppens arbete fördelas över projekttiden.
 \begin{figure}
     \centering
-    %TODO: Gannt stavas Gantt.
     \includepdf[width=0.8\paperwidth]{gantt}
 \end{figure}
 \newpage
