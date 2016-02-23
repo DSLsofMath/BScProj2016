@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 
-<span> Programmering som undervisningsverktyg för signaler och system
+<span>Programmering som undervisningsverktyg för signaler och system
 </span>
 
 ------------------------------------------------------------------------
@@ -20,11 +20,11 @@ Bakgrund
 
 På Chalmers Tekniska Högskola har det funnits en lång trend där studenterna på utbildningen för Datateknik har haft svårigheter med kurserna *Transformer, Signaler och System*, hädanefter omnämnd som ”TSS”, och *Reglerteknik*. Dessa svårigheter tror examinatorerna i kurserna beror till stor del på att studenterna inte är tillräckligt bekväma i det matematiska språket. Studenterna på Datateknik har inte tillräcklig vana att tolka innebörden av de matematiska beskrivningarna och är allmänt ovana vid matematiskt hantverk. Därför lägger datastudenterna det mesta av sin energi på att få ihop matematiken rent praktiskt, istället för att se vad matematiken står för.
 
-Detta syns bland annat i statistiken för hur många datastudenter som klarar kurserna, under perioden från 2010 till 2016 blev i genomsnitt 51% av alla som skrev tentamen godkända i TSS och under samma period blev 53% godkända i Reglerteknik 1. Det finns även ett mörkertal i dessa siffror eftersom inte alla studenter skriver tentan, exempelvis valde 48 studenter utav 122 registrerade att inte tentera Reglerteknik 2014 2.
+Detta syns bland annat i statistiken för hur många datastudenter som klarar kurserna, under perioden från 2010 till 2016 blev i genomsnitt bara 51% av alla som skrev tentamen godkända i TSS och under samma period blev bara 53% godkända i Reglerteknik 1. Det finns även ett mörkertal i dessa siffror eftersom inte alla studenter skriver tentan, exempelvis gick bara 61% av de som var registrerade på Reglerteknik 2014 upp på tentan (74 studenter utav 122 2).
 
 För att minska svårigheterna som studenterna har för dessa kurser påbörjades ett pedagogiskt projekt, DSLsOfMath, som hittills resulterat i kursen *Matematikens domänspecifika språk*, där man använder funktionell programmering för att beskriva matematiska problem 3. Resonemanget bakom detta var att funktionell programmering är ett verktyg som datastudenterna har erfarenhet av och som använder en notation med fokus på tydlighet som lämpar sig relativt väl för att lära ut matematiska begrepp 4.
 
-Detta projekt uppstod som en avgrening av DSLsOfMath-projektet med fokus mer på signal- och systemteoretiska färdigheter snarare än en allmän matematisk grund.
+Detta kandidatprojekt uppstod som en avgrening av DSLsofMath-projektet med fokus mer på signal- och systemteoretiska färdigheter snarare än en allmän matematisk grund.
 
 Syfte
 =====
@@ -36,28 +36,28 @@ Projektet är tänkt att resultera i en handledningsguide, en så kallad tutoria
 Problemanalys
 =============
 
-Uppgiften i detta projekt är att utarbeta en tutorial som komplement till kurserna Reglerteknik och TSS.
+Uppgiften i detta projekt är att utarbeta en tutorial som komplement till kurserna TSS och Reglerteknik.
 
-För att kunna utveckla denna tutorial kommer först omfattande förstudier behöva bedrivas innan den skrivs och den kommer även behövas testas.
+För att kunna utveckla denna tutorial kommer först omfattande förstudier bedrivas innan den skrivs och den kommer även testas.
 
 Förstudier
 ----------
 
-För att komma till rätta med datastudenternas största svårigheter med förståelsen inom ämnena behövs först en undersökning för att ta reda på var dessa ligger mer i detalj. Dessutom behövs efterforskningar och litteraturstudier inom såväl pedagogik som teorin bakom de tidigare nämnda kurserna för att kunna skriva en tutorial med korrekt och tydligt innehåll.
+För att komma till rätta med datastudenternas största svårigheter med förståelsen inom ämnena görs först en undersökning för att ta reda på var svårigheterna ligger mer i detalj. Dessutom görs efterforskningar och litteraturstudier inom såväl pedagogik som teorin bakom de tidigare nämnda kurserna för att kunna skriva en tutorial med tydligt och korrekt innehåll.
 
 Produkten
 ---------
 
 Efter förstudierna kommer en tutorial utvecklas. Innehållet i denna kommer bestå av förklarande teori, exempel inom såväl teori som programmering, samt övningar med tillhörande lösningar.
 
-Produktens målgrupp är studenter vid datateknikprogrammet på Chalmers Tekniska Högskola som läser andra eller tredje året på utbildningen.
+Produktens målgrupp är studenter vid datateknikprogrammet på Chalmers som läser andra eller tredje året på utbildningen.
 
-Produkten kommer sedan behöva testas på den aktuella målgruppen för möjligheten att uppdatera och förbättra den slutgiltiga produkten.
+Produkten kommer sedan testas på den aktuella målgruppen för att kunna uppdatera och förbättra den slutgiltiga produkten.
 
 Avgränsning
 ===========
 
-Det kommer endast fokuseras på svårigheterna inom kurserna TSS och Reglerteknik. Det vill säga, projektet är inte tänkt att resultera i ett hjälpmedel som täcker allt i kurserna utan ska vara ett komplement som minskar svårigheterna för målgruppen.
+Fokus ligger på *svårigheterna* inom kurserna TSS och Reglerteknik. Det vill säga, projektet är inte tänkt att resultera i ett hjälpmedel som täcker allt i kurserna utan ska vara ett komplement som minskar svårigheterna för målgruppen.
 
 Dessutom kommer denna tutorial inte innehålla något av momenten kursen *Matematikens domänspecifika språk* täcker.
 
@@ -78,14 +78,14 @@ För att kunna skriva en lättläst och begriplig tutorial kommer vi studera lit
 Produkten
 ---------
 
-Programeringskoden till projektet kommer skrivas i Haskell, vilket från början var specifierat från instutitionen för Data och Informationsteknik som skapade projektet. Haskell är ett programeringsspråk med syntax som liknar den matematiska notationen. Språket har dessutom egenskaper som gör att det lämpar sig väl som värdspråk för ett domänspecifikt språk, Haskell har till exempel stöd för att skapa egna datatyper. Därför såg vi ingen anledning att ändra specifikationen.
+Programeringskoden till projektet kommer skrivas i Haskell, vilket från början var specifierat från instutitionen för Data och Informationsteknik som föreslog projektet. Haskell är ett programeringsspråk med syntax som liknar den matematiska notationen. Språket har dessutom egenskaper som gör att det lämpar sig väl som värdspråk för ett domänspecifikt språk. Haskell har till exempel stöd för att skapa egna datatyper. Därför såg vi ingen anledning att ändra specifikationen.
 
-Rent strukturellt planerar vi att dela upp vår tutorial i sex delavsnitt som kommer att innehålla informativ text som förklarar delavsnittet och runt 15 – 20 uppgifter vardera. I uppgifterna får studenterna lära sig om signaler och system genom att implementera de inblandade typerna och relationerna som domänspecifika språk i Haskell.
+Rent strukturellt planerar vi att dela upp vår tutorial i sex delavsnitt som kommer att innehålla informativ text som förklarar delavsnittet och runt 15–20 uppgifter vardera. I uppgifterna får studenterna lära sig om signaler och system genom att implementera de inblandade typerna och relationerna som domänspecifika språk i Haskell.
 
 Testa produkten
 ---------------
 
-För att testa svårighetsgraden på vår produkt kommer vi först att testa vår tutorials övningar internt. Tanken är att vi kommer dela upp delavsnitten så att två till tre personer skriver ett delavsnitt och sedan kan gruppmedlemmarna testa varandras arbete. På detta sätt kommer vi ha möjlighet att förbättra och utveckla delavsnitten innan de testas på andra studenter.
+För att testa svårighetsgraden på vår produkt kommer vi först att testa vår tutorials övningar internt. Tanken är att vi delar upp delavsnitten så att två till tre personer skriver ett delavsnitt och sedan kan gruppmedlemmarna testa varandras arbete. På detta sätt kommer vi ha möjlighet att förbättra och utveckla delavsnitten innan de testas på andra studenter.
 
 Sedan kommer vi att testa vår tutorial på datastudenter genom att de får läsa texterna och göra uppgifter till ett eller flera avsnitt. Efter att de har läst och implementerat uppgifterna kommer de att få svara på frågor angående hur de upplevde texten och uppgifter i en enkät. I enkäten kommer vi också att testa studenternas förståelse av det avhandlade avsnittet.
 
@@ -103,7 +103,7 @@ Milstolpar
 
 -   2016-02-11 - Fackspråkshandledningstillfälle 1
 
--   2016-02-12 - Planeringsrapport inlämning
+-   2016-02-12 - **Planeringsrapport inlämning**
 
 -   2016-02-24 - Intervjuer, grundläggande efterforskningar om TSS och reglerkurserna klara
 
@@ -113,11 +113,11 @@ Milstolpar
 
 -   2016-03-01 - Få klart ett litet avsnitt för halvtidsredovisningen, med förslag på uppgifter och text
 
--   2016-03-01 - Halvtidsredovisning
+-   2016-03-01 - **Halvtidsredovisning**
 
 -   2016-03-15 - Uppgifter och utkast till text för två av sex delavsnitt i tutorial klara
 
--   2016-03-22 - Första utkast till rapporten klart
+-   2016-03-22 - **Första utkast till rapporten klart**
 
 -   2016-03-22 - Fackspråkshandledningstillfälle 2
 
@@ -129,7 +129,7 @@ Milstolpar
 
 -   2016-04-27 - Eventuell engelsk (forskningsinriktad) uppsats klar
 
--   2016-04-28 - Andra utkast till rapporten klart
+-   2016-04-28 - **Andra utkast till rapporten klart**
 
 -   2016-05-04 - Tutorial klar och testad
 
@@ -143,7 +143,7 @@ Milstolpar
 
 -   2016-05-26 - Deadline för opposition
 
--   2016-05-26/27 - Slutredovisning
+-   2016-05-26/27 - **Slutredovisning**
 
 -   2016-06-01 - Sista inlämningen
 
