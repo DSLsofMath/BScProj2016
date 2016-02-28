@@ -1,7 +1,11 @@
+planeringsrapport.pdf
 *.aux
 *.fdb_latexmk
 *.fls
 *.log
 *.out
 *.toc
-planeringsrapport.pdf
+*.bbl
+*.bcf
+*.blg
+*.run.xml
