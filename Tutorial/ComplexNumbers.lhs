@@ -16,11 +16,15 @@
 > conjugate :: Complex -> Complex
 > conjugate z = Complex (realPart z, negate (imPart z))
 
+TODO: kolla upp atan2: http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:atan2
+
 > -- | Argumentet av ett komplext tal. Bökigt värre på grund av tråkiga kvadranter och bös.
 > arg :: Complex -> Double
 > arg z   | (imPart z) < 0  && (realPart z) < 0 = atan (imPart z / realPart z) - pi
 >         | (realPart z) < 0                  = atan (imPart z / realPart z) + pi
 >         | otherwise                         = atan (imPart z / realPart z)
+
+TODO: Använd ett assymmetriskt namn för denna operator (eftersom den inte är kommutativ).
 
 > (.*.) :: Double -> Complex -> Complex
 > a .*. z = Complex (a * realPart z, a * imPart z)
@@ -29,6 +33,9 @@
 > -- Många matematiktexter kallar detta talet också för `i`
 > j :: Complex
 > j = Complex (0, 1)
+
+TODO: Försök få   read . printComplex = id
+TODO: "name and reuse" (show im ++ "j")
 
 > printComplex :: Complex -> String
 > printComplex z
@@ -61,6 +68,8 @@
 
   Eftersom komplexa tal inte har någon definition av positiva och negativa tal är signum odefinierad.
 
+TODO: Försök få denna lag för signum att gälla: http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:signum
+
 >    signum z    = undefined
 
   Absolutbeloppet av ett komplext tal är pythagoras sats på dess komponenter.
@@ -84,6 +93,8 @@
 
   En kvot av två heltal är helt reell och därför kommer imaginärdelen vara 0
 
+TODO: Bättre att göra som med (fromInteger n) ovan - det blir en effektivare beräkning.
+
 >     fromRational z = fromInteger (numerator z) / fromInteger (denominator z)
 
   Garanterar att imaginärdelen alltid är 0 ifrån en fromRational
@@ -99,6 +110,8 @@
 
   Potenslagarna ger att e^(a+bj) <=> e^a * e^bj och
   Eulers formel ger att e^bj <=> cos b + jsin b
+
+TODO: låt euler finns på toppnivån. Kan vara bra att ha.
 
 >     exp z = exp (realPart z) .*. euler (imPart z)
 
@@ -119,10 +132,11 @@
 >     cosh z = Complex (cosh (realPart z) * cos (imPart z), sinh (realPart z) * sin (imPart z))
 >     sinh z = Complex (sin (realPart z) * cosh (imPart z), cos (realPart z) * sinh (imPart z))
 
-
   Eulers formel ger att z = re^(j*phi) och eftersom log och exponentialfunktionen
   är varandras inverser och logaritmlagarna ger ex. `log (a*b)` <=> `log a + log b`.
   Därför kan vi skriva log `z = log r + log (e^(j*phi))` = `log r + j*phi`
+
+TODO: Något fel med ` ovan
 
 >     log z = Complex (logR (abs z), (arg z))
 >         where logR = log . realPart
