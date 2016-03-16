@@ -1,3 +1,5 @@
+> module ComplexNumbers where
+
 > import GHC.Real
 
   Komplexa tal kan ses som ett par av reella värden.
