@@ -18,12 +18,10 @@ Där första komponenten representerar realdelen och den andra komponenten imagi
 > conjugate :: Complex -> Complex
 > conjugate z = Complex (realPart z, negate (imPart z))
 
-Argumentet av ett komplext tal. Bökigt värre på grund av tråkiga kvadranter och bös.
+Argumentet av ett komplext tal. Bökigt värre på grund av tråkiga kvadranter och bös, men genom att använda funktionen atan2 så blir det mycket snyggare!
 
 > arg :: Complex -> Double
-> arg z   | (imPart z) < 0  && (realPart z) < 0 = atan (imPart z / realPart z) - pi
->         | (realPart z) < 0                  = atan (imPart z / realPart z) + pi
->         | otherwise                         = atan (imPart z / realPart z)
+> arg z = atan2 (imPart z) (realPart z)
 
 > scale :: Double -> Complex -> Complex
 > scale a z = Complex (a * realPart z, a * imPart z)
@@ -151,6 +149,3 @@ odefinierade än så länge.
 >     asin  = undefined
 >     acosh = undefined
 >     acos  = undefined
-
-atan2 är RealFloat
-atan2 z = atan z + pi/2*(signum (realPart z)) * (1- signum (imPart z))
