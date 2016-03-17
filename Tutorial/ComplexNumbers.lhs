@@ -18,7 +18,7 @@
 > conjugate :: Complex -> Complex
 > conjugate z = Complex (realPart z, negate (imPart z))
 
-TODO: kolla upp atan2: http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:atan2
+!TODO: kolla upp atan2: http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:atan2
 
 > -- | Argumentet av ett komplext tal. Bökigt värre på grund av tråkiga kvadranter och bös.
 > arg :: Complex -> Double
@@ -26,7 +26,7 @@ TODO: kolla upp atan2: http://hackage.haskell.org/package/base-4.8.2.0/docs/Prel
 >         | (realPart z) < 0                  = atan (imPart z / realPart z) + pi
 >         | otherwise                         = atan (imPart z / realPart z)
 
-TODO: Använd ett assymmetriskt namn för denna operator (eftersom den inte är kommutativ).
+!TODO: Använd ett assymmetriskt namn för denna operator (eftersom den inte är kommutativ).
 
 > (.*.) :: Double -> Complex -> Complex
 > a .*. z = Complex (a * realPart z, a * imPart z)
@@ -70,7 +70,7 @@ TODO: "name and reuse" (show im ++ "j")
 
   Eftersom komplexa tal inte har någon definition av positiva och negativa tal är signum odefinierad.
 
-TODO: Försök få denna lag för signum att gälla: http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:signum
+!TODO: Försök få denna lag för signum att gälla: http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:signum
 
 >    signum z    = undefined
 
