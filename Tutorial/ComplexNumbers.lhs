@@ -28,7 +28,7 @@ Argumentet av ett komplext tal. Bökigt värre på grund av tråkiga kvadranter 
 
 Behövs kanske inte då man kan skriva z / Complex (a,0)
 
- (./.) :: Complex -> Double -> Complex
+(./.) :: Complex -> Double -> Complex
 z ./. a = Complex (realPart z / a, imPart z / a)
 
 j är det komplexa talet med realdelen 0 och imaginärdelen 1
@@ -38,20 +38,41 @@ Många matematiktexter kallar detta talet också för `i`
 > j = Complex (0, 1)
 
 TODO: Försök få   read . printComplex = id
-TODO: "name and reuse" (show im ++ "j")
+!TODO: "name and reuse" (show im ++ "j")
 
 
 > printComplex :: Complex -> String
 > printComplex z
->   | r == 0 = show im ++ "j"
->   | im == 0 = show r
->   | otherwise = show r ++ " + " ++ show im ++ "j"
->     where im = imPart z
->           r = realPart z
+>   | r == 0    = imj
+>   | im == 0   = show r
+>   | im < 0    = show r ++ " - " ++ show (abs im) ++ "j"
+>   | otherwise = show r ++ " + " ++ imj
+>     where im  = imPart z
+>           r   = realPart z
+>           imj = show im ++ "j"
 
+> parseReal :: String -> Complex
+> parseReal r = Complex(read r, 0)
+
+> parseIm :: String -> Complex
+> parseIm im = Complex(0, read (filter (/='j') im))
+
+> readComplex str
+>  | len == 1 && 'j' `elem` h = parseIm h
+>  | len == 1                 = parseReal h
+>  | len == 3 && s == "-"     = parseReal h - parseIm l
+>  | otherwise                = parseReal h + parseIm l
+>    where nums = words str
+>          len  = length nums
+>          h    = head nums
+>          s    = nums !! 1
+>          l    = last nums
 
 > instance Show Complex where
 >     show = printComplex
+
+instance Read Complex where
+    read = readComplex
 
 > instance Num Complex where
 
