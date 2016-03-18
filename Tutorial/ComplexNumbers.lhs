@@ -38,8 +38,7 @@ Många matematiktexter kallar detta talet också för `i`
 > j = Complex (0, 1)
 
 TODO: Försök få   read . printComplex = id
-!TODO: "name and reuse" (show im ++ "j")
-
+TODO: "name and reuse" something like showIm im = show im ++ "j" to make it easy to change the spacing (or change "j" to "i", or the type from String to ShowS) in only one place
 
 > printComplex :: Complex -> String
 > printComplex z
@@ -50,23 +49,6 @@ TODO: Försök få   read . printComplex = id
 >     where im  = imPart z
 >           r   = realPart z
 >           imj = show im ++ "j"
-
-> parseReal :: String -> Complex
-> parseReal r = Complex(read r, 0)
-
-> parseIm :: String -> Complex
-> parseIm im = Complex(0, read (filter (/='j') im))
-
-> readComplex str
->  | len == 1 && 'j' `elem` h = parseIm h
->  | len == 1                 = parseReal h
->  | len == 3 && s == "-"     = parseReal h - parseIm l
->  | otherwise                = parseReal h + parseIm l
->    where nums = words str
->          len  = length nums
->          h    = head nums
->          s    = nums !! 1
->          l    = last nums
 
 > instance Show Complex where
 >     show = printComplex
