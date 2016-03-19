@@ -1,5 +1,4 @@
 ﻿> module ComplexNumbers where
-
 > import GHC.Real
 
 Komplexa tal kan ses som ett par av reella värden.
@@ -37,7 +36,7 @@ Många matematiktexter kallar detta talet också för `i`
 > j :: Complex
 > j = Complex (0, 1)
 
-TODO: Försök få   read . printComplex = id
+TODO: Försök få   read . printComplex = id genom att göra printComplex enklare
 TODO: "name and reuse" something like showIm im = show im ++ "j" to make it easy to change the spacing (or change "j" to "i", or the type from String to ShowS) in only one place
 
 > printComplex :: Complex -> String

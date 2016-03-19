@@ -47,7 +47,19 @@ Steg 2: Definiera en grammatik
 
 C ::=  R [ ('+' | '-') R 'j' ]
 
-Steg 3: Översätt till en parser
+Ge några exempel som ingår i språket definierat av den här grammatiken:
+
+> ex1 = ["3", "1+2j", "2-4j"]
+> ex1' :: Num a => [Pair a]
+> ex1' = map Pair [(3,0), (1,2), (2,-4)]
+> check1D = map read ex1 == (ex1' :: [Pair Double])
+> check1I = map read ex1 == (ex1' :: [Pair Int])
+
+och några motexempel (som man kanske skulle vilja hantera).
+
+> notEx1 = ["2j", "+1", "1+2i", "1 + 2j"]
+
+Steg 3: Översätt grammatiken till en parser
 
 > complexP :: (Num a, Read a) => P (Pair a)
 > complexP = do re <- realP
@@ -55,7 +67,6 @@ Steg 3: Översätt till en parser
 >               return $ Pair (re, im)
 
 > signedImP :: (Num a, Read a) => P a
-
 > signedImP = do si <- signP
 >                im <- realP
 >                _  <- symbolP 'j'
@@ -65,8 +76,7 @@ Steg 3: Översätt till en parser
 > signP = (symbolP '+' >> return id) ||| (symbolP '-' >> return negate)
 
 Notera att denna lösning kommer att tillåta för mycket (exempelvis
-1+-1j) men också för lite (godkänner inte tomrum)
-
+1+-1j) men också för lite (godkänner inte tomrum).
 
 > realP :: Read a => P a
 > realP = P reads
@@ -74,7 +84,7 @@ Notera att denna lösning kommer att tillåta för mycket (exempelvis
 Steg 4: Skriv en Read-instans
 
 > newtype Pair a = Pair {unPair :: (a, a)}
->   deriving Show
+>   deriving (Eq, Show)
 
 > instance (Read a, Num a) => Read (Pair a) where
 >   readsPrec _p = unP complexP
