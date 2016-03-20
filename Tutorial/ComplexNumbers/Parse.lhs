@@ -89,7 +89,6 @@ Steg 4: Skriv en Read-instans
 > instance (Read a, Num a) => Read (Pair a) where
 >   readsPrec _p = unP complexP
 
-
 Ett par hjälpinstanser.
 
 > instance Functor P where

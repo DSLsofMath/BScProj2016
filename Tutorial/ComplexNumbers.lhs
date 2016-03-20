@@ -1,4 +1,4 @@
-﻿> module ComplexNumbers where
+> module ComplexNumbers where
 > import GHC.Real
 
 Komplexa tal kan ses som ett par av reella värden.
@@ -73,7 +73,7 @@ Negationen av ett komplext tal är ett komplext tal där båda komponenter är n
 
 >     negate z        = Complex (negate $ realPart z, negate $ imPart z)
 
-Eftersom komplexa tal inte har någon definition av positiva och negativa tal är signum odefinierad.
+Den naturliga generaliseringen av signum från reella till kompelxa tal:
 
 >     signum z        = z / abs z
 
