@@ -33,7 +33,15 @@
 \end{flushleft}
 \end{titlepage}
 \newpage
+\renewcommand*\abstractname{Sammandrag}
+\begin{abstract}
+%En Sammandrag
+\end{abstract}
+\newpage
 
+
+
+\newpage
 \tableofcontents
 
 \newpage
@@ -41,7 +49,7 @@
 \setlength{\parskip}{2mm}
 \setlength{\parindent}{0pt}
 
-\section{Abstract}
+%\section{Abstract}
 
 \section{Sammanfattning}
 
@@ -56,7 +64,10 @@ Bakgrunden till detta projekt är att kurserna TSS och Reglerteknik på det aktu
 Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts för att ta kunna ta fram tutorialen, samt de tester som gjorts på den färdiga produkten.
 
 \section{Ordlista}
-DSL - Domain Specific Language
+DSL - Domain Specific Language eller Domän specifik språk
+GPL - General Purpose Language t.ex C, C++, Java, Haskell m.m.
+TSS - Transformer, Signal och System
+Regler - Reglerteknik
 
 \section{Inledning}
 
@@ -119,7 +130,14 @@ datatekniska utbildningen på Chalmers tekniska högskola.
 \section{Teori - Teknisk bakgrund om DSL mm}
 
 % Allmänt om DSL
-DSL är ett programmeringsspråk som tillskillnad från en GPL, är anpassad för endast en specifik domän. De har alltid funnits sedan programmering skapades och exemplar på DSL är HTML, MatLab och rpgmaker. En DSL kan byggas upp från grunden eller vara utvecklad från en redan existerande GPL som Haskell. Fördelen med detta är att de erbjuder mer specialiserad egenskaper inom detta specifika område men är inte avsedd att kunna appliceras till andra områden. Därför passar DSL utmärkt till denna kandidatarbete eftersom målet är att lära TSS via programmering. 
+DSL är ett programmeringsspråk som tillskillnad från en GPL, är anpassad
+för endast en specifik domän. De har alltid funnits sedan programmering 
+skapades och exemplar på DSL är HTML, MatLab och rpgmaker. En DSL kan 
+byggas upp från grunden eller vara utvecklad från en redan existerande GPL
+som Haskell. Fördelen med detta är att de erbjuder mer specialiserad egenskaper 
+inom detta specifika område men är inte avsedd att kunna appliceras till andra
+områden. Därför passar DSL utmärkt till denna kandidatarbete eftersom målet är 
+att lära TSS via programmering. 
 
 \section{Produkt/kravspec}
 
@@ -135,8 +153,10 @@ kurserna TSS och regler. Dessutom tas inte bevis med i denna tutorial.
 
 I själva impementationen av DSL så tänker det undvika funktioner som är
 ovanliga eller kan skrivas explicit. t.ex så ska fourier transformen av
-sinh(x) inte implementeras eftersom sinh(x) kan utryckas via dess
-definition istället.
+$sinh(x)$ inte implementeras eftersom $sinh(x)$ kan utryckas via dess
+definition $\frac{e^{x} - e^{-x}}{2}$ istället.
+Slutligen tänker det undvika onödigt komplexa funktioner som inte
+dyker upp naturligt som en signal t.ex $sin(cos(x)+e^x)$
 
 \section{Metod och Genomförande}
 
@@ -157,13 +177,17 @@ Projektdeltagarna skulle först återuppfriska kunskaperna om Haskell, TSS
 och regler. Därefter genomfördes vidare studier om DSL och pedagogik för
 att kunna implementera formlerna i Haskell.
 
+Efter förstudien så intervjuade vi de kursansvariga över deras tankar om vad
+eleverna tyckte var svårt i kursen. Det ska även påbörjas en enkätundersökning
+som vi tänker skicka ut till studenterna som går i årskurs 2 och 3 inom Datateknik.  
+
 % Ska litteratur tas med?
 
 \subsection{Uppställning av tutorial}
 
-Själva tutorial är uppdelad i fem delar(så långt). Det första kapitlet
+Själva tutorial är uppdelad i fem kapitlar(så långt). Det första kapitlet
 ska introducera konceptet DSL samt förklara kortfattad om komplexa tal
-och eulers formel.
+och Eulers formel.
 
 Därefter kommer kapitlar om LTI-system, Fourier serier och transform
 samt Laplace- och Z-transform.
@@ -174,9 +198,16 @@ texten ska vara inspirerad av boken ``Learn You a Haskell for Great
 Good'' av Miran Lipovača \cite{learnyouahaskell} och texter från sidan
 \url{http://betterexplained.com/}.
 
-Dessutom lades exemplar på de områden studenterna finner svåra och
-formulera lite uppgifter inom dessa områden som ska kunna lösas via
-programmering.
+Det vill säga, när vi förklarar hur formlerna fungerar så utnyttjar vi 
+oss av exemplar som inte nödvändigtvis är fysikaliskt korrekt. Målet är
+att den överstående bilden ger en god uppfattning på hur formlerna kan användas. 
+Sedan förklarar vi hur det kan appliceras inom TSS i en mer matematiskt korrekt form. 
+Därefter tänker vi visa hur dessa definitioner eller formler skulle se ut på DSL.
+
+Dessutom ska det finnas exempeluppgifter över de områden studenterna finner
+svåra och formulera lite uppgifter som ska kunna lösas via programmering. 
+Lösningarna som finns med ska visa hur uppgiften kan lösas både på det vanliga
+analytiska metod och via ett DSL.
 
 \subsection{Implementation i DSL}
 
