@@ -54,7 +54,7 @@ Finns att läsa på **[Chalmers Bibliotek](http://lib.chalmers.se)**.
 
 Finns att läsa på **[Chalmers Bibliotek](http://lib.chalmers.se)**.
 
-*Mer för kursen än för vårt projekt, men kanske relevant för reglerdelen.*
+*Mer för [kursen](https://github.com/DSLsofMath/DSLsofMath) än för vårt projekt, men kanske relevant för reglerdelen.*
 
 
 ### *Functional Differential Geometry*
