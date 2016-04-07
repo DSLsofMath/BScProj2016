@@ -37,6 +37,7 @@ Finns att läsa på **[Chalmers Bibliotek](http://lib.chalmers.se)**.
 **Författare**: Martin Fowler
 
 **[Länk](http://martinfowler.com/books/dsl.html)**
+**[Några anteckningar](anteckningar/fowler_on_dsls.md)**
 
 *Overkill att läsa igenom hela, men kanske värt att läsa lite i.*
 
@@ -136,6 +137,7 @@ Artikel
 **Författare**: Charles Wells
 
 **[Länk](http://www.cwru.edu/artsci/math/wells/pub/pdf/commath.pdf)**
+**[Anteckningar](anteckningar/communicating_mathematics.md)**
 
 Kursplan
 --------
