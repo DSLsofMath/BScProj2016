@@ -13,7 +13,8 @@ A semantik proof however would be to use ones own mental picture and demonstrate
 always hold. The article in questions semantik proof was to picture x and z as numbers in the real number axis. 
 Thus if one draw the axis number axis and place x and z, y will always satisfy ((x > y) v (y > z)). 
 
-Which form is the most optimal is arguable but the semantik proof is usually seen as more "understandable" while a syntactic proof is hard to follow. 
+Which form is the most optimal is arguable but the semantik proof is usually seen as more "understandable" while 
+a syntactic proof is hard to follow. 
 However a semantik proof is just ones own mental intepretation and will not necessary hold for all mathematicians. 
 
 The author finished the section with his own thought that using a syntax approach will 
@@ -31,6 +32,6 @@ I will leave further details as a discussion within the group.
 
 The base line of my conjuncture is that the students will ultimately benefit more from a syntactic approach ->
 Student are not familiar with proof written in the mathematic language ->
-Introduce DSLofMath which is written from a programming language which is the student are famliliar with ->
+Introduce DSLofMath which is written from a programming language which the student are famliliar with ->
 The students will now be able to find syntactic mathematical proofs more comprehensable. 
 
