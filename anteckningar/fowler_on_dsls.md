@@ -12,6 +12,7 @@ Value
 The main goal of DSLs (according to Fowler) is to enable a deeper communication between a programmer and a domain expert (such as a graphical interface designer) and therefore make their collaboration more productive.
 
 A goal that could be considered to be good enough is if the DSL simply makes the programmer more productive, it is good enough if the DSL is not interesting to the domain experts.
+%TODO: I don't understand the second part: "it is good enough if the DSL is not interesting"?
 
 Language Workbench
 ------------------
