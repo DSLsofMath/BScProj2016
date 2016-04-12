@@ -76,7 +76,7 @@ Regler - Reglerteknik
 
 % Huvudpoänger:
 % * Problem med kurserna på data
-% * Var kommer vårt projekt ifrån? Spinoff till DSLOfMathprojektet. 
+% * Var kommer vårt projekt ifrån? Spinoff till DSLOfMathprojektet.
 %
 % Illustrationer:
 % * Statisktik från kurserna
@@ -112,7 +112,7 @@ Detta projekt uppstod som en avgrening av DSLsOfMath-projektet med fokus mer på
 \subsection{Syfte}
 
 % Huvudpoänger:
-% 
+%
 % Illustration:
 
 Syftet med projektet är att underlätta för studenter inom datateknik att
@@ -132,13 +132,13 @@ datatekniska utbildningen på Chalmers tekniska högskola.
 
 % Allmänt om DSL
 Ett DSL är ett programmeringsspråk som till skillnad från ett GPL, är anpassat
-för endast en specifik domän. De har alltid funnits sedan programmering 
-skapades och exempel på DSL är HTML, MatLab och rpgmaker. Ett DSL kan 
+för endast en specifik domän. De har alltid funnits sedan programmering
+skapades och exempel på DSL är HTML, MatLab och rpgmaker. Ett DSL kan
 byggas upp från grunden eller vara utvecklat från ett redan existerande GPL
-som Haskell. Fördelen med detta är att de erbjuder mer specialiserade egenskaper 
+som Haskell. Fördelen med detta är att de erbjuder mer specialiserade egenskaper
 inom detta specifika område men är inte avsedda för att kunna appliceras till andra
-områden. Därför passar DSL utmärkt till detta kandidatarbete eftersom målet är 
-att lära ut TSS via programmering. 
+områden. Därför passar DSL utmärkt till detta kandidatarbete eftersom målet är
+att lära ut TSS via programmering.
 
 \section{Produkt/kravspec}
 
@@ -156,13 +156,14 @@ I själva impementationen av DSL så undviks funktioner som är
 ovanliga eller kan skrivas explicit. t.ex så ska fouriertransformen av
 $sinh(x)$ inte implementeras eftersom $sinh(x)$ kan utryckas via dess
 definition $\frac{e^{x} - e^{-x}}{2}$ istället.
+%**TODO: "tänker undviks"?
 Slutligen tänker undviks även onödigt komplexa funktioner som inte
 dyker upp naturligt som en signal t.ex $sin(cos(x)+e^x)$
 
 \section{Metod och Genomförande}
 
 % Det vi har gjort:
-% * Förstudier 
+% * Förstudier
 % * Enkätundersökning
 %   * Hänvisa till böckerna ``Enkäten i praktiken'' och ``Enkätboken''
 % * Skriva tutorial
@@ -180,7 +181,7 @@ att kunna implementera formlerna i Haskell.
 
 Efter förstudien så intervjuade vi de kursansvariga över deras tankar om vad
 studenterna tyckte var svårt i kursen. Det ska även påbörjas en enkätundersökning
-som vi tänker skicka ut till studenterna som går i årskurs 2 och 3 inom Datateknik.  
+som vi tänker skicka ut till studenterna som går i årskurs 2 och 3 inom Datateknik.
 
 % Ska litteratur tas med?
 
@@ -199,22 +200,24 @@ texten ska vara inspirerad av boken ``Learn You a Haskell for Great
 Good'' av Miran Lipovača \cite{learnyouahaskell} och texter från sidan
 \url{http://betterexplained.com/}.
 
-Det vill säga, när vi förklarar hur formlerna fungerar så utnyttjar vi 
+Det vill säga, när vi förklarar hur formlerna fungerar så utnyttjar vi
+%**TODO: "fysikaliskt korrekt" - plural samt kanske "helt" istället för "fysikaliskt" (eller avser ni att koppla till fysik?)
 oss av exempel som inte nödvändigtvis är fysikaliskt korrekt. Målet är
-att den ovanstående bilden ger en god uppfattning på hur formlerna kan användas. 
-Sedan förklarar vi hur det kan appliceras inom TSS i en mer matematiskt korrekt form. 
+att den ovanstående bilden ger en god uppfattning på hur formlerna kan användas.
+Sedan förklarar vi hur det kan appliceras inom TSS i en mer matematiskt korrekt form.
+%**TODO: "vårat" := "vårt" (på flera ställen)
 Därefter tänker vi visa hur dessa definitioner eller formler skulle se ut i vårat DSL.
 
 Dessutom ska det finnas exempeluppgifter till de områden studenterna finner
-svåra och formulera lite uppgifter som ska kunna lösas via programmering. 
+svåra och formulera lite uppgifter som ska kunna lösas via programmering.
 Lösningarna som finns med ska visa hur uppgiften kan lösas både med den vanliga
 analytiska metoden och via ett DSL.
 
 \subsection{Implementation i DSL}
 
 %Förklara hur komplexa tal och alla typer av transformer implementerades i DSL.
-Vårat DSL ska vara uppbyggt från Haskell och ska täcka områdena TSS och Reglerteknik. 
-I båda kurserna så används komplexa tal vilket innebär att det först måste implementeras i vårat DSL. 
+Vårat DSL ska vara uppbyggt från Haskell och ska täcka områdena TSS och Reglerteknik.
+I båda kurserna så används komplexa tal vilket innebär att det först måste implementeras i vårat DSL.
 
 \subsection{Verktyg}
 

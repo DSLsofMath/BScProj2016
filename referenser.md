@@ -64,6 +64,14 @@ Finns att läsa på **[Chalmers Bibliotek](http://lib.chalmers.se)**.
 
 **[Länk](https://groups.csail.mit.edu/mac/users/gjs/6946/calculus-indexed.pdf).**
 
+### *How to Solve It*
+
+**Författare**: Polya
+
+https://en.wikipedia.org/wiki/How_to_Solve_It
+
+Classical text about (mathematical) problem solving.
+
 
 Vetenskaplig artikel
 --------------------
