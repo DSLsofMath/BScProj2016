@@ -156,9 +156,8 @@ I själva impementationen av DSL så undviks funktioner som är
 ovanliga eller kan skrivas explicit. t.ex så ska fouriertransformen av
 $sinh(x)$ inte implementeras eftersom $sinh(x)$ kan utryckas via dess
 definition $\frac{e^{x} - e^{-x}}{2}$ istället.
-%**TODO: "tänker undviks"?
-Slutligen tänker undviks även onödigt komplexa funktioner som inte
-dyker upp naturligt som en signal t.ex $sin(cos(x)+e^x)$
+Slutligen kommer även onödigt komplexa funktioner som inte
+dyker upp naturligt som en signal undvikas, t.ex $sin(cos(x)+e^x)$.
 
 \section{Metod och Genomförande}
 
@@ -201,12 +200,10 @@ Good'' av Miran Lipovača \cite{learnyouahaskell} och texter från sidan
 \url{http://betterexplained.com/}.
 
 Det vill säga, när vi förklarar hur formlerna fungerar så utnyttjar vi
-%**TODO: "fysikaliskt korrekt" - plural samt kanske "helt" istället för "fysikaliskt" (eller avser ni att koppla till fysik?)
-oss av exempel som inte nödvändigtvis är fysikaliskt korrekt. Målet är
+oss av exempel som inte nödvändigtvis är helt korrekta. Målet är
 att den ovanstående bilden ger en god uppfattning på hur formlerna kan användas.
 Sedan förklarar vi hur det kan appliceras inom TSS i en mer matematiskt korrekt form.
-%**TODO: "vårat" := "vårt" (på flera ställen)
-Därefter tänker vi visa hur dessa definitioner eller formler skulle se ut i vårat DSL.
+Därefter tänker vi visa hur dessa definitioner eller formler skulle se ut i vårt DSL.
 
 Dessutom ska det finnas exempeluppgifter till de områden studenterna finner
 svåra och formulera lite uppgifter som ska kunna lösas via programmering.
@@ -216,8 +213,8 @@ analytiska metoden och via ett DSL.
 \subsection{Implementation i DSL}
 
 %Förklara hur komplexa tal och alla typer av transformer implementerades i DSL.
-Vårat DSL ska vara uppbyggt från Haskell och ska täcka områdena TSS och Reglerteknik.
-I båda kurserna så används komplexa tal vilket innebär att det först måste implementeras i vårat DSL.
+Vårt DSL ska vara uppbyggt från Haskell och ska täcka områdena TSS och Reglerteknik.
+I båda kurserna så används komplexa tal vilket innebär att det först måste implementeras i vårt DSL.
 
 \subsection{Verktyg}
 
