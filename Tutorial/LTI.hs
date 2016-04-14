@@ -17,7 +17,7 @@ type DiscTimeFun = DiscSignal Double
 
 --Kontinuerlig Impuls: Oändlig om t=0, annars 0
 contImpulse :: ContTimeFun
-contImpulse t | t == 0 = undefined
+contImpulse t | t == 0 = 1/0
               | otherwise = 0
 
 --Diskret Impuls: 1 om t=0, annars 0
@@ -29,7 +29,7 @@ discImpulse t | t == 0 = 1
 contStep :: ContTimeFun
 contStep t | t < 0 = 0
 --HalfMaximumConvention, ett vanligt sätt skriva för t=0
-           | t == 0 = 0.5
+           | t == 0 = 1/0
            | t > 0 = 1
 
 --Diskret enhetssteg: 0 om t<0, 1 om t >= 0
@@ -48,11 +48,13 @@ instance Num b => Num (Signal a b) where
 
 scale :: Num b => Signal a b -> b -> Signal a b
 scale sig f = (*f) . sig
+infixl 7 `scale`
 
 --En jämförelsefunktion som tillåter väldigt små fel, kan användas för att
 --undvika fel som beror på avrundning
 (~=) :: Double -> Double -> Bool
 a ~= b = abs (a - b) < 1.0e-10
+infixl 4 ~=
 
 --Approximativ faltning i kontinuerlig tid
 contConvolution :: ContTimeFun -- ^ Signal 1
@@ -104,11 +106,12 @@ isLinearCont :: ContTimeFun -- ^ Insignal 1
             -> Double -- ^ Skalningsfaktor 2
             -> ContTime -- ^ Tid då vi mäter
             -> Bool
-isLinearCont x0 x1 sys a b t = ((y0' + y1') t) ~= (((y0 `scale` a) + (y1 `scale` b)) t)
+isLinearCont x0 x1 sys a b t = testAt (y0' + y1') (y0 `scale` a + y1 `scale` b) t
     where y0  = contOutSignal sys x0
           y1  = contOutSignal sys x1
           y0' = contOutSignal sys (x0 `scale` a)
           y1' = contOutSignal sys (x1 `scale` b)
+          testAt a b t = a t ~= b t
 
 isLinearDisc :: DiscTimeFun -- ^ Insignal 1
             -> DiscTimeFun -- ^ Insignal 2
@@ -117,11 +120,12 @@ isLinearDisc :: DiscTimeFun -- ^ Insignal 1
             -> Double -- ^ Skalningsfaktor 2
             -> DiscTime -- ^ Tid då vi mäter
             -> Bool
-isLinearDisc x0 x1 sys a b t = ((y0' + y1') t) ~= (((y0 `scale` a) + (y1 `scale` b)) t)
+isLinearDisc x0 x1 sys a b t = testAt (y0' + y1') (y0 `scale` a + y1 `scale` b) t
     where y0  = discOutSignal sys x0
           y1  = discOutSignal sys x1
           y0' = discOutSignal sys (x0 `scale` a)
           y1' = discOutSignal sys (x1 `scale` b)
+          testAt a b t = a t ~= b t
 
 -- | Kollar om ett system är linjärt genom att mata det med två signaler och
 -- använder sig av superpositionsprincipen.
@@ -150,13 +154,13 @@ prop_isLinearDisc x0 x1 sys = \a b t -> isLinearDisc x0 x1 sys a b t
 --tidsförskjutning i utsignalen. Alltså:
 --Xin(t-c) -> Xut(t-c), där c är en reell konstant.
 isTimeInvCont :: ContTimeFun -> ContSystem -> ContTime -> ContTime -> Bool
-isTimeInvCont x sys t c = y' t == (timeShift y c) t
+isTimeInvCont x sys t c = y' t ~= (timeShift y c) t
     where x' = timeShift x c
           y  = contOutSignal sys x
           y' = contOutSignal sys x'
 
 isTimeInvDisc :: DiscTimeFun -> DiscSystem -> DiscTime -> DiscTime -> Bool
-isTimeInvDisc x sys t c = y' t == (timeShift y c) t
+isTimeInvDisc x sys t c = y' t ~= (timeShift y c) t
     where x' = timeShift x c
           y  = discOutSignal sys x
           y' = discOutSignal sys x'
