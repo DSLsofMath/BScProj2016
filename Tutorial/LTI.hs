@@ -16,6 +16,7 @@ type ContTimeFun = ContSignal Double
 type DiscTimeFun = DiscSignal Double
 
 --Kontinuerlig Impuls: Oändlig om t=0, annars 0
+-- TODO: Compare to the commit message: note that 1/0 = Infinity, not NaN (and Infinity is more correct here)
 contImpulse :: ContTimeFun
 contImpulse t | t == 0 = 1/0
               | otherwise = 0
@@ -29,6 +30,7 @@ discImpulse t | t == 0 = 1
 contStep :: ContTimeFun
 contStep t | t < 0 = 0
 --HalfMaximumConvention, ett vanligt sätt skriva för t=0
+-- TODO: I'm pretty sure Infinity is wrong here. 1/2 or 1 seem more reasonable.
            | t == 0 = 1/0
            | t > 0 = 1
 
@@ -52,6 +54,10 @@ infixl 7 `scale`
 
 --En jämförelsefunktion som tillåter väldigt små fel, kan användas för att
 --undvika fel som beror på avrundning
+-- TODO: be careful with using an "absolute" epsilon for comparison of floating point numbers.
+-- Think of a = 1.0e-10 and b = 1.0e-11, then a = 10*b but still a ~= b with this definition!
+-- Perhaps use abs (a/b - 1) < eps instead?
+-- Or use http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:decodeFloat
 (~=) :: Double -> Double -> Bool
 a ~= b = abs (a - b) < 1.0e-10
 infixl 4 ~=
