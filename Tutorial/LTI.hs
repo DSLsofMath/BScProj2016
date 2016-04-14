@@ -97,31 +97,53 @@ contOutSignal sys insignal = contConvolution insignal sys (-100) 100 0.1
 --Xin(t) -> Xut(t) och Yin(t) -> Yut(t).
 --Om systemet uppfyller superpositionsprincipen gäller då att
 --a*Xin(t) + b*Yin(t) -> a*Xut(t) + b*Yut(t), där a och b är konstanter
-isSuperCont :: ContTimeFun -- ^ Insignal 1
+isLinearCont :: ContTimeFun -- ^ Insignal 1
             -> ContTimeFun -- ^ Insignal 2
             -> ContSystem  -- ^ System
             -> Double -- ^ Skalningsfaktor 1
             -> Double -- ^ Skalningsfaktor 2
             -> ContTime -- ^ Tid då vi mäter
             -> Bool
-isSuperCont x0 x1 sys a b t = ((y0' + y1') t) ~= (((y0 `scale` a) + (y1 `scale` b)) t)
+isLinearCont x0 x1 sys a b t = ((y0' + y1') t) ~= (((y0 `scale` a) + (y1 `scale` b)) t)
     where y0  = contOutSignal sys x0
           y1  = contOutSignal sys x1
           y0' = contOutSignal sys (x0 `scale` a)
           y1' = contOutSignal sys (x1 `scale` b)
 
-isSuperDisc :: DiscTimeFun -- ^ Insignal 1
+isLinearDisc :: DiscTimeFun -- ^ Insignal 1
             -> DiscTimeFun -- ^ Insignal 2
             -> DiscSystem  -- ^ System
             -> Double -- ^ Skalningsfaktor 1
             -> Double -- ^ Skalningsfaktor 2
             -> DiscTime -- ^ Tid då vi mäter
             -> Bool
-isSuperDisc x0 x1 sys a b t = ((y0' + y1') t) ~= (((y0 `scale` a) + (y1 `scale` b)) t)
+isLinearDisc x0 x1 sys a b t = ((y0' + y1') t) ~= (((y0 `scale` a) + (y1 `scale` b)) t)
     where y0  = discOutSignal sys x0
           y1  = discOutSignal sys x1
           y0' = discOutSignal sys (x0 `scale` a)
           y1' = discOutSignal sys (x1 `scale` b)
+
+-- | Kollar om ett system är linjärt genom att mata det med två signaler och
+-- använder sig av superpositionsprincipen.
+prop_isLinearCont :: ContTimeFun -- ^ Insignal 1
+                  -> ContTimeFun -- ^ Insignal 2
+                  -> ContSystem -- ^ System
+                  -> Double -- ^ Skalfaktor 1 (genereras av QuickCheck)
+                  -> Double -- ^ Skalfaktor 2 (genereras av QuickCheck)
+                  -> ContTime -- ^ Tidspunkt (genereras av QuickCheck)
+                  -> Bool
+prop_isLinearCont x0 x1 sys = \a b t -> isLinearCont x0 x1 sys a b t
+
+-- | Kollar om ett system är linjärt genom att mata det med två signaler och
+-- använder sig av superpositionsprincipen.
+prop_isLinearDisc :: DiscTimeFun -- ^ Insignal 1
+                  -> DiscTimeFun -- ^ Insignal 2
+                  -> DiscSystem -- ^ System
+                  -> Double -- ^ Skalfaktor 1 (genereras av QuickCheck)
+                  -> Double -- ^ Skalfaktor 2 (genereras av QuickCheck)
+                  -> DiscTime -- ^ Tidspunkt (genereras av QuickCheck)
+                  -> Bool
+prop_isLinearDisc x0 x1 sys = \a b t -> isLinearDisc x0 x1 sys a b t
 
 --Övning: Implementera ett test för tidsinvariansegenskapen, givet timeshift
 --Ett system är tidsinvariant om en tidsförskjutning i insignalen ger samma
@@ -142,8 +164,7 @@ isTimeInvDisc x sys t c = y' t == (timeShift y c) t
 --Ett system är ett LTI-system om det uppfyller superpositionsprincipen och är
 --tidsinvariant
 isLTICont :: Double -> ContTimeFun -> Double -> ContTimeFun -> ContSystem -> ContTime -> ContTime -> Bool
-isLTICont a x b y sys t c = isSuperCont x y sys a b t && isTimeInvCont x sys t c
+isLTICont a x b y sys t c = isLinearCont x y sys a b t && isTimeInvCont x sys t c
 
 isLTIDisc :: Double -> DiscTimeFun -> Double -> DiscTimeFun -> DiscSystem -> DiscTime -> DiscTime -> Bool
-isLTIDisc a x b y sys t c = isSuperDisc x y sys a b t && isTimeInvDisc x sys t c
-
+isLTIDisc a x b y sys t c = isLinearDisc x y sys a b t && isTimeInvDisc x sys t c
