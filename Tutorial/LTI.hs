@@ -1,4 +1,4 @@
-{-# TypeSynonymInstances #-}
+{-# LANGUAGE FlexibleInstances #-}
 
 import qualified Test.QuickCheck as Q
 
