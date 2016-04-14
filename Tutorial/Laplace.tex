@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Kapitel: Laplace Transform}
+\author{ }
+\date{March 2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Laplace Transform}
+
+%Är osäker på hur mycket detaljer jag ska gå in i.
+Laplace transform kan ses som en special fall av Fourier Transform som bara är definired för $t>0$ 
+Dess definition är: 
+$$F(s) = \mathcal{L} f(s) = \hat{f}(-js) = \int_{0}^{\infty} f(t)e^{-st} dt $$
+
+%där s är en komplex tal. 
+där $s = \sigma + j \omega$ och båda är reella. Vi kan observera att om $\sigma = 0$ så har vi definitionen 
+för en Fourier transform. Var nu inte rädda för att ni måste behandla komplexa tal, Laplace transformen är 
+egentligen en mer "vänlig" transform om en jämfört med Fourier trasnformen. %Och förmodligen kommer 
+en inte märka av att det är en komplex tal alls.
+
+
+Invers Laplace transform 
+$$f(t) = \mathcal{L}^{-1} F(t) = \frac{1}{2 \pi i} \int_{b-jr}^{b+jr} F(s) e^{st} ds $$
+där f ska konvergera punktvis när $r\rightarrow \infty$. 
+
+%Vi kanske borde också förklara dess användning inom signal teori och grejer
+Den mest användbara egenskapen av Laplace funktion är dess förmåga att hantera differential ekvationer. 
+$$\mathcal{L} f'(t) = s F(s) - f(0)$$
+eller 
+$$\mathcal{L} f^{(k)} (t) = s^k F(s) - \sum_{0}^{k-1} z^{k-1-j} f^{(j)} (0)$$
+
+Den hanterar även en faltning som
+$$\mathcal{L} f*g (t) = F G $$
+%Sen antar jag att jag bara tar upp mer exemplar? Boken tar inte upp mer viktig fakta om detta utan bara
+exemplar på hur de applicerar detta på olika områden?
+
+
+\end{document}
