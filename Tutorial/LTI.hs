@@ -1,5 +1,7 @@
 {-# TypeSynonymInstances #-}
 
+import qualified Test.QuickCheck as Q
+
 --Tiden kan vara kontinuelig eller diskret, double eller int.
 type ContTime = Double
 type DiscTime = Integer
@@ -11,12 +13,12 @@ type DiscSignal a = Signal DiscTime a
 
 --Gäller för alla funktioner double -> double, t.ex. sin
 type ContTimeFun = ContSignal Double
-type DiscTimeFun = DiscSignal Int
+type DiscTimeFun = DiscSignal Double
 
 --Kontinuerlig Impuls: Oändlig om t=0, annars 0
 contImpulse :: ContTimeFun
 contImpulse t | t == 0 = undefined
-		      | otherwise = 0
+              | otherwise = 0
 
 --Diskret Impuls: 1 om t=0, annars 0
 discImpulse :: DiscTimeFun
@@ -27,73 +29,121 @@ discImpulse t | t == 0 = 1
 contStep :: ContTimeFun
 contStep t | t < 0 = 0
 --HalfMaximumConvention, ett vanligt sätt skriva för t=0
-		   | t == 0 = 0.5
-		   | t > 0 = 1
+           | t == 0 = 0.5
+           | t > 0 = 1
 
 --Diskret enhetssteg: 0 om t<0, 1 om t >= 0
 discStep :: DiscTimeFun
 discStep t | t < 0 = 0
-		   | otherwise = 1
+           | otherwise = 1
 
 --Definierar vanliga beräkningoperationer, som t.ex. + och *, för Signaler
 instance Num b => Num (Signal a b) where
-	s0 + s1     = \a -> (s0 a) + (s1 a)
-	s0 * s1     = \a -> (s0 a) * (s1 a)
-	negate s    = \a -> negate (s a)
-	abs s       = \a -> abs (s a)
-	signum s    = \a -> signum (s a)
-	fromInteger = const . fromInteger
+    s0 + s1     = \a -> (s0 a) + (s1 a)
+    s0 * s1     = \a -> (s0 a) * (s1 a)
+    negate s    = \a -> negate (s a)
+    abs s       = \a -> abs (s a)
+    signum s    = \a -> signum (s a)
+    fromInteger = const . fromInteger
 
 scale :: Num b => Signal a b -> b -> Signal a b
 scale sig f = (*f) . sig
 
+--En jämförelsefunktion som tillåter väldigt små fel, kan användas för att
+--undvika fel som beror på avrundning
+(~=) :: Double -> Double -> Bool
+a ~= b = abs (a - b) < 1.0e-10
+
 --Approximativ faltning i kontinuerlig tid
 contConvolution :: ContTimeFun -- ^ Signal 1
-				-> ContTimeFun -- ^ Signal 2
-				-> ContTime -- ^ Starttid
-				-> ContTime -- ^ Sluttid
-				-> Double -- ^ Steg mellan samplingsintervall
-				-> ContTimeFun -- ^ Returfunktion
+                -> ContTimeFun -- ^ Signal 2
+                -> ContTime -- ^ Starttid
+                -> ContTime -- ^ Sluttid
+                -> Double -- ^ Steg mellan samplingsintervall
+                -> ContTimeFun -- ^ Returfunktion
 contConvolution s0 s1 start stop step = sum $ map conv points
     where points = [start, step .. stop]
           conv n m = (s0 (n - m)) * (s1 m)
 
+--Faltning i diskret tid
+discConvolution :: DiscTimeFun -- ^ Signal 1
+                -> DiscTimeFun -- ^ Signal 2
+                -> DiscTime -- ^ Interval length -M start
+                -> DiscTime -- ^ Interval length M slut
+                -> DiscTimeFun -- ^ Returnfunktion
+discConvolution s0 s1 start stop = sum $ map conv points
+    where points = [start .. stop]
+          conv n m = (s0 (n-m)) * (s1 m)
 
+--Ett System kan betraktas som en funktion för signaler
+type DiscSystem = DiscTimeFun
+type ContSystem = ContTimeFun
 
---Ett LTI-system består, här, av en specifik form av Expression.
---Måste innehålla en char, så att man kan stoppa in en signal i den.
--- data LTI = 	Expression
-
-
+timeShift :: Num a => Signal a b -> a -> Signal a b
+timeShift sig o = \t -> sig (t - o)
 
 --multSignal :: Int -> Signal -> Signal
 --multSignal i s = Signal i s
 
 -- Genererar utsignalen för enkla signaler och system
--- outSignal :: Signal -> LTI -> Signal
--- outSignal inSignal LTI = undefined
+discOutSignal :: DiscSystem -> DiscTimeFun -> DiscTimeFun
+discOutSignal sys insignal = discConvolution insignal sys (-100) 100
 
+contOutSignal :: ContSystem -> ContTimeFun -> ContTimeFun
+contOutSignal sys insignal = contConvolution insignal sys (-100) 100 0.1
 
+-- Övning: Implementera ett test för superpositionsprincipen
+--Vi har två signaler X och Y.
+--Xin(t) -> Xut(t) och Yin(t) -> Yut(t).
+--Om systemet uppfyller superpositionsprincipen gäller då att
+--a*Xin(t) + b*Yin(t) -> a*Xut(t) + b*Yut(t), där a och b är konstanter
+isSuperCont :: ContTimeFun -- ^ Insignal 1
+            -> ContTimeFun -- ^ Insignal 2
+            -> ContSystem  -- ^ System
+            -> Double -- ^ Skalningsfaktor 1
+            -> Double -- ^ Skalningsfaktor 2
+            -> ContTime -- ^ Tid då vi mäter
+            -> Bool
+isSuperCont x0 x1 sys a b t = ((y0' + y1') t) ~= (((y0 `scale` a) + (y1 `scale` b)) t)
+    where y0  = contOutSignal sys x0
+          y1  = contOutSignal sys x1
+          y0' = contOutSignal sys (x0 `scale` a)
+          y1' = contOutSignal sys (x1 `scale` b)
 
+isSuperDisc :: DiscTimeFun -- ^ Insignal 1
+            -> DiscTimeFun -- ^ Insignal 2
+            -> DiscSystem  -- ^ System
+            -> Double -- ^ Skalningsfaktor 1
+            -> Double -- ^ Skalningsfaktor 2
+            -> DiscTime -- ^ Tid då vi mäter
+            -> Bool
+isSuperDisc x0 x1 sys a b t = ((y0' + y1') t) ~= (((y0 `scale` a) + (y1 `scale` b)) t)
+    where y0  = discOutSignal sys x0
+          y1  = discOutSignal sys x1
+          y0' = discOutSignal sys (x0 `scale` a)
+          y1' = discOutSignal sys (x1 `scale` b)
 
---Övningar till LTI-kapitlet (Kräver att vi definierat en typ "Signal" mm.)
--- Vad har vi för olika egenskaper som vi kan motbevisa/bevisa?
--- Tidsinvarians
--- (Minneslöst(statiskt) eller system med minne(dynamiskt).)
--- Inverterbart(är varje output unikt för ett input?) "roten ur" = ej inverterbart ty sqrt(x²) = ±x, hitta inversen för systemet, koppla samman med systemet
--- och få sedan ut identiteten.
+--Övning: Implementera ett test för tidsinvariansegenskapen, givet timeshift
+--Ett system är tidsinvariant om en tidsförskjutning i insignalen ger samma
+--tidsförskjutning i utsignalen. Alltså:
+--Xin(t-c) -> Xut(t-c), där c är en reell konstant.
+isTimeInvCont :: ContTimeFun -> ContSystem -> ContTime -> ContTime -> Bool
+isTimeInvCont x sys t c = y' t == (timeShift y c) t
+    where x' = timeShift x c
+          y  = contOutSignal sys x
+          y' = contOutSignal sys x'
 
+isTimeInvDisc :: DiscTimeFun -> DiscSystem -> DiscTime -> DiscTime -> Bool
+isTimeInvDisc x sys t c = y' t == (timeShift y c) t
+    where x' = timeShift x c
+          y  = discOutSignal sys x
+          y' = discOutSignal sys x'
 
--- Övning 1: Implementera superpositionsprincipen som Quickcheck property.
--- Lösning:
---prop_super :: Int -> Signal -> Int -> Signal -> LTI -> Bool
---prop_super i1 s i2 s lti = 	OutSignal(i1 s, lti) == i1 OutSignal(s, lti) &&
---							OutSignal(i2 s, lti) == i2 OutSignal(s, lti)
+--Ett system är ett LTI-system om det uppfyller superpositionsprincipen och är
+--tidsinvariant
+isLTICont :: Double -> ContTimeFun -> Double -> ContTimeFun -> ContSystem -> ContTime -> ContTime -> Bool
+isLTICont a x b y sys t c = isSuperCont x y sys a b t && isTimeInvCont x sys t c
 
+isLTIDisc :: Double -> DiscTimeFun -> Double -> DiscTimeFun -> DiscSystem -> DiscTime -> DiscTime -> Bool
+isLTIDisc a x b y sys t c = isSuperDisc x y sys a b t && isTimeInvDisc x sys t c
 
-
-
-
---Övning 2: Implementera tidsinvariansegenskapen som Quickcheck property.
---Lösning:
---prop_tidInv ::
