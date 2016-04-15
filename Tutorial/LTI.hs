@@ -1,5 +1,5 @@
 {-# LANGUAGE FlexibleInstances #-}
-
+module LTI where
 import qualified Test.QuickCheck as Q
 
 --Tiden kan vara kontinuelig eller diskret, double eller int.
@@ -58,6 +58,8 @@ infixl 7 `scale`
 -- Think of a = 1.0e-10 and b = 1.0e-11, then a = 10*b but still a ~= b with this definition!
 -- Perhaps use abs (a/b - 1) < eps instead?
 -- Or use http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:decodeFloat
+-- TODO: It would also be nice to cite https://github.com/sydow/ireal/
+-- TODO: It would be nice to make this code polymorphic (for any Fractional type?)
 (~=) :: Double -> Double -> Bool
 a ~= b = abs (a - b) < 1.0e-10
 infixl 4 ~=

@@ -12,23 +12,25 @@
 \section{Introduction}
 
 %Detta är bara en draft på vad som kan stå i Z-transformen. Angående användningsområden så vet
-%jag inte själv vad som kan stå eftersom i min kurs så nämndes Z-transform bara lite och att 
-%den kunde användas på differensekvationer. Jag utesluter de flesta bevis och teorier. 
-%Likt Laplacetransform som är en specialfall eller generalisering av den tidskontinuerliga 
-%frekvensplanet så är z-transform en specialfall av den tidsdiskrete frekvensplanet. 
-Om ni kommer ihåg att Laplacetransformen är en specialfall eller generalisering av Fouriertransformen i ett 
-tidskontinuerlig fall. Z-transformen är då den tidsdiskreta generaliseringen av Fourier transformen. 
-%Det vill säga en special fall av DFT. 
+%jag inte själv vad som kan stå eftersom i min kurs så nämndes Z-transform bara lite och att
+%den kunde användas på differensekvationer. Jag utesluter de flesta bevis och teorier.
+%Likt Laplacetransform som är en specialfall eller generalisering av den tidskontinuerliga
+%frekvensplanet så är z-transform en specialfall av den tidsdiskrete frekvensplanet.
+Om ni kommer ihåg att Laplacetransformen är en specialfall eller generalisering av Fouriertransformen i ett
+tidskontinuerlig fall. Z-transformen är då den tidsdiskreta generaliseringen av Fourier transformen.
+%Det vill säga en special fall av DFT.
 
 Definition av Z-transform
 
+%TODO: please work through the notation carefully. currently it is unclear what [n] is doing on the LHS.
 $$\mathcal{Z}[x[n]] = X(z) = \sum_{n=-\infty}^{\infty} x[n] \cdot z^{-n} $$
 
 Där $z = \Sigma + j\Omega$ eller .
-Det viktiga med denna definition är att en tidskift på samplingen, det vill säga $x[n-k]$ är i 
+Det viktiga med denna definition är att en tidskift på samplingen, det vill säga $x[n-k]$ är i
 z-planet bara en multiplikation med $z^{-k}$. Med andra ord:
-$$\mathcal{Z}[x[n-k]] = z^{-k} X(z) $$ %kanske inte behövs
-Denna egenskap gör Z-transformen utmärk till att lösa differensekvationer. 
+%TODO: Again, the notation needs more explanation
+$$\mathcal{Z}[x[n-k]] = z^{-k} X(z) $$ %kanske inte behövs  %TODO: I do think this part is needed
+Denna egenskap gör Z-transformen utmärk till att lösa differensekvationer.
 
 \appendix
 %http://www.cse.chalmers.se/~svenk/dig_sign.tl/web_version/web_version.htm
