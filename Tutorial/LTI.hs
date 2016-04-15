@@ -19,6 +19,18 @@ type DiscTimeFun = DiscSignal Double
 -- enhetsimpulsen 1 vid t=0, annars 0.
 -- Notera dock att i helt kontinuerliga uträkningar, med faltningsintegraler och
 -- så vidare närmar sig enhetsimpulsens värde vid t=0 oändligheten, men är annars 0.
+
+-- TODO: kommentaren säger att det är en approximation, men då borde
+-- det finnas en parameter som anger bredden på impulsen. Klassiskt
+-- val är en 0-centrerad normalfördelning med parameter a - se figuren
+-- i https://en.wikipedia.org/wiki/Dirac_delta_function
+-- https://en.wikipedia.org/wiki/Dirac_delta_function#/media/File:Dirac_function_approximation.gif
+-- Det finns andra alternativa former, men gemensamt är att värdet i
+-- noll växer när bredden minskar - det blir inte bra att ha ett fixt
+-- (ändligt) värde i t=0 och noll i övrigt. En delspecifikation av
+-- (contImpulseApprox eps) är att integralen från -Inf till Inf ska
+-- vara ett.
+
 -- | Approximativ kontinuerlig enhetsimpuls: 1 om t=0, annars 0
 contImpulse :: ContTimeFun
 contImpulse t | t == 0 = 1
@@ -32,6 +44,11 @@ discImpulse t | t == 0 = 1
 -- Av samma anledning som för contImpulse är vår contSteps värde vid t=0 1,
 -- snarare än något som närmar sig oändligheten, vilket är mer riktigt för
 -- helt kontinuerliga signaler.
+
+-- TODO: Angående kommentaren ovan: Det är inte korrekt med något
+-- värde större än 1 for contStep 0 även om ni vill ha helt
+-- kontinuerliga signaler.
+
 -- | Approximativt kontinuerligt enhetssteg: 0 om t<0, 1 om t >= 0
 contStep :: ContTimeFun
 contStep t | t < 0 = 0
