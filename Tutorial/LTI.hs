@@ -15,24 +15,27 @@ type DiscSignal a = Signal DiscTime a
 type ContTimeFun = ContSignal Double
 type DiscTimeFun = DiscSignal Double
 
---Kontinuerlig Impuls: Oändlig om t=0, annars 0
--- TODO: Compare to the commit message: note that 1/0 = Infinity, not NaN (and Infinity is more correct here)
+-- Eftersom vi använder oss av en diskret approximation i kontinuerliga fall är
+-- enhetsimpulsen 1 vid t=0, annars 0.
+-- Notera dock att i helt kontinuerliga uträkningar, med faltningsintegraler och
+-- så vidare närmar sig enhetsimpulsens värde vid t=0 oändligheten, men är annars 0.
+-- | Approximativ kontinuerlig enhetsimpuls: 1 om t=0, annars 0
 contImpulse :: ContTimeFun
-contImpulse t | t == 0 = 1/0
+contImpulse t | t == 0 = 1
               | otherwise = 0
 
---Diskret Impuls: 1 om t=0, annars 0
+-- | Diskret Impuls: 1 om t=0, annars 0
 discImpulse :: DiscTimeFun
 discImpulse t | t == 0 = 1
               | otherwise = 0
 
---Kontinuerligt enhetssteg: 0 om t<0, 1 om t >= 0
+-- Av samma anledning som för contImpulse är vår contSteps värde vid t=0 1,
+-- snarare än något som närmar sig oändligheten, vilket är mer riktigt för
+-- helt kontinuerliga signaler.
+-- | Approximativt kontinuerligt enhetssteg: 0 om t<0, 1 om t >= 0
 contStep :: ContTimeFun
 contStep t | t < 0 = 0
---HalfMaximumConvention, ett vanligt sätt skriva för t=0
--- TODO: I'm pretty sure Infinity is wrong here. 1/2 or 1 seem more reasonable.
-           | t == 0 = 1/0
-           | t > 0 = 1
+           | t >= 0 = 1
 
 --Diskret enhetssteg: 0 om t<0, 1 om t >= 0
 discStep :: DiscTimeFun
