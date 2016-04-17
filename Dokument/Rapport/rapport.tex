@@ -122,9 +122,10 @@ en programmerares perspektiv. Tanken bakom detta är att man ska göra gapet
 mellan datateknik och signalteori mindre och minska problemen som nämns
 i bakgrundsavsnittet.
 
-Projektet är tänkt att resultera i en handledningsguide, en så kallad
-tutorial, som kan fungera som ett komplement till de kurser som ges inom
-signalteori på den datatekniska grundutbildningen. Denna guide ska innehålla
+Projektet är tänkt att resultera i en kompletterande undervisningshandledning som 
+framöver i rapporten kommer kallas handledning. 
+Denna handledning fungera som ett komplement till de kurser som ges inom
+signalteori på den datatekniska grundutbildningen. Den ska innehålla
 förklaringar och programmeringsövningar som är anpassade för studenter på den
 datatekniska utbildningen på Chalmers tekniska högskola.
 
@@ -156,8 +157,13 @@ I själva impementationen av DSL så undviks funktioner som är
 ovanliga eller kan skrivas explicit. t.ex så ska fouriertransformen av
 $sinh(x)$ inte implementeras eftersom $sinh(x)$ kan utryckas via dess
 definition $\frac{e^{x} - e^{-x}}{2}$ istället.
-Slutligen kommer även onödigt komplexa funktioner som inte
-dyker upp naturligt som en signal undvikas, t.ex $sin(cos(x)+e^x)$.
+Dessutom undviks onödigt komplexa funktioner som inte
+dyker upp naturligt som en signal, t.ex $sin(cos(x)+e^x)$.
+
+Slutligen så visade det sig att det var för ont om tid för att hinna
+skriva en handledning och tillhörande DSL för både områdena Reglerteknik och TSS. 
+Därför fokuserades det endast på TSS.
+%Kanske borde bara skriva om rapporten så att vi inte ens nämner reglerteknik?
 
 \section{Metod och Genomförande}
 
@@ -168,7 +174,7 @@ dyker upp naturligt som en signal undvikas, t.ex $sin(cos(x)+e^x)$.
 % * Skriva tutorial
 
 I det här kapitlet beskrivs den tänkta tillvägagången till hur denna
-tutorial tillverkas.
+handledning ska tillverkas.
 
 \subsection{Litteraturstudier och Förundersökning (Temporär)}
 
@@ -186,11 +192,12 @@ som vi tänker skicka ut till studenterna som går i årskurs 2 och 3 inom Datat
 
 \subsection{Uppställning av tutorial}
 
-Själva tutorial är uppdelad i fem kapitel(så långt). Det första kapitlet
-ska introducera konceptet DSL samt förklara kortfattat om komplexa tal
-och Eulers formel.
 
-Därefter kommer kapitel om LTI-system, Fourierserier och Fouriertransform
+Själva handledningen är uppdelad i fem kapitel. Det första kapitlet
+ska introducera konceptet DSL samt förklara kortfattat om komplexa tal
+med Eulers formel och lite om signalers egenskaper.
+
+Därefter kommer kapitlarna om LTI-system, Fourierserier och Fouriertransform
 samt Laplace- och Z-transform.
 
 I varje kapitel ställde vi upp de definitioner och formler som tycktes
@@ -208,7 +215,7 @@ Därefter tänker vi visa hur dessa definitioner eller formler skulle se ut i v�
 Dessutom ska det finnas exempeluppgifter till de områden studenterna finner
 svåra och formulera lite uppgifter som ska kunna lösas via programmering.
 Lösningarna som finns med ska visa hur uppgiften kan lösas både med den vanliga
-analytiska metoden och via ett DSL.
+analytiska metoden och via användandet av DSL.
 
 \subsection{Implementation i DSL}
 
@@ -216,9 +223,9 @@ analytiska metoden och via ett DSL.
 Vårt DSL ska vara uppbyggt från Haskell och ska täcka områdena TSS och Reglerteknik.
 I båda kurserna så används komplexa tal vilket innebär att det först måste implementeras i vårt DSL.
 
-\subsection{Verktyg}
+\subsection{Verktyg}%behövs denna?
 
-\subsection{Testa Tutorial}
+\subsection{Testning av handledningen}
 
 Vi har ett tjugotal studenter som är villiga att testa vår produkt för
 att se om den är lika hjälpsam som det är tänkt. Med responsen vi får
@@ -230,7 +237,7 @@ möjligt.
 \section{Resultat}
 
 % Huvudpoänger:
-% * Vad blev det för produkt? Tutorial på hemsida med 6 delavsnitt?
+% * Vad blev det för produkt? Tutorial på hemsida med 5 delavsnitt?
 %
 % Illustrationer:
 % * Utdrag ur tutorialen
