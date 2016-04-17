@@ -5,6 +5,10 @@ Komplexa tal kan ses som ett par av reella värden.
 
 > data Complex = Complex (Double, Double)
 >     deriving Eq
+> -- TODO: idiomatisk Haskell skulle nog skriva
+> -- data Complex = Complex Double Double alternativt
+> -- newtype Complex = Complex (Double, Double)
+> -- kanske med preferens for den forsta i detta fallet.
 
 Där första komponenten representerar realdelen och den andra komponenten imaginärdelen.
 
