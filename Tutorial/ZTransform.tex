@@ -2,8 +2,8 @@
 \usepackage[utf8]{inputenc}
 
 \title{Kapitel: Z Transformer}
-\author{ }
-\date{April 2016}
+%\author{ }
+%\date{April 2016}
 
 \begin{document}
 
@@ -37,6 +37,12 @@ $$\mathcal{Z}[x[n-k]] = z^{-k} X(z) $$
 Denna egenskap gör Z-transformen utmärk till att lösa differensekvationer. Observera att konstanten k och n 
 måste vara integers.
 %Ta upp en exempel på en differensekvation som löses med Z-transform.
+%Självfallet så vill vi tillslut omtransformera och den inversa Z-transformen är per definition följande:
+%$$ x[n] = \frac{1}{2 \pi j} \oint_R X[z] z^{n-1} dz $$
+%Den är dock inte så viktigt eftersom eleverna kommer använda sig av tabeller istället för integralen.
+%Det som behövs är att förklara poler och grejer.
+%En kausalt LTI system är BIBO-stabilt (Bounded input, Bounded output) om polerna ligger inuti enhetscirkeln. 
+%Behovs även en förklaring på ROC och dess roll inom den inversa Z-Transformen. Visa detta med en exempel helst
 
 \appendix
 %http://www.cse.chalmers.se/~svenk/dig_sign.tl/web_version/web_version.htm
