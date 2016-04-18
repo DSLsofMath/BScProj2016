@@ -16,12 +16,12 @@
 %Detta är bara en draft på vad som kan stå i Z-transformen. Angående användningsområden så vet
 %jag inte själv vad som kan stå eftersom i min kurs så nämndes Z-transform bara lite och att
 %den kunde användas på differensekvationer. Jag utesluter de flesta bevis och teorier.
-%Likt Laplacetransform som är en specialfall eller generalisering av den tidskontinuerliga
-%frekvensplanet så är z-transform en specialfall av den tidsdiskrete frekvensplanet.
-Om ni kommer ihåg att Laplacetransformen är en specialfall eller generalisering av Fouriertransformen i ett
-tidskontinuerlig fall. Z-transformen är då den tidsdiskreta generaliseringen av Fourier transformen.
-%Det vill säga en special fall av DFT.
-Likt den diskreta Fourier transformen så används Z-transformen på kausala talföjlder $x[n]$ eller
+%Likt Laplacetransform som är ett specialfall eller generalisering av det tidskontinuerliga
+%frekvensplanet så är Z-transform ett specialfall av det tidsdiskreta frekvensplanet.
+Om ni kommer ihåg att Laplacetransformen är ett specialfall eller generalisering av Fouriertransformen i ett
+tidskontinuerlig fall. Z-transformen är då den tidsdiskreta generaliseringen av Fouriertransformen.
+%Det vill säga ett special fall av DFT.
+Likt den diskreta Fouriertransformen så används Z-transformen på kausala talföljder $x[n]$ eller
 diskreta funktioner $f[n]$. Där n innefattar vilken position värdet $x[n]$ eller $x_n$ har i talföljden.
 %Jag nämner att dessa talföljder kommer ifrån sampling av signaler i Kapitel Fourier.
 
@@ -33,17 +33,17 @@ $$\mathcal{Z}[x[n]] = X(z) = \sum_{n=-\infty}^{\infty} x[n] \cdot z^{-n} $$
 Där $z = \Sigma + j\Omega$ eller. %Vi tänker inte gå djupt i vad Sigma och Omega innebär, så kanske vi borde
 %strunta i att nämna dem helt? %TODO: OK för mig att utelämna dem.
 Det viktiga med denna definition är att en tidskift med en konstant $k$ på samplingen, det vill säga $x[n-k]$ är i
-z-planet bara en multiplikation med $z^{-k}$. Med andra ord:
+Z-planet bara en multiplikation med $z^{-k}$. Med andra ord:
 %TODO: Again, the notation needs more explanation
 $$\mathcal{Z}[x[n-k]] = z^{-k} X(z) $$
 Denna egenskap gör Z-transformen utmärk till att lösa differensekvationer. Observera att konstanten k och n
-måste vara integers.
-%Ta upp en exempel på en differensekvation som löses med Z-transform.
+måste vara heltal.
+%Ta upp ett exempel på en differensekvation som löses med Z-transform.
 %Självfallet så vill vi tillslut omtransformera och den inversa Z-transformen är per definition följande:
 %$$ x[n] = \frac{1}{2 \pi j} \oint_R X[z] z^{n-1} dz $$
-%Den är dock inte så viktigt eftersom eleverna kommer använda sig av tabeller istället för integralen.
+%Den är dock inte så viktig eftersom studenterna kommer använda sig av tabeller istället för integralen.
 %Det som behövs är att förklara poler och grejer.
-%En kausalt LTI system är BIBO-stabilt (Bounded input, Bounded output) om polerna ligger inuti enhetscirkeln.
+%Ett kausalt LTI system är BIBO-stabilt (Bounded input, Bounded output) om polerna ligger inuti enhetscirkeln.
 %Behovs även en förklaring på ROC och dess roll inom den inversa Z-Transformen. Visa detta med en exempel helst
 
 \appendix
