@@ -1,7 +1,15 @@
-%TODO: stavning: integers := heltal, "en exempel" := "ett exempel", Introduction, talföjlder, utmärk,
-%TODO: Välj "z" eller "Z" konsistent: nu finns "Z Transformer", "z-planet", "z-transform", "Z-transform", ...
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}
+\usepackage[swedish]{babel}
+\usepackage[makeroom]{cancel}
+\usepackage{amssymb, amsmath, lmodern, units, icomma, color, graphicx, bbm, hyperref, pdfpages, csquotes}
+\title{Kapitel: Z Transformer}
+\author{ }
+\date{April 2016}
+%TODO: stavning: integers := heltal, "en exempel" := "ett exempel", Introduction, talföjlder, utmärk,
+%TODO: Välj "z" eller "Z" konsistent: nu finns "Z Transformer", "z-planet", "z-transform", "Z-transform", ...
 
 \title{Kapitel: Z Transformer}
 %\author{ }
@@ -22,22 +30,22 @@ Om ni kommer ihåg att Laplacetransformen är ett specialfall eller generaliseri
 tidskontinuerlig fall. Z-transformen är då den tidsdiskreta generaliseringen av Fouriertransformen.
 %Det vill säga ett special fall av DFT.
 Likt den diskreta Fouriertransformen så används Z-transformen på kausala talföljder $x[n]$ eller
-diskreta funktioner $f[n]$. Där n innefattar vilken position värdet $x[n]$ eller $x_n$ har i talföljden.
+diskreta funktioner $f[n]$. %Där n innefattar vilken position värdet $x[n]$ eller $x_n$ har i talföljden.
 %Jag nämner att dessa talföljder kommer ifrån sampling av signaler i Kapitel Fourier.
 
 Definition av Z-transform
 
 %TODO: please work through the notation carefully. currently it is unclear what [n] is doing on the LHS.
-$$\mathcal{Z}[x[n]] = X(z) = \sum_{n=-\infty}^{\infty} x[n] \cdot z^{-n} $$
+$$\mathcal{Z}(x) = X = \sum_{n=-\infty}^{\infty} x[n] \cdot z^{-n} $$
 
-Där $z = \Sigma + j\Omega$ eller. %Vi tänker inte gå djupt i vad Sigma och Omega innebär, så kanske vi borde
-%strunta i att nämna dem helt? %TODO: OK för mig att utelämna dem.
-Det viktiga med denna definition är att en tidskift med en konstant $k$ på samplingen, det vill säga $x[n-k]$ är i
-Z-planet bara en multiplikation med $z^{-k}$. Med andra ord:
+Det viktiga med denna definition är att en tidskift med en konstant $k \in \mathbb{Z}$ på samplingen. Om $x[n]$ betecknar värdet x ger på tidpunkten $n \in \mathbb{Z}$ och X(z) är dess motsvarighet i Z-planet. Då är $x[n-k]$ en tidskift av $x[n]$ och har följande formen $z^{-k} X(z)$ i  Z-planet. Det vill säga 
+
 %TODO: Again, the notation needs more explanation
-$$\mathcal{Z}[x[n-k]] = z^{-k} X(z) $$
-Denna egenskap gör Z-transformen utmärk till att lösa differensekvationer. Observera att konstanten k och n
-måste vara heltal.
+
+$$\mathcal{Z}(x[n-k]) = z^{-k} X(z) $$
+%$$\mathcal{Z}(x_{n-k}) = z^{-k} X(z) $$
+Denna egenskap gör Z-transformen utmärk till att lösa differensekvationer. 
+
 %Ta upp ett exempel på en differensekvation som löses med Z-transform.
 %Självfallet så vill vi tillslut omtransformera och den inversa Z-transformen är per definition följande:
 %$$ x[n] = \frac{1}{2 \pi j} \oint_R X[z] z^{n-1} dz $$
