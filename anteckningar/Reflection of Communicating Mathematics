@@ -7,8 +7,8 @@ The article puts a lot of emphasis on the case of Syntax (how it is written, tha
 Semantik (the meaning of what is written).
 From a semantik point, a mental picture of the statement is created. I'll borrow the example from the article.
 (x > z) => ((x > y) v (y > z)).
-This example says that if there exist a x strictly greater than z, than there exist a y that is either
-greater than x and/or less than z.
+This example says that if a x strictly greater than z, than there is a y that is either
+greater than z or less than x.
 %TODO: this explanation has a few problems:
 %  "x>y" reads "x [is] greater than y"
 %  "and/or" := "or" (possibly explained at first use)
@@ -19,7 +19,7 @@ always hold. The article in questions semantik proof was to picture x and z as n
 Thus if one draw the axis number axis and place x and z, y will always satisfy ((x > y) v (y > z)).
 
 %TODO: "most optimal" is over kill. I suggest "best".
-Which form is the most optimal is arguable but the semantik proof is usually seen as more "understandable" while
+Which form is the best is arguable but the semantik proof is usually seen as more "understandable" while
 a syntactic proof is hard to follow.
 However a semantik proof is just ones own mental intepretation and will not necessary hold for all mathematicians.
 
@@ -28,7 +28,7 @@ The author finished the section with his own thought that using a syntax approac
 make a difference for the better to the students.
 
 For my own thought about this subject in terms of mathematics, I find myself in divided between the two with
-around 40 syntax and 60 semantik. For the example above, as mentioned by the author, the semantik approach
+around 40 syntactic and 60 semantik. For the example above, as mentioned by the author, the semantik approach
 have only proven the statement for the real set while the syntactic proof is
 correct for all ordered set. Thus I would find the syntactic proof to be correct because
 the semantic proof would only cover a single case.
@@ -38,9 +38,9 @@ the students need to be familiar with the language. Which is probably why the pr
 I will leave further details as a discussion within the group.
 
 %TODO: conjuncture := conjecture ?
-The base line of my conjuncture is that the students will ultimately benefit more from a syntactic approach ->
-Student are not familiar with proof written in the mathematic language ->
-Introduce DSLofMath which is written from a programming language which the student are famliliar with ->
-The students will now be able to find syntactic mathematical proofs more comprehensable.
+The base line of my conjecture is that the students will ultimately benefit more from a syntactic approach ->
+Student are not familiar with proof written in the mathematical language ->
+Introduce DSLofMath which is written from a programming language which the student are familiar with ->
+The students will now be able to find syntactic mathematical proofs more comprehensible.
 
 %TODO: a few misspellings: intepretation, mathematic, famliliar, comprehensable
