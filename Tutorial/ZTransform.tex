@@ -38,13 +38,13 @@ Definition av Z-transform
 %TODO: please work through the notation carefully. currently it is unclear what [n] is doing on the LHS.
 $$\mathcal{Z}(x) = X = \sum_{n=-\infty}^{\infty} x[n] \cdot z^{-n} $$
 
-Det viktiga med denna definition är att en tidskift med en konstant $k \in \mathbb{Z}$ på samplingen. Om $x[n]$ betecknar värdet x ger på tidpunkten $n \in \mathbb{Z}$ och X(z) är dess motsvarighet i Z-planet. Då är $x[n-k]$ en tidskift av $x[n]$ och har följande formen $z^{-k} X(z)$ i  Z-planet. Det vill säga 
+Det viktiga med denna definition är att en tidskift med en konstant $k \in \mathbb{Z}$ på samplingen. Om $x[n]$ betecknar värdet x ger på tidpunkten $n \in \mathbb{Z}$ och X(z) är dess motsvarighet i Z-planet. Då är $x[n-k]$ en tidskift av $x[n]$ och har följande formen $z^{-k} X(z)$ i  Z-planet. Det vill säga
 
-%TODO: Again, the notation needs more explanation
+%TODO: Again, the notation needs more explanation: Z should be applied to a series, like x or (\n-> x (n-k)) and the RHS should bind z
 
 $$\mathcal{Z}(x[n-k]) = z^{-k} X(z) $$
 %$$\mathcal{Z}(x_{n-k}) = z^{-k} X(z) $$
-Denna egenskap gör Z-transformen utmärk till att lösa differensekvationer. 
+Denna egenskap gör Z-transformen utmärk till att lösa differensekvationer.
 
 %Ta upp ett exempel på en differensekvation som löses med Z-transform.
 %Självfallet så vill vi tillslut omtransformera och den inversa Z-transformen är per definition följande:
