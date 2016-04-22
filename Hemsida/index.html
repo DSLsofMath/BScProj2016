@@ -104,25 +104,52 @@
 			<div class="row" id="introQuestions">
 				<div class="col-sm-12">
 					<div class="well">
-						<div class="page-header"><h2>Introduktions frågor</h2></div><!--end page-header-->
-						<div id="introQ">
-							<h3>Fråga 1: Vad är 1+2?</h3>
-							<ul class="unstyled">
-								<li><input type="radio" name="radio" id="a" value="a">1</li>
-								<li><input type="radio" name="radio" id="b" value="b">2</li>
-								<li><input type="radio" name="radio" id="c" value="c">3</li>
-								<li><input type="radio" name="radio" id="d" value="d">4</li>
-							</ul>
-						</div><!--end introQ-->
-						<button type="button" class="btn btn-primary" id="introSvar">Svara</button><!--end introSvar-->
-						<div class="alert alert-success alert-block fade in" id="successAlert">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
-							<h4>Rätt svar!</h4>
-						</div><!--End alert-->
-						<div class="alert alert-danger alert-block fade in" id="falseAlert">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
-							<h4>Fel svar!</h4>
-						</div><!--End alert-->
+						<div class="page-header"><h1>Introduktions frågor</h1></div><!--end page-header-->
+								
+						<div class="row" id="introQ">	
+							
+							<div class="col-sm-6" id="introQ1">
+								<h3>Fråga 1: Vad är 1+2?</h3>
+								<ul class="unstyled">
+									<li><input type="radio" name="radio1" id="1a" value="1a">1</li>
+									<li><input type="radio" name="radio1" id="1b" value="1b">2</li>
+									<li><input type="radio" name="radio1" id="1c" value="1c">3</li>
+									<li><input type="radio" name="radio1" id="1d" value="1d">4</li>
+								</ul>
+								<button type="button" class="btn btn-primary" id="introSvar1">Svara</button>
+								
+								<div class="alert alert-success alert-block fade in" id="rightIntro1">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+									<h4>Rätt svar!</h4>
+								</div><!--End alert-->
+								<div class="alert alert-danger alert-block fade in" id="wrongIntro1">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+									<h4>Fel svar!</h4>
+								</div><!--End alert-->
+
+							</div><!--end introQ1-->
+							
+							<div class="col-sm-6" id="introQ2">
+								<h3>Fråga 2: Vad är 4-3?</h3>
+								<ul class="unstyled">
+									<li><input type="radio" name="radio2" id="2a" value="2a">1</li>
+									<li><input type="radio" name="radio2" id="2b" value="2b">2</li>
+									<li><input type="radio" name="radio2" id="2c" value="2c">3</li>
+									<li><input type="radio" name="radio2" id="2d" value="2d">4</li>
+								</ul>
+								<button type="button" class="btn btn-primary" id="introSvar2">Svara</button>
+
+								<div class="alert alert-success alert-block fade in" id="rightIntro2">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+									<h4>Rätt svar!</h4>
+								</div><!--End alert-->
+								<div class="alert alert-danger alert-block fade in" id="wrongIntro2">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+									<h4>Fel svar!</h4>
+								</div><!--End alert-->
+
+							</div><!--end introQ2-->
+					</div><!--end introQ-->
 					</div><!--end well-->
 				</div><!--end col-12-->
 			</div><!--end introQuestions-->

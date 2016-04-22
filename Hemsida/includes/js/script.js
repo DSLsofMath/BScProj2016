@@ -1,31 +1,33 @@
 $(function() {
 
-	var questions =[{
-		question: "What is 1+3?",
-		choises: [1, 2, 3, 4, 5],
-		correctAnswer: 4
-	}];
-
-	var selections = [];
-
-	var introQ = $('#introQ');
-
-	$('#introSvar').click(function(e) {
+	$('#introSvar1').click(function(e) {
 		
-		var correctAnswer = document.getElementById('c');
+		var correctAnswer = document.getElementById('1c');
 		e.preventDefault();
 
 		if (correctAnswer.checked === true) {
-			$('#successAlert').slideDown();
-			$('#successAlert').fadeTo(2000, 500).slideUp(500, function(){
-				$('successAlert').alert('close');
-			});
+			showResult('#rightIntro1')
 		}else {
-			$('#falseAlert').slideDown();
-			$('#falseAlert').fadeTo(2000, 500).slideUp(500, function(){
-				$('falseAlert').alert('close');
-			});
+			showResult('#wrongIntro1')
 		};
 	});
 
+	$('#introSvar2').click(function(e) {
+		
+		var correctAnswer = document.getElementById('2a');
+		e.preventDefault();
+
+		if (correctAnswer.checked === true) {
+			showResult('#rightIntro2')
+		}else {
+			showResult('#wrongIntro2')
+		};
+	});
+
+	function showResult(a) {
+		$(a).slideDown();
+		$(a).fadeTo(2000, 500).slideUp(500, function(){
+    		$(a).alert('close');
+		});
+	};
 });
