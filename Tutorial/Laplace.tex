@@ -9,7 +9,7 @@
 
 \maketitle
 
-\section{Laplace Transform}
+\section{Laplacetransform}
 
 %TODO: general comment: spell checking
 
@@ -20,24 +20,24 @@
 % resource when it comes to making a pedagogical end result.)
 
 %Är osäker på hur mycket detaljer jag ska gå in i. This is a ROUGH draft. More like a template if anything else.
-Laplace transform kan ses som ett specialfall av Fourier Transform som bara är definiered för $t>0$
+Laplacetransformen kan ses som ett specialfall av Fouriertransformen som bara är definerad för $t>0$
 Dess definition är:
 $$F = \mathcal{L} f = \hat{f}(-js) = \int_{0}^{\infty} f(t)e^{-st} dt $$
 
-%där s är en komplex tal.
+%där s är ett komplex tal.
 där $s = \sigma + j \omega$ och båda är reella. Vi kan observera att om $\sigma = 0$ så har vi definitionen
-för en Fourier transform. Var nu inte rädda för att ni måste behandla komplexa tal, Laplace transformen är
-egentligen en mer "vänlig" transform om en jämfört med Fourier trasnformen. 
+för en Fouriertransform. Var nu inte rädda för att ni måste behandla komplexa tal, Laplacetransformen är
+egentligen en mer "vänlig" transform jämfört med Fouriertransformen. 
 %Och förmodligen kommer en inte märka av att det är ett komplex tal alls.
-Och precis som Fourier transformen så vill vi transformera tillbaka funktionerna. 
-Den inversa Laplace transformen är given ur:
-%Invers Laplace transform
+Och precis som Fouriertransformen så vill vi transformera tillbaka funktionerna. 
+Den inversa Laplacetransformen är given ur:
+%Invers Laplacetransform
 $$f = \mathcal{L}^{-1} (F) = \frac{1}{2 \pi i} \int_{b-jr}^{b+jr} F(s) e^{st} ds $$ 
 %Ska F(s) -> F inuti integralen med?
 där f ska konvergera punktvis när $r\rightarrow \infty$.
 
-%Vi kanske borde också förklara dess användning inom signal teori och grejer
-Den mest användbara egenskapen av Laplace funktion är dess förmåga att hantera differential ekvationer.
+%Vi kanske också borde förklara dess användning inom signalteori och grejer
+Den mest användbara egenskapen av Laplace funktion är dess förmåga att hantera differentialekvationer.
 %TODO: LHS uses a variable "t" but RHS uses (unbound) "s"
 $$\mathcal{L} (f') = s F - f(0)$$
 eller
@@ -47,15 +47,15 @@ $$\mathcal{L} (f^{(k)}) = s^k F - \sum_{0}^{k-1} z^{k-1-j} f^{(j)} (0)$$
 Den har även följande egenskap 
 $$\mathcal{L} (t f) = -F' $$
 %Andra viktiga transformer
-%Frekvens skift \mathcal{L} (f e^{ct}) = F(s-c)
-%Tids skift \mathcal{L} (H(t-a) f(t-a)) = e^{-as) F(s)
-%Tids skalning \mathcal{L} (f) (at) = \frac{1}{a} F(z/a)
+%Frekvensförskjutning \mathcal{L} (f e^{ct}) = F(s-c)
+%Tidsförskjutning \mathcal{L} (H(t-a) f(t-a)) = e^{-as) F(s)
+%Tidsskalning \mathcal{L} (f) (at) = \frac{1}{a} F(z/a)
 %Dirac Delta \mathcal{L} (\delta)(t) = 1 
-%Ska dessa tas upp som exemplar eller bara nämnas?
+%Ska dessa tas upp som exempel eller bara nämnas?
 
 %TODO: Use "(" ")" to clarify what \mathcal{L} is applied to - Done
 %TODO: Fix the variable binding
-Ett vanligt fel med Laplace transform är transformen av en produkt mellan två funktioner är produkten av varderas transform. 
+Ett vanligt fel man gör vid Laplacetransformering är att man tror att transformen av en produkt mellan två funktioner är produkten av varderas transform. 
 Detta är oftast inte fallet! 
 $$\mathcal{L} (f g) \neq L G $$
 Observera att transformen av en faltning ger produkten av varderas transform!
