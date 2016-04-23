@@ -1,19 +1,25 @@
 {-# LANGUAGE FlexibleInstances #-}
-module LTI where
-import qualified Test.QuickCheck as Q
 
---Tiden kan vara kontinuelig eller diskret, double eller int.
-type ContTime = Double
-type DiscTime = Integer
+module LTI where
+
+import qualified Test.QuickCheck as Q
+import qualified Data.List as L
 
 type Signal a b = (a -> b)
 
-type ContSignal a = Signal ContTime a
-type DiscSignal a = Signal DiscTime a
+class (Ord a, Num a, Enum a, Q.Arbitrary a) => Time a where
+  shift :: (a -> b) -> a -> (a -> b)
+
+instance Time Int where
+  shift sig offset t = sig (t + offset)
+
+instance Time Integer where
+  shift sig offset t = sig (t + offset)
+
+instance Time Double where
+  shift sig offset t = sig (t + offset)
 
 --Gäller för alla funktioner double -> double, t.ex. sin
-type ContTimeFun = ContSignal Double
-type DiscTimeFun = DiscSignal Double
 
 -- Eftersom vi använder oss av en diskret approximation i kontinuerliga fall är
 -- enhetsimpulsen 1 vid t=0, annars 0.
@@ -32,12 +38,10 @@ type DiscTimeFun = DiscSignal Double
 -- vara ett.
 
 -- | Approximativ kontinuerlig enhetsimpuls: 1 om t=0, annars 0
-contImpulse :: ContTimeFun
-contImpulse t | t == 0 = 1
-              | otherwise = 0
+contImpulse eps t | (abs t) < eps = 1 / eps
+                  | otherwise = 0
 
 -- | Diskret Impuls: 1 om t=0, annars 0
-discImpulse :: DiscTimeFun
 discImpulse t | t == 0 = 1
               | otherwise = 0
 
@@ -50,17 +54,15 @@ discImpulse t | t == 0 = 1
 -- kontinuerliga signaler.
 
 -- | Approximativt kontinuerligt enhetssteg: 0 om t<0, 1 om t >= 0
-contStep :: ContTimeFun
 contStep t | t < 0 = 0
            | t >= 0 = 1
 
 --Diskret enhetssteg: 0 om t<0, 1 om t >= 0
-discStep :: DiscTimeFun
 discStep t | t < 0 = 0
            | otherwise = 1
 
 --Definierar vanliga beräkningoperationer, som t.ex. + och *, för Signaler
-instance Num b => Num (Signal a b) where
+instance Num val => Num (Signal time val) where
     s0 + s1     = \a -> (s0 a) + (s1 a)
     s0 * s1     = \a -> (s0 a) * (s1 a)
     negate s    = \a -> negate (s a)
@@ -68,7 +70,6 @@ instance Num b => Num (Signal a b) where
     signum s    = \a -> signum (s a)
     fromInteger = const . fromInteger
 
-scale :: Num b => Signal a b -> b -> Signal a b
 scale sig f = (*f) . sig
 infixl 7 `scale`
 
@@ -80,100 +81,82 @@ infixl 7 `scale`
 -- Or use http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:decodeFloat
 -- TODO: It would also be nice to cite https://github.com/sydow/ireal/
 -- TODO: It would be nice to make this code polymorphic (for any Fractional type?)
-(~=) :: Double -> Double -> Bool
+(~=) :: (Fractional a, Ord a) => a -> a -> Bool
 a ~= b = abs (a - b) < 1.0e-10
 infixl 4 ~=
 
 --Faltning i diskret tid
-discConvolution :: DiscTimeFun -- ^ Signal 1
-                -> DiscTimeFun -- ^ Signal 2
-                -> DiscTime -- ^ Interval length -M start
-                -> DiscTime -- ^ Interval length M slut
-                -> DiscTimeFun -- ^ Returnfunktion
-discConvolution s0 s1 start stop = sum $ map conv points
-    where points = [start .. stop]
-          conv n m = (s0 (n-m)) * (s1 m)
+convD :: (Num val, Time time)
+         => Signal time val
+         -> Signal time val
+         -> [time]
+         -> Signal time val
+convD s0 s1 points = sum $ map conv (L.nub points)
+  where conv n m = (s0 (n-m)) * (s1 m)
 
 --Ett System kan betraktas som en funktion för signaler
-type DiscSystem = DiscTimeFun
-type ContSystem = ContTimeFun
+type System time val = Signal time val
 
-timeShift :: Num a => Signal a b -> a -> Signal a b
-timeShift sig o = \t -> sig (t - o)
+sample :: (Time time) => time -> time -> time -> [time]
+sample from to samplesize = [from, step .. to]
+  where step = from + samplesize
 
 
 -- Genererar utsignalen för enkla signaler och system
-discOutSignal :: DiscSystem -> DiscTimeFun -> DiscTimeFun
-discOutSignal sys insignal = discConvolution insignal sys (-100) 100
--- Övning: Implementera ett test för superpositionsprincipen
---Vi har två signaler X och Y.
---Xin(t) -> Xut(t) och Yin(t) -> Yut(t).
---Om systemet uppfyller superpositionsprincipen gäller då att
---a*Xin(t) + b*Yin(t) -> a*Xut(t) + b*Yut(t), där a och b är konstanter
-isLinearCont :: ContTimeFun -- ^ Insignal 1
-            -> ContTimeFun -- ^ Insignal 2
-            -> ContSystem  -- ^ System
-            -> Double -- ^ Skalningsfaktor 1
-            -> Double -- ^ Skalningsfaktor 2
-            -> ContTime -- ^ Tid då vi mäter
-            -> Bool
-isLinearCont x0 x1 sys a b t = testAt (y0' + y1') (y0 `scale` a + y1 `scale` b) t
-    where y0  = contOutSignal sys x0
-          y1  = contOutSignal sys x1
-          y0' = contOutSignal sys (x0 `scale` a)
-          y1' = contOutSignal sys (x1 `scale` b)
-          testAt a b t = a t ~= b t
+outSignal :: (Num val, Time time) => System time val
+          -> Signal time val
+          -> [time]
+          -> Signal time val
+outSignal sys sig points = convD sys sig points
 
-isLinearDisc :: DiscTimeFun -- ^ Insignal 1
-            -> DiscTimeFun -- ^ Insignal 2
-            -> DiscSystem  -- ^ System
-            -> Double -- ^ Skalningsfaktor 1
-            -> Double -- ^ Skalningsfaktor 2
-            -> DiscTime -- ^ Tid då vi mäter
-            -> Bool
-isLinearDisc x0 x1 sys a b t = testAt (y0' + y1') (y0 `scale` a + y1 `scale` b) t
-    where y0  = discOutSignal sys x0
-          y1  = discOutSignal sys x1
-          y0' = discOutSignal sys (x0 `scale` a)
-          y1' = discOutSignal sys (x1 `scale` b)
-          testAt a b t = a t ~= b t
+isLinear :: (Show val, Time time, Fractional val, Ord val) => Signal time val -- ^ Insignal 1
+         -> Signal time val -- ^ Insignal 2
+         -> System time val  -- ^ System
+         -> val -- ^ Skalningsfaktor 1
+         -> val -- ^ Skalningsfaktor 2
+         -> [time] -- ^ Tiderna då vi mäter
+         -> Bool
+isLinear x0 x1 sys a b ts = testAt (y0' + y1') (y0 `scale` a + y1 `scale` b) ts
+    where y0  = outSignal sys x0 ts
+          y1  = outSignal sys x1 ts
+          y0' = outSignal sys (x0 `scale` a) ts
+          y1' = outSignal sys (x1 `scale` b) ts
+          testAt a b t = and $ map (\t -> a t ~= b t) ts
 
 -- | Kollar om ett system är linjärt genom att mata det med två signaler och
 -- använder sig av superpositionsprincipen.
-prop_isLinearCont :: ContTimeFun -- ^ Insignal 1
-                  -> ContTimeFun -- ^ Insignal 2
-                  -> ContSystem -- ^ System
-                  -> Double -- ^ Skalfaktor 1 (genereras av QuickCheck)
-                  -> Double -- ^ Skalfaktor 2 (genereras av QuickCheck)
-                  -> ContTime -- ^ Tidspunkt (genereras av QuickCheck)
-                  -> Bool
-prop_isLinearCont x0 x1 sys = \a b t -> isLinearCont x0 x1 sys a b t
+prop_isLinearCont :: (Show time, Show val, Time time, Q.Arbitrary time, Q.Arbitrary val, RealFrac val) => Signal time val -- ^ Insignal 1
+                  -> Signal time val -- ^ Insignal 2
+                  -> System time val -- ^ System
+                  -> IO ()
+prop_isLinearCont x0 x1 sys = Q.quickCheck (isLinear x0 x1 sys)
 
 -- | Kollar om ett system är linjärt genom att mata det med två signaler och
 -- använder sig av superpositionsprincipen.
-prop_isLinearDisc :: DiscTimeFun -- ^ Insignal 1
-                  -> DiscTimeFun -- ^ Insignal 2
-                  -> DiscSystem -- ^ System
-                  -> Double -- ^ Skalfaktor 1 (genereras av QuickCheck)
-                  -> Double -- ^ Skalfaktor 2 (genereras av QuickCheck)
-                  -> DiscTime -- ^ Tidspunkt (genereras av QuickCheck)
+prop_isLinearDisc :: (Show val, Time time, RealFrac val) => Signal time val -- ^ Insignal 1
+                  -> Signal time val -- ^ Insignal 2
+                  -> System time val -- ^ System
+                  -> val -- ^ Skalfaktor 1 (genereras av QuickCheck)
+                  -> val -- ^ Skalfaktor 2 (genereras av QuickCheck)
+                  -> [time] -- ^ Tidspunkt (genereras av QuickCheck)
                   -> Bool
-prop_isLinearDisc x0 x1 sys = \a b t -> isLinearDisc x0 x1 sys a b t
+prop_isLinearDisc x0 x1 sys = \a b ts -> isLinear x0 x1 sys a b ts
 
 --Övning: Implementera ett test för tidsinvariansegenskapen, givet timeshift
 --Ett system är tidsinvariant om en tidsförskjutning i insignalen ger samma
 --tidsförskjutning i utsignalen. Alltså:
 --Xin(t-c) -> Xut(t-c), där c är en reell konstant.
-isTimeInvDisc :: DiscTimeFun -> DiscSystem -> DiscTime -> DiscTime -> Bool
-isTimeInvDisc x sys t c = y' t ~= (timeShift y c) t
-    where x' = timeShift x c
-          y  = discOutSignal sys x
-          y' = discOutSignal sys x'
+isTimeInv :: (Time time, RealFrac time, RealFrac val) => Signal time val -> System time val -> [time] -> time -> Bool
+isTimeInv x sys ts c = and $ map (testAt c) ts
+  where x' = shift x c
+        y  = outSignal sys x ts
+        y' = outSignal sys x' ts
+        testAt o t= y' t ~= (shift y o) t
 
 --Ett system är ett LTI-system om det uppfyller superpositionsprincipen och är
 --tidsinvariant
-isLTICont :: Double -> ContTimeFun -> Double -> ContTimeFun -> ContSystem -> ContTime -> ContTime -> Bool
-isLTICont a x b y sys t c = isLinearCont x y sys a b t && isTimeInvCont x sys t c
+-- isLTICont :: Double -> Signal time val -> Double -> Signal time val -> System time val -> time -> time -> Bool
+-- isLTICont a x b y sys t c = isLinear x y sys a b t && isTimeInvCont x sys t c
 
-isLTIDisc :: Double -> DiscTimeFun -> Double -> DiscTimeFun -> DiscSystem -> DiscTime -> DiscTime -> Bool
-isLTIDisc a x b y sys t c = isLinearDisc x y sys a b t && isTimeInvDisc x sys t c
+-- isLTIDisc :: Double -> Signal time val -> Double -> Signal time val -> System time val -> time -> time -> Bool
+-- isLTIDisc a x b y sys t c = isLinear x y sys a b t && isTimeInvDisc x sys t c
