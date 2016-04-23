@@ -84,17 +84,6 @@ infixl 7 `scale`
 a ~= b = abs (a - b) < 1.0e-10
 infixl 4 ~=
 
---Approximativ faltning i kontinuerlig tid
-contConvolution :: ContTimeFun -- ^ Signal 1
-                -> ContTimeFun -- ^ Signal 2
-                -> ContTime -- ^ Starttid
-                -> ContTime -- ^ Sluttid
-                -> Double -- ^ Steg mellan samplingsintervall
-                -> ContTimeFun -- ^ Returfunktion
-contConvolution s0 s1 start stop step = sum $ map conv points
-    where points = [start, step .. stop]
-          conv n m = (s0 (n - m)) * (s1 m)
-
 --Faltning i diskret tid
 discConvolution :: DiscTimeFun -- ^ Signal 1
                 -> DiscTimeFun -- ^ Signal 2
@@ -112,16 +101,10 @@ type ContSystem = ContTimeFun
 timeShift :: Num a => Signal a b -> a -> Signal a b
 timeShift sig o = \t -> sig (t - o)
 
---multSignal :: Int -> Signal -> Signal
---multSignal i s = Signal i s
 
 -- Genererar utsignalen för enkla signaler och system
 discOutSignal :: DiscSystem -> DiscTimeFun -> DiscTimeFun
 discOutSignal sys insignal = discConvolution insignal sys (-100) 100
-
-contOutSignal :: ContSystem -> ContTimeFun -> ContTimeFun
-contOutSignal sys insignal = contConvolution insignal sys (-100) 100 0.1
-
 -- Övning: Implementera ett test för superpositionsprincipen
 --Vi har två signaler X och Y.
 --Xin(t) -> Xut(t) och Yin(t) -> Yut(t).
@@ -181,12 +164,6 @@ prop_isLinearDisc x0 x1 sys = \a b t -> isLinearDisc x0 x1 sys a b t
 --Ett system är tidsinvariant om en tidsförskjutning i insignalen ger samma
 --tidsförskjutning i utsignalen. Alltså:
 --Xin(t-c) -> Xut(t-c), där c är en reell konstant.
-isTimeInvCont :: ContTimeFun -> ContSystem -> ContTime -> ContTime -> Bool
-isTimeInvCont x sys t c = y' t ~= (timeShift y c) t
-    where x' = timeShift x c
-          y  = contOutSignal sys x
-          y' = contOutSignal sys x'
-
 isTimeInvDisc :: DiscTimeFun -> DiscSystem -> DiscTime -> DiscTime -> Bool
 isTimeInvDisc x sys t c = y' t ~= (timeShift y c) t
     where x' = timeShift x c
