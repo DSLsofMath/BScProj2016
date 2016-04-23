@@ -55,7 +55,7 @@ discImpulse t | t == 0 = 1
 
 -- | Approximativt kontinuerligt enhetssteg: 0 om t<0, 1 om t >= 0
 contStep t | t < 0 = 0
-           | t >= 0 = 1
+           | otherwise = 1
 
 --Diskret enhetssteg: 0 om t<0, 1 om t >= 0
 discStep t | t < 0 = 0
