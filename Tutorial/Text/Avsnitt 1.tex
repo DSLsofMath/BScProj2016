@@ -13,8 +13,8 @@
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.5em}
 
-\title{Avsnitt 1 \\ 
-\large Om komplexa tal, Eulers formel, signaler, grundläggande implementering och annat mysigt} 
+\title{Avsnitt 1 \\
+\large Om komplexa tal, Eulers formel, signaler, grundläggande implementering och annat mysigt}
 \author{ }
 \date{}
 
@@ -35,12 +35,12 @@ Så därför bestämdes det att $\sqrt{-1}$ ska vara \emph{i}. \\
 Som tur är så är det hela ganska konsekvent utformat så att $\sqrt{-2}$ också blir $\sqrt{2}i$, och $\sqrt{-3}$ blir $\sqrt{3} i$. Så om man tar roten ur vilken negativt tal som helst så får man samma svar som det positiva fallet fast med ett i med. \\
 \newline
 Vi kommer dock inte använda oss av beteckningen \emph{i} i våra texter, eftersom att man inom fysik, elektronik och flera andra ämnen redan använder bokstaven i  för att beteckna en ström. Därfor brukar man ofta använda j inom signallära istället, för att undvika missförstånd, och det kommer vi också göra. \\
-%Alltså kan man skriva så här: känns lite överflödigt men jag sätter dit den om gruppen vill. 
+%Alltså kan man skriva så här: känns lite överflödigt men jag sätter dit den om gruppen vill.
 \newline
 Komplexa tal kan ses som ett par utav reella värden, där första
 värdet i talet är reellt och det andra värdet är den imaginära
-delen. Det kan dock vara så att en eller båda av dessa delar är noll. 
-T.ex. $7+0*j$ blir ju bara 7. \\ 
+delen. Det kan dock vara så att en eller båda av dessa delar är noll.
+T.ex. $7+0*j$ blir ju bara 7. \\
 \newline
 \textbf{Kryssfråga 1:} Vad är den reela delen av $10 + 5 j$
 \begin{enumerate}[label={\alph*)},font={\bfseries}]
@@ -56,8 +56,8 @@ T.ex. $7+0*j$ blir ju bara 7. \\
 Att skriva
 \begin{minted}{haskell}
 Complex 13 37
-\end{minted} 
-i vårt DSL är samma sak som att skriva 13 + 37j, där 13 är reellt och 37 är imaginärt. Det är alltså inget ‘j’ i vårt DSL som indikerar att det är imaginärt utan man måste bara skriva dem i rätt ordning. Det ser som tur liknande ut i matten så det är ganska lätt att komma ihåg! %Sista meningen är lite konstig. 
+\end{minted}
+i vårt DSL är samma sak som att skriva 13 + 37j, där 13 är reellt och 37 är imaginärt. Det är alltså inget ‘j’ i vårt DSL som indikerar att det är imaginärt utan man måste bara skriva dem i rätt ordning. Det ser som tur liknande ut i matten så det är ganska lätt att komma ihåg! %Sista meningen är lite konstig.
 
 Nu betraktar vi det komplexa talet 13+37j. Vi döper detta till \emph{leet} så att vi slipper skriva ut alltihop i framtiden. \\
 \begin{minted}{haskell}
@@ -65,16 +65,16 @@ leet = Complex 13 37
 \end{minted}
 Om du nu känner att du vill veta vad det reella talet i paret är, då kan man skriva en funktion realPart som bara ger dig den reella delen. \\
 \begin{minted}{haskell}
-realPart :: Complex -> Double 
-realPart (Complex c) = fst c 
+realPart :: Complex -> Double
+realPart (Complex c) = fst c
 \end{minted}
 Då kan vi enkelt få fram den reella delen av \emph{leet} genom\\
 \begin{minted}{haskell}
-realPart (leet) 
+realPart (leet)
 \end{minted}
 vilket ger oss svaret 13.
-Se så enkelt det blev! 
-Så för att få ut den imaginära delen av talet så gör vi en funktion imPart. 
+Se så enkelt det blev!
+Så för att få ut den imaginära delen av talet så gör vi en funktion imPart.
 
 \textbf{Övning 1:} Definiera en funktion imPart som ger imaginärdelen av ett komplext tal.
 Denna funktion bör ge: $imPart (leet) = 37$
@@ -89,7 +89,7 @@ printComplex z
     where im = imPart z
           r = realPart z
 \end{minted}
-Om vi då kör 
+Om vi då kör
 \begin{minted}{haskell}
 printComplex 5 12
 \end{minted}
@@ -99,7 +99,7 @@ får vi:
 \end{minted}
 Och
 \begin{minted}{haskell}
-printComplex (leet) 
+printComplex (leet)
 \end{minted}
 ger oss:
 \begin{minted}{haskell}
@@ -108,7 +108,7 @@ ger oss:
 
 Hur skulle man då göra för att faktiskt räkna på detta? Då måste man definiera hur matematiska tecken ska tolkas när man arbetar med komplexa tal.\\
 
-Addition för komplexa tal är ganska lätt om ni kommer ihåg det. Om man är reell bryr man sig bara om andra reella tal, och vice versa för imaginära tal. 
+Addition för komplexa tal är ganska lätt om ni kommer ihåg det. Om man är reell bryr man sig bara om andra reella tal, och vice versa för imaginära tal.
 
 \textbf{Övning 3:} Här får du ett kodskelett för addition med komplexa tal. Fyll i det som ska stå i parentesen.
 \begin{minted}{haskell}
@@ -119,7 +119,7 @@ Test: Vad får man om man \underline{adderar} $10 + 5j$ med $2 -1j$? Bekräfta m
 
 Multiplikation blir lite krångligare. Om vi multiplicerar två komplexa tal, vi kallar dem z och w, ser det ut såhär:
 \begin{minted}{haskell}
-    z * w           = Complex (realZ*realW - imZ*imW, 
+    z * w           = Complex (realZ*realW - imZ*imW,
                                 realZ*imW + realW*imZ)
         where realZ = realPart z
                    realW = realPart w
@@ -147,12 +147,12 @@ Absolutbeloppet på ett komplext tal kan man räkna ut på samma sätt som man r
 \end{minted}
 \textbf{Test:} Vad är absolutbeloppet av $6 + 3j$? Bekräfta med programmet.
 
-\textbf{Test:} Hur skriver man ut heltalet 5 som ett komplext tal? Bekräfta med programmet (fromInteger). 
+\textbf{Test:} Hur skriver man ut heltalet 5 som ett komplext tal? Bekräfta med programmet (fromInteger).
 
 \section{Eulers formel}
 Eulers formel, eller Enigmatic Euler's Formula som den också kallas, är en formel för att skriva om komplexa tal från en exponentiell funktion till trigonometriska funktioner och tvärtom.
 
-Är det någon som verkligen vet hur trigonometiska funktioner funkar? Förmodligen..., men det skulle väl inte skada om det fanns ett sätt att skriva om trigonometiska funktioner till komplexa tal och tvärtom. Här kommer Eulers formel in! 
+Är det någon som verkligen vet hur trigonometiska funktioner funkar? Förmodligen..., men det skulle väl inte skada om det fanns ett sätt att skriva om trigonometiska funktioner till komplexa tal och tvärtom. Här kommer Eulers formel in!
 $$e^{jt} = cos(t) + jsin(t) $$
 \textbf{Kryssfråga 3:} Vad blir $e^{3jt}$ omskrivet med Eulers formel?
 \begin{enumerate}[label={\alph*)},font={\bfseries}]
@@ -236,6 +236,7 @@ Här nedan ser du ett exempel på en diskret funktion, $f[n]=2 n$
 \label{}
 \end{figure}
 
+%TODO: I nuläget används både decimalkomma och decimalpunkt i texten. Problemet med decimalkomma är att det krockar med list-notation. Det är nog bäst att förklara detta och använda decimalpunkt trots att det i överigt är svensk text. Examples: 0,000001 ; 0,000002 ; 0,000003; 0,5; men också 0.5; 0.25
 Det är möjligt, och rentav vanligt att approximera en kontinuerlig signal med en diskret. Om man har väldigt små steg mellan värdena i den diskreta approximationen, t.ex. $n={0,000001 ; 0,000002 ; 0,000003}$, kan man rentav få en ganska bra approximation. I praktiken är detta faktiskt precis vad man gör när man hanterar kontinuerliga signaler med datorer. En dator kan egentligen inte hantera kontinuerliga signaler men den kan approximera dem med diskreta signaler med väldigt små steg mellan värdena, vilket oftast är gott nog.
 %*Bild på en kontinuerlig signal, t.ex. f(t)= sin(2t) och en diskret approximation av den.
 
@@ -253,20 +254,20 @@ upprepning minskar eller om det aldrig upprepas alls.
 Lite mer formellt definieras en periodisk signal så här:\\
 $f(t) = f(t+T)$, för alla värden på t, där T är perioden
 
-%Här ser du t.ex. en periodisk signal $f(t)=2 \sin(3 t)$, som har perioden $T=\frac{2\pi}{3}$. Notera att $f(t)=f(t+T)$ är sant, avsett vilken punkt t du tittar på. -flyttade in detta i caption. 
+%Här ser du t.ex. en periodisk signal $f(t)=2 \sin(3 t)$, som har perioden $T=\frac{2\pi}{3}$. Notera att $f(t)=f(t+T)$ är sant, avsett vilken punkt t du tittar på. -flyttade in detta i caption.
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.55]{image12.png}}
 \caption{Här ser du t.ex. en periodisk signal $f(t)=2 \sin(3 t)$, som har perioden $T=\frac{2\pi}{3}$. Notera att $f(t)=f(t+T)$ är sant, avsett vilken punkt t du tittar på.}
 \label{}
 \end{figure}
 \newpage
-Övning 6: Här har du en nästan färdig funktion som undersöker om en singal har en viss period. Fyll i det som ska stå i parentesen. 
+Övning 6: Här har du en nästan färdig funktion som undersöker om en singal har en viss period. Fyll i det som ska stå i parentesen.
 \begin{minted}{haskell}
-contHasPeriod :: ContTimeFun -> 
+contHasPeriod :: ContTimeFun ->
                  ContTime -> Double -> Bool
-contHasPeriod signal step period = 
+contHasPeriod signal step period =
         and $ map (...) [0, step .. period]
-    where hasPeriod signal period t = 
+    where hasPeriod signal period t =
             signal t ~= signal (t+period)
 \end{minted}
 
@@ -377,7 +378,7 @@ contIsOdd signal step limit = and $ map testPair $ zip xs ys
 
 \textbf{Övning 7:} Implementera motsvarande funktion som undersöker om en signal är jämn.
 
-\textbf{Test:} Lös de två nedanstående uppgifter och kontrollera sedan svaret med hjälp av programmet. 
+\textbf{Test:} Lös de två nedanstående uppgifter och kontrollera sedan svaret med hjälp av programmet.
 
 \textbf{Test 1:}
 En signal har funktionen: $3*\sin(6t)$\\
@@ -396,14 +397,14 @@ En enhetsimpuls ser ut så här:
 
 
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=0.50]{delta.eps}} 
+\centerline{\includegraphics[scale=0.50]{delta.eps}}
 
 %Tror var figurerna är skapade inte måste stå just här. Disclamer någon annanstans?
 \caption{}
 \label{}
 \end{figure}
 
-En enhetsimpuls kallas också för en dirac delta funktion och är i det diskreta fallet definierad som: 
+En enhetsimpuls kallas också för en dirac delta funktion och är i det diskreta fallet definierad som:
 $$
 \delta[n]=
 \begin{cases}
@@ -495,7 +496,7 @@ Gratulerar! Du har nu lärt dig följande:
 \item Hur man implementerar diskreta enhetssteg och enhetsimpulser med DSL.
 \end{itemize}
 
-Bilderna i detta kapitel är gjorda i:  
+Bilderna i detta kapitel är gjorda i:
 \begin{itemize}
 \item MATLAB: Figur 4, 11, 12 och 13
 \item FOOPLOT: Figur 1, 2, 3, 5, 6, 7, 8, 9 och 10
@@ -526,7 +527,7 @@ printComplex z
 \textbf{Övning 3:}
 \begin{minted}{haskell}
 instance Num Complex where
-    z + w           = Complex (realPart z + 
+    z + w           = Complex (realPart z +
                         realPart w, imPart z + imPart w)
 \end{minted}
 
@@ -550,12 +551,12 @@ instance Num Complex where
 \newline
 \textbf{Övning 6:}
 \begin{minted}{haskell}
-contHasPeriod :: ContTimeFun -> ContTime -> 
+contHasPeriod :: ContTimeFun -> ContTime ->
                                         Double -> Bool
-contHasPeriod signal step period = 
-        and $ map (hasPeriod signal period) 
+contHasPeriod signal step period =
+        and $ map (hasPeriod signal period)
                                 [0, step .. period]
-    where hasPeriod signal period t = 
+    where hasPeriod signal period t =
                             signal t ~= signal (t+period)
 \end{minted}
 

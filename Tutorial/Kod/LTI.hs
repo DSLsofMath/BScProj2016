@@ -20,6 +20,7 @@ type DiscTimeFun = DiscSignal Double
 -- Notera dock att i helt kontinuerliga uträkningar, med faltningsintegraler och
 -- så vidare närmar sig enhetsimpulsens värde vid t=0 oändligheten, men är annars 0.
 -- | Approximativ kontinuerlig enhetsimpuls: 1 om t=0, annars 0
+-- TODO: Notera att integralen från -Inf till Inf av denna approximation är 2, inte 1. Avsiktligt? (Förklara)
 contImpulse :: ContTime -> ContTimeFun
 contImpulse eps t | (abs t) < eps = 1/eps
                   | otherwise = 0
@@ -85,6 +86,16 @@ discConvolution :: DiscTimeFun -- ^ Signal 1
                 -> DiscTimeFun -- ^ Returnfunktion
 discConvolution s0 s1 start stop = sum $ map conv points
     where points = [start .. stop]
+
+-- TODO: Den här formeln ser konstig ut. Formeln måste involvera två
+-- signaler (här s0 och s1) och index till dem måste röra sig "åt
+-- olika håll", dvs. tecknet framför det index som summeras över måste
+-- vara olika för s0 och för s1. Här är det inte tydligt vilket index
+-- ni summerar över, men om det är m saknas det som arg. till s0 och
+-- om det är n är tecknet fel. Det var nästan rätt förut. (Passa på
+-- att förklara detta lite mer för läsarna - det är uppenbarligen lite
+-- klurigt att få det rätt!)
+-- https://en.wikipedia.org/wiki/Convolution#Discrete_convolution
           conv n m = (s0 n * (s1 (n-m)))
 
 --Ett System kan betraktas som en funktion för signaler

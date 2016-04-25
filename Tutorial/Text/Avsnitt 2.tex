@@ -12,7 +12,7 @@
 \setlength{\parskip}{0.5em}
 
 
-\title{Avsnitt 2 \\ 
+\title{Avsnitt 2 \\
 \large Om LTI-system, stegsvar, impulssvar, faltning och annat matnyttigt}
 \author{ }
 \date{}
@@ -34,6 +34,7 @@ beståndsdelar. Ett tidsinvariant system är ett system vars egenskaper inte
 senare men inledelsevis kan vi konstatera att ett LTI-system är ett system
 med fina konsekventa ekvationer som är relativt enkla att räkna på. Så
 rysligt praktiskt! \\
+%TODO: normalt sett borde \\ ... \newline bytas ut more bara en vanlig tomrad (här och nedan)
 %------------------------------------------------------------------
 %*Ev Bild på några olika linjära ekv. i kordinatsystem
 \newline
@@ -52,7 +53,7 @@ dem och deras fiender avundas dem. Nu ska vi ta en kik på ett par av de viktiga
 \subsection{Linjäritet}
 För att ett system ska vara linjärt måste det uppfylla
 superpositionsprincipen, vilket innebär att det är både  additativt och
-homogent för er som tycker om att svänga er med fina ord. 
+homogent för er som tycker om att svänga er med fina ord.
 
 I ett system som är additativt kan man dela upp insignalen i mindre
 komponenter och kika på dessa komponenters utsignaler och dessa kan sedan
@@ -70,10 +71,10 @@ komponenter, till ett linjärt system som så grundläggande signaler som
 möjligt och sen bara skalar och kombinerar utsignalerna de genererar.
 Kan man visa att
 ett system uppfyller superpositionsprincipen har man visat att det är
-linjärt. 
+linjärt.
 Hur vet man då om systemet uppfyller superpositionsprincipen? Jo, säg att vi har två signaler $x_1$ och $x_2$.
 
-Om systemet uppfyller superpositionsprincipen gäller då att: 
+Om systemet uppfyller superpositionsprincipen gäller då att:
 $$F(a x_{1}+b x_{2}) = a F(x_{1}) + b F(x_{2})
 \;\;(a\; och\; b\; är\; konstanter) $$
 $$a x_{1}(t)+b x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{SuperPos. system}} \rightarrow \mathrm{a y_{1}(t)+b y_{2}(t)}
@@ -91,22 +92,29 @@ $$x(t-c) \rightarrow \framebox[1.2\width]{\textbf{Tidsinvariant system}} \righta
 \textbf{Övning 2:} Implementera en funktion som undersöker om ett system är tidsinvariant i kontinuerlig tid enligt följande:
 
 \begin{minted}{haskell}
-isTimeInvCont :: ContTimeFun -> ContSystem -> 
+isTimeInvCont :: ContTimeFun -> ContSystem ->
                         ContTime -> ContTime -> Bool
 
 \end{minted}
 
 \textbf{Tips!} Använd dig av följande funktion för tidsskift:\\
 
+%**TODO: Detta är inte parse-korrekt ("->" kan inte börja i första kolumnen)
 \begin{minted}{haskell}
-timeShift :: Num a => Signal a b -> a -> Signal a b 
-timeShift sig o = \t 
+timeShift :: Num a => Signal a b -> a -> Signal a b
+timeShift sig o = \t
 -> sig (t - o)
 \end{minted}
 
 \textbf{Övning 3:} Implementera en funktion som undersöker om ett system är ett LTI-system. Använd dig av funktionerna från övning 1 och 2. \\
 
 \textbf{Test:}
+
+% **TODO: Testen ovan handlar om att beskriva om ett _system_ är
+% linjärt, inte om en signal (som funktionerna ned) är linjär. Ett
+% "system" i den här kontexten är en andra ordningens funktion -
+% exempelvis: snitt f = \t -> (f t + f (t-1)) / 2
+
 Använd funktionen från övning 3 för att undersöka om följande funktioner är linjära:
 \begin{enumerate}
 \item $\pi + 2\;t$
@@ -131,20 +139,20 @@ u[n] = \begin{cases}
     0, \quad n < 0 \\
     1, \quad annars
         \end{cases}
-\quad \quad \quad  
-u(t) = 
+\quad \quad \quad
+u(t) =
     \begin{cases}
     0, \quad t < 0 \\
     1, \quad t \geq 0
-    \end{cases},  
+    \end{cases},
 $$
 $$
-\delta[n] = 
+\delta[n] =
     \begin{cases}
     1, \quad t = 0 \\
     0, \quad annars
-    \end{cases}    
-\quad \quad \quad  
+    \end{cases}
+\quad \quad \quad
 \delta(t) =
     \begin{cases}
     1, \quad t = 0 \\
@@ -170,12 +178,12 @@ Kortfattat och fint!
 
 Just för LTI-system så har man särskild nytta av impulssvaret. Det är
 nämligen så att man kan beräkna ett LTI-systems utsignal genom faltning av insignalen med impulssvaret.
-$$ y(t)=x(t)*h(t)$$ 
+$$ y(t)=x(t)*h(t)$$
 Detta för oss genast till frågan: Vad tusan är faltning för något?
 
 \section{Faltning}
 
-Faltning av en signal f(t) med en signal g(t) skrivs: $f(t)*g(t)$, dvs det 
+Faltning av en signal f(t) med en signal g(t) skrivs: $f(t)*g(t)$, dvs det
 skrivs precis som man ofta skriver multiplikation. Är inte det väldigt dumt
 undrar ni då? Svaret är ja. Ja, det är jättedumt. Dessvärre så är det så
 standarden ser ut. Var därför väldigt noga med att inte blanda ihop faltning
@@ -199,11 +207,14 @@ $$f(t) * (a g(t) + b h(t) ) = a(f(t) * g(t)) + b(f(t) * h(t))$$ % Linjaritet
 $$f(t) * g(t) = g(t) * f(t) $$ %Kommutative
 $$f(t) * (g(t) * h(t)) = (f(t) * g(t)) * h(t) $$ %Associative
 Där a och b är konstanter och f, g och h är funktioner. Det borde även nämnas att följande lagar innefattar även att
+%**TODO: "ds" har hamnat på fel ställe - borde vara före sista likhetstecknet.
 $$ f(t) * g(t) = \int_{0}^t  f(s) g(t-s) ds = \int_{0}^t  f(t-s) g(s) = g(t) * f(t) ds $$
 
 Så oroa er inte om integrandens ordning! Det finns även en diskret faltning och även denna följer samma lagar som det kontinuerliga fallet.
 
-$$a_n * b_n = \sum_{k=0}^{N-1} a_k b_{[n-k]}, \quad [n-k] = 
+%TODO: notationen med [n-k] behöver förklaras mer (eller ändras).
+
+$$a_n * b_n = \sum_{k=0}^{N-1} a_k b_{[n-k]}, \quad [n-k] =
 \begin{cases}
 n-k, \quad  \; n \geq k \\
 n-k+N, \quad  n < k
@@ -215,8 +226,8 @@ $$
 %I princip, om vi betraktar insignalen som en summa av tidskiftade impulser(multiplicerad med konstanter (vikter) $c_k$), så är utsignalen en summa av tidskiftade impulssvar. Jag kan ge en matematiskt förklaring till detta via ett exempel.
 %Min uppfattning av bokens exempel.
 %Givet en insignal x(t). Om vi samplar insignalen över ett viss tidsinterval så kan den approximeras som summa en summa av impulser.
-%$$x(t) \approx x[t] = \sum c_k \delta (t-\Delta k)$$ \Delta. 
-%Vilket ger utsignalen 
+%$$x(t) \approx x[t] = \sum c_k \delta (t-\Delta k)$$ \Delta.
+%Vilket ger utsignalen
 %$$y[t] = \sum c_k h(t-\Delta k) \Delta$$
 %Där $\Delta$ är tidsskillnaden mellan varje sampling och $\delta$ implicerar en impulsfunktionen (typ) vars längd beror på tidskillnaden.
 %Om vi nu ser talföljden $c_k$ som en funktion av tid f(t), låter $\Delta -> 0$ så kan summan betraktas som en integral och impulsfunktionen byts från en diskret till kontinuerlig. Det vill säga
@@ -226,7 +237,7 @@ $$
 %$$y[t] = \sum c_k h(t-\Delta k) \Delta -> \int f(tau) h(t-\tau) d \tau $$
 %Därav relationen mellan dessa två blir.
 %$$y(t) = \int x(\tau) h(t-\tau) d \tau = x(t) * h(t) $$
-%Vilket förklarar varför det blir en faltning i en LTI-system.  
+%Vilket förklarar varför det blir en faltning i en LTI-system.
 
 Så hur hör allt detta tillsammans med LTI-system? En tolkning av faltning
 är en kontinuerlig superposition av f (eller g). Men om man inte vill gå in
@@ -254,18 +265,18 @@ En kanske enklare metod att beräkna faltningar presenteras i Fourier kapitlet.
 Gratulerar! Du har nu lärt dig
 \begin{itemize}
 \item Vad LTI-system är för något
-\item Hur man undersöker eller bevisar om ett system är ett LTI-system genom att kontrollera superposition och tidsinvarians 
+\item Hur man undersöker eller bevisar om ett system är ett LTI-system genom att kontrollera superposition och tidsinvarians
 \item Hur man implementerar och använder funktioner för superposition och tidsinvarians med funktionell programmering och DSL.
 \item Vad impulssvar och stegsvar är
-\item Lite om faltning 
+\item Lite om faltning
 \item Hur man kan beräkna ett LTI-systems utsignal genom faltning av insignalen med impulssvaret
 \end{itemize}
 Passa nu på att ge dig själv en välförtjänt klapp på axeln innan du går vidare till nästa kapitel!
 
-%Bilderna i detta kapitel är gjorda i:  
+%Bilderna i detta kapitel är gjorda i:
 %\begin{itemize}
-%\item MATLAB: Figur 
-%\item FOOPLOT: Figur 
+%\item MATLAB: Figur
+%\item FOOPLOT: Figur
 %\end{itemize}
 
 \section{Lösningar}
