@@ -197,7 +197,7 @@ Att en variabel är kontinuerlig innebär att den har ett oändligt antal värde
 även om det bara är definierad i ett visst intervall. Om vi t.ex. betecknar
 tiden mellan kl 14:00 och 15:00 med variabeln t så har den ett oändligt antal
 möjliga värden i  intervallet $14 < t < 15$. Variabeln t kan då t.ex. anta
-värdet $14,6$, men den kan också anta värdet $14,6000000001$. Det finns helt
+värdet $14.6$, men den kan också anta värdet $14.6000000001$. Det finns helt
 enkelt ingen gräns för hur många värden t kan anta, även om intervallet är
 begränsat.
 
@@ -212,7 +212,7 @@ En diskret variabel däremot har bara ett visst antal värden den kan anta och
 en diskret funktion är bara definierad för dessa möjliga värden. Om vi t.ex.
 beteckar alla heltal med variabeln n så kommer en funktion $f[n]$ vara
 definierad, alltså ha ett värde, i punkten $f[2]$ men vara odefinierad, sakna
-värde, i punkten $f[2,5]$. För att förtydliga att en variabel är diskret
+värde, i punkten $f[2.5]$. För att förtydliga att en variabel är diskret
 brukar man omge den med hakparentes, som t.ex. [n], istället för vanlig
 parentes, som (t).
 
@@ -237,7 +237,7 @@ Här nedan ser du ett exempel på en diskret funktion, $f[n]=2 n$
 \end{figure}
 
 %TODO: I nuläget används både decimalkomma och decimalpunkt i texten. Problemet med decimalkomma är att det krockar med list-notation. Det är nog bäst att förklara detta och använda decimalpunkt trots att det i överigt är svensk text. Examples: 0,000001 ; 0,000002 ; 0,000003; 0,5; men också 0.5; 0.25
-Det är möjligt, och rentav vanligt att approximera en kontinuerlig signal med en diskret. Om man har väldigt små steg mellan värdena i den diskreta approximationen, t.ex. $n={0,000001 ; 0,000002 ; 0,000003}$, kan man rentav få en ganska bra approximation. I praktiken är detta faktiskt precis vad man gör när man hanterar kontinuerliga signaler med datorer. En dator kan egentligen inte hantera kontinuerliga signaler men den kan approximera dem med diskreta signaler med väldigt små steg mellan värdena, vilket oftast är gott nog.
+Det är möjligt, och rentav vanligt att approximera en kontinuerlig signal med en diskret. Om man har väldigt små steg mellan värdena i den diskreta approximationen, t.ex. $n={0.000001 ; 0.000002 ; 0.000003}$, kan man rentav få en ganska bra approximation. I praktiken är detta faktiskt precis vad man gör när man hanterar kontinuerliga signaler med datorer. En dator kan egentligen inte hantera kontinuerliga signaler men den kan approximera dem med diskreta signaler med väldigt små steg mellan värdena, vilket oftast är gott nog.
 %*Bild på en kontinuerlig signal, t.ex. f(t)= sin(2t) och en diskret approximation av den.
 
 \begin{figure}[ht]
@@ -261,7 +261,7 @@ $f(t) = f(t+T)$, för alla värden på t, där T är perioden
 \label{}
 \end{figure}
 \newpage
-Övning 6: Här har du en nästan färdig funktion som undersöker om en singal har en viss period. Fyll i det som ska stå i parentesen.
+Övning 6: Här har du en nästan färdig funktion som undersöker om en signal har en viss period. Fyll i det som ska stå i parentesen.
 \begin{minted}{haskell}
 contHasPeriod :: ContTimeFun ->
                  ContTime -> Double -> Bool
@@ -271,7 +271,7 @@ contHasPeriod signal step period =
             signal t ~= signal (t+period)
 \end{minted}
 
-\textbf{Kryssfråga 6:} I bilden nedan ser du en funktion, $f(t)=0,5\sin(2t)$. Vad har den för period?
+\textbf{Kryssfråga 6:} I bilden nedan ser du en funktion, $f(t)=0.5\sin(2t)$. Vad har den för period?
 \begin{enumerate}[label={\alph*)},font={\bfseries}]
     \item $\pi$
     \item 2 $\pi$
@@ -339,7 +339,7 @@ Varför är det då bra att veta om en signal är jämn eller udda? Mer om det k
 
 \newpage
 
-\textbf{Kryssfråga 8:} Är funktionen $f(t)=0,5\sin(2t)$ här nedan jämn, udda eller ingetdera?
+\textbf{Kryssfråga 8:} Är funktionen $f(t)=0.5\sin(2t)$ här nedan jämn, udda eller ingetdera?
 \begin{enumerate}[label={\alph*)},font={\bfseries}]
     \item Jämn
     \item Udda
