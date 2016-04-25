@@ -19,22 +19,10 @@ type DiscTimeFun = DiscSignal Double
 -- enhetsimpulsen 1 vid t=0, annars 0.
 -- Notera dock att i helt kontinuerliga uträkningar, med faltningsintegraler och
 -- så vidare närmar sig enhetsimpulsens värde vid t=0 oändligheten, men är annars 0.
-
--- TODO: kommentaren säger att det är en approximation, men då borde
--- det finnas en parameter som anger bredden på impulsen. Klassiskt
--- val är en 0-centrerad normalfördelning med parameter a - se figuren
--- i https://en.wikipedia.org/wiki/Dirac_delta_function
--- https://en.wikipedia.org/wiki/Dirac_delta_function#/media/File:Dirac_function_approximation.gif
--- Det finns andra alternativa former, men gemensamt är att värdet i
--- noll växer när bredden minskar - det blir inte bra att ha ett fixt
--- (ändligt) värde i t=0 och noll i övrigt. En delspecifikation av
--- (contImpulseApprox eps) är att integralen från -Inf till Inf ska
--- vara ett.
-
 -- | Approximativ kontinuerlig enhetsimpuls: 1 om t=0, annars 0
-contImpulse :: ContTimeFun
-contImpulse t | t == 0 = 1
-              | otherwise = 0
+contImpulse :: ContTime -> ContTimeFun
+contImpulse eps t | (abs t) < eps = 1/eps
+                  | otherwise = 0
 
 -- | Diskret Impuls: 1 om t=0, annars 0
 discImpulse :: DiscTimeFun
@@ -87,7 +75,7 @@ contConvolution :: ContTimeFun -- ^ Signal 1
                 -> ContTimeFun -- ^ Returfunktion
 contConvolution s0 s1 start stop step = sum $ map conv points
     where points = [start, step .. stop]
-          conv n m = (s0 (n - m)) * (s1 m)
+          conv n m = (s0 n * (s1 (n-m)))
 
 --Faltning i diskret tid
 discConvolution :: DiscTimeFun -- ^ Signal 1
@@ -97,7 +85,7 @@ discConvolution :: DiscTimeFun -- ^ Signal 1
                 -> DiscTimeFun -- ^ Returnfunktion
 discConvolution s0 s1 start stop = sum $ map conv points
     where points = [start .. stop]
-          conv n m = (s0 (n-m)) * (s1 m)
+          conv n m = (s0 n * (s1 (n-m)))
 
 --Ett System kan betraktas som en funktion för signaler
 type DiscSystem = DiscTimeFun
