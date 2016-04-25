@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleInstances #-}
+
 module LTI where
 import qualified Test.QuickCheck as Q
 
@@ -70,21 +71,21 @@ infixl 4 ~=
 contConvolution :: ContTimeFun -- ^ Signal 1
                 -> ContTimeFun -- ^ Signal 2
                 -> ContTime -- ^ Starttid
-                -> ContTime -- ^ Sluttid
                 -> Double -- ^ Steg mellan samplingsintervall
                 -> ContTimeFun -- ^ Returfunktion
-contConvolution s0 s1 start stop step = sum $ map conv points
-    where points = [start, step .. stop]
+contConvolution s0 s1 interval step = (sum $ map conv points)
+    where points = [from, (from + step) .. interval]
+          from = negate interval
           conv n m = (s0 n * (s1 (n-m)))
 
 --Faltning i diskret tid
 discConvolution :: DiscTimeFun -- ^ Signal 1
                 -> DiscTimeFun -- ^ Signal 2
                 -> DiscTime -- ^ Interval length -M start
-                -> DiscTime -- ^ Interval length M slut
                 -> DiscTimeFun -- ^ Returnfunktion
-discConvolution s0 s1 start stop = sum $ map conv points
-    where points = [start .. stop]
+discConvolution s0 s1 interval = sum $ map conv points
+    where points = [from .. interval]
+          from = negate interval
           conv n m = (s0 n * (s1 (n-m)))
 
 --Ett System kan betraktas som en funktion för signaler
@@ -99,10 +100,10 @@ timeShift sig o = \t -> sig (t - o)
 
 -- Genererar utsignalen för enkla signaler och system
 discOutSignal :: DiscSystem -> DiscTimeFun -> DiscTimeFun
-discOutSignal sys insignal = discConvolution insignal sys (-100) 100
+discOutSignal sys insignal = discConvolution insignal sys 100
 
 contOutSignal :: ContSystem -> ContTimeFun -> ContTimeFun
-contOutSignal sys insignal = contConvolution insignal sys (-100) 100 0.1
+contOutSignal sys insignal = contConvolution insignal sys 100 0.1
 
 -- Övning: Implementera ett test för superpositionsprincipen
 --Vi har två signaler X och Y.
