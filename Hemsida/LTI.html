@@ -8,7 +8,7 @@
 
 
 		<!-- Website Title & Description for Search Engine purposes -->
-		<title></title>
+		<title>LTI-system</title>
 		<meta name="description" content="">
 		
 		<!-- Mobile viewport optimized -->
@@ -87,12 +87,13 @@
 
 			<div class="row" id="LTI">
 				<div class="col-sm-12">
-					<div class="well">
+					<div class="well clearfix">
 						<div class="page-header"><h1>LTI<small> Om LTI-system, stegsvar, impulssvar, faltning och annat matnyttigt</small></h1></div><!--end page-header-->
 						
 						<h2 id="vad-menas-med-lti-system">Vad menas med LTI-system?</h2>
 						
-						<p><span class="math display">\[x(t) \rightarrow \framebox[1.2\width]{\textbf{LTI-system}} \rightarrow y(t)\]</span></p>
+						<img src="images/LTI/LTI1.png">
+						
 						<p>Linjära tidsinvarianta system, eller LTI-system, är logiskt nog system som är linjära och tidsinvarianta. Hurra för logik! Men för att den förklaringen ska bli lite mer begriplig kan det ju vara bra att reda ut vad som menas med “Linjär” och “Tidsinvariant”. Med ett linjärt system menar man, lite förenklat uttryckt, ett system där man kan separera signalerna i sina beståndsdelar. Ett tidsinvariant system är ett system vars egenskaper inte ändras med tiden. En mer detaljerad beskrivning av dessa egenskaper kommer senare men inledelsevis kan vi konstatera att ett LTI-system är ett system med fina konsekventa ekvationer som är relativt enkla att räkna på. Så rysligt praktiskt! LTI-system är något man använder sig av väldigt mycket inom signallära. Även system som egentligen inte är linjära och tidsinvarianta approximeras ofta till LTI-system, eftersom det är så mycket trevligare att räkna på LTI-system. Alla älskar LTI-system! Åtminstone jämfört med andra system som ändrar sig hela tiden och är odrägliga att försöka räkna på, usch och fy!</p>
 						
 						<h2 id="egenskaper-hos-lti-system">Egenskaper hos LTI-system</h2>
@@ -101,23 +102,37 @@
 						<h3 id="linjäritet">Linjäritet</h3>
 						<p>För att ett system ska vara linjärt måste det uppfylla superpositionsprincipen, vilket innebär att det är både additativt och homogent för er som tycker om att svänga er med fina ord.</p>
 						
-						<p>I ett system som är additativt kan man dela upp insignalen i mindre komponenter och kika på dessa komponenters utsignaler och dessa kan sedan kombineras till hela insignalens utsignal. Mycket praktiskt! <span class="math display">\[F(x_{1}+x_{2}) = F(x_{1}) + F(x_{2})\]</span> <span class="math display">\[x_{1}(t) + x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{Additativt system}} \rightarrow \mathrm{y_{1}(t) + y_{2}(t)}\]</span></p>
+						<p>I ett system som är additativt kan man dela upp insignalen i mindre komponenter och kika på dessa komponenters utsignaler och dessa kan sedan kombineras till hela insignalens utsignal. Mycket praktiskt! <img src="images/LTI/LTI2.png">
+						</p>
 						
-						<p>I ett homogent system kan man bryta ut skalningsfaktorer ifrån insignalen och skala om utsignalen med dessa istället. <span class="math display">\[F(a \; x) = a\;F(x)\;\;(a\; är\; en\; konstant)\]</span> <span class="math display">\[a x(t) \rightarrow \framebox[1.2\width]{\textbf{Homogent system}} \rightarrow \mathrm{a y(t)}\]</span></p>
+						<p>I ett homogent system kan man bryta ut skalningsfaktorer ifrån insignalen och skala om utsignalen med dessa istället. <img src="images/LTI/LTI3.png"></p>
 						
 						<p>Det är dessa två egenskaper som tillsammans utgör superpositionsprincipen. Superpositionsprincipen gör att man kan se insignalerna, och dess komponenter, till ett linjärt system som så grundläggande signaler som möjligt och sen bara skalar och kombinerar utsignalerna de genererar. Kan man visa att ett system uppfyller superpositionsprincipen har man visat att det är linjärt. Hur vet man då om systemet uppfyller superpositionsprincipen? Jo, säg att vi har två signaler <span class="math inline">\(x_1\)</span> och <span class="math inline">\(x_2\)</span>.</p>
 						
-						<p>Om systemet uppfyller superpositionsprincipen gäller då att: <span class="math display">\[F(a x_{1}+b x_{2}) = a F(x_{1}) + b F(x_{2})
-						\;\;(a\; och\; b\; är\; konstanter)\]</span> <span class="math display">\[a x_{1}(t)+b x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{SuperPos. system}} \rightarrow \mathrm{a y_{1}(t)+b y_{2}(t)}\]</span> Och därmed är systemet linjärt!<br />
+						<p>Om systemet uppfyller superpositionsprincipen gäller då att: <img src="images/LTI/LTI4.png">
+						Och därmed är systemet linjärt!<br />
 						<strong>Övning 1:</strong> Här följer ett kodskelett till en funktion som undersöker om ett system är Linjärt. Fyll i det som saknas.</p>
 						<h3 id="tidsinvarians">Tidsinvarians</h3>
 						
-						<p>Med hur är det då med tidsinvarians? Vad är det för egenskaper som gäller där? Jo, ett system är tidsinvariant om en tidsförskjutning i insignalen ger samma tidsförskjutning i utsignalen. Alltså: <span class="math display">\[x(t-c) \rightarrow \framebox[1.2\width]{\textbf{Tidsinvariant system}} \rightarrow y(t-c)\]</span> <span class="math display">\[(c\; är\; en\; reell\; konstant)\]</span></p>
+						<p>Med hur är det då med tidsinvarians? Vad är det för egenskaper som gäller där? Jo, ett system är tidsinvariant om en tidsförskjutning i insignalen ger samma tidsförskjutning i utsignalen. Alltså: <img src="images/LTI/LTI5.png"></p>
 						<p><strong>Övning 2:</strong> Implementera en funktion som undersöker om ett system är tidsinvariant i kontinuerlig tid enligt följande:</p>
 						<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isTimeInvCont ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span> <span class="dt">ContSystem</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span></code></pre></div><p><strong>Tips!</strong> Använd dig av följande funktion för tidsskift:<br />
 						</p>
 
 						<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">timeShift ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> <span class="dt">Signal</span> a b <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Signal</span> a b <p id="timeShift">timeShift sig o <span class="fu">=</span> \t <span class="ot">-&gt;</span></p><p id="left">sig (t <span class="fu">-</span> o)</p></code></pre></div>
+
+						<p><strong>Svara utan mellanrum!</strong></p>
+
+						<input name="LTI2" type="text" id="LTI2" class="form-control" placeholder="Skriv ditt svar här..."/><button type="button" class="btn btn-primary btn-sm" id="LTISvar2">Svara</button>
+
+						<div class="alert alert-success alert-block fade in" id="rightLTI2">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<h4>Rätt svar!</h4>
+						</div><!--End alert-->
+						<div class="alert alert-danger alert-block fade in" id="wrongLTI2">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<h4>Fel svar!</h4>
+						</div><!--End alert-->
 						
 						<p><strong>Övning 3:</strong> Implementera en funktion som undersöker om ett system är ett LTI-system. Använd dig av funktionerna från övning 1 och 2.<br />
 
@@ -132,30 +147,11 @@
 						<h2 id="stegsvar-och-impulsvar">Stegsvar och Impulsvar</h2>
 						<p>Impulssvar och stegsvar är härligt nog ganska precis vad de låter som. Ett systems impulssvar är den utsignal man får när man skickar in en enhetsimpuls som insignal till systemet och stegsvar är systemets utsignal när man skickar in ett enhetssteg som insignal. Kommer du inte ihåg vad en enhetsimpuls eller ett enhetssteg är för något så titta tillbaka på kapitlet som heter Introduktion. I korthet så är en enhetsimpuls en signal som är definierad som 0 vid alla tidpunkter utom tiden 0 och enhetssteg är en signal definierad som 0 för negativa tidpunkter och 1 för positiva tidpunkter.</p>
 
-						<p><span class="math display">\[u[n] = \begin{cases}
-						    0, \quad n &lt; 0 \\
-						    1, \quad annars
-						        \end{cases}
-						\quad \quad \quad  
-						u(t) = 
-						    \begin{cases}
-						    0, \quad t &lt; 0 \\
-						    1, \quad t \geq 0
-						    \end{cases},\]</span> <span class="math display">\[\delta[n] = 
-						    \begin{cases}
-						    1, \quad t = 0 \\
-						    0, \quad annars
-						    \end{cases}    
-						\quad \quad \quad  
-						\delta(t) =
-						    \begin{cases}
-						    1, \quad t = 0 \\
-						    0, \quad annars
-						    \end{cases}\]</span></p>
+						<img src="images/LTI/StegImp1.png">
 
 						<p>Impuls- och stegsvar används ofta för att undersöka hur ett system beter sig. Hur systemet svarar på några standardsignaler, som enhetsimpulser och enhetssteg, kan vara till hjälp för att få en grundläggande bild av hur systemet fungerar. Impulssvaret kan även användas för att beräkna det som kallas för systemets överföringsfunktion, men mer om det senare!<br />
-						Impulssvar brukar betecknas med <span class="math inline">\(h(t)\)</span> för kontinuerlig tid och <span class="math inline">\(h[n]\)</span> för diskret tid. Det här: <span class="math display">\[\textbf{enhetsimpuls} \rightarrow \framebox[1.2\width]{\textbf{LTI-system}} \rightarrow \textbf{impulssvar}\]</span></p>
-						<p>kan alltså skrivas så här: <span class="math display">\[\delta (t) \rightarrow \framebox[1.2\width]{\textbf{LTI-system}} \rightarrow h(t)\]</span></p>
+						Impulssvar brukar betecknas med <span class="math inline">\(h(t)\)</span> för kontinuerlig tid och <span class="math inline">\(h[n]\)</span> för diskret tid. Det här: <img src="images/LTI/StegImp2.png"></p>
+						<p>kan alltså skrivas så här: <img src="images/LTI/StegImp3.png"></p>
 
 						<p>Kortfattat och fint!</p>
 						<p>Just för LTI-system så har man särskild nytta av impulssvaret. Det är nämligen så att man kan beräkna ett LTI-systems utsignal genom faltning av insignalen med impulssvaret. <span class="math display">\[y(t)=x(t)*h(t),\]</span> utsignalen kan fås genom faltning av insignalen med impulssvaret Detta för oss genast till frågan: Vad tusan är faltning för något?</p>
@@ -193,8 +189,11 @@
 						<p>Passa nu på att ge dig själv en välförtjänt klapp på axeln innan du går vidare till nästa kapitel!</p>
 						<h2 id="lösningar">Lösningar</h2>
 
-						<a href="#LTIQs" role="button" class="btn btn-primary" data-toggle="modal">Uppgifter</a>
+						<a href="#LTIQs" role="button" class="btn btn-primary" data-toggle="modal">Lösningar</a>
 
+						<hr>
+
+						<a href="Signaler.html" role="button" class="btn btn-primary pull-left">Signaler</a>
 
 					</div><!--end well-->
 				</div><!--end col-12-->

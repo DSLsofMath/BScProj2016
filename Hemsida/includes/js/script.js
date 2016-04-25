@@ -24,10 +24,19 @@ $(function() {
 		};
 	});
 
+	$('#LTISvar2').click(function(e) {
+
+		var answer = $('#LTI2').val();
+		e.preventDefault();
+
+		if (answer === "hej") {
+			showResult('#rightLTI2')
+		}else {
+			showResult('#wrongLTI2')
+		};	
+	});
+
 	function showResult(a) {
-		$(a).slideDown();
-		$(a).fadeTo(2000, 500).slideUp(500, function(){
-    		$(a).alert('close');
-		});
+		$(a).show().delay(200).addClass("in").fadeOut(3500);
 	};
 });
