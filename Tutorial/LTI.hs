@@ -42,13 +42,8 @@ discImpulse t | t == 0 = 1
               | otherwise = 0
 
 -- Av samma anledning som för contImpulse är vår contSteps värde vid t=0 1,
--- snarare än något som närmar sig oändligheten, vilket är mer riktigt för
+-- snarare än en oändligt brant ramp från 0 till 1, vilket är mer riktigt för
 -- helt kontinuerliga signaler.
-
--- TODO: Angående kommentaren ovan: Det är inte korrekt med något
--- värde större än 1 for contStep 0 även om ni vill ha helt
--- kontinuerliga signaler.
-
 -- | Approximativt kontinuerligt enhetssteg: 0 om t<0, 1 om t >= 0
 contStep :: ContTimeFun
 contStep t | t < 0 = 0
@@ -76,12 +71,11 @@ infixl 7 `scale`
 --undvika fel som beror på avrundning
 -- TODO: be careful with using an "absolute" epsilon for comparison of floating point numbers.
 -- Think of a = 1.0e-10 and b = 1.0e-11, then a = 10*b but still a ~= b with this definition!
--- Perhaps use abs (a/b - 1) < eps instead?
 -- Or use http://hackage.haskell.org/package/base-4.8.2.0/docs/Prelude.html#v:decodeFloat
 -- TODO: It would also be nice to cite https://github.com/sydow/ireal/
 -- TODO: It would be nice to make this code polymorphic (for any Fractional type?)
 (~=) :: Double -> Double -> Bool
-a ~= b = abs (a - b) < 1.0e-10
+a ~= b = abs (a/b - 1) < 1.0e-10
 infixl 4 ~=
 
 --Approximativ faltning i kontinuerlig tid
