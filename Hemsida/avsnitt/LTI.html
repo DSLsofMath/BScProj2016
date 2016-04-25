@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="" />
+  <title>Avsnitt 2 Om LTI-system, stegsvar, impulssvar, faltning och annat matnyttigt</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Avsnitt 2<br />
+Om LTI-system, stegsvar, impulssvar, faltning och annat matnyttigt</h1>
+<h2 class="author"></h2>
+</div>
+<h1 id="vad-menas-med-lti-system">Vad menas med LTI-system?</h1>
+<p><span class="math display">\[x(t) \rightarrow \framebox[1.2\width]{\textbf{LTI-system}} \rightarrow y(t)\]</span></p>
+<p>Linjära tidsinvarianta system, eller LTI-system, är logiskt nog system som är linjära och tidsinvarianta. Hurra för logik! Men för att den förklaringen ska bli lite mer begriplig kan det ju vara bra att reda ut vad som menas med “Linjär” och “Tidsinvariant”. Med ett linjärt system menar man, lite förenklat uttryckt, ett system där man kan separera signalerna i sina beståndsdelar. Ett tidsinvariant system är ett system vars egenskaper inte ändras med tiden. En mer detaljerad beskrivning av dessa egenskaper kommer senare men inledelsevis kan vi konstatera att ett LTI-system är ett system med fina konsekventa ekvationer som är relativt enkla att räkna på. Så rysligt praktiskt! LTI-system är något man använder sig av väldigt mycket inom signallära. Även system som egentligen inte är linjära och tidsinvarianta approximeras ofta till LTI-system, eftersom det är så mycket trevligare att räkna på LTI-system. Alla älskar LTI-system! Åtminstone jämfört med andra system som ändrar sig hela tiden och är odrägliga att försöka räkna på, usch och fy!</p>
+<h1 id="egenskaper-hos-lti-system">Egenskaper hos LTI-system</h1>
+<p>LTI-system har många trevliga egenskaper som gör att deras vänner gillar dem och deras fiender avundas dem. Nu ska vi ta en kik på ett par av de viktigaste egenskaperna.</p>
+<h2 id="linjäritet">Linjäritet</h2>
+<p>För att ett system ska vara linjärt måste det uppfylla superpositionsprincipen, vilket innebär att det är både additativt och homogent för er som tycker om att svänga er med fina ord.</p>
+<p>I ett system som är additativt kan man dela upp insignalen i mindre komponenter och kika på dessa komponenters utsignaler och dessa kan sedan kombineras till hela insignalens utsignal. Mycket praktiskt! <span class="math display">\[F(x_{1}+x_{2}) = F(x_{1}) + F(x_{2})\]</span> <span class="math display">\[x_{1}(t) + x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{Additativt system}} \rightarrow \mathrm{y_{1}(t) + y_{2}(t)}\]</span></p>
+<p>I ett homogent system kan man bryta ut skalningsfaktorer ifrån insignalen och skala om utsignalen med dessa istället. <span class="math display">\[F(a \; x) = a\;F(x)\;\;(a\; är\; en\; konstant)\]</span> <span class="math display">\[a x(t) \rightarrow \framebox[1.2\width]{\textbf{Homogent system}} \rightarrow \mathrm{a y(t)}\]</span></p>
+<p>Det är dessa två egenskaper som tillsammans utgör superpositionsprincipen. Superpositionsprincipen gör att man kan se insignalerna, och dess komponenter, till ett linjärt system som så grundläggande signaler som möjligt och sen bara skalar och kombinerar utsignalerna de genererar. Kan man visa att ett system uppfyller superpositionsprincipen har man visat att det är linjärt. Hur vet man då om systemet uppfyller superpositionsprincipen? Jo, säg att vi har två signaler <span class="math inline">\(x_1\)</span> och <span class="math inline">\(x_2\)</span>.</p>
+<p>Om systemet uppfyller superpositionsprincipen gäller då att: <span class="math display">\[F(a x_{1}+b x_{2}) = a F(x_{1}) + b F(x_{2})
+\;\;(a\; och\; b\; är\; konstanter)\]</span> <span class="math display">\[a x_{1}(t)+b x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{SuperPos. system}} \rightarrow \mathrm{a y_{1}(t)+b y_{2}(t)}\]</span> Och därmed är systemet linjärt!<br />
+<strong>Övning 1:</strong> Här följer ett kodskelett till en funktion som undersöker om ett system är Linjärt. Fyll i det som saknas.</p>
+<h2 id="tidsinvarians">Tidsinvarians</h2>
+<p>Med hur är det då med tidsinvarians? Vad är det för egenskaper som gäller där? Jo, ett system är tidsinvariant om en tidsförskjutning i insignalen ger samma tidsförskjutning i utsignalen. Alltså: <span class="math display">\[x(t-c) \rightarrow \framebox[1.2\width]{\textbf{Tidsinvariant system}} \rightarrow y(t-c)\]</span> <span class="math display">\[(c\; är\; en\; reell\; konstant)\]</span></p>
+<p><strong>Övning 2:</strong> Implementera en funktion som undersöker om ett system är tidsinvariant i kontinuerlig tid enligt följande:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isTimeInvCont ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span> <span class="dt">ContSystem</span> <span class="ot">-&gt;</span> 
+                        <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span></code></pre></div>
+<p><strong>Tips!</strong> Använd dig av följande funktion för tidsskift:<br />
+</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">timeShift ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> <span class="dt">Signal</span> a b <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Signal</span> a b 
+timeShift sig o <span class="fu">=</span> \t 
+<span class="ot">-&gt;</span> sig (t <span class="fu">-</span> o)</code></pre></div>
+<p><strong>Övning 3:</strong> Implementera en funktion som undersöker om ett system är ett LTI-system. Använd dig av funktionerna från övning 1 och 2.<br />
+<strong>Test:</strong> Använd funktionen från övning 3 för att undersöka om följande funktioner är linjära:</p>
+<ol>
+<li><p><span class="math inline">\(\pi + 2\;t\)</span></p></li>
+<li><p><span class="math inline">\(\sin(2\;t)\)</span></p></li>
+<li><p><span class="math inline">\(x/2\)</span></p></li>
+<li><p><span class="math inline">\(\cos(2^t)\)</span></p></li>
+</ol>
+<h1 id="stegsvar-och-impulsvar">Stegsvar och Impulsvar</h1>
+<p>Impulssvar och stegsvar är härligt nog ganska precis vad de låter som. Ett systems impulssvar är den utsignal man får när man skickar in en enhetsimpuls som insignal till systemet och stegsvar är systemets utsignal när man skickar in ett enhetssteg som insignal. Kommer du inte ihåg vad en enhetsimpuls eller ett enhetssteg är för något så titta tillbaka på kapitlet som heter Introduktion. I korthet så är en enhetsimpuls en signal som är definierad som 0 vid alla tidpunkter utom tiden 0 och enhetssteg är en signal definierad som 0 för negativa tidpunkter och 1 för positiva tidpunkter.</p>
+<p><span class="math display">\[u[n] = \begin{cases}
+    0, \quad n &lt; 0 \\
+    1, \quad annars
+        \end{cases}
+\quad \quad \quad  
+u(t) = 
+    \begin{cases}
+    0, \quad t &lt; 0 \\
+    1, \quad t \geq 0
+    \end{cases},\]</span> <span class="math display">\[\delta[n] = 
+    \begin{cases}
+    1, \quad t = 0 \\
+    0, \quad annars
+    \end{cases}    
+\quad \quad \quad  
+\delta(t) =
+    \begin{cases}
+    1, \quad t = 0 \\
+    0, \quad annars
+    \end{cases}\]</span></p>
+<p>Impuls- och stegsvar används ofta för att undersöka hur ett system beter sig. Hur systemet svarar på några standardsignaler, som enhetsimpulser och enhetssteg, kan vara till hjälp för att få en grundläggande bild av hur systemet fungerar. Impulssvaret kan även användas för att beräkna det som kallas för systemets överföringsfunktion, men mer om det senare!<br />
+Impulssvar brukar betecknas med <span class="math inline">\(h(t)\)</span> för kontinuerlig tid och <span class="math inline">\(h[n]\)</span> för diskret tid. Det här: <span class="math display">\[\textbf{enhetsimpuls} \rightarrow \framebox[1.2\width]{\textbf{LTI-system}} \rightarrow \textbf{impulssvar}\]</span></p>
+<p>kan alltså skrivas så här: <span class="math display">\[\delta (t) \rightarrow \framebox[1.2\width]{\textbf{LTI-system}} \rightarrow h(t)\]</span></p>
+<p>Kortfattat och fint!</p>
+<p>Just för LTI-system så har man särskild nytta av impulssvaret. Det är nämligen så att man kan beräkna ett LTI-systems utsignal genom faltning av insignalen med impulssvaret. <span class="math display">\[y(t)=x(t)*h(t),\]</span> utsignalen kan fås genom faltning av insignalen med impulssvaret Detta för oss genast till frågan: Vad tusan är faltning för något?</p>
+<h1 id="faltning">Faltning</h1>
+<p>Faltning av en signal f(t) med en signal g(t) skrivs: <span class="math inline">\(f(t)*g(t)\)</span>, dvs det skrivs precis som man ofta skriver multiplikation. Är inte det väldigt dumt undrar ni då? Svaret är ja. Ja, det är jättedumt. Dessvärre så är det så standarden ser ut. Var därför väldigt noga med att inte blanda ihop faltning och multiplikation, det har orsakat många pinsamma misstag genom tiderna.</p>
+<p>Ett tips när man beskriver signaler är att skriva multiplikation av signalerna <span class="math inline">\(x_1\)</span> och <span class="math inline">\(x_2\)</span> som <em><span class="math inline">\(x_1\)</span> <span class="math inline">\(x_2\)</span></em>, alltså att man skriver ihop dem, och faltningen av <span class="math inline">\(x_1\)</span> och <span class="math inline">\(x_2\)</span> betecknas <span class="math inline">\(x_1 * x_2\)</span>. Men se upp för att det kan blir syntaxkrockar i programmeringssammanhang, då det är standard att använda <span class="math inline">\(*\)</span> för multiplikation där, medans faltning ofta betecknas med <em>conv</em>, från engelskans convolution, eller liknande.</p>
+<p>Faltning ses ofta som en operator som är svår att förstå sig på eftersom det kan vara lite besvärligt att få en intuitiv känsla för hur och varför den fungerar. Men vi tar och benar ut den i stora drag i alla fall. Faltning har följande definition i det kontinuerliga fallet:</p>
+<p><span class="math display">\[f(t) * g(t) = \int_{0}^t  f(s) g(t-s) ds\]</span></p>
+<p>Lagar om faltning! En tumregel är att den i princip följer samma lagar som multiplikation! <span class="math display">\[f(t) * (a g(t) + b h(t) ) = a(f(t) * g(t)) + b(f(t) * h(t))\]</span> <span class="math display">\[f(t) * g(t) = g(t) * f(t)\]</span> <span class="math display">\[f(t) * (g(t) * h(t)) = (f(t) * g(t)) * h(t)\]</span> Där a och b är konstanter och f, g och h är funktioner. Det borde även nämnas att följande lagar innefattar även att <span class="math display">\[f(t) * g(t) = \int_{0}^t  f(s) g(t-s) ds = \int_{0}^t  f(t-s) g(s) = g(t) * f(t) ds\]</span></p>
+<p>Så oroa er inte om integrandens ordning! Det finns även en diskret faltning och även denna följer samma lagar som det kontinuerliga fallet.</p>
+<p><span class="math display">\[a_n * b_n = \sum_{k=0}^{N-1} a_k b_{[n-k]}, \quad [n-k] = 
+\begin{cases}
+n-k, \quad  \; n \geq k \\
+n-k+N, \quad  n &lt; k
+\end{cases}\]</span></p>
+<p>Så hur hör allt detta tillsammans med LTI-system? En tolkning av faltning är en kontinuerlig superposition av f (eller g). Men om man inte vill gå in i för djupa detaljer så är faltning i ett nötskal, inom detta området, systemets respons till en insignal. Det vill säga givet insignalen <span class="math inline">\(x(t)\)</span> och system responsen <span class="math inline">\(h(t)\)</span>, systemets utsignal <span class="math inline">\(y(t)\)</span> kan beräknas från <span class="math display">\[y(t) = x(t) * h(t)\]</span> Det vill säga utsignalen fås av en faltning mellan impulssvaret och insignalen. Om du inte vill gå in djupare på teorin så får du helt enkelt acceptera det.<br />
+<strong>Övning 4:</strong> Här följer ett kodskelett till en implementering av diskret faltning. Fyll i det som saknas.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">discConvolution ::</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Signal 1</span>
+                <span class="ot">-&gt;</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Signal 2</span>
+                <span class="ot">-&gt;</span> <span class="dt">DiscTime</span> <span class="co">-- ^ Interval length -M start</span>
+                <span class="ot">-&gt;</span> <span class="dt">DiscTime</span> <span class="co">-- ^ Interval length M slut</span>
+                <span class="ot">-&gt;</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Returnfunktion</span>
+discConvolution s0 s1 start stop <span class="fu">=</span> <span class="fu">...</span></code></pre></div>
+<p>En kanske enklare metod att beräkna faltningar presenteras i Fourier kapitlet.</p>
+<h1 id="sammanfattning">Sammanfattning</h1>
+<p>Gratulerar! Du har nu lärt dig</p>
+<ul>
+<li><p>Vad LTI-system är för något</p></li>
+<li><p>Hur man undersöker eller bevisar om ett system är ett LTI-system genom att kontrollera superposition och tidsinvarians</p></li>
+<li><p>Hur man implementerar och använder funktioner för superposition och tidsinvarians med funktionell programmering och DSL.</p></li>
+<li><p>Vad impulssvar och stegsvar är</p></li>
+<li><p>Lite om faltning</p></li>
+<li><p>Hur man kan beräkna ett LTI-systems utsignal genom faltning av insignalen med impulssvaret</p></li>
+</ul>
+<p>Passa nu på att ge dig själv en välförtjänt klapp på axeln innan du går vidare till nästa kapitel!</p>
+<h1 id="lösningar">Lösningar</h1>
+</body>
+</html>
