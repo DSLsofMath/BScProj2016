@@ -4,14 +4,22 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[backend=biber]{biblatex}
-\usepackage{hyperref,url,bbm,graphicx,icomma,units,lmodern,amsmath}
+\usepackage{hyperref,url,bbm,graphicx,icomma,units,lmodern,amsmath,glossaries}
 
 \addbibresource{referenser.bib}
 
 \date{\today}
 
+%Ordlistan skapas här.
+%Måste refereras till något med \gls{ref} för att kunna visas. 
+\makeglosarries
+\newglossaryentry{DSL} 
+{
+    name=DSL,
+    description={Domain specific language eller domän specifik språk}
+}
+
 \begin{document}
-\renewcommand*\abstractname{Sammandrag}
 
 \begin{titlepage} \newcommand{\HRule}{\rule{\linewidth}{0.3mm}}
 \center
@@ -34,9 +42,24 @@
 \end{flushleft}
 \end{titlepage}
 \newpage
-
+\renewcommand*\abstractname{Sammandrag}
 \begin{abstract}
 %En Sammandrag
+%Subject to Change!--------------------------------------------
+% Huvudpoänger:
+% * Vad är det här för projekt? (Så att läsaren kan bedöma om hen vill läsa rapporten)
+% * Jättekort om syfte, resultat etc
+% Illustration: Borde inte behövas
+Denna rapport beskriver utvecklingen av den kompletterande undervisningshandledningen “TSS och Reglerteknik med \gls{DSL}” med tillhörande programmeringskod och lösningar. Handledningen riktar sig till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom Signallära och Reglerteknik där man använder programmering med domänspecifika språk.
+
+Bakgrunden till detta projekt är att kurserna TSS och Reglerteknik på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kurserna.
+
+Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts för att ta kunna ta fram tutorialen, samt de tester som gjorts på den färdiga produkten.
+
+\end{abstract}
+\renewcommand*\abstractname{Abstract}
+\begin{abstract}
+%En abstract
 \end{abstract}
 \newpage
 
@@ -47,28 +70,22 @@
 
 \newpage
 
+\printglossary[title=Ordlista,nonumberlist]
+
+\newpage
+
 \setlength{\parskip}{2mm}
 \setlength{\parindent}{0pt}
 
 %\section{Abstract}
 
-\section{Sammanfattning}
+%\section{Sammanfattning} Flyttade denna till sammandrag
 
-% Huvudpoänger:
-% * Vad är det här för projekt? (Så att läsaren kan bedöma om hen vill läsa rapporten)
-% * Jättekort om syfte, resultat etc
-% Illustration: Borde inte behövas
-Denna rapport beskriver utvecklingen av den kompletterande undervisningshandledningen “TSS och Reglerteknik med DSL” med tillhörande programmeringskod och lösningar. Handledningen riktar sig till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom Signallära och Reglerteknik där man använder programmering med domänspecifika språk.
-
-Bakgrunden till detta projekt är att kurserna TSS och Reglerteknik på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kurserna.
-
-Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts för att ta kunna ta fram tutorialen, samt de tester som gjorts på den färdiga produkten.
-
-\section{Ordlista}
-DSL - Domain Specific Language eller Domänspecifikt språk
-GPL - General Purpose Language t.ex C, C++, Java, Haskell m.m.
-TSS - Transformer, Signal och System
-Regler - Reglerteknik
+%\section{Ordlista} Ska flyttas till en ordentlig ordlista
+%DSL - Domain Specific Language eller Domänspecifikt språk
+%GPL - General Purpose Language t.ex C, C++, Java, Haskell m.m.
+%TSS - Transformer, Signal och System
+%Regler - Reglerteknik
 
 \section{Inledning}
 
