@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleInstances #-}
+
 module LTI where
 import qualified Test.QuickCheck as Q
 
@@ -20,9 +21,8 @@ type DiscTimeFun = DiscSignal Double
 -- Notera dock att i helt kontinuerliga uträkningar, med faltningsintegraler och
 -- så vidare närmar sig enhetsimpulsens värde vid t=0 oändligheten, men är annars 0.
 -- | Approximativ kontinuerlig enhetsimpuls: 1 om t=0, annars 0
--- TODO: Notera att integralen från -Inf till Inf av denna approximation är 2, inte 1. Avsiktligt? (Förklara)
 contImpulse :: ContTime -> ContTimeFun
-contImpulse eps t | (abs t) < eps = 1/eps
+contImpulse eps t | (abs t) < (eps/2) = 1/eps
                   | otherwise = 0
 
 -- | Diskret Impuls: 1 om t=0, annars 0
@@ -71,22 +71,21 @@ infixl 4 ~=
 contConvolution :: ContTimeFun -- ^ Signal 1
                 -> ContTimeFun -- ^ Signal 2
                 -> ContTime -- ^ Starttid
-                -> ContTime -- ^ Sluttid
                 -> Double -- ^ Steg mellan samplingsintervall
                 -> ContTimeFun -- ^ Returfunktion
-contConvolution s0 s1 start stop step = sum $ map conv points
-    where points = [start, step .. stop]
+contConvolution s0 s1 interval step = (sum $ map conv points) `scale` step
+    where points = [from, (from + step) .. interval]
+          from = negate interval
           conv n m = (s0 n * (s1 (n-m)))
 
 --Faltning i diskret tid
 discConvolution :: DiscTimeFun -- ^ Signal 1
                 -> DiscTimeFun -- ^ Signal 2
                 -> DiscTime -- ^ Interval length -M start
-                -> DiscTime -- ^ Interval length M slut
                 -> DiscTimeFun -- ^ Returnfunktion
-discConvolution s0 s1 start stop = sum $ map conv points
-    where points = [start .. stop]
-
+discConvolution s0 s1 interval = sum $ map conv points
+    where points = [from .. interval]
+          from = negate interval
 -- TODO: Den här formeln ser konstig ut. Formeln måste involvera två
 -- signaler (här s0 och s1) och index till dem måste röra sig "åt
 -- olika håll", dvs. tecknet framför det index som summeras över måste
@@ -110,10 +109,10 @@ timeShift sig o = \t -> sig (t - o)
 
 -- Genererar utsignalen för enkla signaler och system
 discOutSignal :: DiscSystem -> DiscTimeFun -> DiscTimeFun
-discOutSignal sys insignal = discConvolution insignal sys (-100) 100
+discOutSignal sys insignal = discConvolution insignal sys 100
 
 contOutSignal :: ContSystem -> ContTimeFun -> ContTimeFun
-contOutSignal sys insignal = contConvolution insignal sys (-100) 100 0.1
+contOutSignal sys insignal = contConvolution insignal sys 100 0.1
 
 -- Övning: Implementera ett test för superpositionsprincipen
 --Vi har två signaler X och Y.
