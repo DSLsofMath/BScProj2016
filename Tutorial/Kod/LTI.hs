@@ -21,7 +21,7 @@ type DiscTimeFun = DiscSignal Double
 -- så vidare närmar sig enhetsimpulsens värde vid t=0 oändligheten, men är annars 0.
 -- | Approximativ kontinuerlig enhetsimpuls: 1 om t=0, annars 0
 contImpulse :: ContTime -> ContTimeFun
-contImpulse eps t | (abs t) < eps = 1/eps
+contImpulse eps t | (abs t) < (eps/2) = 1/eps
                   | otherwise = 0
 
 -- | Diskret Impuls: 1 om t=0, annars 0
