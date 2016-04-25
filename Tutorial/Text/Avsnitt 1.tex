@@ -61,59 +61,61 @@ T.ex. $7+0*j$ blir ju bara 7.
 \item $\frac{6}{5}$
 \end{enumerate}
 
-Att skriva
-\begin{minted}{haskell}
-Complex 13 37
-\end{minted}
-i vårt DSL är samma sak som att skriva 13 + 37j, där 13 är reellt och 37 är imaginärt. Det är alltså inget ‘j’ i vårt DSL som indikerar att det är imaginärt utan man måste bara skriva dem i rätt ordning. Det ser som tur liknande ut i matten så det är ganska lätt att komma ihåg! %Sista meningen är lite konstig.
+Att skriva \mintinline{haskell}{Complex 13 37} i vårt DSL är samma sak som att
+skriva $13 + 37j$, där 13 är reellt och 37 är imaginärt.
+Det är alltså inget ‘j’ i vårt DSL som indikerar att det är imaginärt utan man
+måste bara skriva dem i rätt ordning.
+Det ser som tur liknande ut i matten så det är ganska lätt att komma ihåg!
+%Sista meningen är lite konstig.
 
 Nu betraktar vi det komplexa talet $13+37j$.
 Vi döper detta till \emph{leet} så att vi slipper skriva ut alltihop i framtiden.
 \begin{minted}{haskell}
-leet = Complex 13 37
+  ghci> let leet = Complex 13 37
 \end{minted}
 Om du nu känner att du vill veta vad det reella talet i paret är,
 då kan man skriva en funktion realPart som bara ger dig den reella delen.
 \begin{minted}{haskell}
-realPart :: Complex -> Double
-realPart (Complex c) = fst c
+  realPart :: Complex -> Double
+  realPart (Complex re im) = re
 \end{minted}
-Då kan vi enkelt få fram den reella delen av \emph{leet} genom\\
-\begin{minted}{haskell}
-realPart (leet)
-\end{minted}
-vilket ger oss svaret 13.
-Se så enkelt det blev!
-Så för att få ut den imaginära delen av talet så gör vi en funktion imPart.
 
-\textbf{Övning 1:} Definiera en funktion imPart som ger imaginärdelen av ett komplext tal.
-Denna funktion bör ge: $imPart (leet) = 37$
+Nu kan vi enkelt få ut realdelen ifrån \mintinline{haskell}{leet}:
+\begin{minted}{haskell}
+  ghci> realPart leet
+  13
+\end{minted}
 
-\textbf{Övning 2:} Om vi nu skulle vilja skriva ut talet på vanligt mattespråk så skulle vi kunna göra en funktion som kan heta $printComplex$. Här får du ett kodskelett för en sådan funktion. Fyll i det som saknas.
+Se så enkelt det blev! Så för att få ut den imaginära delen av talet så gör vi
+en funktion imPart.
+
+\textbf{Övning 1:} Definiera en funktion imPart som ger imaginärdelen av ett
+komplext tal. Denna funktion bör ge: \mintinline{haskell}{imPart leet} = 37.
+
+\textbf{Övning 2:} Om vi nu skulle vilja skriva ut talet på vanligt mattespråk så
+skulle vi kunna göra en funktion som kan heta \mintinline{haskell}{printComplex}.
+Här får du ett kodskelett för en sådan funktion.
+
+Fyll i det som saknas.
 \begin{minted}{haskell}
-printComplex :: Complex -> String
-printComplex z
-  | r == 0 = show im ++ "j"
-  | im == 0 = ...
-  | otherwise = ...
-    where im = imPart z
-          r = realPart z
+  printComplex :: Complex -> String
+  printComplex z
+    | r == 0 = show im ++ "j"
+    | im == 0 = undefined
+    | otherwise = undefined
+      where im = imPart z
+            r = realPart z
 \end{minted}
-Om vi då kör
+
+\textbf{Exempel:}
 \begin{minted}{haskell}
-printComplex 5 12
+  ghci> printComplex (Complex 5 12)
+  ``5 + 12j''
 \end{minted}
-får vi:
+
 \begin{minted}{haskell}
-5 + 12j
-\end{minted}
-Och
-\begin{minted}{haskell}
-printComplex (leet)
-\end{minted}
-ger oss:
-\begin{minted}{haskell}
-13 + 37j
+  ghci> printComplex leet
+  ``13 + 37j''
 \end{minted}
 
 Hur skulle man då göra för att faktiskt räkna på detta?
