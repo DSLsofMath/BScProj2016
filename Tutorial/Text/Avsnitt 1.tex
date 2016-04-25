@@ -1,13 +1,14 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
-\usepackage{amssymb, amsmath, lmodern, units, icomma, color, graphicx, bbm, hyperref, pdfpages, csquotes, listings, subcaption}
+\usepackage{amssymb, amsmath, lmodern, units, icomma, color, graphicx, bbm, hyperref, pdfpages, csquotes, listings, subcaption, epstopdf}
 
 \usepackage{caption}
 \usepackage{blindtext}
 \usepackage[inline]{enumitem}
 \usepackage{minted}
-\graphicspath{ {images/} }
+\usemintedstyle{friendly}
+\graphicspath{ {../Images/} }
 %\usepackage{xcolor}
 
 \setlength{\parindent}{0em}
@@ -115,7 +116,7 @@ Addition för komplexa tal är ganska lätt om ni kommer ihåg det. Om man är r
 instance Num Complex where
     z + w           = Complex (...)
 \end{minted}
-Test: Vad får man om man \underline{adderar} $10 + 5j$ med $2 -1j$? Bekräfta med programmet.\\
+\textbf{Test:} Vad får man om man \underline{adderar} $10 + 5j$ med $2 -1j$? Bekräfta med programmet.
 
 Multiplikation blir lite krångligare. Om vi multiplicerar två komplexa tal, vi kallar dem z och w, ser det ut såhär:
 \begin{minted}{haskell}
@@ -196,14 +197,14 @@ som menas med kontinuerliga och diskreta variabler.
 Att en variabel är kontinuerlig innebär att den har ett oändligt antal värden
 även om det bara är definierad i ett visst intervall. Om vi t.ex. betecknar
 tiden mellan kl 14:00 och 15:00 med variabeln t så har den ett oändligt antal
-möjliga värden i  intervallet $14 < t < 15$. Variabeln t kan då t.ex. anta
+möjliga värden i intervallet $14 < t < 15$. Variabeln t kan då t.ex. anta
 värdet $14.6$, men den kan också anta värdet $14.6000000001$. Det finns helt
 enkelt ingen gräns för hur många värden t kan anta, även om intervallet är
 begränsat.
 
 Här kan du se ett exempel på en kontinuerlig funktion, $f(t)=2t$
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=0.55]{image06.png}}
+\centerline{\includegraphics[scale=0.55]{image06}}
 \caption{}
 \label{}
 \end{figure}
@@ -241,7 +242,7 @@ Det är möjligt, och rentav vanligt att approximera en kontinuerlig signal med 
 %*Bild på en kontinuerlig signal, t.ex. f(t)= sin(2t) och en diskret approximation av den.
 
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=0.55]{diskretisering.eps}}
+\centerline{\includegraphics[scale=0.55]{images/diskretisering.eps}}
 \caption{En kontinuerlig signal $f(t) = \sin(2 t)$ och dess diskreta approximation.}
 \label{}
 \end{figure}
