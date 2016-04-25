@@ -73,7 +73,7 @@ contConvolution :: ContTimeFun -- ^ Signal 1
                 -> ContTime -- ^ Starttid
                 -> Double -- ^ Steg mellan samplingsintervall
                 -> ContTimeFun -- ^ Returfunktion
-contConvolution s0 s1 interval step = (sum $ map conv points)
+contConvolution s0 s1 interval step = (sum $ map conv points) `scale` step
     where points = [from, (from + step) .. interval]
           from = negate interval
           conv n m = (s0 n * (s1 (n-m)))
