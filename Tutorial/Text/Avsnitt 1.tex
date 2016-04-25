@@ -53,11 +53,11 @@ T.ex. $7+0*j$ blir ju bara 7. \\
 \item $\frac{6}{5}$
 \end{enumerate}
 
-Att skriva:
+Att skriva
 \begin{minted}{haskell}
 Complex 13 37
 \end{minted} 
-i vårt DSL är samma sak som att skriva 13 + 37j, där 13 är reellt och 37 är imaginärt. Det är alltså inget ‘j’ i vårt DSL som indikerar att det är imaginärt utan man måste bara komma ihåg ordningen på dem. Det ser som tur liknande ut i matten så det är ganska lätt att komma ihåg!  
+i vårt DSL är samma sak som att skriva 13 + 37j, där 13 är reellt och 37 är imaginärt. Det är alltså inget ‘j’ i vårt DSL som indikerar att det är imaginärt utan man måste bara skriva dem i rätt ordning. Det ser som tur liknande ut i matten så det är ganska lätt att komma ihåg! %Sista meningen är lite konstig. 
 
 Nu betraktar vi det komplexa talet 13+37j. Vi döper detta till \emph{leet} så att vi slipper skriva ut alltihop i framtiden. \\
 \begin{minted}{haskell}
@@ -130,7 +130,8 @@ Vilket då blir samma sak som:
 $$z \; w = (Re(Z) * Re(W) - Im(Z)*Im(W)) + (Re(Z)*Im(W) + Re(W)*Im(Z))j$$
 \textbf{Test:} Vad får man om man \underline{multiplicerar} $10 + 5j$ med $2 -1j$? Bekräfta med programmet.
 
-Man behöver också ha med negation vilket behövs på båda parter. 
+Det kan även vara bra att ha en funktion som negerar ett komplext tal. T.ex. $13+37j$ ska då alltså bli $-13-37j$
+
 \textbf{Övning 4:} Här är ett kodskellet till funktionen negate. Fyll i det som ska stå i parentesen.
 \begin{minted}{haskell}
 negate z        = Complex (...)
@@ -245,10 +246,8 @@ Det är möjligt, och rentav vanligt att approximera en kontinuerlig signal med 
 \end{figure}
 
 \subsection{Periodiska Signaler}
-En periodisk signal är precis som det låter, en signal som efter ett visst
-tidsintervall, som kallas signalens period, kommer att fungera precis som den
-gjorde tidigare. Motsatsen till detta skulle då vara en aperiodisk signal.
-Denna typ kan vara aperiodisk om till exempel intervallet mellan varje
+En periodisk signal är precis som det låter, en signal som upprepar sig efter ett visst tidsintervall, som kallas signalens period. Motsatsen till detta kallas för en aperiodisk signal.
+En signal kan vara aperiodisk om till exempel intervallet mellan varje
 upprepning minskar eller om det aldrig upprepas alls.
 
 Lite mer formellt definieras en periodisk signal så här:\\
@@ -271,33 +270,65 @@ contHasPeriod signal step period =
             signal t ~= signal (t+period)
 \end{minted}
 
+\textbf{Kryssfråga 6:} I bilden nedan ser du en funktion, $f(t)=0,5\sin(2t)$. Vad har den för period?
+\begin{enumerate}[label={\alph*)},font={\bfseries}]
+    \item $\pi$
+    \item 2 $\pi$
+    \item 2
+\end{enumerate}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[scale=0.50]{image08.png}}
+\caption{funktionen $f(t) = 0.5 \sin(2t)$}
+\label{}
+\end{figure}
+
+\newpage
+
+Kryssfråga 7: Här nedan ser vi en annan funktion, f(t)=3cos(0.25t). Vad har den för period?
+\begin{enumerate}[label={\alph*)},font={\bfseries}]
+    \item $\frac{1}{4}\pi$
+    \item $8\pi$
+    \item $3\pi$
+\end{enumerate}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[scale=0.50]{image11.png}}
+\caption{}
+\label{}
+\end{figure}
+
 Vad har man då för nytta av att kunna avgöra om en signal är periodisk? Jo, en periodisk signal kan utvecklas till en Fourier serie. Mer om detta i avsnitt 3.
+
+\newpage
 
 \subsection{Udda och Jämna Signaler}
 
 Eftersom signaler kan betraktas som matematiska funktioner kan vi säga att vi har udda och jämna signaler, precis som vi har jämna och udda funktioner. En funktion kan vara jämn, udda eller inget utav dem.
 
-En funktion f är jämn om $f(x)$ är samma som $f(-x)$.  I den vänstra bilden här nedan ser du ett exempel på en jämn funktion, $f(x)=\cos(x)$. Notera att vilken punkt du än tittar på gäller alltid  $f(x) = f(-x)$.
+En funktion f är jämn om $f(x)$ är samma som $f(-x)$.  I den vänstra bilden här nedan ser du ett exempel på en jämn funktion, $f(x)=\cos(x)$. Notera att vilken punkt du än tittar på i figur 6a här nedan så gäller alltid  $f(x) = f(-x)$.
 
-\begin{figure}[]
+En funktion f är udda om $f(-x)$ är samma som $-f(x)$. I den högra bilden nedan ser du ett exempel på en udda funktion , $f(x)=sin(x)$. Notera att vilken punkt du än tittar på i figur 6b här nedan så gäller alltid $f(-x) = -f(x)$.
+
+\begin{figure}[ht]
 \centering
 \begin{subfigure}{0.50\textwidth}
   \centering
   \includegraphics[width=0.90\linewidth]{image09.png}
-  \caption{}
+  \caption{Jämn funktion}
   \label{}
 \end{subfigure}%
 \begin{subfigure}{0.50\textwidth}
   \centering
   \includegraphics[width=0.90\linewidth]{image14.png}
-  \caption{}
+  \caption{Udda funktion}
  \label{}
 \end{subfigure}%
 \caption{}
 \label{}
 \end{figure}
 
-En funktion f är udda om $f(-x)$ är samma som $-f(x)$. I den högra bilden nedan ser du ett exempel på en udda funktion , $f(x)=sin(x)$. Notera att vilken punkt du än tittar på gäller alltid $f(-x) = -f(x)$.
+
 
 Alltså:\\
 Jämn funktion:\hfill Udda funktion: \\
@@ -305,46 +336,35 @@ $ f(x)=f(-x)$ \hfill $f(-x)=-f(x) $
 
 Varför är det då bra att veta om en signal är jämn eller udda? Mer om det kommer i avsnittet om Fourierserier!
 
-\textbf{Kryssfråga 6:} I bilden nedan ser du en funktion, $f(t)=0,5\sin(2t)$. Vad har den för period?
-\begin{enumerate}[label={\alph*)},font={\bfseries}]
-    \item $\pi$
-    \item 2 $\pi$
-    \item 2
-\end{enumerate}
 \newpage
+
+\textbf{Kryssfråga 8:} Är funktionen $f(t)=0,5\sin(2t)$ här nedan jämn, udda eller ingetdera?
+\begin{enumerate}[label={\alph*)},font={\bfseries}]
+    \item Jämn
+    \item Udda
+    \item Ingetdera
+\end{enumerate}
+
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.50]{image08.png}}
 \caption{funktionen $f(t) = 0.5 \sin(2t)$}
 \label{}
 \end{figure}
-\textbf{Kryssfråga 7:} Är funktionen funktionen $f(t)=0,5\sin(2t)$ jämn, udda eller ingetdera?
+
+\newpage
+
+Kryssfråga 9: Är funktionen $f(t)=3\cos(0.25t)$ här nedan jämn, udda eller ingetdera?
 \begin{enumerate}[label={\alph*)},font={\bfseries}]
     \item Jämn
     \item Udda
     \item Ingetdera
 \end{enumerate}
 
-
-Kryssfråga 8: Här nedan ser vi en annan funktion, f(t)=3cos(0.25t). Vad har den för period?
-\begin{enumerate}[label={\alph*)},font={\bfseries}]
-    \item $\frac{1}{4}\pi$
-    \item $8\pi$
-    \item $3\pi$
-\end{enumerate}
-\newpage
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.50]{image11.png}}
 \caption{}
 \label{}
 \end{figure}
-
-Kryssfråga 9: Är funktionen $f(t)=3\cos(0.25t)$ jämn, udda eller ingetdera?
-\begin{enumerate}[label={\alph*)},font={\bfseries}]
-    \item Jämn
-    \item Udda
-    \item Ingetdera
-\end{enumerate}
-
 
 Då ska vi se hur man kan implementera det här! En funktion som avgör om en signal är udda kan se ut så här:
 \begin{minted}{haskell}
@@ -450,7 +470,7 @@ Det vill säga om tiden eller argumentet inuti funktionen är större eller lika
 \label{}
 \end{figure}
 
-\textbf{Övning:} Här får du ett kodskelett till en definition av ett diskret enhetssteg med DSL. Fyll i det som saknas.
+\textbf{Övning 9:} Här får du ett kodskelett till en definition av ett diskret enhetssteg med DSL. Fyll i det som saknas.
 \begin{minted}{haskell}
 discStep :: DiscTimeFun
 discStep n | ...
@@ -475,9 +495,11 @@ Gratulerar! Du har nu lärt dig följande:
 \item Hur man implementerar diskreta enhetssteg och enhetsimpulser med DSL.
 \end{itemize}
 
-\large{Bilderna i detta kapitel är gjorda i:} \\
-MATLAB: Figur 4, 9, 10 och 11 \\
-FOOPLOT: Figur 1, 2, 3, 5, 6, 7 och 8
+Bilderna i detta kapitel är gjorda i:  
+\begin{itemize}
+\item MATLAB: Figur 4, 11, 12 och 13
+\item FOOPLOT: Figur 1, 2, 3, 5, 6, 7, 8, 9 och 10
+\end{itemize}
 
 \newpage
 \section{Lösningar}
@@ -536,11 +558,12 @@ contHasPeriod signal step period =
     where hasPeriod signal period t = 
                             signal t ~= signal (t+period)
 \end{minted}
+
 \textbf{Kryssfråga 6:} a) $\pi$
 
-\textbf{Kryssfråga 7:} b) Udda
+\textbf{Kryssfråga 7:} b) $8\pi$
 
-\textbf{Kryssfråga 8:} b) $8\pi$
+\textbf{Kryssfråga 8:} b) Udda
 
 \textbf{Kryssfråga 9:} a) Jämn
 
