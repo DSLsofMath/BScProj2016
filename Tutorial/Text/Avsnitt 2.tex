@@ -33,7 +33,7 @@ beståndsdelar. Ett tidsinvariant system är ett system vars egenskaper inte
 ändras med tiden. En mer detaljerad beskrivning av dessa egenskaper kommer
 senare men inledelsevis kan vi konstatera att ett LTI-system är ett system
 med fina konsekventa ekvationer som är relativt enkla att räkna på. Så
-rysligt praktiskt! \\
+rysligt praktiskt!
 %------------------------------------------------------------------
 %*Ev Bild på några olika linjära ekv. i kordinatsystem
 \newline
@@ -61,7 +61,7 @@ $$F(x_{1}+x_{2}) = F(x_{1}) + F(x_{2})$$
 $$x_{1}(t) + x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{Additativt system}} \rightarrow \mathrm{y_{1}(t) + y_{2}(t)}$$
 
 I ett homogent system kan man bryta ut skalningsfaktorer ifrån insignalen och skala om utsignalen med dessa istället.
-$$F(a \; x) = a\;F(x)\;\;(a\; är\; en\; konstant) $$
+$$F(a \; x) = a\;F(x)\;\;\mathrm{(a\; är\; en\; konstant)} $$
 $$a x(t) \rightarrow \framebox[1.2\width]{\textbf{Homogent system}} \rightarrow \mathrm{a y(t)}$$
 
 Det är dessa två egenskaper som tillsammans utgör superpositionsprincipen.
@@ -80,7 +80,21 @@ $$a x_{1}(t)+b x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{SuperPos. syste
 $$
 Och därmed är systemet linjärt!\\
 
-\textbf{Övning 1:} Här följer ett kodskelett till en funktion som undersöker om ett system är Linjärt. Fyll i det som saknas.
+\textbf{Övning 1:} Här följer ett kodskelett till en funktion som undersöker om ett
+system är Linjärt. Fyll i det som saknas.
+\begin{minted}{haskell}
+isLinearDisc :: DiscTimeFun -- ^ Insignal 1
+            -> DiscTimeFun -- ^ Insignal 2
+            -> DiscSystem  -- ^ System
+            -> Double -- ^ Skalningsfaktor 1
+            -> Double -- ^ Skalningsfaktor 2
+            -> DiscTime -- ^ Tid då vi mäter
+            -> Bool
+isLinearDisc x0 x1 sys a b t = undefined
+\end{minted}
+
+\textbf{Tips!} Du kommer behöva skala om signalerna, kolla i {\tt Signals.hs} efter en
+lämplig funktion.
 
 \subsection{Tidsinvarians}
 Med hur är det då med tidsinvarians? Vad är det för egenskaper som gäller
@@ -96,15 +110,15 @@ isTimeInvCont :: ContTimeFun -> ContSystem ->
 
 \end{minted}
 
-\textbf{Tips!} Använd dig av följande funktion för tidsskift:\\
+\textbf{Tips!} Använd dig av följande funktion för tidsskift:
 
 \begin{minted}{haskell}
-timeShift :: Num a => Signal a b -> a -> Signal a b 
-timeShift sig o = \t 
--> sig (t - o)
+timeShift :: Num time => Signal time val
+          -> time -> time -> Signal time val
+timeShift sig o t = sig (t - o)
 \end{minted}
 
-\textbf{Övning 3:} Implementera en funktion som undersöker om ett system är ett LTI-system. Använd dig av funktionerna från övning 1 och 2. \\
+\textbf{Övning 3:} Implementera en funktion som undersöker om ett system är ett LTI-system. Använd dig av funktionerna från övning 1 och 2.
 
 \textbf{Test:}
 Använd funktionen från övning 3 för att undersöka om följande funktioner är linjära:
@@ -170,7 +184,8 @@ Kortfattat och fint!
 
 Just för LTI-system så har man särskild nytta av impulssvaret. Det är
 nämligen så att man kan beräkna ett LTI-systems utsignal genom faltning av insignalen med impulssvaret.
-$$ y(t)=x(t)*h(t)$$ 
+$$ y(t)=x(t)*h(t),$$ 
+utsignalen kan fås genom faltning av insignalen med impulssvaret
 Detta för oss genast till frågan: Vad tusan är faltning för något?
 
 \section{Faltning}
@@ -182,14 +197,16 @@ standarden ser ut. Var därför väldigt noga med att inte blanda ihop faltning
 och multiplikation, det har orsakat många pinsamma misstag genom tiderna.
 \newline
 
-Ett tips när du beskriver signaler är att skriva multiplikation
+Ett tips när man beskriver signaler är att skriva multiplikation
 av signalerna $x_1$ och $x_2$ som \emph{$x_1$ $x_2$}, alltså att man skriver ihop dem,
 och faltningen av $x_1$ och $x_2$ betecknas $x_1 * x_2$. Men se upp för att det
 kan blir syntaxkrockar i programmeringssammanhang, då det är standard att
-använda $*$ för multiplikation där, medans faltning ofta betecknas med tex \emph{conv}, från engelskans convolution, eller liknande.
+använda $*$ för multiplikation där, medans faltning ofta betecknas med \emph{conv}, från engelskans convolution, eller liknande.
 
 
-Faltning är en operator som det kan vara lite besvärligt att få en intuitiv känsla för. I det här avsnittet kommer vi endast gå in lite löst på \textsl{varför} den fungerar som den gör och mest konstatera \textsl{att} den fungerar. Men vi tar och benar ut den i stora drag i alla fall.
+Faltning ses ofta som en operator som är svår att förstå sig på eftersom
+det kan vara lite besvärligt att få en intuitiv känsla för hur och varför
+den fungerar. Men vi tar och benar ut den i stora drag i alla fall.
 Faltning har följande definition i det kontinuerliga fallet:
 
 $$ f(t) * g(t) = \int_{0}^t  f(s) g(t-s) ds $$
@@ -232,7 +249,7 @@ Så hur hör allt detta tillsammans med LTI-system? En tolkning av faltning
 är en kontinuerlig superposition av f (eller g). Men om man inte vill gå in
 i för djupa detaljer så är faltning i ett nötskal, inom detta området,
 systemets respons till en insignal. Det vill säga givet insignalen $x(t)$
-och impulssvaret $h(t)$, kan systemets utsignal $y(t)$  beräknas från
+och system responsen $h(t)$, systemets utsignal $y(t)$ kan beräknas från
 $$y(t) = x(t) * h(t) $$
 Det vill säga utsignalen fås av en faltning mellan impulssvaret och insignalen. Om du inte vill gå in djupare på teorin så får du helt enkelt acceptera det.
 \\
@@ -242,10 +259,10 @@ Här följer ett kodskelett till en implementering av diskret faltning. Fyll i d
 \begin{minted}{haskell}
 discConvolution :: DiscTimeFun -- ^ Signal 1
                 -> DiscTimeFun -- ^ Signal 2
-                -> DiscTime -- ^ Interval length -M start
-                -> DiscTime -- ^ Interval length M slut
+                -> DiscTime -- ^ Avstånd från 0,
+                -- intervallet sträcker sig från -limit .. limit
                 -> DiscTimeFun -- ^ Returnfunktion
-discConvolution s0 s1 start stop = ...
+discConvolution s0 s1 limit = undefined
 \end{minted}
 En kanske enklare metod att beräkna faltningar presenteras i Fourier kapitlet.
 \newpage
@@ -269,5 +286,37 @@ Passa nu på att ge dig själv en välförtjänt klapp på axeln innan du går v
 %\end{itemize}
 
 \section{Lösningar}
+
+Övning 1
+isLinearDisc :: DiscTimeFun -- ^ Insignal 1
+            -> DiscTimeFun -- ^ Insignal 2
+            -> DiscSystem  -- ^ System
+            -> Double -- ^ Skalningsfaktor 1
+            -> Double -- ^ Skalningsfaktor 2
+            -> DiscTime -- ^ Tid då vi mäter
+            -> Bool
+isLinearDisc x0 x1 sys a b t = testAt (y0' + y1') (y0 `scale` a + y1 `scale` b) t
+    where y0  = discOutSignal sys x0
+          y1  = discOutSignal sys x1
+          y0' = discOutSignal sys (x0 `scale` a)
+          y1' = discOutSignal sys (x1 `scale` b)
+          testAt a b t = a t ~= b t
+          
+Övning 2
+isTimeInvCont :: ContTimeFun -> ContSystem -> ContTime -> ContTime -> Bool
+isTimeInvCont x sys t c = y' t ~= (timeShift y c) t
+    where x' = timeShift x c
+          y  = contOutSignal sys x
+          y' = contOutSignal sys x'
+          
+Övning 4
+discConvolution :: DiscTimeFun -- ^ Signal 1
+                -> DiscTimeFun -- ^ Signal 2
+                -> DiscTime -- ^ Interval length -M start
+                -> DiscTimeFun -- ^ Returnfunktion
+discConvolution s0 s1 interval = sum $ map conv points
+    where points = [from .. interval]
+          from = negate interval
+          conv n m = (s0 n * (s1 (n-m)))
 
 \end{document}
