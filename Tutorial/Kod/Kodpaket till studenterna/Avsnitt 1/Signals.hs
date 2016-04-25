@@ -47,11 +47,6 @@ infixl 7 `scale`
 a ~= b = abs (a - b) < 1.0e-10
 infixl 4 ~=
 
--- | Undersöker om en signal har en specifik period. För enkelhetens skull antar vi
--- här att signalen är fortsatt periodisk om den är periodisk i 2 perioder.
-contHasPeriod :: ContTimeFun -> ContTime -> Double -> Bool
-contHasPeriod signal step period = and $ map () [0, step .. period]
-    where hasPeriod signal period t = signal t ~= signal (t+period)
 
 -- | Signalen är jämn om X(-t) = X(t).
 contIsEven :: ContTimeFun -> ContTime -> Double -> Bool
