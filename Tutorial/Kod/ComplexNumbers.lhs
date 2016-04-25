@@ -12,7 +12,7 @@ Där första komponenten representerar realdelen och den andra komponenten imagi
 > realPart (Complex re im) = re
 
 > imPart :: Complex -> Double
-> imPart (Complex re im) = re
+> imPart (Complex re im) = im
 
 > conjugate :: Complex -> Complex
 > conjugate z = Complex (realPart z) (negate (imPart z))
