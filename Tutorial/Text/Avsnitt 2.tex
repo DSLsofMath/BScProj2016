@@ -35,7 +35,6 @@ senare men inledelsevis kan vi konstatera att ett LTI-system är ett system
 med fina konsekventa ekvationer som är relativt enkla att räkna på. Så
 rysligt praktiskt!
 
-
 %------------------------------------------------------------------
 %*Ev Bild på några olika linjära ekv. i kordinatsystem
 \newline
@@ -80,11 +79,12 @@ $$F(a x_{1}+b x_{2}) = a F(x_{1}) + b F(x_{2})
 \;\;(a\; och\; b\; är\; konstanter) $$
 $$a x_{1}(t)+b x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{SuperPos. system}} \rightarrow \mathrm{a y_{1}(t)+b y_{2}(t)}
 $$
-Och därmed är systemet linjärt!\\
-%TODO: normalt sett borde \\ resp \newline i slutet av en paragraf bytas ut more bara en vanlig tomrad (här och nedan)
+
+Och därmed är systemet linjärt!
 
 \textbf{Övning 1:} Här följer ett kodskelett till en funktion som undersöker om ett
 system är Linjärt. Fyll i det som saknas.
+
 \begin{minted}{haskell}
 isLinearDisc :: DiscTimeFun -- ^ Insignal 1
             -> DiscTimeFun -- ^ Insignal 2
@@ -179,7 +179,7 @@ Impuls- och stegsvar används ofta för att undersöka hur ett system beter sig.
 Hur systemet svarar på några standardsignaler, som enhetsimpulser och
 enhetssteg, kan vara till hjälp för att få en grundläggande bild av hur
 systemet fungerar. Impulssvaret kan även användas för att beräkna det som
-kallas för systemets överföringsfunktion, men mer om det senare! \\
+kallas för systemets överföringsfunktion, men mer om det senare!
 \newline
 Impulssvar brukar betecknas med $h(t)$ för kontinuerlig tid och $h[n]$ för diskret tid.
 Det här:
