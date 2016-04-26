@@ -49,6 +49,10 @@ TODO: "name and reuse" something like showIm im = show im ++ "j" to make it easy
 >           r   = realPart z
 >           imj = show im ++ "j"
 
+> -- | Skapar ett komplext tal utifrån en vinkel.
+> euler :: Double -> Complex
+> euler phi = Complex (cos phi) (sin phi)
+
 > instance Show Complex where
 >     show = printComplex
 
@@ -97,9 +101,9 @@ Division utförs genom att man förlänger hela bråket med nämnarens konjugat
 >               ww' = w * (conjugate w)
 
 En kvot av två heltal är helt reell och därför kommer imaginärdelen vara 0
-TODO: Bättre att göra som med (fromInteger n) ovan - det blir en effektivare beräkning.
 
->     fromRational z = fromInteger (numerator z) / fromInteger (denominator z)
+>     fromRational z = Complex re 0
+>         where re = fromInteger (numerator z) / fromInteger (denominator z)
 
 Garanterar att imaginärdelen alltid är 0 ifrån en fromRational
 
@@ -114,11 +118,8 @@ Det komplexa talet pi är ett tal med realdelen pi och imaginärdelen 0
 
 Potenslagarna ger att e^(a+bj) <=> e^a * e^bj och
 Eulers formel ger att e^bj <=> cos b + jsin b
-TODO: Bättre att göra som med (fromInteger n) ovan - det blir en effektivare beräkning.
 
 >     exp z = scale (exp (realPart z)) (euler (imPart z))
->         -- Skapar ett trigonometriskt komplext tal utifrån en vinkel
->         where euler phi = Complex (cos phi) (sin phi)
 
 Eulers formel ger att man kan skriva om sin x som (e^jx - e^-jx)/2j
 Eftersom vi definerat exponentialfunktionen för komplexa tal kan vi använda
@@ -137,7 +138,6 @@ Eulers formel ger att man kan skriva om cos x som (e^jx + e^-jx)/2
 Eulers formel ger att z = re^(j*phi) och eftersom log och exponentialfunktionen
 är varandras inverser och logaritmlagarna ger ex. `log (a*b)` <=> `log a + log b`.
 Därför kan vi skriva log `z = log r + log (e^(j*phi))` = `log r + j*phi`
-TODO: Något fel med ` ovan
 
 >     log z = Complex (logR (abs z)) (arg z)
 >         where logR = log . realPart
