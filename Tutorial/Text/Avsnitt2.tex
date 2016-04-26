@@ -225,19 +225,31 @@ $$f(t) * (a g(t) + b h(t) ) = a(f(t) * g(t)) + b(f(t) * h(t))$$ % Linjaritet
 $$f(t) * g(t) = g(t) * f(t) $$ %Kommutative
 $$f(t) * (g(t) * h(t)) = (f(t) * g(t)) * h(t) $$ %Associative
 Där a och b är konstanter och f, g och h är funktioner. Det borde även nämnas att följande lagar innefattar även att
-%**TODO: "ds" har hamnat på fel ställe - borde vara före sista likhetstecknet.
-$$ f(t) * g(t) = \int_{0}^t  f(s) g(t-s) ds = \int_{0}^t  f(t-s) g(s) = g(t) * f(t) ds $$
+
+$$ f(t) * g(t) = \int_{0}^t  f(s) g(t-s) ds = \int_{0}^t  f(t-s) g(s) ds = g(t) * f(t) $$
 
 Så oroa er inte om integrandens ordning! Det finns även en diskret faltning och även denna följer samma lagar som det kontinuerliga fallet.
 
-%TODO: notationen med [n-k] behöver förklaras mer (eller ändras).
+%TODO: notationen med [n-k] behöver förklaras mer (eller ändras). -Pending
 
-$$a_n * b_n = \sum_{k=0}^{N-1} a_k b_{[n-k]}, \quad [n-k] =
-\begin{cases}
-n-k, \quad  \; n \geq k \\
-n-k+N, \quad  n < k
-\end{cases}
-$$
+%Denna kommer ifrån en definition där det inte finns negativa talserie det vill säga $a_{-1}$
+%$$a_n * b_n = \sum_{k=0}^{N-1} a_k b_{[n-k]}, \quad [n-k] = 
+%\begin{cases}
+%n-k, \quad  \; n \geq k \\
+%n-k+N, \quad  n < k
+%\end{cases}
+%$$
+%Den konstiga notationen $[n-k]$ finns för att talserierna $a_n$ och $b_n$ inte tar negativa index. Alltså för att motverka detta så adderas N då k > n. %kanske ska skrivas lite mer utförligt.
+%kanske tydligare om vi istället skriver
+%$$ a[n] * b[n] = (\sum_{k=0}^{n} a[k] b[n-k]) +  \sum_{k=n+1}^{N-1} a[k] b[n-k]
+
+%Här är den allmänna definitionen
+$$a[n] * b[n] = \sum_{k=-\infty}^{\infty} a[k] b[n-k]$$
+Eller om det finns en finit antal värden i talserien. %Vi säger 2N+1 tal
+$$a[n] * b[n] = \sum_{k=-N}^{N} a[k] b[n-k]$$
+%Problemet jag har med denna definition är ju att det känns som om den stiger ifrån den definierade mängden... Men den borde vara korrekt.
+%Välj den variant ni tror användes i kursen vilket lämnas till gruppen. 
+
 
 %Detta är en kladdig förklaring på varför det blir en faltning i ett LTI system. Kan tas bort.
 %------------------------------------------------------------
