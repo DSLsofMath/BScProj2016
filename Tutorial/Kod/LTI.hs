@@ -67,7 +67,7 @@ infixl 7 `scale`
 a ~= b = abs (a/b - 1) < 1.0e-10
 infixl 4 ~=
 
---Approximativ faltning i kontinuerlig tid
+-- | Approximativ faltning i kontinuerlig tid
 contConvolution :: ContTimeFun -- ^ Signal 1
                 -> ContTimeFun -- ^ Signal 2
                 -> ContTime -- ^ Starttid
@@ -76,9 +76,9 @@ contConvolution :: ContTimeFun -- ^ Signal 1
 contConvolution s0 s1 interval step = (sum $ map conv points) `scale` step
     where points = [from, (from + step) .. interval]
           from = negate interval
-          conv n m = (s0 n * (s1 (n-m)))
+          conv n m = (s0 (n - m) * (s1 m))
 
---Faltning i diskret tid
+-- | Faltning i diskret tid
 discConvolution :: DiscTimeFun -- ^ Signal 1
                 -> DiscTimeFun -- ^ Signal 2
                 -> DiscTime -- ^ Interval length -M start
@@ -86,16 +86,7 @@ discConvolution :: DiscTimeFun -- ^ Signal 1
 discConvolution s0 s1 interval = sum $ map conv points
     where points = [from .. interval]
           from = negate interval
--- TODO: Den här formeln ser konstig ut. Formeln måste involvera två
--- signaler (här s0 och s1) och index till dem måste röra sig "åt
--- olika håll", dvs. tecknet framför det index som summeras över måste
--- vara olika för s0 och för s1. Här är det inte tydligt vilket index
--- ni summerar över, men om det är m saknas det som arg. till s0 och
--- om det är n är tecknet fel. Det var nästan rätt förut. (Passa på
--- att förklara detta lite mer för läsarna - det är uppenbarligen lite
--- klurigt att få det rätt!)
--- https://en.wikipedia.org/wiki/Convolution#Discrete_convolution
-          conv n m = (s0 n * (s1 (n-m)))
+          conv n m = (s0 (n - m) * (s1 m))
 
 --Ett System kan betraktas som en funktion för signaler
 type DiscSystem = DiscTimeFun
