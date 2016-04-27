@@ -7,17 +7,13 @@
 \usepackage{hyperref,url,bbm,graphicx,icomma,units,lmodern,amsmath,glossaries}
 
 \addbibresource{referenser.bib}
+\loadglsentries{ordlista.tex}
 
 \date{\today}
 
 %Ordlistan skapas här.
 %Måste refereras till något med \gls{ref} för att kunna visas.
 \makeglosarries
-\newglossaryentry{DSL}
-{
-    name=DSL,
-    description={Domain specific language eller domän specifik språk}
-}
 
 \begin{document}
 
@@ -105,7 +101,7 @@ The report further describes the surveying and analysis done to be able to produ
 På Chalmers Tekniska Högskola har det funnits en lång trend där
 studenterna på utbildningen för Datateknik har haft svårigheter
 med kurserna \textit{Transformer, Signaler och System}, hädanefter omnämnd
-som ''TSS'', och \textit{Reglerteknik}.
+som ''\gls{TSS}'', och \textit{Reglerteknik}.
 Dessa svårigheter tror examinatorerna i kurserna beror till stor del på att
 studenterna inte är tillräckligt bekväma i det matematiska språket.
 Studenterna på Datateknik har inte tillräcklig vana att tolka innebörden av de matematiska beskrivningarna och är allmänt ovana vid matematiskt hantverk.
@@ -153,7 +149,7 @@ datatekniska utbildningen på Chalmers tekniska högskola.
 \section{Teori - Teknisk bakgrund om DSL mm}
 
 % Allmänt om DSL
-Ett DSL är ett programmeringsspråk som till skillnad från ett GPL, är anpassat
+Ett DSL är ett programmeringsspråk som till skillnad från ett \gls{GPL}, är anpassat
 för endast en specifik domän. De har alltid funnits sedan programmering
 skapades och exempel på DSL är HTML, MatLab och rpgmaker. Ett DSL kan
 byggas upp från grunden eller vara utvecklat från ett redan existerande GPL
