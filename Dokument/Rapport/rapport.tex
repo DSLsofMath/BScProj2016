@@ -214,12 +214,13 @@ som vi tänker skicka ut till studenterna som går i årskurs 2 och 3 inom Datat
 \subsection{Uppställning av handledning}
 
 
-Själva handledningen är uppdelad i fem kapitel. Det första kapitlet
-ska introducera konceptet DSL samt förklara kortfattat om komplexa tal
-med Eulers formel och lite om signalers egenskaper.
+Handledningen är uppdelad i sex kapitel %planerat
+där den första kapitlet ska vara en introduktion till koncepted DSL. Därefter ska det finnas
+en kapitel som kort förklarar om komplexa tal med Eulers formel samt olika typer av
+signaler och deras egenskaper.
 
-Därefter kommer kapitel om LTI-system, Fourierserier och Fouriertransform
-samt Laplace- och Z-transform.
+%Därefter kommer kapitel om LTI-system, Fourierserier och Fouriertransform
+%samt Laplace- och Z-transform.
 
 I varje kapitel ställde vi upp de definitioner och formler som tycktes
 vara allmänt viktiga med tillhörande förklarande text. Den tillhörande
@@ -235,8 +236,8 @@ Därefter tänker vi visa hur dessa definitioner eller formler skulle se ut i v�
 
 Dessutom ska det finnas exempeluppgifter till de områden studenterna finner
 svåra och formulera lite uppgifter som ska kunna lösas via programmering.
-Lösningarna som finns med ska visa hur uppgiften kan lösas både med den vanliga
-analytiska metoden och via användandet av DSL.
+%Lösningarna som finns med ska visa hur uppgiften kan lösas både med den vanliga
+%analytiska metoden och via användandet av DSL. -Inte något vi har gjort.
 
 \subsection{Implementation i DSL}
 
@@ -245,6 +246,22 @@ Vårt DSL ska vara uppbyggt från Haskell och ska täcka områdena TSS och Regle
 I båda kurserna så används komplexa tal vilket innebär att det först måste implementeras i vårt DSL.
 
 \subsection{Verktyg}%behövs denna?
+%Kanske skriva om hur vi använder google drive?
+Gruppen ska använda sig av Google Documents för att skriva den första utkasten av handledningen.
+Efter faktan och strukturen för varje kapitel blev färdigställd så överfördes det till 
+\url{https://www.sharelatex.com/}, en webbsida som erbjuder en gemensam latex kompilator. 
+Tillslut så ska den överföras till en HTML format som är slutprodukten. 
+
+Matlab och \url{fooplot.com/} används till att skapa figurer på funktions kurvor eller vektor 
+värden ifall det behövs till handledningen. För enkätundersökningen så används webbsidan 
+\url{https://www.webbenkater.com/}.
+
+Koden ska vara skriven i programmeringspråket Haskell och gruppen använde sig av \url{https://c9.io/} 
+för att alla ska kunna ha tillgång till koden och en kompilator. 
+Pågående under arbetets gång så laddas all någorlunda färdiga material upp i Github. 
+Här kan gruppens handledare kolla igenom all produkt och ge sina kommentarer. 
+
+%mer?
 
 \subsection{Testning av handledningen}
 
@@ -270,6 +287,16 @@ möjligt.
 % * Går problemet att lösa?
 % * Vad är i grund och botten orsaken till problemet?
 % * Vilka problem har dykt upp?
+
+%Problem med hur vi implementerar integraler och annat kontinuerliga fall
+
+Från intervjun förklarade examinatorerna att den största svårigheten studenterna fann i kursen
+var kopplingen mellan matematiken och den bakomliggande fysiken. %Hur tacklade vi denna problem?
+
+%Ett problem var själva storleken på uppgiften gruppen tog sig an. För att kunna skriva en 
+%bra handledning så krävs det goda förkunskaper om både ämnet och pedagogik.
+
+%Ta även upp varför reglerteknik inte togs med i projektet. 
 
 \section{Slutsatser}
 
