@@ -11,9 +11,9 @@
 \date{\today}
 
 %Ordlistan skapas här.
-%Måste refereras till något med \gls{ref} för att kunna visas. 
+%Måste refereras till något med \gls{ref} för att kunna visas.
 \makeglosarries
-\newglossaryentry{DSL} 
+\newglossaryentry{DSL}
 {
     name=DSL,
     description={Domain specific language eller domän specifik språk}
@@ -61,7 +61,7 @@ Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts f�
 \begin{abstract}
 This report describes the development of the supplementary tutorial ''Transforms, Signals and Systems and Control Theory with the help of a DSL'' with provided code and solutions. The Tutorial is aimed at students studying Computer Science at Chalmers University of Technology and its aim is to be a supplementary teaching material for the courses ''Transforms, Signals and Systems'' as well as ''Control Theory'' where you will be progamming in domain specific languages.
 
-The background to this project is that the computer science students studying the courses ''Transforms, Signals and Systems'' and ''Control Theory'' have gotten poor results on the tests for several years and this might be because of the CS students unfamiliarity with the kind of mathematics which is the backbone(?) of those courses. 
+The background to this project is that the computer science students studying the courses ''Transforms, Signals and Systems'' and ''Control Theory'' have gotten poor results on the tests for several years and this might be because of the CS students unfamiliarity with the kind of mathematics which is the backbone(?) of those courses.
 
 The report further describes the surveying and analysis done to be able to produce this tutorial along with the tests that have been done on the finished product.
 \end{abstract}
@@ -213,12 +213,13 @@ som vi tänker skicka ut till studenterna som går i årskurs 2 och 3 inom Datat
 
 \subsection{Uppställning av handledning}
 
-Själva tutorial är uppdelad i fem kapitel(så långt). Det första kapitlet
-ska introducera konceptet DSL samt förklara kortfattat om komplexa tal
-och Eulers formel.
+Handledningen är uppdelad i sex kapitel %planerat
+där den första kapitlet ska vara en introduktion till koncepted DSL. Därefter ska det finnas
+en kapitel som kort förklarar om komplexa tal med Eulers formel samt olika typer av
+signaler och deras egenskaper.
 
-Därefter kommer kapitel om LTI-system, Fourierserier och Fouriertransform
-samt Laplace- och Z-transform.
+%Därefter kommer kapitel om LTI-system, Fourierserier och Fouriertransform
+%samt Laplace- och Z-transform.
 
 I varje kapitel ställde vi upp de definitioner och formler som tycktes
 vara allmänt viktiga med tillhörande förklarande text. Den tillhörande
@@ -234,8 +235,8 @@ Därefter tänker vi visa hur dessa definitioner eller formler skulle se ut i v�
 
 Dessutom ska det finnas exempeluppgifter till de områden studenterna finner
 svåra och formulera lite uppgifter som ska kunna lösas via programmering.
-Lösningarna som finns med ska visa hur uppgiften kan lösas både med den vanliga
-analytiska metoden och via ett DSL.
+%Lösningarna som finns med ska visa hur uppgiften kan lösas både med den vanliga
+%analytiska metoden och via användandet av DSL. -Inte något vi har gjort.
 
 \subsection{Implementation i DSL}
 
@@ -243,7 +244,23 @@ analytiska metoden och via ett DSL.
 Vårt DSL ska vara uppbyggt från Haskell och ska täcka områdena TSS och Reglerteknik.
 I båda kurserna så används komplexa tal vilket innebär att det först måste implementeras i vårt DSL.
 
-\subsection{Verktyg}
+\subsection{Verktyg}%behövs denna?
+%Kanske skriva om hur vi använder google drive?
+Gruppen ska använda sig av Google Documents för att skriva den första utkasten av handledningen.
+Efter faktan och strukturen för varje kapitel blev färdigställd så överfördes det till
+\url{https://www.sharelatex.com/}, en webbsida som erbjuder en gemensam latex kompilator.
+Tillslut så ska den överföras till en HTML format som är slutprodukten.
+
+Matlab och \url{fooplot.com/} används till att skapa figurer på funktions kurvor eller vektor
+värden ifall det behövs till handledningen. För enkätundersökningen så används webbsidan
+\url{https://www.webbenkater.com/}.
+
+Koden ska vara skriven i programmeringspråket Haskell och gruppen använde sig av \url{https://c9.io/}
+för att alla ska kunna ha tillgång till koden och en kompilator.
+Pågående under arbetets gång så laddas all någorlunda färdiga material upp i Github.
+Här kan gruppens handledare kolla igenom all produkt och ge sina kommentarer.
+
+%mer?
 
 \subsection{Testa Tutorial}
 
@@ -269,6 +286,16 @@ möjligt.
 % * Går problemet att lösa?
 % * Vad är i grund och botten orsaken till problemet?
 % * Vilka problem har dykt upp?
+
+%Problem med hur vi implementerar integraler och annat kontinuerliga fall
+
+Från intervjun förklarade examinatorerna att den största svårigheten studenterna fann i kursen
+var kopplingen mellan matematiken och den bakomliggande fysiken. %Hur tacklade vi denna problem?
+
+%Ett problem var själva storleken på uppgiften gruppen tog sig an. För att kunna skriva en
+%bra handledning så krävs det goda förkunskaper om både ämnet och pedagogik.
+
+%Ta även upp varför reglerteknik inte togs med i projektet.
 
 \section{Slutsatser}
 
