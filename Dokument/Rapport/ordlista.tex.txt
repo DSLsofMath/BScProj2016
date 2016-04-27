@@ -1,0 +1,16 @@
+\newglossaryentry{DSL} 
+{
+    name=DSL,
+    description={Domain specific language eller domän specifik språk}
+}
+
+\newglossaryentry{GPL}
+{
+    name=GPL,
+    description={General purpose language t.ex C, C++, Java, Haskell m.m}
+}
+\newglossaryentry{TSS} 
+{
+    name=TSS,
+    description={Transformer, Signaler och System, kurskod SSY080}
+}
