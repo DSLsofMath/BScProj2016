@@ -137,14 +137,13 @@ Bekräfta med programmet.
 
 Multiplikation blir lite krångligare.
 Om vi multiplicerar två komplexa tal, vi kallar dem z och w, ser det ut såhär:
-%TODO: Den här definition stämmer inte med Haskell-koden (Tutorial/Kod/ComplexNumbers.lhs) och har skum indentering.
 \begin{minted}{haskell}
-    z * w           = Complex (realZ*realW - imZ*imW,
-                                realZ*imW + realW*imZ)
+  z * w           = Complex (realZ*realW - imZ*imW)
+                            (realZ*imW + realW*imZ)
         where realZ = realPart z
-                   realW = realPart w
-                   imZ   = imPart z
-                   imW   = imPart w
+              realW = realPart w
+              imZ   = imPart z
+              imW   = imPart w
 \end{minted}
 Vilket då blir samma sak som:
 $$z \; w = (Re(Z) * Re(W) - Im(Z)*Im(W)) + (Re(Z)*Im(W) + Re(W)*Im(Z))j$$
@@ -164,9 +163,8 @@ räknar ut hypotenusan i en rätvinklig triangel.
 
 \textbf{Övning 5:} Här är ett kodskelett till en funktion som ger absolutbeloppet
 av ett komplext tal. Fyll i det som saknas.
-%TODO: Även här är det den "gamla typen Complex" som används
 \begin{minted}{haskell}
-    abs z           = Complex (hyp, 0)
+    abs z           = Complex hyp 0
         where hyp   = ...
               r      = realPart z
               im   = imPart z
