@@ -63,7 +63,7 @@ $$x_{1}(t) + x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{Additativt system
 
 I ett homogent system kan man bryta ut skalningsfaktorer ifrån insignalen och skala om utsignalen med dessa istället.
 %TODO: Tips: för att skriva "vanlig text" i math mode kan man använda \mbox{vanlig text}. Då slipper man "\;" och får rätt typsättning av texten etc. Då är det också lämpligt att "kliva tillbaka" till math mode för de variabler man hänvisar till: \mbox{($a$ är en konstant}
-$$F(a \; x) = a\;F(x)\;\;\mathrm{(a\; är\; en\; konstant)} $$
+$$F(a \; x) = a\;F(x), \quad \mbox{ a är en konstant} $$
 $$a x(t) \rightarrow \framebox[1.2\width]{\textbf{Homogent system}} \rightarrow \mathrm{a y(t)}$$
 
 Det är dessa två egenskaper som tillsammans utgör superpositionsprincipen.
@@ -76,9 +76,10 @@ linjärt.
 Hur vet man då om systemet uppfyller superpositionsprincipen? Jo, säg att vi har två signaler $x_1$ och $x_2$.
 
 Om systemet uppfyller superpositionsprincipen gäller då att:
-%TODO: Tips: använd \mbox{(där $a$ och $b$ är konstanter)} eller liknande
-$$F(a x_{1}+b x_{2}) = a F(x_{1}) + b F(x_{2})
-\;\;(a\; och\; b\; är\; konstanter) $$
+
+$$F(a x_{1}+b x_{2}) = a F(x_{1}) + b F(x_{2}), \quad
+\mbox{ a och b är konstanter}
+$$
 $$a x_{1}(t)+b x_{2}(t) \rightarrow \framebox[1.2\width]{\textbf{SuperPos. system}} \rightarrow \mathrm{a y_{1}(t)+b y_{2}(t)}
 $$
 
@@ -104,9 +105,9 @@ lämplig funktion.
 \subsection{Tidsinvarians}
 Med hur är det då med tidsinvarians? Vad är det för egenskaper som gäller
 där? Jo, ett system är tidsinvariant om en tidsförskjutning i insignalen ger samma tidsförskjutning i utsignalen. Alltså:
-%TODO: \mbox
+
 $$x(t-c) \rightarrow \framebox[1.2\width]{\textbf{Tidsinvariant system}} \rightarrow y(t-c) $$
- $$(c\; är\; en\; reell\; konstant)$$
+  $$\mbox{där c är en reel konstant}$$
 
 \textbf{Övning 2:} Implementera en funktion som undersöker om ett system är tidsinvariant i kontinuerlig tid enligt följande:
 
@@ -233,8 +234,7 @@ $$ f(t) * g(t) = \int_{0}^t  f(s) g(t-s) ds = \int_{0}^t  f(t-s) g(s) ds = g(t) 
 
 Så oroa er inte om integrandens ordning! Det finns även en diskret faltning och även denna följer samma lagar som det kontinuerliga fallet.
 
-%TODO: notationen med [n-k] behöver förklaras mer (eller ändras). Detta verkar bara gälla en periodisk sekvens (som ni inte tagit upp). -Pending
-
+%------------------Vi har kvar detta ifall vi ska introducera periodisk faltning. Annars kan gruppen ta bort det kommenterade.
 %Denna kommer ifrån en definition där det inte finns negativa talserie det vill säga $a_{-1}$
 %$$a_n * b_n = \sum_{k=0}^{N-1} a_k b_{[n-k]}, \quad [n-k] =
 %\begin{cases}
@@ -251,7 +251,9 @@ $$a[n] * b[n] = \sum_{k=-\infty}^{\infty} a[k] b[n-k]$$
 Eller om det finns en finit antal värden i talserien. %Vi säger 2N+1 tal
 $$a[n] * b[n] = \sum_{k=-N}^{N} a[k] b[n-k]$$
 %Problemet jag har med denna definition är ju att det känns som om den stiger ifrån den definierade mängden... Men den borde vara korrekt.
-%Välj den variant ni tror användes i kursen vilket lämnas till gruppen.
+
+
+%En exempel som kan tas upp är sampling. Vi har en signal vars funktions uttryck är okänd men dess plottade kurva är känd. (Det vill säga det finns en bild på kurvan). Systemresponsen är känd och vi vill få fram utsignalens värden. 
 
 
 %Detta är en kladdig förklaring på varför det blir en faltning i ett LTI system. Kan tas bort.
