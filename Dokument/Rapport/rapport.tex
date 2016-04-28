@@ -43,15 +43,14 @@
 %Ett Sammandrag
 %Subject to Change!--------------------------------------------
 % Huvudpoänger:
-% * Vad är det här för projekt? (Så att läsaren kan bedöma om hen vill läsa rapporten)
+% * Vad handlar rapporten om? Vad är det för projekt vi beskriver utvecklingen av? (Läsare ska här kunna bedöma om rapporten är intressant att läsa för dem)
 % * Jättekort om syfte, resultat etc
 % Illustration: Borde inte behövas
-Denna rapport beskriver utvecklingen av den kompletterande undervisningshandledningen “TSS och Reglerteknik med \gls{DSL}” med tillhörande programmeringskod och lösningar. Handledningen riktar sig till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom Signallära och Reglerteknik där man använder programmering med domänspecifika språk.
+Denna rapport beskriver utvecklingen av läromaterialet “TSS med DSL” med dess tillhörande programmeringskod och lösningar. Läromaterialet riktar sig till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom signallära där man utnyttjar studenternas kunskaper inom programmering. Materialet innehåller förklarande text och teori, samt programmeringsövningar med domänspecifika språk.
 
-Bakgrunden till detta projekt är att kurserna TSS och Reglerteknik på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kurserna.
+Bakgrunden till detta projekt är att kurserna TSS och Reglerteknik på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kurserna. Detta har visats sig inte vara något som är unikt för datastudenterna på Chalmers utan det är tvärtom ett problem inom många discipliner.
 
-Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts för att ta kunna ta fram handledningsmaterialet, samt de tester som gjorts på den färdiga produkten.
-
+Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts för att ta kunna ta fram läromaterialet, samt de tester som gjorts på den färdiga produkten.
 \end{abstract}
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
@@ -88,21 +87,22 @@ The report further describes the surveying and analysis done to be able to produ
 %Regler - Reglerteknik
 
 \section{Inledning}
-
+Vi kommer nu inledningsvis att gå igenom bakgrunden till projektet och hur det uppstod, samt beskriva projektets mål och rapportens syfte.
 \subsection{Bakgrund}
 
 % Huvudpoänger:
 % * Problem med kurserna på data
 % * Var kommer vårt projekt ifrån? Spinoff till DSLOfMathprojektet.
+% * Ev. ta upp i korthet att detta är en del av ett större problem. Hänvisa till TFPIE-artikelns källor.
 %
 % Illustrationer:
 % * Statisktik från kurserna
 
-På Chalmers Tekniska Högskola har det funnits en lång trend där
+På Chalmers Tekniska Högskola finns det en lång trend där
 studenterna på utbildningen för Datateknik har haft svårigheter
 med kurserna \textit{Transformer, Signaler och System}, hädanefter omnämnd
 som ''\gls{TSS}'', och \textit{Reglerteknik}.
-Dessa svårigheter tror examinatorerna i kurserna beror till stor del på att
+Dessa svårigheter tror kursernas examinatorer beror till stor del på att
 studenterna inte är tillräckligt bekväma i det matematiska språket.
 Studenterna på Datateknik har inte tillräcklig vana att tolka innebörden av de matematiska beskrivningarna och är allmänt ovana vid matematiskt hantverk.
 Därför lägger datastudenterna det mesta av sin energi på att få ihop matematiken
@@ -124,41 +124,24 @@ som datastudenterna har erfarenhet av och som använder en notation med
 fokus på tydlighet som lämpar sig relativt väl för att lära ut matematiska
 begrepp \cite{TFPIE15_DSLsofMath_IonescuJansson}.
 
-Detta projekt uppstod som en avgrening av DSLsOfMath-projektet med fokus mer på signal- och systemteoretiska färdigheter snarare än en allmän matematisk grund.
+Vårt projekt uppstod som en avgrening från DSLsOfMath-projektet med fokus på att utveckla material till specifika kurser snarare än en allmän matematisk grund.
 
-\subsection{Syfte}
+\subsection{Rapportens syfte}
 
 % Huvudpoänger:
-%
+% *Vad vill vi säga med rapporten? Vad vill vi visa på?
+% *Vad har vi försökt göra  i korthet?
+
 % Illustration:
 
-Syftet med projektet är att underlätta för studenter inom datateknik att
-ta till sig signal- och systemteoretiska ämnen genom att utnyttja deras
-kunskaper inom programmering och även göra det möjligt att betrakta ämnet ur
-en programmerares perspektiv. Tanken bakom detta är att man ska göra gapet
-mellan datateknik och signalteori mindre och minska problemen som nämns
-i bakgrundsavsnittet.
+Syftet med denna rapport är att beskriva utvecklingen av handledningen “TSS med DSL”, som är ett kompletterande läromaterial till kursen TSS för studenter på datatekniska programmet på Chalmers, samt beskriva hur det bakomliggande problemet kan kopplas till en mer generell problematik. 
 
-Projektet är tänkt att resultera i en kompletterande undervisningshandledning som
-framöver i rapporten kommer kallas handledning.
-Denna handledning kommer fungera som ett komplement till de kurser som ges inom
-signalteori på den datatekniska grundutbildningen. Den ska innehålla
-förklaringar och programmeringsövningar som är anpassade för studenter på den
-datatekniska utbildningen på Chalmers tekniska högskola.
+\subsection{Projektets mål}
+% Huvudpoänger: 
+% *Beskriv projektets syfte och mål, vad ska vi åstadkomma för produkt?
+Syftet med projektet är att underlätta för studenter inom datateknik att ta till sig signal- och systemteoretiska ämnen genom att utnyttja deras kunskaper inom programmering och även göra det möjligt att betrakta ämnet ur en programmerares perspektiv. Tanken bakom detta är att man ska göra gapet mellan datateknik och signalteori mindre och minska problemen som nämns i bakgrundsavsnittet.
 
-\section{Teori - Teknisk bakgrund om DSL mm}
-
-% Allmänt om DSL
-Ett DSL är ett programmeringsspråk som till skillnad från ett \gls{GPL}, är anpassat
-för endast en specifik domän. De har alltid funnits sedan programmering
-skapades och exempel på DSL är HTML, MatLab och rpgmaker. Ett DSL kan
-byggas upp från grunden eller vara utvecklat från ett redan existerande GPL
-som Haskell. Fördelen med detta är att de erbjuder mer specialiserade egenskaper
-inom detta specifika område men är inte avsedda för att kunna appliceras till andra
-områden. Därför passar DSL utmärkt till detta kandidatarbete eftersom målet är
-att lära ut TSS via programmering.
-
-\section{Produkt/kravspec}
+Projektet är tänkt att resultera i ett läromaterial som kan fungera som ett komplement till den kurs som ges inom signalteori på den datatekniska grundutbildningen. Detta läromaterial ska innehålla förklaringar och programmeringsövningar som är anpassade för studenter på den datatekniska utbildningen på Chalmers tekniska högskola.
 
 \section{Avgränsningar}
 
@@ -182,16 +165,54 @@ skriva en handledning och tillhörande DSL för både områdena Reglerteknik och
 Därför fokuserades det endast på TSS.
 %Kanske borde bara skriva om rapporten så att vi inte ens nämner reglerteknik?
 
+\section{Problemanalys}
+%Huvudpoänger: 
+% *Vad är det för problem projektet ska lösa?
+% *Ev. hänvisa kort till relaterad forskning
+
+\section{Produktspecifikation}
+%Huvudpoänger: 
+% *Beskriv produktbeskrivningen vi fick från början
+% *Bena ut i detalj hur produktbeskrivningen vi tagit fram ser ut och kommentera vilka val vi har gjort.
+%Illustration: Ev bild på utdrag från tutorial för att tydliggöra upplägget
+
+\section{Teori - Teknisk bakgrund om DSL mm}
+
+\subsection{DSL}
+% Allmänt om DSL
+Ett DSL är ett programmeringsspråk som till skillnad från ett \gls{GPL}, är anpassat
+för endast en specifik domän. De har alltid funnits sedan programmering
+skapades och exempel på DSL är HTML, MatLab och rpgmaker. Ett DSL kan
+byggas upp från grunden eller vara utvecklat från ett redan existerande GPL
+som Haskell. Fördelen med detta är att de erbjuder mer specialiserade egenskaper
+inom detta specifika område men är inte avsedda för att kunna appliceras till andra
+områden. Därför passar DSL utmärkt till detta kandidatarbete eftersom målet är
+att lära ut TSS via programmering.
+
+\subsection{Funktionell programmering}
+
+\subsection{Signallära}
+
+\subsection{Didaktik}
+
+\subsection{Relaterad forskning}
+
+
 \section{Metod och Genomförande}
 
-% Det vi har gjort:
-% * Förstudier
-% * Enkätundersökning
-%   * Hänvisa till böckerna ``Enkäten i praktiken'' och ``Enkätboken''
-% * Skriva tutorial
+% Huvudpoänger:
+% *Förstudier, intervjuer mm
+% *Enkätundersökning
+% 	*Hänvisa till böckerna “Enkäten i praktiken” och “Enkätboken”
+% *Didaktik, hur vi skrivit vår tutorial och varför 
+% 	*Hänvisa till “Didaktik för ingenjörer” och “Motivational Design for Learning and Performance”
+% *TSS, hur vi har tacklat ämnet
+% *Funktionell programmering och dsl, hur vi valt att implementera det hela och varför
+% *Testning
 
-I det här kapitlet beskrivs den tänkta tillvägagången till hur denna
-handledning ska tillverkas.
+
+I detta kapitlet beskrivs den tänkta tillvägagången till hur denna
+handledning tillverkast.
 
 \subsection{Litteraturstudier och Förundersökning (Temporär)}
 
@@ -212,7 +233,7 @@ som vi tänker skicka ut till studenterna som går i årskurs 2 och 3 inom Datat
 
 Handledningen är uppdelad i sex kapitel %planerat
 där den första kapitlet ska vara en introduktion till koncepted DSL. Därefter ska det finnas
-en kapitel som kort förklarar om komplexa tal med Eulers formel samt olika typer av
+ett kapitel som kort förklarar om komplexa tal med Eulers formel samt olika typer av
 signaler och deras egenskaper.
 
 %Därefter kommer kapitel om LTI-system, Fourierserier och Fouriertransform
@@ -243,6 +264,7 @@ I båda kurserna så används komplexa tal vilket innebär att det först måste
 
 \subsection{Verktyg}%behövs denna?
 %Kanske skriva om hur vi använder google drive?
+%Jag skulle säga att det bara är värt att ta upp verktyg som påverkar resultatet, t.ex. att vi skrivit koden i haskell, men att vi t.ex. arbetat fram texten i google drive känns inte så relevant att ha med här.
 Gruppen ska använda sig av Google Documents för att skriva den första utkasten av handledningen.
 Efter faktan och strukturen för varje kapitel blev färdigställd så överfördes det till 
 \url{https://www.sharelatex.com/}, en webbsida som erbjuder en gemensam latex kompilator. 
@@ -259,7 +281,7 @@ Här kan gruppens handledare kolla igenom all produkt och ge sina kommentarer.
 
 %mer?
 
-\subsection{Testning av handledningen}
+\subsection{Test av handledning}
 
 Vi har ett tjugotal studenter som är villiga att testa vår produkt för
 att se om den är lika hjälpsam som det är tänkt. Med responsen vi får
@@ -271,7 +293,11 @@ möjligt.
 \section{Resultat}
 
 % Huvudpoänger:
-% * Vad blev det för produkt? Tutorial på hemsida med 5 delavsnitt?
+% *Vad blev det för produkt? Tutorial på hemsida med 6 delavsnitt?
+% *Hänvisa till hemsidan
+% *Vad tyckte testgruppen?
+% 	*Citat från testgruppen
+
 %
 % Illustrationer:
 % * Utdrag ur tutorialen
@@ -283,6 +309,10 @@ möjligt.
 % * Går problemet att lösa?
 % * Vad är i grund och botten orsaken till problemet?
 % * Vilka problem har dykt upp?
+% * Vilka problem kan man undvika om man gör ett liknande arbete?
+% * Stämmer vårt resultat överens med tidigare forskning?
+% * Hur kan man bygga vidare på detta?
+
 
 %Problem med hur vi implementerar integraler och annat kontinuerliga fall
 
@@ -295,9 +325,10 @@ var kopplingen mellan matematiken och den bakomliggande fysiken. %Hur tacklade v
 %Ta även upp varför reglerteknik inte togs med i projektet. 
 
 \section{Slutsatser}
+% Huvudpoänger:
+% * Sammanfattar vad vi kommit fram till i diskussion och resultat
 
 \section{Avslutning}
-
 % Huvudpoänger:
 % * Vad är gjort och vad återstår att göra?
 %
@@ -306,5 +337,10 @@ var kopplingen mellan matematiken och den bakomliggande fysiken. %Hur tacklade v
 \newpage
 
 \printbibliography
+
+\section{Bilagor}
+% * Utdrag ur tutorial? 
+% * Utdrag ur intervju med examinatorer?
+% * Utdrag ur enkätsvar?
 
 \end{document}
