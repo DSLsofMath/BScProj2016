@@ -38,6 +38,7 @@
 \end{flushleft}
 \end{titlepage}
 \newpage
+
 \renewcommand*\abstractname{Sammandrag}
 \begin{abstract}
 %Ett Sammandrag
@@ -52,6 +53,7 @@ Bakgrunden till detta projekt är att kurserna TSS och Reglerteknik på det aktu
 
 Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts för att ta kunna ta fram läromaterialet, samt de tester som gjorts på den färdiga produkten.
 \end{abstract}
+
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
 This report describes the development of the supplementary tutorial ''Transforms, Signals and Systems and Control Theory with the help of a DSL'' with provided code and solutions. The Tutorial is aimed at students studying Computer Science at Chalmers University of Technology and its aim is to be a supplementary teaching material for the courses ''Transforms, Signals and Systems'' as well as ''Control Theory'' where you will be progamming in domain specific languages.
@@ -76,27 +78,17 @@ The report further describes the surveying and analysis done to be able to produ
 \setlength{\parskip}{2mm}
 \setlength{\parindent}{0pt}
 
-%\section{Abstract}
-
-%\section{Sammanfattning} Flyttade denna till sammandrag
-
-%\section{Ordlista} Ska flyttas till en ordentlig ordlista
-%DSL - Domain Specific Language eller Domänspecifikt språk
-%GPL - General Purpose Language t.ex C, C++, Java, Haskell m.m.
-%TSS - Transformer, Signal och System
-%Regler - Reglerteknik
 
 \section{Inledning}
 Vi kommer nu inledningsvis att gå igenom bakgrunden till projektet och hur det uppstod, samt beskriva projektets mål och rapportens syfte.
-\subsection{Bakgrund}
 
+\subsection{Bakgrund}
 % Huvudpoänger:
 % * Problem med kurserna på data
 % * Var kommer vårt projekt ifrån? Spinoff till DSLOfMathprojektet.
 % * Ev. ta upp i korthet att detta är en del av ett större problem. Hänvisa till TFPIE-artikelns källor.
 %
-% Illustrationer:
-% * Statisktik från kurserna
+% Illustrationer: Borde inte behövas
 
 På Chalmers Tekniska Högskola finns det en lång trend där
 studenterna på utbildningen för Datateknik har haft svårigheter
@@ -104,16 +96,8 @@ med kurserna \textit{Transformer, Signaler och System}, hädanefter omnämnd
 som ''\gls{TSS}'', och \textit{Reglerteknik}.
 Dessa svårigheter tror kursernas examinatorer beror till stor del på att
 studenterna inte är tillräckligt bekväma i det matematiska språket.
-Studenterna på Datateknik har inte tillräcklig vana att tolka innebörden av de matematiska beskrivningarna och är allmänt ovana vid matematiskt hantverk.
-Därför lägger datastudenterna det mesta av sin energi på att få ihop matematiken
-rent praktiskt, istället för att se vad matematiken står för.
-
 Detta syns bland annat i statistiken för hur många datastudenter som
-klarar kurserna, under perioden från 2010 till 2016 blev i genomsnitt 51\% av
-alla som skrev tentamen godkända i TSS och under samma period blev 53\% godkända
-i Reglerteknik \cite{tentastatistik}. Det finns även ett mörkertal i dessa siffror
-eftersom inte alla studenter skriver tentan, exempelvis valde 48 studenter utav 122
-registrerade att inte tentera Reglerteknik år 2014 \cite{kursinformation:ere102:14-15}.
+klarar kurserna. 
 
 För att minska svårigheterna som studenterna har för dessa kurser påbörjades
 ett pedagogiskt projekt, DSLsOfMath, som hittills resulterat i kursen
@@ -144,14 +128,61 @@ Syftet med projektet är att underlätta för studenter inom datateknik att ta t
 Projektet är tänkt att resultera i ett läromaterial som kan fungera som ett komplement till den kurs som ges inom signalteori på den datatekniska grundutbildningen. Detta läromaterial ska innehålla förklaringar och programmeringsövningar som är anpassade för studenter på den datatekniska utbildningen på Chalmers tekniska högskola.
 
 \section{Avgränsningar}
-
 % Huvudpoänger:
+% * Vad behandlar vi inte i rapporten och varför?
 % * Vad tas inte med i vårt projekt och varför?
-%
 % Illustrationer: Borde inte behövas
 
-Det kommer endast fokuseras på de områden studenterna finner svårt inom
-kurserna TSS och Reglerteknik. Dessutom tas inte bevis med i denna tutorial.
+I projektet har gruppen avgränsat sig till att endast ta fram läromaterial till endast en kurs, TSS. Detta då projektet är tidsbegränsat. Läromaterialet som tagits fram är ett kompletterande material och är inte tänkt att kunna ersätta kursen eller dess material.
+
+Gruppen har under utvecklingen av materialet inte heller lagt fokus på matematisk korrekthet, matematiska bevis, avancerade matematiska begrepp eller teorier.  Anledningen till detta är att materialet  i första hand är tänkt att främja förståelse och väcka intresse för ämnet. 
+
+\section{Problemanalys}
+%Huvudpoänger: 
+% * Vad är det för problem projektet ska lösa?
+% * Varför har vi har vi valt att lösa problemet så här? 
+% * Knyter vårt problem an till ett större problem?
+% * Ev. hänvisa kort till relaterad forskning
+
+%Illustrationer: Statisktik från kurserna, pajdiagram
+
+%Problemanalysen skall leda fram till produktspecen
+Som nämndes i bakgrunden är problemet vi tacklar i vårt projekt att datastudenterna på Chalmers har svårt för två av sina kurser, TSS och Reglerteknik. 
+
+Statistiken från Chalmers visar tydligt att kurserna TSS och Reglertiknik har en ovanligt hög andel studenter som inte blir godkända på tentamen. Under perioden 2010 till 2016 blev i genomsnitt endast 51% av de som skrev tentamen i TSS godkända och under samma period blev 53% godkända i Reglerteknik \cite{tentastatistik}. 
+%Pajdiagram
+Det finns även ett mörkertal i dessa siffror eftersom alla studenter inte alltid skriver tentamen, exempelvis valde 48 av 122 registrerade studenter att inte tentera Reglerteknik 2014 \cite{kursinformation:ere102:14-15}.
+
+Kurserna i fråga, TSS och Reglerteknik, läses under tredje året på datateknik och kräver bland annat förkunskaper från de kurser i matematik studenterna läser under sitt första år. Reglerteknik kräver även förkunskaper från TSS. Det kan därför anses vara ett rimligt antagande att bristande kunskaper i TSS orsakar följdproblem och utgör en del av studenternas problem med Reglerteknik.
+
+Kursernas examinatorer tror att studenternas svårigheter med kurserna till stor del beror på att studenterna inte är tillräckligt bekväma i det matematiska språket. Studenterna på Datateknik har inte tillräcklig vana att tolka innebörden av de matematiska beskrivningarna och är allmänt ovana vid matematiskt hantverk. Därför lägger datastudenterna det mesta av sin energi på att få ihop matematiken rent praktiskt, istället för att se vad matematiken står för. 
+
+%Hänvisa till relaterad forskning och knyt an till bredare problem
+
+
+\section{Produktspecifikation}
+%Huvudpoänger: 
+% * Beskriv produktbeskrivningen vi fick från början
+% * Bena ut i detalj hur produktbeskrivningen vi tagit fram ser ut och kommentera vilka val vi har gjort.
+% * Förklara hur produkten löser/bidrar till att lösa problemet
+
+%Illustration: Ev bild på utdrag från tutorial för att tydliggöra upplägget
+
+För att åtgärda det problem som beskrivs i förgående avsnitt har gruppen skapat en unik produkt som är anpassad speciellt till TSS på Chalmers datatekniska program. 
+Den ursprungliga produktspecifikationen som gruppen tilldelades vid arbetets start var relativt vag. Gruppens uppgift var att “ta fram DSLsofMath-inspirerat kompletterande material för andra närliggande kurser”. Det önskade implementeringsspråket var haskell.
+
+Gruppen beslutade snabbt att fokusera på kurserna TSS och Reglerteknik av de anledningar som nämns i problembeskrivningen. Dock konstaterade gruppen en bit in i projektet att det endast fanns tid att utveckla material av önskvärd kvalitet till en kurs. Gruppen valde då kursen TSS, med motiveringen att TSS innehåller förkunskaper som är nödvändiga för Reglerteknik. 
+
+\subsection{Produktens struktur}
+För att göra läromaterialet så lättillgängligt som möjligt beslutades att all materiel skulle samlas på en hemsida. På detta sätt kan man enkelt samla text, bilder och programmeringskod och presentera dem på ett överskådligt sätt för studenterna i målgruppen.
+
+Det beslöts att läromaterialet skulle innehålla ett antal delavsnitt som tillsammans täckte in innehållet i kursen TSS i stora drag. Avsikten med indelningen är att göra materialet mer överskådligt och även göra det möjligt för studenterna att enkelt hitta aktuellt material för ett specifikt område.
+
+Varje delavsnitt ska innehålla förklaringar och exempel i löpande text. Denna text ska skrivas på ett sådant sätt att den är lätt att ta till sig för målgruppen och uppmuntrar till vidare studier av ämnet.
+
+Delavsnitten ska vidare innehålla exempel på hur det aktuella ämnet kan beskrivas med funktionell programmering och DSL, samt programmeringsövningar.
+
+\subsection{Programmeringskod och övningar}
 
 I själva impementationen av DSL så undviks funktioner som är
 ovanliga eller kan skrivas explicit. t.ex så ska fouriertransformen av
@@ -159,22 +190,6 @@ $sinh(x)$ inte implementeras eftersom $sinh(x)$ kan utryckas via dess
 definition $\frac{e^{x} - e^{-x}}{2}$ istället.
 Dessutom undviks onödigt komplexa funktioner som inte
 dyker upp naturligt som en signal, t.ex $sin(cos(x)+e^x)$.
-
-Slutligen så visade det sig att det var för ont om tid för att hinna
-skriva en handledning och tillhörande DSL för både områdena Reglerteknik och TSS.
-Därför fokuserades det endast på TSS.
-%Kanske borde bara skriva om rapporten så att vi inte ens nämner reglerteknik?
-
-\section{Problemanalys}
-%Huvudpoänger: 
-% *Vad är det för problem projektet ska lösa?
-% *Ev. hänvisa kort till relaterad forskning
-
-\section{Produktspecifikation}
-%Huvudpoänger: 
-% *Beskriv produktbeskrivningen vi fick från början
-% *Bena ut i detalj hur produktbeskrivningen vi tagit fram ser ut och kommentera vilka val vi har gjort.
-%Illustration: Ev bild på utdrag från tutorial för att tydliggöra upplägget
 
 \section{Teori - Teknisk bakgrund om DSL mm}
 
