@@ -1,11 +1,13 @@
 name:                Tutorial
 version:             0.2.0.0
-synopsis:            TODO: fill in some text
+synopsis:            Code used in the programming-oriented tutorial created for
+                     students taking signals and system course at
+                     Chalmers University of Technology.
 description:         Please see README.md
 homepage:            https://github.com/DSLsofMath/BScProj#readme
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2016 Author Here
+author:              Bachelor team of the DSLsOfMath project @ Chalmers
+maintainer:          jassob@dtek.se
+copyright:           2016 DSLsofMath Bachelor team
 build-type:          Simple
 -- extra-source-files:
 cabal-version:       >=1.10
