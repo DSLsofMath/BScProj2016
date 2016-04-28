@@ -29,9 +29,24 @@ data Expression a =  Const a
 
 -- | Evaluates an Expression to a function
 eval :: (Num a,Floating a) => Expression a -> (a -> a)
-eval (Const a) = const a
-eval Id        = id
-eval (Exp e)   = exp . eval e
+eval (Const a)   = const a
+eval Id          = id
+eval (Exp e)     = exp . eval e
+eval (e0 :+: e1) = eval e0 + eval e1
+eval (e0 :*: e1) = eval e0 * eval e1
+eval (e0 :/: e1) = eval e0 / eval e1
+eval (Log e)     = log . eval e
+eval (Negate e)  = negate . eval e
+eval (Sin e)     = sin . eval e
+eval (Cos e)     = cos . eval e
+eval (Tan e)     = tan . eval e
+eval (Asin e)    = asin . eval e
+eval (Acos e)    = acos . eval e
+eval (Sinh e)    = sinh . eval e
+eval (Cosh e)    = cosh . eval e
+eval (Asinh e)   = asinh . eval e
+eval (Acosh e)   = acosh . eval e
+eval (Atanh e)   = atanh . eval e
 
 -- | Numeric instance of our expression data type
 instance (Num a, Floating a) => Num (Expression a) where
