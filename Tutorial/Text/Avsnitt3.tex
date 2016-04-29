@@ -33,30 +33,37 @@ En fouriertransform är en transform som kan användas för att föra över en f
 
 Då ska vi börja med fourierserier!
 
-För att vi ska introducera fourierserier, så får du föreställa dig en trivial signal $sin(\omega t)$. Om vi skriver om sinus med hjälp av Eulers fórmel får vi följande utseende:
+För att vi ska introducera fourierserier, så får du föreställa dig en trivial signal $sin(\omega_0 t)$. Om vi skriver om sinus med hjälp av Eulers fórmel får vi följande utseende:
+$$sin(\omega_0 t) = \frac{e^{j \omega_0 t}  - e^{-j \omega_0 t}}{2i}$$
+Detta är egentligen en form av en Fourier serier. För att förklara detta i mer detalj så tar vi upp en exempel.
 %skriv in stuff här
+
 Föreställ dig nu den bästa smoothien du någonsin har druckit och så fort den är slut då måste du ha en till! Men så känner du att du skulle vilja ha samma smoothie som du dricker fast med choklad i istället för jordgubb. Då kan du antingen fråga om en ny smoothie från han som sitter i kassan, eller så bryter du ner smoothien i dess ingredienser, tar bort all jordgubb och tillsätter choklad istället. Det andra alternativet låter väl ändå roligare? 
 Då representerar vi smoothien med ett system med insignalen:
-$$ f(x) = \frac{-x}{\pi} + 2, \quad x \in [-\pi,\pi] $$
-vars plot man kan se här %fixa ref \ref{}.
+$$ f(t) = \frac{-t}{\pi} + 2, \quad t \in [-\pi,\pi] $$
+vars plot man kan se här %fixa ref \ref{}. 
 Plotten visar hur mycket som finns kvar medan du dricker och är periodisk eftersom du bara \bf{måste} ha en till. Systemsvaret ska bara påverka frekvensen med jordgubb i. Därför utvecklar vi smoothien till en serie som innehåller alla dess frekvenser(ingredienser). Vi kan då hitta frekvensen som vi vill påverka och så vet vi också vilka vi vill låta bli att påverka. För att kunna göra den här uppdelningen så krävs följande formel:
-$$ f(x) = \sum_{k=-1}^1 C_k e^{k j t} $$
+$$ f(t) = \sum_{k=-1}^1 C_k e^{k j t} $$ 
 där konstanten $C_k$ är given från:
-$$C_k = \sum_{k=-\infty}^{\infty} C_k e^{k j t}$$
+$$C_k = \sum_{k=-\infty}^{\infty} C_k e^{k j t}$$ %Finns det en anledning till varför det är en summa? Brukar det inte vara en integral?
 För vår smoothie så kommer serien ha följande utseende:
-$$f(x) = 2 \sum_{1}^{\infty} \frac{(-1)^{n+1}}{n} sin(n x) $$
+$$f(t) = 2 \sum_{1}^{\infty} \frac{(-1)^{n+1}}{n} sin(n t) $$ 
 Obs! \emph{Om vi istället valt att gå till kassan och bett om en ny smoothie, så hade vi alltså bytt insignal in i vårt system istället för att påverka den vi har.}
 \newline
-En mer matematiskt korrekt förklaring är att observera $sin(x)$. Denna kan skrivas om med hjälp av Eulers formel till 
-$$ \frac{e^{j \omega t} - e^{-j \omega t}}{2j}$$
-vilket kan skrivas som
-$$ \sum_{k=-1}^1 C_k e^{k j t} $$
-om vi låter $C_0 = 0$ låter vi nu även \bf{alla} andra $C_k = 0$ förutom  $C_1$ och $C_{-1}$ blir formen
-$$ \sum_{k=-\infty}^{\infty} C_k e^{k j t} $$
+En mer matematiskt korrekt förklaring är att återigen observera den enkla signalen $sin(\omega_0 t)$. Som tidigare nämnt kan den skrivas om enligt Eulers formel till
+$$ \frac{e^{j \omega_0 t} - e^{-j \omega_0 t}}{2j}$$
+vilket kan skrivas som om vi låter $C_0=0$, $C_{1}=\frac{1}{2j}$ och $C_{1}=-\frac{1}{2j}$
+$$ \sum_{k=-1}^1 C_k e^{j k \omega_0 t} $$
+Låter vi nu även \bf{alla} andra $C_k = 0$ förutom  $C_1$ och $C_{-1}$ blir formen
+$$ \sum_{k=-\infty}^{\infty} C_k e^{j k \omega_0 t} $$
 Det magiska är då att vi bara har skrivit om den ursprungliga funktionen, vilket innebär att 
-$$ sin(\omega t) = \sum_{k=-\infty}^{\infty} C_k e^{k j t} $$
-%%Funktionen behöver vara periodisk över någon konstant. Men det är mycket lättare att arbeta med 2pi. 
-
+$$ sin(\omega_0 t) = \sum_{k=-\infty}^{\infty} C_k e^{k j t} $$
+%Funktionen behöver vara periodisk över någon konstant. Men det är mycket lättare att arbeta med 2pi. 
+%Om det är viktigt så kan vi låta dem applicera formeln
+%$$ f(x) = \sum_{k=-1}^1 C_k e^{k j t} $$
+%och $$C_k = \sum_{k=-\infty}^{\infty} C_k e^{k j t}$$
+%Till sinus, och det kommer visa sig vara samma sak. Lämnas till en övning?
+%Detta innebär att de måste lösa en Integral vilket inte använder sig av DSL...
 Detta blir då en form av det som kallas för Fourierserier. Man skriver om allt så att det uttrycks som komponenter till den hela signalen som man ''slår'' isär. Om man har en enkel signal som i vårt fall så är det kanske inte riktigt så givande, men om man har en större, mer komplicerad signal så skulle den vara svår att studera i sitt grundutförande och det skulle bli mycket lättare att bara bryta upp den till sina komponenter istället då. \newline
 En fourierserie visar en amplitud mot dess frekvens, så man vet ''hur mycket'' bidrag man får från varje frekvens. Så ett ordentligt exempel skulle vara att man har ett filter som filtrerar bort alla frekvenser som har en amplitud större än ett visst tal $K$. Då kan man ta reda på vilka frekvenser som kommer att påverkas efter att filtret applicerats genom att bryta upp signalen till dess komponenter. \newline
 
@@ -64,34 +71,76 @@ Detta är då användningsområdet för Fourierserier i ett nötskal, inom signa
 Det är där fouriertransformen kommer in!
 
 \section{Fouriertransform}
+%OBS!------------------ Vi kan ha (förmodligen har) blandat ihop unitary, ordinary frequency och non-unitary, angular frequency! Ska kolla på detta senare!
 Observera att signaler inte nödvändigtvis behöver vara periodiska. Hur ska man då kunna behandla dessa om en fourierserieutveckling kräver periodicitet? Vi transformerar dem! Om ni kommer ihåg att $e^{j\omega x}$ är en trigonometrisk funktion enligt Eulers formel. Då kanske följande formler blir logiska, och om de inte blir det så är det enda ni behöver veta att formlerna ''transformerar'' signalen så att den kan studeras i en frekvensdomän.
 
 Definition för fouriertransform:
-$$\hat{f}(\omega) = \int_{-infty}^{\infty} f(t) e^{-j \omega t} dt$$
+$$\hat{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt$$
 
-Vi kan sedan observera att det är samma sak som att beräkna ut konstanten $C_k$ men i detta fall så är $\omega_0$ en variabel istället för en konstant, vilken betecknas som $\omega$. 
-Detta kan användas inom matematiken för att beräkna differentialekvationer över begränsade tidsintervall. I princip så ändras det hela från ett tidsplan till ett frekvensplan, det vill säga att det ändras från linjer till cirklar. 
+Vi kan sedan observera att det är samma sak som att beräkna ut konstanten $C_k$ men i detta fall så är $\omega_0$ en variabel istället för en konstant, vilken betecknas som $\omega$ för att visa skillnaden. 
+Detta kan användas inom matematiken för att beräkna differentialekvationer över begränsade tidsintervall. I princip så ändras det hela från ett tidsplan till ett frekvensplan, det vill säga att det ändras från linjer till cirklar. %Kanske är onödigt?
+Bli nu inte skrämda av alla dessa integraler. Oftast så tillåts det en tabell som en kan utnyttja för att förenkla hela processen. Vi definerar en operator som fourier transformerar $\mathcal{F}$ .Några viktiga transformer:
+%Ta upp viktiga transformer som t.ex Translation, skalning etc...
+$$\mathcal{F}(e^{j 2 \pi a t} f(t)) = F(\omega - a)$$%Translation
+
+Fourier transformen är linjär vilket innebär
+$$\mathcal{F}(a f + b f) = a F + b F$$
 %Exempel på hur man fouriertransformerar i ett LTI-system.
+%\textbf{Exempel} (inspirerad från en tenta uppgift) (Inte helt klar)
+%OBS! Detta kommer krocka med det som står under så vi får helt enkelt skriva om lite. Eller flytta på exemplet.
+%OBS!! kanske för komplicerad för ett exempel. Ta bort % för att lättare läsa igenom exemplet.
+%OBS!!! Har ni lärt er en bättre metod för att hantera fourier transformen av en sinus? Detta är den enda metod jag kan. Vilket ger en trigonometrisk lösning skrivit i Eulers formel (tror jag). Skulle det vara ok att svara så i er tenta?
 
-Varför skulle det här vara hjälpsamt? Om ni kommer ihåg från innan hur utsignalen till ett systemsvar är givet från $y(t) = x(t) * h(t)$, vilket är en faltning mellan två funktioner. I ne frekvensdomän blir motsvarande $Y(\omega) = X(\omega) H(\omega)$. Det vill säga en enkel multiplikation mellan insignalen och systemsvaret. Sen finns även Parsevals ekvation:
-$$ 2 \pi <f,f> = <F,F> $$ 
-$$<f,f> = \int_{-\infty}^{\infty} |f(x)|^2 dx $$
-%Kanske leta upp Parseval enligt Beta(eller vilken version som nu är känd för datateknologer.)
+%Ett kontinuerlig LTI-system har insignalen $x(t)=\delta{t} + \cos(5 t)$ och impulssvaret
+%$h(t) = e^{-2 t} u(t). Hur ser utsignalen ut?
+%Först beräknas fourier transformen av impulssvaret ut. 
+%\mathcal{F}(h) = H = \frac{1}{2+j \omega}
+%Eftersom fourier transformen är linjär så kan vi behandla termerna i insignalen var för sig. Det vill säga 
+%$$\mathcal{F} (x) = \mathcal{F}(\delta{t}) + \mathcal{F}(\cos(5 t) = X_1 + X_2 $$
+%Som alla är givna från tabeller. Vi har nu tagit bort faltningen och har följande förhållande.
+%$$Y = X H = X_1 H + X_2 H$$
+%Då kvarstår det helt enkelt att återtransformera högerledet. Vi börjar med $X_1 H$
+%$$y_1=\mathcal{F}^{-1}(X_1 H) =  \int_{-\infty}^{\infty} 1 \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega = e^{2 t} u(-t)$$ 
+%Nu återstår bara $X_2 H$
+%$$y_2=\mathcal{F}^{-1}(X_2 H) = \int_{-\infty}^{\infty} \pi(\delta(\omega - 5) + \delta(\omega + 5)) \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega $$
+%Integralen ovan är knasig eftersom den innehåller impulse funktioner. Men från dess definition så kan den bara anta värden då $\omega=5$ eller $\omega =-5$ vilket innebär att integralen blir följande
+%$$\frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{j -5 t}$$ %Som förmodligen kan skrivas om till andra trigonometriska funktioner. 
+%Utsignalen blir då y=y_1 + y_2.
+
 Om vi då återgår till vårt smoothie-exempel så skulle det vara som att vi låter en maskin hitta alla ingredienser i smoothien åt oss.
-Det vill säga normen(alternativt ord?) av en funktion är samma sak som normer av dess fouriertransform delat med $2*\pi$. Eller mer specifikt, delat med perioden som den är definerad över. %Vettigt när man kollar på totala energin i en signal. Exempel är nice!
+
+Varför skulle det här vara hjälpsamt? Om ni kommer ihåg från innan hur utsignalen till ett systemsvar är givet från $y(t) = x(t) * h(t)$, vilket är en faltning mellan två funktioner. I en frekvensdomän blir motsvarande $Y(\omega) = X(\omega) H(\omega)$. Det vill säga en enkel multiplikation mellan insignalen och systemsvaret. Sen finns även Plancherel's ekvation: %Parservals
+%$$ 2 \pi <f,f> = <F,F> $$ 
+%$$<f,f> = \int_{-\infty}^{\infty} |f(x)|^2 dx $$ 
+$$\int_{-\infty}^{\infty} |f(x)|^2 dx = \frac{1}{2 \pi}\int_{-\infty}^{\infty} |F(\omega)|^2 d\omega $$ %Enligt Beta s.316, säger i princip samma sak men kanske är tydligare. Kan ta bort den ovan.
+
+Det vill säga normen(alternativt ord?) av en funktion är samma sak som normen av dess fouriertransform delat med $2*\pi$. Eller mer specifikt, delat med perioden som den är definerad över. %Vettigt när man kollar på totala energin i en signal. Exempel är nice!
+%Tillexempel (Görs mer utförligt senare)
+%\textbf{Exempel}
+%Vi vill veta den totala energin i insignalen till ett system givet utsignalen y och impulssvaret h. Fourier transformerar vi detta så får vi 
+%$XH = Y \implies X = Y/H$$
+%Detta ger oss enligt plancherals formel 
+%$$ \frac{1}{2 \pi} \int_{-\infty}^{\infty} |X(\omega)|^2 d \omega = \int_{-\infty}^{\infty} |x(t)|^2 d t $$
+%Vilket är den totala energin från insignalen. Det vill säga, bara lös vänster leden. 
+%Så varför använda Fourier transform? Det kan vara svårt att bryta upp en faltning! (Det vill säga vi vill bryta upp $x*h=y$ så att x blir ensam.)
+%Så varför använda Plancherals sats? Mycket lättare att slippa återtransformera och sedan beräkna normen. (Det vill säga höger ledet...)
+%Vad finns kvar att göra, komma på en utsignal och impulssvar som gör följande integral enkel $\int_{-\infty}^{\infty} |(Y/H)(\omega)|^2 d \omega$
 \bf{OBS!} Tillskillnad från en en fourierserieutveckling så är en fouriertransformerad funktion \bf{inte} samma sak som den ursprungliga funktionen. Därför önskas det att återtransformera funktionen, vilket görs med följande formel! \newline
 Invers Fourier Transform - 
 $$f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty}  e^{j \omega t} d\omega $$
+
 Allt detta är under antagandet att signalens funktion är känd. Vad händer då om bara signalens värden är kända?
 %Parsevals ekvation är $2 \pi <f,g> = <\hat{f},\hat{g}> $. Där <f,f> är en definerad skalärprodukt. I detta fall, <f,f> beroende på skalärprodukten kan även innebära normen av funktionen. 
 %Bara ett random exempel tagen från en tenta. Ni vill finna en filtrets brytningsfrekven. 
-%I princip, fouriertransform används på signaler som är periodiska eller definierad i [-\infty,\infty]. Laplace på LTI system för system definierade från 0 till \infty. Z-transform används på talserier ekvationer (differens ekvationer).
+%I princip, fouriertransform används på signaler som är periodiska eller definierad i [-\infty,\infty]. Laplace på LTI system för system definierade från 0 till \infty (anses oftast vara enklare att behandle en fourier). Z-transform används på talserier ekvationer (differens ekvationer).
+\section{Diskret Fourier Transform}
+%Vi borde kanske förklara sampling tydligare någon stans? Eller räcker detta?
 Med hjälp av sampling kan vi reducera en kontinuerlig signal till en diskret signal. Därefter kan vi använda definitionen för DFT, \emph{diskret fouriertransform}, för att omvandla signalen från en tidsdomän till en frekvensdomän.
-$$X_k = \sum_{n=0}^{N-1} x_n e^{-2 \pi j n k/N}$$
+$$X[k] = \sum_{n=0}^{N-1} x[n] e^{-2 \pi j n k/N}$$
 Det vill säga, om man vill studera diskreta värden från en signal i dess frekvensdomän, då applicerar man DFT! Och precis som i det kontinuerliga fallet så finns det en invers DFT för att återomvandla signalen.
-$$x_n = \frac{1}{N} \sum_{k=0}^{N-1} X_k e^{2 \pi j n k/N} $$
-$$x_n = \frac{1}{2\pi} \int X_k e^{j n k}$$
-Rent praktiskt används diskret fouriertransform oftast med sampling från en typ av signal. Detta görs ifall det finns någon typ av okänd signal, där vi känner till värden men inte själva formeln.
+$$x[n] = \frac{1}{N} \sum_{k=0}^{N-1} X[k] e^{2 \pi j n k/N} $$
+$$x[n] = \frac{1}{2\pi} \int X[k] e^{j n k}$$
+Rent praktiskt används diskret fouriertransform oftast med sampling från en typ av signal. Detta görs ifall det finns någon typ av okänd signal, där vi känner till \textbf{värden} men inte själva \textbf{formeln}. %Kom ihåg att rätta mig ifall jag har fel.
 Här är även det motsvarande Parsevals ekvation
 
 Parsevals ekvation för diskreta Fouriertransformer
@@ -100,12 +149,5 @@ $$\sum_{-\infty}^{\infty} |x[n]|^2 = \frac{1}{2\pi} \int_{\pi}|X(\omega)|^2 d\om
 
 %$$\sum_{0}^{N} |x_n|^2 = \frac{1}{N} sum_{0}^{N-1} |X_k|^2 $$
 %Wikipedias vilket är den jag känner till. 
-
-
-
-
-
-
-
 
 \end{document}
