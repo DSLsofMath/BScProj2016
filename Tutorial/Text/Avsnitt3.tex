@@ -71,7 +71,7 @@ Detta är då användningsområdet för Fourierserier i ett nötskal, inom signa
 Det är där fouriertransformen kommer in!
 
 \section{Fouriertransform}
-%OBS!------------------ Vi kan ha (förmodligen har) blandat ihop unitary, ordinary frequency och non-unitary, angular frequency! Ska kolla på detta senare!
+
 Observera att signaler inte nödvändigtvis behöver vara periodiska. Hur ska man då kunna behandla dessa om en fourierserieutveckling kräver periodicitet? Vi transformerar dem! Om ni kommer ihåg att $e^{j\omega x}$ är en trigonometrisk funktion enligt Eulers formel. Då kanske följande formler blir logiska, och om de inte blir det så är det enda ni behöver veta att formlerna ''transformerar'' signalen så att den kan studeras i en frekvensdomän.
 
 Definition för fouriertransform:
@@ -79,75 +79,89 @@ $$\hat{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt$$
 
 Vi kan sedan observera att det är samma sak som att beräkna ut konstanten $C_k$ men i detta fall så är $\omega_0$ en variabel istället för en konstant, vilken betecknas som $\omega$ för att visa skillnaden. 
 Detta kan användas inom matematiken för att beräkna differentialekvationer över begränsade tidsintervall. I princip så ändras det hela från ett tidsplan till ett frekvensplan, det vill säga att det ändras från linjer till cirklar. %Kanske är onödigt?
-Bli nu inte skrämda av alla dessa integraler. Oftast så tillåts det en tabell som en kan utnyttja för att förenkla hela processen. Vi definerar en operator som fourier transformerar $\mathcal{F}$ .Några viktiga transformer:
-%Ta upp viktiga transformer som t.ex Translation, skalning etc...
-$$\mathcal{F}(e^{j 2 \pi a t} f(t)) = F(\omega - a)$$%Translation
+Bli nu inte skrämda av alla dessa integraler. Oftast så tillåts det en tabell som en kan utnyttja för att förenkla hela processen. Vi definerar en operator som fourier transformerar $\mathcal{F}$. Några viktiga transformer:
 
-Fourier transformen är linjär vilket innebär
-$$\mathcal{F}(a f + b f) = a F + b F$$
-%Exempel på hur man fouriertransformerar i ett LTI-system.
-%\textbf{Exempel} (inspirerad från en tenta uppgift) (Inte helt klar)
-%OBS! Detta kommer krocka med det som står under så vi får helt enkelt skriva om lite. Eller flytta på exemplet.
-%OBS!! kanske för komplicerad för ett exempel. Ta bort % för att lättare läsa igenom exemplet.
-%OBS!!! Har ni lärt er en bättre metod för att hantera fourier transformen av en sinus? Detta är den enda metod jag kan. Vilket ger en trigonometrisk lösning skrivit i Eulers formel (tror jag). Skulle det vara ok att svara så i er tenta?
+$$\mathcal{F}(e^{j a t} f(t)) = F(\omega - a)$$%Translation
+$$\mathcal{F}(f(at)) = \frac{1}{|a|}F(\frac{\omega}{a})$$%Skalning
+$$\mathcal{F}(\frac{d}{dt} f(t)) = i\omega F(\omega) $$%Derivering
 
-%Ett kontinuerlig LTI-system har insignalen $x(t)=\delta{t} + \cos(5 t)$ och impulssvaret
-%$h(t) = e^{-2 t} u(t). Hur ser utsignalen ut?
-%Först beräknas fourier transformen av impulssvaret ut. 
-%\mathcal{F}(h) = H = \frac{1}{2+j \omega}
-%Eftersom fourier transformen är linjär så kan vi behandla termerna i insignalen var för sig. Det vill säga 
-%$$\mathcal{F} (x) = \mathcal{F}(\delta{t}) + \mathcal{F}(\cos(5 t) = X_1 + X_2 $$
-%Som alla är givna från tabeller. Vi har nu tagit bort faltningen och har följande förhållande.
-%$$Y = X H = X_1 H + X_2 H$$
-%Då kvarstår det helt enkelt att återtransformera högerledet. Vi börjar med $X_1 H$
-%$$y_1=\mathcal{F}^{-1}(X_1 H) =  \int_{-\infty}^{\infty} 1 \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega = e^{2 t} u(-t)$$ 
-%Nu återstår bara $X_2 H$
-%$$y_2=\mathcal{F}^{-1}(X_2 H) = \int_{-\infty}^{\infty} \pi(\delta(\omega - 5) + \delta(\omega + 5)) \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega $$
-%Integralen ovan är knasig eftersom den innehåller impulse funktioner. Men från dess definition så kan den bara anta värden då $\omega=5$ eller $\omega =-5$ vilket innebär att integralen blir följande
-%$$\frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{j -5 t}$$ %Som förmodligen kan skrivas om till andra trigonometriska funktioner. 
-%Utsignalen blir då y=y_1 + y_2.
+Fourier transformen är även linjär vilket innebär
+$$\mathcal{F}(a f + b g) = a F + b G$$
 
 Om vi då återgår till vårt smoothie-exempel så skulle det vara som att vi låter en maskin hitta alla ingredienser i smoothien åt oss.
 
-Varför skulle det här vara hjälpsamt? Om ni kommer ihåg från innan hur utsignalen till ett systemsvar är givet från $y(t) = x(t) * h(t)$, vilket är en faltning mellan två funktioner. I en frekvensdomän blir motsvarande $Y(\omega) = X(\omega) H(\omega)$. Det vill säga en enkel multiplikation mellan insignalen och systemsvaret. Sen finns även Plancherel's ekvation: %Parservals
+Varför skulle det här vara hjälpsamt? Om ni kommer ihåg från tidigare att utsignalen till ett systemsvar är givet från $y(t) = x(t) * h(t)$, vilket är en faltning mellan två funktioner. I en frekvensdomän blir motsvarande $Y(\omega) = X(\omega) H(\omega)$. Det vill säga en enkel multiplikation mellan insignalen och systemsvaret. 
+$$\mathcal{F}(f*g) = F G $$
+
+%Exempel på hur man fouriertransformerar i ett LTI-system.
+\textbf{Exempel} %(inspirerad från en tenta uppgift) (Inte helt klar)
+%OBS! Detta kommer krocka med det som står under så vi får helt enkelt skriva om lite. Eller flytta på exemplet.
+%OBS!! kanske för jobbig för ett exempel. 
+%OBS!!! Har ni lärt er en bättre metod för att hantera fourier transformen av en sinus? Detta är den enda metod jag kan. Vilket ger en trigonometrisk lösning skrivit i Eulers formel (tror jag). Skulle det vara ok att svara så i er tenta? Annars borde det gå att skriva om genom att multiplicera med nämnarens konjugat.
+
+Ett kontinuerlig LTI-system har insignalen $x(t)=\delta{t} + \cos(5 t)$ och impulssvaret $h(t) = e^{-2 t} u(t)$. Hur ser utsignalen ut?
+\textbf{Lösning:}
+
+Först beräknas fourier transformen av impulssvaret ut. 
+$$\mathcal{F}(h) = H = \frac{1}{2+j \omega}$$
+Eftersom fourier transformen är linjär så kan vi behandla termerna i insignalen var för sig. Det vill säga 
+$$\mathcal{F} (x) = \mathcal{F}(\delta{t}) + \mathcal{F}(\cos(5 t) = X_1 + X_2 $$
+Som båda är givna från tabeller och blir $1+\pi(\delta(\omega - 5) + \delta(\omega + 5))$. Vi har nu tagit bort faltningen och har följande förhållande.
+$$Y = X H = X_1 H + X_2 H$$
+Vilket innebär att vi har löst problemet om vi återtransformerar vänsterledet. Vi börjar med $X_1 H$
+$$y_1=\mathcal{F}^{-1}(X_1 H) =  \int_{-\infty}^{\infty} 1 \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega = e^{2 t} u(-t)$$ 
+Nu återstår bara $X_2 H$
+$$y_2=\mathcal{F}^{-1}(X_2 H) = \int_{-\infty}^{\infty} \pi(\delta(\omega - 5) + \delta(\omega + 5)) \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega $$
+Integralen ovan är knasig eftersom den innehåller impulse funktioner. Men från impulsefunktionens definition så observerar vi att integranden bara kan anta värden då $\omega=5$ eller $\omega =-5$ vilket innebär att integralen blir följande
+$$\frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$$ %Som förmodligen kan skrivas om till andra trigonometriska funktioner. Ska jag göra det?
+Utsignalen blir då $y=y_1 + y_2$ eller $e^{2 t} u(-t) + \frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$
+%---------------------------------Slut på exempel---------------------
+
+Sen finns även Plancherel's ekvation: %Parservals
 %$$ 2 \pi <f,f> = <F,F> $$ 
 %$$<f,f> = \int_{-\infty}^{\infty} |f(x)|^2 dx $$ 
 $$\int_{-\infty}^{\infty} |f(x)|^2 dx = \frac{1}{2 \pi}\int_{-\infty}^{\infty} |F(\omega)|^2 d\omega $$ %Enligt Beta s.316, säger i princip samma sak men kanske är tydligare. Kan ta bort den ovan.
 
-Det vill säga normen(alternativt ord?) av en funktion är samma sak som normen av dess fouriertransform delat med $2*\pi$. Eller mer specifikt, delat med perioden som den är definerad över. %Vettigt när man kollar på totala energin i en signal. Exempel är nice!
-%Tillexempel (Görs mer utförligt senare)
-%\textbf{Exempel}
-%Vi vill veta den totala energin i insignalen till ett system givet utsignalen y och impulssvaret h. Fourier transformerar vi detta så får vi 
-%$XH = Y \implies X = Y/H$$
-%Detta ger oss enligt plancherals formel 
-%$$ \frac{1}{2 \pi} \int_{-\infty}^{\infty} |X(\omega)|^2 d \omega = \int_{-\infty}^{\infty} |x(t)|^2 d t $$
-%Vilket är den totala energin från insignalen. Det vill säga, bara lös vänster leden. 
-%Så varför använda Fourier transform? Det kan vara svårt att bryta upp en faltning! (Det vill säga vi vill bryta upp $x*h=y$ så att x blir ensam.)
-%Så varför använda Plancherals sats? Mycket lättare att slippa återtransformera och sedan beräkna normen. (Det vill säga höger ledet...)
+Det vill säga normen(alternativt ord?) av en funktion är samma sak som normen av dess fouriertransform delat med $2*\pi$. Eller mer specifikt, delat med perioden som den är definerad över. Inom detta området innebär normen av en signal den totala energin av signalen. %Vettigt när man kollar på totala energin i en signal. Exempel är nice!
+
+\textbf{Exempel}
+Vi vill veta den totala energin i insignalen till ett system givet utsignalen y och impulssvaret h. Fourier transformerar vi systemet får vi 
+$$X H = Y \implies X = Y/H$$
+Detta ger oss enligt Plancherals formel följande relation
+$$ \frac{1}{2 \pi} \int_{-\infty}^{\infty} |X(\omega)|^2 d \omega = \int_{-\infty}^{\infty} |x(t)|^2 d t $$
+Där vi kan se att högerledet är den totala energin från insignalen. 
+Det vill säga, bara lös vänster leden. 
+
+Så varför använda Fourier transform? Det kan vara svårt att bryta upp en faltning! (Det vill säga vi vill bryta upp $x*h=y$ så att x blir ensam.)
+Så varför använda Plancherals sats? Mycket lättare att slippa återtransformera och sedan beräkna normen. (Det vill säga höger ledet...)
 %Vad finns kvar att göra, komma på en utsignal och impulssvar som gör följande integral enkel $\int_{-\infty}^{\infty} |(Y/H)(\omega)|^2 d \omega$
-\bf{OBS!} Tillskillnad från en en fourierserieutveckling så är en fouriertransformerad funktion \bf{inte} samma sak som den ursprungliga funktionen. Därför önskas det att återtransformera funktionen, vilket görs med följande formel! \newline
+%Såvida det här inte räcker.
+%--------------------------Slut på Exempel----------------------------
+
+\bf{OBS!} Tillskillnad från en fourierserieutveckling så är en fouriertransformerad funktion \bf{inte} samma sak som den ursprungliga funktionen. Därför önskas det att återtransformera funktionen, vilket görs med följande formel! \newline
 Invers Fourier Transform - 
 $$f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty}  e^{j \omega t} d\omega $$
 
 Allt detta är under antagandet att signalens funktion är känd. Vad händer då om bara signalens värden är kända?
-%Parsevals ekvation är $2 \pi <f,g> = <\hat{f},\hat{g}> $. Där <f,f> är en definerad skalärprodukt. I detta fall, <f,f> beroende på skalärprodukten kan även innebära normen av funktionen. 
-%Bara ett random exempel tagen från en tenta. Ni vill finna en filtrets brytningsfrekven. 
-%I princip, fouriertransform används på signaler som är periodiska eller definierad i [-\infty,\infty]. Laplace på LTI system för system definierade från 0 till \infty (anses oftast vara enklare att behandle en fourier). Z-transform används på talserier ekvationer (differens ekvationer).
+
+%I princip, fouriertransform används på signaler som är periodiska eller definierad i [-\infty,\infty]. Laplace på LTI system för system definierade från 0 till \infty (anses oftast vara enklare att behandle en Fourier). Z-transform används på talserier ekvationer (differens ekvationer).
 \section{Diskret Fourier Transform}
 %Vi borde kanske förklara sampling tydligare någon stans? Eller räcker detta?
+%Från det jag hittar så är sampling att reducera en kontinuerlig signal till diskret...
+%Detta kan göras genom att ta värden i jämna interval från en signal.
 Med hjälp av sampling kan vi reducera en kontinuerlig signal till en diskret signal. Därefter kan vi använda definitionen för DFT, \emph{diskret fouriertransform}, för att omvandla signalen från en tidsdomän till en frekvensdomän.
-$$X[k] = \sum_{n=0}^{N-1} x[n] e^{-2 \pi j n k/N}$$
+$$X[k] = \frac{1}{N} \sum_{n=0}^{N-1} x[n] e^{-2 \pi j n k/N}$$
 Det vill säga, om man vill studera diskreta värden från en signal i dess frekvensdomän, då applicerar man DFT! Och precis som i det kontinuerliga fallet så finns det en invers DFT för att återomvandla signalen.
-$$x[n] = \frac{1}{N} \sum_{k=0}^{N-1} X[k] e^{2 \pi j n k/N} $$
-$$x[n] = \frac{1}{2\pi} \int X[k] e^{j n k}$$
+$$x[n] = \sum_{k=0}^{N-1} X[k] e^{2 \pi j n k/N} $$ %Betas
+%$$x[n] = \frac{1}{2\pi} \int X[k] e^{j n k}$$ TSS bokens definition
 Rent praktiskt används diskret fouriertransform oftast med sampling från en typ av signal. Detta görs ifall det finns någon typ av okänd signal, där vi känner till \textbf{värden} men inte själva \textbf{formeln}. %Kom ihåg att rätta mig ifall jag har fel.
 Här är även det motsvarande Parsevals ekvation
 
 Parsevals ekvation för diskreta Fouriertransformer
-$$\sum_{-\infty}^{\infty} |x[n]|^2 = \frac{1}{2\pi} \int_{\pi}|X(\omega)|^2 d\omega $$
+%$$\sum_{-\infty}^{\infty} |x[n]|^2 = \frac{1}{2\pi} \int_{\pi}|X(\omega)|^2 d\omega $$
 %TSS bokens definition.
 
-%$$\sum_{0}^{N} |x_n|^2 = \frac{1}{N} sum_{0}^{N-1} |X_k|^2 $$
+$$\sum_{n=0}^{N} |x[n]|^2 = \frac{1}{N} sum_{k=0}^{N-1} |X[k]|^2 $$
 %Wikipedias vilket är den jag känner till. 
 
 \end{document}
