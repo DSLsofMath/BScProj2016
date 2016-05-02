@@ -317,6 +317,7 @@ Passa nu på att ge dig själv en välförtjänt klapp på axeln innan du går v
 \section{Lösningar}
 
 Övning 1
+\begin{minted}{haskell}
 isLinearDisc :: DiscTimeFun -- ^ Insignal 1
             -> DiscTimeFun -- ^ Insignal 2
             -> DiscSystem  -- ^ System
@@ -330,15 +331,19 @@ isLinearDisc x0 x1 sys a b t = testAt (y0' + y1') (y0 `scale` a + y1 `scale` b) 
           y0' = discOutSignal sys (x0 `scale` a)
           y1' = discOutSignal sys (x1 `scale` b)
           testAt a b t = a t ~= b t
+\end{minted}
 
 Övning 2
+\begin{minted}{haskell}
 isTimeInvCont :: ContTimeFun -> ContSystem -> ContTime -> ContTime -> Bool
 isTimeInvCont x sys t c = y' t ~= (timeShift y c) t
     where x' = timeShift x c
           y  = contOutSignal sys x
           y' = contOutSignal sys x'
+\end{minted}{haskell}
 
 Övning 4
+\begin{minted}{haskell}
 discConvolution :: DiscTimeFun -- ^ Signal 1
                 -> DiscTimeFun -- ^ Signal 2
                 -> DiscTime -- ^ Interval length -M start
@@ -347,5 +352,5 @@ discConvolution s0 s1 interval = sum $ map conv points
     where points = [from .. interval]
           from = negate interval
           conv n m = (s0 n * (s1 (n-m)))
-
+\end{minted}
 \end{document}
