@@ -21,6 +21,9 @@
 		
 		<!-- Include Modernizr in the head, before any other Javascript -->
 		<script src="includes/js/modernizr-2.6.2.min.js"></script>
+
+		<!-- Mathjax -->
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		
 	</head>
 	<body>
@@ -83,22 +86,181 @@
 			<div class="row" id="komplex">
 				<div class="col-sm-12">
 					<div class="well clearfix">
-						<div class="page-header"><h1>Komplex</h1></div><!--end page-header-->
+						<div class="page-header text-center"><h1>Komplexa tal</h1></div><!--end page-header-->
 
-						<p>Bacon ipsum dolor amet shankle andouille ribeye beef ribs shoulder, jerky landjaeger bresaola t-bone biltong pork loin. Meatball tongue sirloin, corned beef beef jowl alcatra pastrami jerky turducken. Pork loin beef ribs t-bone ball tip short loin. Frankfurter andouille ball tip chicken ham. Ground round pork belly sausage shank ribeye porchetta jowl, hamburger fatback tri-tip tenderloin. Filet mignon corned beef pig, brisket tri-tip spare ribs ham short loin pancetta meatball cow landjaeger picanha. Rump sirloin turkey bacon swine bresaola biltong turducken.</p>
+						<h2>Komplexa tal med DSL</h2>
 
-						<p>Sausage filet mignon rump, drumstick venison sirloin turkey pork loin shankle brisket tenderloin ribeye fatback cow ground round. Strip steak shoulder pork chop, ball tip swine meatloaf doner pastrami turducken tongue shankle pig spare ribs ham. Beef kevin turkey pork belly shank strip steak pork chop chuck. Tongue fatback ham kevin. Brisket ham hock turkey, cow biltong tail kielbasa bresaola andouille. Kielbasa picanha rump pork loin bacon landjaeger chuck ham hock ground round. Chicken filet mignon meatloaf brisket, corned beef shank porchetta.</p>
+						<p>Då inleder vi med komplexa tal! Det här är något som antagligen känns ganska hemvant för de flesta av er men vi tar och repeterar lite ändå och passar på att visa hur man kan implementera ämnet med DSL.</p>
 
-						<p>Tri-tip short loin kevin pastrami corned beef capicola. Flank salami strip steak doner frankfurter pastrami fatback porchetta tongue. Brisket pork ham hock venison turkey, swine biltong rump capicola beef ribs. Biltong meatloaf filet mignon tenderloin, jerky t-bone cupim. Boudin beef ribs ham hock, filet mignon ham ribeye tenderloin strip steak shank fatback brisket drumstick turkey biltong. Turducken venison tri-tip tongue, pork belly short loin picanha doner pancetta swine chuck ball tip beef tenderloin strip steak. Pastrami jerky picanha fatback tri-tip sirloin, tongue salami doner kevin shank beef.</p>
+						<p>Imaginära tal. Var kommer dom ifrån tänker ni? Jo, det är så att om man försökte dra roten ur ett negativt tal så blev det jobbigt, fram till att någon introducerade imaginära tal. Som är jobbiga på sitt eget sätt istället. Så därför bestämdes det att <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><mo>−</mo><mn>1</mn></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{-1}</annotation></semantics></math> ska vara <em>i</em>.</p>
 
-						<p>Hamburger meatball salami venison beef kielbasa pastrami. Strip steak beef ribs drumstick, alcatra shoulder t-bone turkey hamburger corned beef pastrami pork chop ham beef spare ribs picanha. Cupim ribeye ham hock tail tongue t-bone turducken landjaeger prosciutto sirloin. Shoulder prosciutto salami tongue meatball biltong. Pork jowl boudin ham hock short ribs swine fatback porchetta shankle salami prosciutto tongue cow andouille pastrami. Flank meatball pork belly capicola alcatra, corned beef tail andouille filet mignon pork loin landjaeger bacon kielbasa. Andouille alcatra beef ribs bresaola chicken bacon.</p>
+						<p>Som tur är så är det hela ganska konsekvent utformat så att <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><mo>−</mo><mn>2</mn></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{-2}</annotation></semantics></math> också blir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>2</mn></msqrt><mi>i</mi></mrow><annotation encoding="application/x-tex">\sqrt{2}i</annotation></semantics></math>, och <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><mo>−</mo><mn>3</mn></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{-3}</annotation></semantics></math> blir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>3</mn></msqrt><mi>i</mi></mrow><annotation encoding="application/x-tex">\sqrt{3} i</annotation></semantics></math>. Så om man tar roten ur vilken negativt tal som helst så får man samma svar som det positiva fallet fast med ett i med.</p>
 
-						<p>Cupim andouille tongue drumstick bacon salami, shank filet mignon short loin beef shankle strip steak. Ribeye filet mignon pork belly cow, kevin tongue rump salami jerky biltong shank capicola turducken bresaola hamburger. Cupim drumstick tail sausage fatback, meatball rump biltong ball tip. Alcatra doner ham ham hock leberkas shank pancetta biltong turkey chicken corned beef andouille short ribs. Spare ribs bresaola tenderloin, jowl doner pastrami brisket hamburger t-bone cow. Ham hock beef ribs ham turducken tongue alcatra.</p>
+						<p>Vi kommer dock inte använda oss av beteckningen <em>i</em> i våra texter, eftersom att man inom fysik, elektronik och flera andra ämnen redan använder bokstaven i för att beteckna en ström. Därfor brukar man ofta använda j inom signallära istället, för att undvika missförstånd, och det kommer vi också göra. Komplexa tal kan ses som ett par utav reella värden, där första värdet i talet är reellt och det andra värdet är den imaginära delen. Det kan dock vara så att en eller båda av dessa delar är noll. T.ex. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>+</mo><mn>0</mn><mo>*</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">7+0*j</annotation></semantics></math> blir ju bara 7.</p>
 
-						<a href="#komplexQs" role="button" class="btn btn-primary" data-toggle="modal">Uppgifter</a>
+						<div class="well" id="komplexQ1">
+							<h5><b>Kryssfråga 1:</b> Vad är den reela delen av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>+</mo><mn>5</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">10 + 5 j</annotation></semantics></math>?</h5>
+							<ul class="unstyled">
+								<li><input type="radio" name="radio1" id="1a" value="1a"> 5</li>
+								<li><input type="radio" name="radio1" id="1b" value="1b"> 10</li>
+							</ul>
+							<button type="button" class="btn btn-primary" id="komplexSvar1">Svara</button>
+
+							<div class="alert alert-success alert-block fade in" id="rightKomplex1">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<h4>Rätt svar!</h4>
+							</div><!--End alert-->
+							<div class="alert alert-danger alert-block fade in" id="wrongKomplex1">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<h4>Fel svar!</h4>
+							</div><!--End alert-->
+						</div><!--end komplexQ1-->
+
+						<div class="well" id="komplexQ2">
+							<h5><b>Kryssfråga 2:</b> Vad är den imaginära delen i talet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>+</mo><mfrac><mn>6</mn><mn>5</mn></mfrac><mi>j</mi></mrow><annotation encoding="application/x-tex">4 + \frac{6}{5}j</annotation></semantics></math>?</h5>
+							<ul class="unstyled">
+								<li><input type="radio" name="radio2" id="2a" value="2a"> 4</li>
+								<li><input type="radio" name="radio2" id="2b" value="2b"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>6</mn><mn>5</mn></mfrac><annotation encoding="application/x-tex">\frac{6}{5}</annotation></semantics></math></li>
+							</ul>
+							<button type="button" class="btn btn-primary" id="komplexSvar2">Svara</button>
+
+							<div class="alert alert-success alert-block fade in" id="rightKomplex2">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<h4>Rätt svar!</h4>
+							</div><!--End alert-->
+							<div class="alert alert-danger alert-block fade in" id="wrongKomplex2">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<h4>Fel svar!</h4>
+							</div><!--End alert-->
+						</div><!--end komplexQ2-->
+
+						<p>Att skriva i vårt DSL är samma sak som att skriva <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>13</mn><mo>+</mo><mn>37</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">13 + 37j</annotation></semantics></math>, där 13 är reellt och 37 är imaginärt. Det är alltså inget ‘j’ i vårt DSL som indikerar att det är imaginärt utan man måste bara skriva dem i rätt ordning. Det ser som tur liknande ut i matten så det är ganska lätt att komma ihåg! Nu betraktar vi det komplexa talet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>13</mn><mo>+</mo><mn>37</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">13+37j</annotation></semantics></math>. Vi döper detta till <em>leet</em> så att vi slipper skriva ut alltihop i framtiden.</p>
+
+						<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> <span class="kw">let</span> leet <span class="fu">=</span> <span class="dt">Complex</span> <span class="dv">13</span> <span class="dv">37</span></code></pre></div>
+
+						<p>Om du nu känner att du vill veta vad det reella talet i paret är, då kan man skriva en funktion realPart som bara ger dig den reella delen.</p>
+
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  realPart ::</span> <span class="dt">Complex</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
+  realPart(<span class="dt">Complex</span> re im) <span class="fu">=</span> re</code></pre></div>
+
+						<p>Nu kan vi enkelt få ut realdelen ifrån :</p>
+
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> realPart leet 
+<span class="dv">  13</span></code></pre></div>
+
+						<p>Se så enkelt det blev! Så för att få ut den imaginära delen av talet så gör vi en funktion imPart.</p>
+						<p><strong>Övning 1:</strong> Definiera en funktion imPart som ger imaginärdelen av ett komplext tal. Denna funktion bör ge: = 37.</p>
+						<p><strong>Övning 2:</strong> Om vi nu skulle vilja skriva ut talet på vanligt mattespråk så skulle vi kunna göra en funktion som kan heta . Här får du ett kodskelett för en sådan funktion.</p>
+						<p>Fyll i det som saknas.</p>
+
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  printComplex ::</span> <span class="dt">Complex</span> <span class="ot">-&gt;</span> <span class="dt">String</span>
+  printComplex z
+<span class="fu block">    |</span> r <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> show im <span class="fu">++</span> <span class="st">&quot;j&quot;</span>
+<span class="fu ">    |</span> im <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> undefined 
+<span class="fu">    |</span> otherwise <span class="fu">=</span> undefined 
+<span class="kw">       where</span> im <span class="fu">=</span> imPart z 
+              r <span class="fu">=</span> realPart z</code></pre></div>
+
+						<p><strong>Exempel:</strong></p>
+						
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> printComplex (<span class="dt">Complex</span> <span class="dv">5</span> <span class="dv">12</span>)
+  <span class="ot">&quot;</span><span class="dv">5</span> <span class="fu">+</span> 12j&quot;</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> printComplex leet
+  <span class="ot">&quot;</span><span class="dv">13</span> <span class="fu">+</span> 37j&quot;</code></pre></div>
+
+						<p>Hur skulle man då göra för att faktiskt räkna på detta? Då måste man definiera hur matematiska tecken ska tolkas när man arbetar med komplexa tal.</p>
+
+						<p>Addition för komplexa tal är ganska lätt om ni kommer ihåg det. Om man är reell bryr man sig bara om andra reella tal, och vice versa för imaginära tal.</p>
+
+						<p><strong>Övning 3:</strong> Här får du ett kodskelett för addition med komplexa tal. Fyll i det som ska stå i parentesen.</p>
+
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">instance</span> <span class="dt">Num</span> <span class="dt">Complex</span> <span class="kw">where</span> z <span class="fu">+</span> w <span class="fu">=</span> <span class="dt">Complex</span> (<span class="fu">...</span>)</code></pre></div>
+
+						<p><strong>Test:</strong> Vad får man om man <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>+</mo><mn>5</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">10 + 5j</annotation></semantics></math> med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>−</mo><mn>1</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">2 -1j</annotation></semantics></math>? Bekräfta med programmet.</p>
+
+						<p>Multiplikation blir lite krångligare. Om vi multiplicerar två komplexa tal, vi kallar dem z och w, ser det ut såhär:</p>
+						
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  z <span class="fu">*</span> w <span class="fu">=</span> <span class="dt">Complex</span> (realZ<span class="fu">*</span>realW <span class="fu">-</span> imZ<span class="fu">*</span>imW) (realZ<span class="fu">*</span>imW <span class="fu">+</span> realW<span class="fu">*</span>imZ)
+	<span class="kw">   where</span> realZ <span class="fu">=</span> realPart z
+	         realW <span class="fu">=</span> realPart w
+	         imZ   <span class="fu">=</span> imPart z
+	         imW   <span class="fu">=</span> imPart w</code></pre></div>
+
+						<p>Vilket då blir samma sak som: 
+						
+						<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mspace width="0.278em"></mspace><mi>w</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo>*</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo>*</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo>*</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>*</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">z \; w = (Re(Z) * Re(W) - Im(Z)*Im(W)) + (Re(Z)*Im(W) + Re(W)*Im(Z))j</annotation></semantics></math> 
+						
+						<strong>Test:</strong> Vad får man om man <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>+</mo><mn>5</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">10 + 5j</annotation></semantics></math> med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>−</mo><mn>1</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">2 -1j</annotation></semantics></math>? Bekräfta med programmet.</p>
+
+						<p>Det kan även vara bra att ha en funktion som negerar ett komplext tal. T.ex. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>13</mn><mo>+</mo><mn>37</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">13+37j</annotation></semantics></math> ska då alltså bli <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>13</mn><mo>−</mo><mn>37</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">-13-37j</annotation></semantics></math></p>
+
+						<p><strong>Övning 4:</strong> Här är ett kodskellet till funktionen negate. Fyll i det som ska stå i parentesen.</p>
+				
+						<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">negate z        <span class="fu">=</span> <span class="dt">Complex</span> (<span class="fu">...</span>)</code></pre></div>
+
+						<p>Absolutbeloppet på ett komplext tal kan man räkna ut på samma sätt som man räknar ut hypotenusan i en rätvinklig triangel.</p>
+
+						<p><strong>Övning 5:</strong> Här är ett kodskelett till en funktion som ger absolutbeloppet av ett komplext tal. Fyll i det som saknas.</p>
+
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"> abs z <span class="fu">=</span> <span class="dt">Complex</span> hyp <span class="dv">0</span>
+<span class="kw">          where</span> hyp <span class="fu">=</span> <span class="fu">...</span> 
+                  r <span class="fu">=</span> realPart z 
+                 im <span class="fu">=</span> imPart z</code></pre></div>
+
+						<p><strong>Test:</strong> Vad är absolutbeloppet av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>+</mo><mn>3</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">6 + 3j</annotation></semantics></math>? Bekräfta med programmet.</p>
+
+						<p><strong>Test:</strong> Hur skriver man ut heltalet 5 som ett komplext tal? Bekräfta med programmet (fromInteger).</p>
 
 						<hr>
 
+						<h2 id="eulers-formel">Eulers formel</h2>
+						
+						<p>Eulers formel, eller Enigmatic Euler’s Formula som den också kallas, är en formel för att skriva om komplexa tal från en exponentiell funktion till trigonometriska funktioner och tvärtom.</p>
+
+						<p>Är det någon som verkligen vet hur trigonometiska funktioner funkar? Förmodligen..., men det skulle väl inte skada om det fanns ett sätt att skriva om trigonometiska funktioner till komplexa tal och tvärtom. Här kommer Eulers formel in! <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>j</mi><mi>t</mi></mrow></msup><mo>=</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">e^{jt} = cos(t) + jsin(t)</annotation></semantics></math> 
+
+						<div class="well" id="komplexQ3">
+							<p><strong>Kryssfråga 3:</strong> Vad blir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mn>3</mn><mi>j</mi><mi>t</mi></mrow></msup><annotation encoding="application/x-tex">e^{3jt}</annotation></semantics></math> omskrivet med Eulers formel?</p>
+							<ul class="unstyled">
+								<li><input type="radio" name="radio3" id="3a" value="3a"> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>3</mn><mi>j</mi><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">3 \cos(t) + 3 j \sin(t)</annotation></semantics></math></li>
+								<li><input type="radio" name="radio3" id="3b" value="3b"> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\cos(3t) + j \sin(3t)</annotation></semantics></math></li>
+								<li><input type="radio" name="radio3" id="3c" value="3c"> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>3</mn><mi>t</mi></mrow><annotation encoding="application/x-tex">\cos(t) + j \sin(t) + 3 t</annotation></semantics></math></li>
+							</ul>
+							<button type="button" class="btn btn-primary" id="komplexSvar3">Svara</button>
+
+							<div class="alert alert-success alert-block fade in" id="rightKomplex3">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<h4>Rätt svar!</h4>
+							</div><!--End alert-->
+							<div class="alert alert-danger alert-block fade in" id="wrongKomplex3">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<h4>Fel svar!</h4>
+							</div><!--End alert-->
+						</div><!--end komplexQ3-->
+
+						<div class="well" id="komplexQ4">
+							<p><strong>Kryssfråga 4:</strong> Vad blir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\cos(4t)+j \sin(4t)+5</annotation></semantics></math> omskrivet med Eulers formel?</p>
+
+							<ul class="unstyled">
+								<li><input type="radio" name="radio4" id="4a" value="4a"> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>j</mi><mn>4</mn><mo>+</mo><mn>5</mn></mrow></msup><annotation encoding="application/x-tex">e^{j4+5}</annotation></semantics></math></li>
+								<li><input type="radio" name="radio4" id="4b" value="4b"> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><msup><mi>e</mi><mrow><mi>j</mi><mn>4</mn></mrow></msup></mrow><annotation encoding="application/x-tex">5e^{j4}</annotation></semantics></math></li>
+								<li><input type="radio" name="radio4" id="4c" value="4c"> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>j</mi><mn>4</mn></mrow></msup><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">e^{j4} + 5</annotation></semantics></math></li>
+							</ul>
+							<button type="button" class="btn btn-primary" id="komplexSvar4">Svara</button>
+
+							<div class="alert alert-success alert-block fade in" id="rightKomplex4">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<h4>Rätt svar!</h4>
+							</div><!--End alert-->
+							<div class="alert alert-danger alert-block fade in" id="wrongKomplex4">
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<h4>Fel svar!</h4>
+							</div><!--End alert-->
+						</div><!--end komplexQ4-->
+
+						<p>Med lite magiska omskrivningar kan man bryta ut cosinus respektive sinus ur formeln vilket ger följande funktioner. <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>e</mi><mrow><mi>j</mi><mi>t</mi></mrow></msup><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>j</mi><mi>t</mi></mrow></msup><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">cos(t) = (e^{jt} + e^{-jt})/2</annotation></semantics></math> <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>e</mi><mrow><mi>j</mi><mi>t</mi></mrow></msup><mo>−</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>j</mi><mi>t</mi></mrow></msup><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>j</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">sin(t) = (e^{jt} - e^{-jt})/(2j)</annotation></semantics></math> Varför skulle flera komponenter vara bättre då? Det tar vi upp i avsnitt 3 om Fourierserier! Men nu vet ni hur man gör!</p>
+
+						<hr>
 						<a href="Index.html" role="button" class="btn btn-primary pull-left">Introduktion</a>
 						<a href="Signaler.html" role="button" class="btn btn-primary pull-right">Signaler</a>
 
@@ -111,7 +273,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
-						<h6>Utfyllnad tills vidare</h6>
+						
 					</div><!--end col-sm-2-->
 
 					<div class="col-sm-4">
@@ -138,7 +300,7 @@
 					</div><!--end col-sm-2-->
 
 					<div class="col-sm-2">
-						<h6>Utfyllnad tills vidare</h6>
+						
 					</div><!--end col-sm-2-->
 				</div><!--end row-->
 			</div><!--end container-->
@@ -154,7 +316,7 @@
 				</div><!--end modal-header-->
 				<div class="modal-body">
 					<div class="well" id="introQ1">
-						<h3>Fråga 1: Vad är 1+2?</h3>
+						<h2>Fråga 1: Vad är 1+2?</h2>
 						<ul class="unstyled">
 							<li><input type="radio" name="radio1" id="1a" value="1a">1</li>
 							<li><input type="radio" name="radio1" id="1b" value="1b">2</li>
@@ -174,7 +336,7 @@
 					</div><!--end introQ1-->
 
 					<div class="well" id="introQ2">
-						<h3>Fråga 2: Vad är 4-3?</h3>
+						<h2>Fråga 2: Vad är 4-3?</h2>
 						<ul class="unstyled">
 							<li><input type="radio" name="radio2" id="2a" value="2a">1</li>
 							<li><input type="radio" name="radio2" id="2b" value="2b">2</li>

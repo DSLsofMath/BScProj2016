@@ -23,6 +23,10 @@ ul.unstyled {
    padding: 0;
 }
 
+span {
+   display: inline-block;
+}
+
 #timeShift {
    padding: 0;
    margin: 0;

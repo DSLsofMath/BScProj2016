@@ -1,0 +1,316 @@
+<h1 id="komplexa-tal-med-dsl">Komplexa tal med DSL</h1>
+<p>Då inleder vi med komplexa tal! Det här är något som antagligen känns ganska hemvant för de flesta av er men vi tar och repeterar lite ändå och passar på att visa hur man kan implementera ämnet med DSL.</p>
+<p>Imaginära tal. Var kommer dom ifrån tänker ni? Jo, det är så att om man försökte dra roten ur ett negativt tal så blev det jobbigt, fram till att någon introducerade imaginära tal. Som är jobbiga på sitt eget sätt istället. Så därför bestämdes det att <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><mo>−</mo><mn>1</mn></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{-1}</annotation></semantics></math> ska vara <em>i</em>.</p>
+<p>Som tur är så är det hela ganska konsekvent utformat så att <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><mo>−</mo><mn>2</mn></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{-2}</annotation></semantics></math> också blir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>2</mn></msqrt><mi>i</mi></mrow><annotation encoding="application/x-tex">\sqrt{2}i</annotation></semantics></math>, och <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><mo>−</mo><mn>3</mn></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{-3}</annotation></semantics></math> blir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>3</mn></msqrt><mi>i</mi></mrow><annotation encoding="application/x-tex">\sqrt{3} i</annotation></semantics></math>. Så om man tar roten ur vilken negativt tal som helst så får man samma svar som det positiva fallet fast med ett i med.</p>
+<p>Vi kommer dock inte använda oss av beteckningen <em>i</em> i våra texter, eftersom att man inom fysik, elektronik och flera andra ämnen redan använder bokstaven i för att beteckna en ström. Därfor brukar man ofta använda j inom signallära istället, för att undvika missförstånd, och det kommer vi också göra. Komplexa tal kan ses som ett par utav reella värden, där första värdet i talet är reellt och det andra värdet är den imaginära delen. Det kan dock vara så att en eller båda av dessa delar är noll. T.ex. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>+</mo><mn>0</mn><mo>*</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">7+0*j</annotation></semantics></math> blir ju bara 7.</p>
+<p><strong>Kryssfråga 1:</strong> Vad är den reela delen av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>+</mo><mn>5</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">10 + 5 j</annotation></semantics></math></p>
+<ol>
+<li><p>5</p></li>
+<li><p>10</p></li>
+</ol>
+<p><strong>Kryssfråga 2:</strong> Vad är den imaginära delen i talet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>+</mo><mfrac><mn>6</mn><mn>5</mn></mfrac><mi>j</mi></mrow><annotation encoding="application/x-tex">4 + \frac{6}{5}j</annotation></semantics></math>?</p>
+<ol>
+<li><p>4</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>6</mn><mn>5</mn></mfrac><annotation encoding="application/x-tex">\frac{6}{5}</annotation></semantics></math></p></li>
+</ol>
+<p>Att skriva i vårt DSL är samma sak som att skriva <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>13</mn><mo>+</mo><mn>37</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">13 + 37j</annotation></semantics></math>, där 13 är reellt och 37 är imaginärt. Det är alltså inget ‘j’ i vårt DSL som indikerar att det är imaginärt utan man måste bara skriva dem i rätt ordning. Det ser som tur liknande ut i matten så det är ganska lätt att komma ihåg! Nu betraktar vi det komplexa talet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>13</mn><mo>+</mo><mn>37</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">13+37j</annotation></semantics></math>. Vi döper detta till <em>leet</em> så att vi slipper skriva ut alltihop i framtiden.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> <span class="kw">let</span> leet <span class="fu">=</span> <span class="dt">Complex</span> <span class="dv">13</span> <span class="dv">37</span></code></pre></div>
+<p>Om du nu känner att du vill veta vad det reella talet i paret är, då kan man skriva en funktion realPart som bara ger dig den reella delen.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  realPart ::</span> <span class="dt">Complex</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
+  realPart (<span class="dt">Complex</span> re im) <span class="fu">=</span> re</code></pre></div>
+<p>Nu kan vi enkelt få ut realdelen ifrån :</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> realPart leet
+  <span class="dv">13</span></code></pre></div>
+<p>Se så enkelt det blev! Så för att få ut den imaginära delen av talet så gör vi en funktion imPart.</p>
+<p><strong>Övning 1:</strong> Definiera en funktion imPart som ger imaginärdelen av ett komplext tal. Denna funktion bör ge: = 37.</p>
+<p><strong>Övning 2:</strong> Om vi nu skulle vilja skriva ut talet på vanligt mattespråk så skulle vi kunna göra en funktion som kan heta . Här får du ett kodskelett för en sådan funktion.</p>
+<p>Fyll i det som saknas.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  printComplex ::</span> <span class="dt">Complex</span> <span class="ot">-&gt;</span> <span class="dt">String</span>
+  printComplex z
+    <span class="fu">|</span> r <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> show im <span class="fu">++</span> <span class="st">&quot;j&quot;</span>
+    <span class="fu">|</span> im <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> undefined
+    <span class="fu">|</span> otherwise <span class="fu">=</span> undefined
+      <span class="kw">where</span> im <span class="fu">=</span> imPart z
+            r <span class="fu">=</span> realPart z</code></pre></div>
+<p><strong>Exempel:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> printComplex (<span class="dt">Complex</span> <span class="dv">5</span> <span class="dv">12</span>)
+  <span class="ot">``</span><span class="dv">5</span> <span class="fu">+</span> 12j&#39;&#39;</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> printComplex leet
+  <span class="ot">``</span><span class="dv">13</span> <span class="fu">+</span> 37j&#39;&#39;</code></pre></div>
+<p>Hur skulle man då göra för att faktiskt räkna på detta? Då måste man definiera hur matematiska tecken ska tolkas när man arbetar med komplexa tal.</p>
+<p>Addition för komplexa tal är ganska lätt om ni kommer ihåg det. Om man är reell bryr man sig bara om andra reella tal, och vice versa för imaginära tal.</p>
+<p><strong>Övning 3:</strong> Här får du ett kodskelett för addition med komplexa tal. Fyll i det som ska stå i parentesen.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">instance</span> <span class="dt">Num</span> <span class="dt">Complex</span> <span class="kw">where</span>
+    z <span class="fu">+</span> w           <span class="fu">=</span> <span class="dt">Complex</span> (<span class="fu">...</span>)</code></pre></div>
+<p><strong>Test:</strong> Vad får man om man <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>+</mo><mn>5</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">10 + 5j</annotation></semantics></math> med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>−</mo><mn>1</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">2 -1j</annotation></semantics></math>? Bekräfta med programmet.</p>
+<p>Multiplikation blir lite krångligare. Om vi multiplicerar två komplexa tal, vi kallar dem z och w, ser det ut såhär:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  z <span class="fu">*</span> w           <span class="fu">=</span> <span class="dt">Complex</span> (realZ<span class="fu">*</span>realW <span class="fu">-</span> imZ<span class="fu">*</span>imW)
+                            (realZ<span class="fu">*</span>imW <span class="fu">+</span> realW<span class="fu">*</span>imZ)
+        <span class="kw">where</span> realZ <span class="fu">=</span> realPart z
+              realW <span class="fu">=</span> realPart w
+              imZ   <span class="fu">=</span> imPart z
+              imW   <span class="fu">=</span> imPart w</code></pre></div>
+<p>Vilket då blir samma sak som: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mspace width="0.278em"></mspace><mi>w</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo>*</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo>*</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo>*</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>*</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">z \; w = (Re(Z) * Re(W) - Im(Z)*Im(W)) + (Re(Z)*Im(W) + Re(W)*Im(Z))j</annotation></semantics></math> <strong>Test:</strong> Vad får man om man <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>+</mo><mn>5</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">10 + 5j</annotation></semantics></math> med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>−</mo><mn>1</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">2 -1j</annotation></semantics></math>? Bekräfta med programmet.</p>
+<p>Det kan även vara bra att ha en funktion som negerar ett komplext tal. T.ex. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>13</mn><mo>+</mo><mn>37</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">13+37j</annotation></semantics></math> ska då alltså bli <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>13</mn><mo>−</mo><mn>37</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">-13-37j</annotation></semantics></math></p>
+<p><strong>Övning 4:</strong> Här är ett kodskellet till funktionen negate. Fyll i det som ska stå i parentesen.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">negate z        <span class="fu">=</span> <span class="dt">Complex</span> (<span class="fu">...</span>)</code></pre></div>
+<p>Absolutbeloppet på ett komplext tal kan man räkna ut på samma sätt som man räknar ut hypotenusan i en rätvinklig triangel.</p>
+<p><strong>Övning 5:</strong> Här är ett kodskelett till en funktion som ger absolutbeloppet av ett komplext tal. Fyll i det som saknas.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">    abs z           <span class="fu">=</span> <span class="dt">Complex</span> hyp <span class="dv">0</span>
+        <span class="kw">where</span> hyp   <span class="fu">=</span> <span class="fu">...</span>
+              r      <span class="fu">=</span> realPart z
+              im   <span class="fu">=</span> imPart z</code></pre></div>
+<p><strong>Test:</strong> Vad är absolutbeloppet av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mo>+</mo><mn>3</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">6 + 3j</annotation></semantics></math>? Bekräfta med programmet.</p>
+<p><strong>Test:</strong> Hur skriver man ut heltalet 5 som ett komplext tal? Bekräfta med programmet (fromInteger).</p>
+<h1 id="eulers-formel">Eulers formel</h1>
+<p>Eulers formel, eller Enigmatic Euler’s Formula som den också kallas, är en formel för att skriva om komplexa tal från en exponentiell funktion till trigonometriska funktioner och tvärtom.</p>
+<p>Är det någon som verkligen vet hur trigonometiska funktioner funkar? Förmodligen..., men det skulle väl inte skada om det fanns ett sätt att skriva om trigonometiska funktioner till komplexa tal och tvärtom. Här kommer Eulers formel in! <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>j</mi><mi>t</mi></mrow></msup><mo>=</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">e^{jt} = cos(t) + jsin(t)</annotation></semantics></math> <strong>Kryssfråga 3:</strong> Vad blir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mn>3</mn><mi>j</mi><mi>t</mi></mrow></msup><annotation encoding="application/x-tex">e^{3jt}</annotation></semantics></math> omskrivet med Eulers formel?</p>
+<ol>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>3</mn><mi>j</mi><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">3 \cos(t) + 3 j \sin(t)</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\cos(3t) + j \sin(3t)</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>3</mn><mi>t</mi></mrow><annotation encoding="application/x-tex">\cos(t) + j \sin(t) + 3 t</annotation></semantics></math></p></li>
+</ol>
+<p><strong>Kryssfråga 4:</strong> Vad blir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\cos(4t)+j \sin(4t)+5</annotation></semantics></math> omskrivet med Eulers formel?</p>
+<ol>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>j</mi><mn>4</mn><mo>+</mo><mn>5</mn></mrow></msup><annotation encoding="application/x-tex">e^{j4+5}</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><msup><mi>e</mi><mrow><mi>j</mi><mn>4</mn></mrow></msup></mrow><annotation encoding="application/x-tex">5e^{j4}</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>j</mi><mn>4</mn></mrow></msup><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">e^{j4} + 5</annotation></semantics></math></p></li>
+</ol>
+<p>Med lite magiska omskrivningar kan man bryta ut cosinus respektive sinus ur formeln vilket ger följande funktioner. <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>e</mi><mrow><mi>j</mi><mi>t</mi></mrow></msup><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>j</mi><mi>t</mi></mrow></msup><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">cos(t) = (e^{jt} + e^{-jt})/2</annotation></semantics></math> <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>e</mi><mrow><mi>j</mi><mi>t</mi></mrow></msup><mo>−</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>j</mi><mi>t</mi></mrow></msup><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>j</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">sin(t) = (e^{jt} - e^{-jt})/(2j)</annotation></semantics></math> Varför skulle flera komponenter vara bättre då? Det tar vi upp i avsnitt 3 om Fourierserier! Men nu vet ni hur man gör!</p>
+
+
+
+
+
+<h1 id="signaler">Signaler</h1>
+<p>Då har vi kommit fram till signaler! Signaler kan i praktiken vara lite allt möjligt som t.ex. ljud, elektrisk ström, dataströmmar, mm. Men ur ett matematiskt perspektiv är en signal ingenting annat än en funktion som beror av tid, eller någon annan variabel. Om detta sedan är en funktion som beskriver ljudstyrka eller antalet prickar på en vägg struntar vi i. Vi kan räkna på dem på samma sätt oavsett om det gäller prickar eller ljud.</p>
+<h2 id="diskreta-och-kontinuerliga-signaler">Diskreta och kontinuerliga signaler</h2>
+<p>Man kan säga att det finns två grundtyper av signaler, kontinuerliga och diskreta. Vad menar man då med detta? Jo, en signal kallas kontinuerlig om den är beroende av en kontinuerlig variabel. Denna variabel är oftast tid, men inte nödvändigtvis. Om funktionen istället har en diskret variabel kallar man den för en diskret signal. Denna diskreta variabel är ofta, men inte alltid, heltal. Det där var ju logiskt och bra, nu ska vi bara reda ut vad som menas med kontinuerliga och diskreta variabler.</p>
+<p>Att en variabel är kontinuerlig innebär att den har ett oändligt antal värden även om det bara är definierad i ett visst intervall. Om vi t.ex. betecknar tiden mellan kl 14:00 och 15:00 med variabeln t så har den ett oändligt antal möjliga värden i intervallet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>14</mn><mo>&lt;</mo><mi>t</mi><mo>&lt;</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">14 &lt; t &lt; 15</annotation></semantics></math>. Variabeln t kan då t.ex. anta värdet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>14.6</mn><annotation encoding="application/x-tex">14.6</annotation></semantics></math>, men den kan också anta värdet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>14.6000000001</mn><annotation encoding="application/x-tex">14.6000000001</annotation></semantics></math>. Det finns helt enkelt ingen gräns för hur många värden t kan anta, även om intervallet är begränsat.</p>
+<p>Här kan du se ett exempel på en kontinuerlig funktion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>t</mi></mrow><annotation encoding="application/x-tex">f(t)=2t</annotation></semantics></math></p>
+<div class="figure">
+<img src="image06" alt="" />
+<p class="caption"><span data-label=""></span></p>
+</div>
+<p>En diskret variabel däremot har bara ett visst antal värden den kan anta och en diskret funktion är bara definierad för dessa möjliga värden. Om vi t.ex. beteckar alla heltal med variabeln n så kommer en funktion <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[n]</annotation></semantics></math> vara definierad, alltså ha ett värde, i punkten <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mn>2</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[2]</annotation></semantics></math> men vara odefinierad, sakna värde, i punkten <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mn>2.5</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[2.5]</annotation></semantics></math>. För att förtydliga att en variabel är diskret brukar man omge den med hakparentes, som t.ex. [n], istället för vanlig parentes, som (t).</p>
+<p>Här nedan ser du ett exempel på en diskret funktion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">f[n]=2 n</annotation></semantics></math></p>
+<div class="figure">
+<img src="image10.png" alt="" />
+<p class="caption"><span data-label=""></span></p>
+</div>
+<p><strong>Kryssfråga 5:</strong> Är signalen på bilden nedan diskret eller kontinuerlig?</p>
+<ol>
+<li><p>Diskret</p></li>
+<li><p>Kontinuerlig</p></li>
+</ol>
+<div class="figure">
+<img src="image13.png" alt="" />
+<p class="caption"><span data-label=""></span></p>
+</div>
+<p>Det är möjligt, och rentav vanligt att approximera en kontinuerlig signal med en diskret. Om man har väldigt små steg mellan värdena i den diskreta approximationen, t.ex. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mrow><mn>0.000001</mn><mo>;</mo><mn>0.000002</mn><mo>;</mo><mn>0.000003</mn></mrow></mrow><annotation encoding="application/x-tex">n={0.000001 ; 0.000002 ; 0.000003}</annotation></semantics></math>, kan man rentav få en ganska bra approximation. I praktiken är detta faktiskt precis vad man gör när man hanterar kontinuerliga signaler med datorer. En dator kan egentligen inte hantera kontinuerliga signaler men den kan approximera dem med diskreta signaler med väldigt små steg mellan värdena, vilket oftast är gott nog.</p>
+<div class="figure">
+<embed src="images/diskretisering.eps" />
+<p class="caption">En kontinuerlig signal <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t) = \sin(2 t)</annotation></semantics></math> och dess diskreta approximation.<span data-label=""></span></p>
+</div>
+<h2 id="periodiska-signaler">Periodiska Signaler</h2>
+<p>En periodisk signal är precis som det låter, en signal som upprepar sig efter ett visst tidsintervall, som kallas signalens period. Motsatsen till detta kallas för en aperiodisk signal. En signal kan vara aperiodisk om till exempel intervallet mellan varje upprepning minskar eller om det aldrig upprepas alls.</p>
+<p>Lite mer formellt definieras en periodisk signal så här:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>+</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t) = f(t+T)</annotation></semantics></math>, för alla värden på t, där T är perioden</p>
+<div class="figure">
+<img src="image12.png" alt="Här ser du t.ex. en periodisk signal f(t)=2 \sin(3 t), som har perioden T=\frac{2\pi}{3}. Notera att f(t)=f(t+T) är sant, avsett vilken punkt t du tittar på." />
+<p class="caption">Här ser du t.ex. en periodisk signal <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=2 \sin(3 t)</annotation></semantics></math>, som har perioden <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">T=\frac{2\pi}{3}</annotation></semantics></math>. Notera att <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>+</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=f(t+T)</annotation></semantics></math> är sant, avsett vilken punkt t du tittar på.<span data-label=""></span></p>
+</div>
+<p>Övning 6: Här har du en nästan färdig funktion som undersöker om en signal har en viss period. Fyll i det som ska stå i parentesen.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">contHasPeriod ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span>
+                 <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+contHasPeriod signal step period <span class="fu">=</span>
+        and <span class="fu">$</span> map (<span class="fu">...</span>) [<span class="dv">0</span>, step <span class="fu">..</span> period]
+    <span class="kw">where</span> hasPeriod signal period t <span class="fu">=</span>
+            signal t <span class="fu">~=</span> signal (t<span class="fu">+</span>period)</code></pre></div>
+<p><strong>Kryssfråga 6:</strong> I bilden nedan ser du en funktion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=0.5\sin(2t)</annotation></semantics></math>. Vad har den för period?</p>
+<ol>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math></p></li>
+<li><p>2 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math></p></li>
+<li><p>2</p></li>
+</ol>
+<div class="figure">
+<img src="image08.png" alt="funktionen f(t) = 0.5 \sin(2t)" />
+<p class="caption">funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t) = 0.5 \sin(2t)</annotation></semantics></math><span data-label=""></span></p>
+</div>
+<p>Kryssfråga 7: Här nedan ser vi en annan funktion, f(t)=3cos(0.25t). Vad har den för period?</p>
+<ol>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>π</mi></mrow><annotation encoding="application/x-tex">\frac{1}{4}\pi</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">8\pi</annotation></semantics></math></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">3\pi</annotation></semantics></math></p></li>
+</ol>
+<div class="figure">
+<img src="image11.png" alt="" />
+<p class="caption"><span data-label=""></span></p>
+</div>
+<p>Vad har man då för nytta av att kunna avgöra om en signal är periodisk? Jo, en periodisk signal kan utvecklas till en Fourier serie. Mer om detta i avsnitt 3.</p>
+<h2 id="udda-och-jämna-signaler">Udda och Jämna Signaler</h2>
+<p>Eftersom signaler kan betraktas som matematiska funktioner kan vi säga att vi har udda och jämna signaler, precis som vi har jämna och udda funktioner. En funktion kan vara jämn, udda eller inget utav dem.</p>
+<p>En funktion f är jämn om <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math> är samma som <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x)</annotation></semantics></math>. I den vänstra bilden här nedan ser du ett exempel på en jämn funktion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)=\cos(x)</annotation></semantics></math>. Notera att vilken punkt du än tittar på i figur 6a här nedan så gäller alltid <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x) = f(-x)</annotation></semantics></math>.</p>
+<p>En funktion f är udda om <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x)</annotation></semantics></math> är samma som <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">-f(x)</annotation></semantics></math>. I den högra bilden nedan ser du ett exempel på en udda funktion , <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)=sin(x)</annotation></semantics></math>. Notera att vilken punkt du än tittar på i figur 6b här nedan så gäller alltid <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x) = -f(x)</annotation></semantics></math>.</p>
+<p><span>0.50</span> <img src="image09.png" title="fig:" alt="" /></p>
+<p><span>0.50</span> <img src="image14.png" title="fig:" alt="" /></p>
+<p>Alltså:</p>
+<p>Jämn funktion:Udda funktion:</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex"> f(x)=f(-x)</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x)=-f(x) </annotation></semantics></math></p>
+<p>Varför är det då bra att veta om en signal är jämn eller udda? Mer om det kommer i avsnittet om Fourierserier!</p>
+<p><strong>Kryssfråga 8:</strong> Är funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=0.5\sin(2t)</annotation></semantics></math> här nedan jämn, udda eller ingetdera?</p>
+<ol>
+<li><p>Jämn</p></li>
+<li><p>Udda</p></li>
+<li><p>Ingetdera</p></li>
+</ol>
+<div class="figure">
+<img src="image08.png" alt="funktionen f(t) = 0.5 \sin(2t)" />
+<p class="caption">funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t) = 0.5 \sin(2t)</annotation></semantics></math><span data-label=""></span></p>
+</div>
+<p>Kryssfråga 9: Är funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mn>0.25</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=3\cos(0.25t)</annotation></semantics></math> här nedan jämn, udda eller ingetdera?</p>
+<ol>
+<li><p>Jämn</p></li>
+<li><p>Udda</p></li>
+<li><p>Ingetdera</p></li>
+</ol>
+<div class="figure">
+<img src="image11.png" alt="" />
+<p class="caption"><span data-label=""></span></p>
+</div>
+<p>Då ska vi se hur man kan implementera det här! En funktion som avgör om en signal är udda kan se ut så här:</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">contIsOdd ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+contIsOdd signal step limit <span class="fu">=</span> and <span class="fu">$</span> map testPair <span class="fu">$</span> zip xs ys
+    <span class="kw">where</span> testPair (a,b) <span class="fu">=</span> a <span class="fu">~=</span> (<span class="fu">-</span>b)
+          xs <span class="fu">=</span> map signal [<span class="dv">0</span>, step <span class="fu">..</span> limit]
+          ys <span class="fu">=</span> map signal [<span class="dv">0</span>,<span class="fu">-</span>step <span class="fu">..</span> (<span class="fu">-</span>limit)]</code></pre></div>
+<p><strong>Övning 7:</strong> Implementera motsvarande funktion som undersöker om en signal är jämn.</p>
+<p><strong>Test:</strong> Lös de två nedanstående uppgifter och kontrollera sedan svaret med hjälp av programmet.</p>
+<p><strong>Test 1:</strong> En signal har funktionen: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>*</mo><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>6</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">3*\sin(6t)</annotation></semantics></math></p>
+<p>Vad är signalens period?</p>
+<p>Är signalen udda eller jämn?</p>
+<p><strong>Test 2:</strong> En signal har funktionen: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\frac{1}{2} \cos(t)</annotation></semantics></math></p>
+<p>Vad är signalens period?</p>
+<p>Är signalen udda eller jämn?</p>
+<p>Testa gärna fler signaler!</p>
+<h2 id="enhetsimpulser">Enhetsimpulser</h2>
+<p>En enhetsimpuls ser ut så här:</p>
+<div class="figure">
+<embed src="delta.eps" />
+<p class="caption"><span data-label=""></span></p>
+</div>
+<p>En enhetsimpuls kallas också för en dirac delta funktion och är i det diskreta fallet definierad som: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>=</mo><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>e</mi><mi>l</mi><mi>s</mi><mi>e</mi></mtd></mtr></mtable></mrow><mo>,</mo><mi>n</mi><mo>∈</mo><mstyle mathvariant="double-struck"><mi>ℤ</mi></mstyle></mrow><annotation encoding="application/x-tex">\delta[n]=
+\begin{cases}
+    1,\quad n = 0 \\
+    0, \quad else
+\end{cases}, n \in \mathbb{Z}</annotation></semantics></math> Och i det kontinuerliga fallet är den definerad som:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>∞</mi></mrow><mi>∞</mi></msubsup><mi>δ</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>t</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\int_{-\infty}^{\infty} \delta(t) dt = 1</annotation></semantics></math> där <span class="math display">$$\delta(t)=
+\begin{cases}
+&quot;\infty&quot;,\quad t = 0 \\
+0, \quad else
+\end{cases}, t\in \mathbb{R}$$</span> Det vill säga, den är oändligt hög och oändligt smal då argumentet, t.ex. t, är 0 och annars tar den värdet 0. <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>∞</mi></mrow><mi>∞</mi></msubsup><mi>δ</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>t</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\int_{-\infty}^{\infty} \delta(t-\tau) f(t) dt = f(\tau)</annotation></semantics></math></p>
+<p>Med andra ord, integralen av dessa blir värdet av integranden då enhetsimpulsen antar värdet 1.</p>
+<p>I praktiken kan en signal egentligen inte bestå av en riktig enhetsimpuls, då en matematisk korrekt enhetsimpuls bara är definierad inuti en intergral. Men, precis som med mycket annat, kan man approximera en enhetsimpuls med något som är nära nog en riktig enhetsimpuls.</p>
+<p><strong>Övning 8:</strong> Här får du ett kodskelett till en definition av en diskret enhetsimpuls med DSL. Fyll i det som saknas.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">discImpulse ::</span> <span class="dt">DiscTimeFun</span>
+discImpulse n <span class="fu">|</span> <span class="fu">...</span>
+              <span class="fu">|</span> otherwise <span class="fu">=</span> <span class="fu">...</span></code></pre></div>
+<h2 id="enhessteg">Enhessteg</h2>
+<p>Ett enhetssteg ser ut så här:</p>
+<div class="figure">
+<embed src="heavy.eps" />
+<p class="caption"><span data-label=""></span></p>
+</div>
+<p>En enhetstegsfunktion kallas även för en heavyside function och är i det diskreta fallet definierad som: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo stretchy="false" form="prefix">[</mo><mi>t</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>&lt;</mo><mn>0</mn></mtd></mtr><mtr><mtd><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>≥</mo><mn>0</mn></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">u[t] =
+\begin{cases}
+0, \quad n &lt; 0 \\
+1, \quad n \geq 0
+\end{cases}</annotation></semantics></math></p>
+<p>Och i det kontinuerliga fallet definerad som: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>t</mi><mo>&lt;</mo><mn>0</mn></mtd></mtr><mtr><mtd><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>t</mi><mo>≥</mo><mn>0</mn></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">u(t) =
+\begin{cases}
+0, \quad t &lt; 0 \\
+1, \quad t \geq 0
+\end{cases}</annotation></semantics></math> Det vill säga om tiden eller argumentet inuti funktionen är större eller lika med noll, antar funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">u(t)</annotation></semantics></math> värdet 1, annars är den 0. Denna uppkommer oftast multiplicerad med en annan funktion som <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">u(t-\tau) f(t)</annotation></semantics></math>. Det kan då tolkas som att <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)</annotation></semantics></math> finns efter en tidpunkt <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mi>τ</mi></mrow><annotation encoding="application/x-tex">t = \tau</annotation></semantics></math>.</p>
+<div class="figure">
+<embed src="shiftedHeavy.eps" />
+<p class="caption">Ett tidskiftad kontinuerlig enhetsteg med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\tau = 2</annotation></semantics></math>.<span data-label=""></span></p>
+</div>
+<p><strong>Övning 9:</strong> Här får du ett kodskelett till en definition av ett diskret enhetssteg med DSL. Fyll i det som saknas.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">discStep ::</span> <span class="dt">DiscTimeFun</span>
+discStep n <span class="fu">|</span> <span class="fu">...</span>
+           <span class="fu">|</span> <span class="fu">...</span></code></pre></div>
+<h2 id="sammanfattning">Sammanfattning</h2>
+<p>Gratulerar! Du har nu lärt dig följande:</p>
+<ul>
+<li><p>Vad komplexa tal är</p></li>
+<li><p>Hur man gör några vanliga beräkningar med komplexa tal</p></li>
+<li><p>Hur man implementerar komplexa tal med funktionell programmering i en DSL</p></li>
+<li><p>Hur man implementerar vanliga beräkningar med komplexa tal med funktionell programmering i en DSL</p></li>
+<li><p>Vad Eulers formel är</p></li>
+<li><p>Hur man kan skriva om trigonometriska och komplexa uttryck med Eulers formel</p></li>
+<li><p>Hur man implementerar Eulers formel med funktionell programmering i en DSL</p></li>
+<li><p>Vad diskreta och kontinuerliga signaler är</p></li>
+<li><p>Vad periodiska signaler är</p></li>
+<li><p>Vad udda och jämna signaler är</p></li>
+<li><p>Hur man implementerar funktioner för jämna och udda funktioner med DSL.</p></li>
+<li><p>Vad enhetssteg och enhetsimpulser är.</p></li>
+<li><p>Hur man implementerar diskreta enhetssteg och enhetsimpulser med DSL.</p></li>
+</ul>
+<p>Bilderna i detta kapitel är gjorda i:</p>
+<ul>
+<li><p>MATLAB: Figur 4, 11, 12 och 13</p></li>
+<li><p>FOOPLOT: Figur 1, 2, 3, 5, 6, 7, 8, 9 och 10</p></li>
+</ul>
+<h1 id="lösningar">Lösningar</h1>
+<p><strong>Kryssfråga 1:</strong> b) 10</p>
+<p><strong>Kryssfråga 2:</strong> b) 65</p>
+<p><strong>Övning 1:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">imPart ::</span> <span class="dt">Complex</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
+imPart (<span class="dt">Complex</span> c) <span class="fu">=</span> snd c</code></pre></div>
+<p><strong>Övning 2:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">printComplex ::</span> <span class="dt">Complex</span> <span class="ot">-&gt;</span> <span class="dt">String</span>
+printComplex z
+  <span class="fu">|</span> r <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> show im <span class="fu">++</span> <span class="st">&quot;j&quot;</span>
+  <span class="fu">|</span> im <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> show r
+  <span class="fu">|</span> otherwise <span class="fu">=</span> show r <span class="fu">++</span> <span class="st">&quot; + &quot;</span> <span class="fu">++</span> show im <span class="fu">++</span> <span class="st">&quot;j&quot;</span>
+    <span class="kw">where</span> im <span class="fu">=</span> imPart z
+          r <span class="fu">=</span> realPart z</code></pre></div>
+<p><strong>Övning 3:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">instance</span> <span class="dt">Num</span> <span class="dt">Complex</span> <span class="kw">where</span>
+    z <span class="fu">+</span> w           <span class="fu">=</span> <span class="dt">Complex</span> (realPart z <span class="fu">+</span>
+                        realPart w, imPart z <span class="fu">+</span> imPart w)</code></pre></div>
+<p><strong>Övning 4:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">   negate z        <span class="fu">=</span> <span class="dt">Complex</span> (negate <span class="fu">$</span> realPart z, negate <span class="fu">$</span> imPart z)</code></pre></div>
+<p><strong>Övning 5:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">    abs z           <span class="fu">=</span> <span class="dt">Complex</span> (hyp, <span class="dv">0</span>)
+        <span class="kw">where</span> hyp   <span class="fu">=</span> sqrt (r<span class="fu">*</span>r <span class="fu">+</span> im<span class="fu">*</span>im)
+              r     <span class="fu">=</span> realPart z
+              im    <span class="fu">=</span> imPart z</code></pre></div>
+<p><strong>Kryssfråga 3:</strong> b) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\cos(3t) + j\sin(3t)</annotation></semantics></math></p>
+<p><strong>Kryssfråga 4:</strong> c) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>j</mi><mn>4</mn></mrow></msup><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">e^{j4} + 5</annotation></semantics></math></p>
+<p><strong>Kryssfråga 5:</strong> b) Kontinuerlig <strong>Övning 6:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">contHasPeriod ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span>
+                                        <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+contHasPeriod signal step period <span class="fu">=</span>
+        and <span class="fu">$</span> map (hasPeriod signal period)
+                                [<span class="dv">0</span>, step <span class="fu">..</span> period]
+    <span class="kw">where</span> hasPeriod signal period t <span class="fu">=</span>
+                            signal t <span class="fu">~=</span> signal (t<span class="fu">+</span>period)</code></pre></div>
+<p><strong>Kryssfråga 6:</strong> a) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math></p>
+<p><strong>Kryssfråga 7:</strong> b) <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">8\pi</annotation></semantics></math></p>
+<p><strong>Kryssfråga 8:</strong> b) Udda</p>
+<p><strong>Kryssfråga 9:</strong> a) Jämn</p>
+<p><strong>Övning 7:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">contIsEven ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+contIsEven signal step limit <span class="fu">=</span> and <span class="fu">$</span> map testPair <span class="fu">$</span> zip xs ys
+    <span class="kw">where</span> testPair (a,b) <span class="fu">=</span> a <span class="fu">~=</span> b
+          xs <span class="fu">=</span> map signal [<span class="dv">0</span>, step <span class="fu">..</span> limit]
+          ys <span class="fu">=</span> map signal [<span class="dv">0</span>,<span class="fu">-</span>step <span class="fu">..</span> (<span class="fu">-</span>limit)]</code></pre></div>
+<p><strong>Övning 8:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">discImpulse ::</span> <span class="dt">DiscTimeFun</span>
+discImpulse n <span class="fu">|</span> n <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> <span class="dv">1</span>
+              <span class="fu">|</span> otherwise <span class="fu">=</span> <span class="dv">0</span></code></pre></div>
+<p><strong>Övning 9:</strong></p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">discStep ::</span> <span class="dt">DiscTimeFun</span>
+discStep n <span class="fu">|</span> n <span class="fu">&lt;</span> <span class="dv">0</span> <span class="fu">=</span> <span class="dv">0</span>
+           <span class="fu">|</span> otherwise <span class="fu">=</span> <span class="dv">1</span></code></pre></div>
