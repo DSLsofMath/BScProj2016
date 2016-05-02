@@ -29,11 +29,11 @@
 
 \section{Vad är egentligen Fourierserier och Fouriertransformer?}
 %Något kort om fourierserie.
-I teknikens underbara värd händer det ofta att man ställs inför ett stort och svårt problem. En vanlig teknik ingenjörer ofta avnävder sig av då är att man tar sitt stora, svåra problem och delar in det i flera enklare delar. Till exempel så går det att att  dela in en komplicerad \textbf{periodisk} signal till flera begripliga sinusvågor vilket är lättare att förstå och räkna på. Denna summa av sinusvågor kallas för en Fourierserie. 
+I teknikens underbara värld händer det ofta att man ställs inför ett stort och svårt problem. En vanlig teknik ingenjörer ofta använder sig av då är att man tar sitt stora, svåra problem och delar in det i flera enklare delar. Till exempel så går det att att  dela in en komplicerad \textbf{periodisk} signal till flera begripliga sinusvågor vilket är lättare att förstå och räkna på. Denna summa av sinusvågor kallas för en fourierserie. 
 
-Vad händer då om signalen inte är periodisk? Då plockar man fram Fouriertransformen! En Fouriertransform är en transform som kan användas för att föra över en funktion från tidsplanet till frekvensplanet. I frekvensplanet kan man sedan analysera och räkna på komplicerade signaler relativt enkelt vilket gör signalerna mycket lättare att hantera! 
+Vad händer då om signalen inte är periodisk? Då plockar man fram fouriertransformen! En fouriertransform är en transform som kan användas för att föra över en funktion från tidsplanet till frekvensplanet. I frekvensplanet kan man sedan analysera och räkna på komplicerade signaler relativt enkelt vilket gör signalerna mycket lättare att hantera! 
 
-När är då Fourierserier och Fouriertransformer användbart? Jo, de brukar användas inom t.ex. TV, radio och ljudteknik. I princip alla områden där man behandlar signaler faktiskt. Med andra ord, en massa olika system vilket även innefattar LTI-system!
+När är då fourierserier och fouriertransformer användbart? Jo, de brukar användas inom t.ex. TV, radio och ljudteknik. I princip alla områden där man behandlar signaler faktiskt. Med andra ord, en massa olika system vilket även innefattar LTI-system!
 %%lösa differentialekvationer och tillämpas mycket inom signalteori och frekvensanalys.
 
 %I learnyouahaskell, (eller erlang), så brukade de ta upp en exempel och därifrån arbeta från samma exempel genom hela kapitlet. Till exempel så la de till nya funktioner och annat. I vårt fall så introducerar vi en signal först, tar upp en system och ser hur fouriertransform kan hjälpa oss finna grejer om signalen.
@@ -45,8 +45,7 @@ Då ska vi börja med fourierserier!
 För att vi ska introducera fourierserier, så får du föreställa dig en trivial signal $sin(\omega_0 t)$. Om vi skriver om sinus med hjälp av Eulers fórmel får vi följande utseende:
 
 \[sin(\omega_0 t) = \frac{e^{j \omega_0 t}  - e^{-j \omega_0 t}}{2i}\]
-Detta är egentligen en form av en Fourier serie. För att förklara detta i mer detalj så tar vi upp ett exempel.
-%skriv in stuff här
+Detta är egentligen en form av en fourierserie. För att förklara detta i mer detalj så tar vi upp ett exempel.
 
 Föreställ dig nu den bästa smoothien du någonsin har druckit och så fort den är slut då måste du ha en till! Men så känner du att du skulle vilja ha samma smoothie som du dricker fast med choklad i istället för jordgubb. Då kan du antingen fråga om en ny smoothie från han som sitter i kassan, eller så bryter du ner smoothien i dess ingredienser, tar bort all jordgubb och tillsätter choklad istället. Det andra alternativet låter väl ändå roligare? 
 Då representerar vi smoothien med ett system med insignalen:
@@ -61,7 +60,7 @@ vars graf man kan se här %fixa ref \ref{}.
 Grafen visar hur mycket som finns kvar medan du dricker och är periodisk eftersom du bara \textbf{måste} ha en till. Systemsvaret ska bara påverka frekvensen med jordgubb i. Därför utvecklar vi smoothien till en serie som innehåller alla dess frekvenser(ingredienser). Vi kan då hitta frekvensen som vi vill påverka och så vet vi också vilka vi vill låta bli att påverka. För att kunna göra den här uppdelningen så krävs följande formel:
 \[ f(t) = \sum_{k=-1}^1 C_k e^{k j t} \]
 där konstanten $C_k$ är given från:
-\[C_k = \sum_{k=-\infty}^{\infty} C_k e^{k j t}\] %Finns det en anledning till varför det är en summa? Brukar det inte vara en integral? Var detta jag som råkade skriva detta?
+\[C_k = \sum_{k=-\infty}^{\infty} C_k e^{k j t}\] %Finns det en anledning till varför det är en summa? Brukar det inte vara en integral? Var detta jag som råkade skriva detta? Jopp, det var nog du.
 För vår smoothie så kommer serien ha följande utseende:
 \[f(t) = 2 \sum_{1}^{\infty} \frac{(-1)^{n+1}}{n} sin(n t) \]
 Obs! \emph{Om vi istället valt att gå till kassan och bett om en ny smoothie, så hade vi alltså bytt insignal in i vårt system istället för att påverka den vi har.}
@@ -80,15 +79,15 @@ Det magiska är då att vi bara har skrivit om den ursprungliga funktionen, vilk
 %Till sinus, och det kommer visa sig vara samma sak. Lämnas till en övning?
 %Detta innebär att de måste lösa en Integral vilket inte använder sig av DSL...
 %TODO: Som tidigare sagt: undvik \newline - använd en normal tomrad istället
-Detta blir då en form av det som kallas för Fourierserier. Man skriver om allt så att det uttrycks som komponenter till den hela signalen som man ''slår'' isär. Om man har en enkel signal som i vårt fall så är det kanske inte riktigt så givande, men om man har en större, mer komplicerad signal så skulle den vara svår att studera i sitt grundutförande och det skulle bli mycket lättare att bara bryta upp den till sina komponenter istället då.
+Detta blir då en form av det som kallas för fourierserier. Man skriver om allt så att det uttrycks som komponenter till den hela signalen som man ''slår'' isär. Om man har en enkel signal som i vårt fall så är det kanske inte riktigt så givande, men om man har en större, mer komplicerad signal så skulle den vara svår att studera i sitt grundutförande och det skulle bli mycket lättare att bara bryta upp den till sina komponenter istället då.
 
-%TODO: Det verkar vara ett ovanligt filter som tar bort "frekvenser som har en _amplitud_ större än ett visst tal \(K\)". ENkla filter brukar ta bort alla _frekvenser_ som är högre än en viss frekvens.
-En Fourierserie visar en amplitud mot dess frekvens, så man vet ''hur mycket'' bidrag man får från varje frekvens. Så ett ordentligt exempel skulle vara att man har ett filter som filtrerar bort alla frekvenser högre än en viss frekvens $K$. %som har en amplitud större än ett visst tal $K$. 
+%TODO: Det verkar vara ett ovanligt filter som tar bort "frekvenser som har en _amplitud_ större än ett visst tal \(K\)". Enkla filter brukar ta bort alla _frekvenser_ som är högre än en viss frekvens.
+En fourierserie visar en amplitud mot dess frekvens, så man vet ''hur mycket'' bidrag man får från varje frekvens. Så ett ordentligt exempel skulle vara att man har ett filter som filtrerar bort alla frekvenser högre än en viss frekvens $K$. %som har en amplitud större än ett visst tal $K$. 
 Då kan man ta reda på vilka frekvenser som kommer att påverkas efter att filtret applicerats genom att bryta upp signalen till dess komponenter. 
 
-Detta är då användningsområdet för Fourierserier i ett nötskal, inom signaler och system i alla fall. Det vill säga, bryta upp en signal i dess frekvenser för att finna mer information och tydligt kunna beräkna hur systemsvaret påverkar insignalen. Hur skulle det funka om insignalen inte var periodisk? 
+Detta är då användningsområdet för fourierserier i ett nötskal, inom signaler och system i alla fall. Det vill säga, bryta upp en signal i dess frekvenser för att finna mer information och tydligt kunna beräkna hur systemsvaret påverkar insignalen. Hur skulle det funka om insignalen inte var periodisk? 
 
-Det är där Fouriertransformen kommer in!
+Det är där fouriertransformen kommer in!
 
 \section{Fouriertransform}
 
@@ -134,17 +133,17 @@ Vilket innebär att vi har löst problemet om vi återtransformerar vänsterlede
 Nu återstår bara $X_2 H$
 \[y_2=\mathcal{F}^{-1}(X_2 H) = \int_{-\infty}^{\infty} \pi(\delta(\omega - 5) + \delta(\omega + 5)) \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega \]
 %TODO: Det vore bra att vara mer tydlig här: vad innebär "knasig" och vilken definition hänvisas till?
-Integralen ovan innehåller impulsfunktioner vilket gör den svår att förstå intuitiv. Om en kollar på impulsfunktionens definition så ser vi att integranden bara kan anta värden då $\omega=5$ eller $\omega =-5$ eftersom annars tar impulsfunktionen värdet 0. Detta innebär att integralen blir följande
+Integralen ovan innehåller impulsfunktioner vilket gör den svår att förstå intuitivt. Om man kollar på impulsfunktionens definition så ser vi att integranden bara kan anta värden då $\omega=5$ eller $\omega =-5$ eftersom annars tar impulsfunktionen värdet 0. Detta innebär att integralen blir följande:
 $$\frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$$ %Som förmodligen kan skrivas om till andra trigonometriska funktioner. Ska jag göra det?
 Utsignalen blir då $y=y_1 + y_2$ eller $e^{2 t} u(-t) + \frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$
 %---------------------------------Slut på exempel---------------------
 
-Sen finns även Plancherel's ekvation: %Parservals
+Sen finns även Plancherel's ekvation: %Parsevals
 %$$ 2 \pi <f,f> = <F,F> $$
 %$$<f,f> = \int_{-\infty}^{\infty} |f(x)|^2 dx $$
 \[\int_{-\infty}^{\infty} |f(x)|^2 dx = \frac{1}{2 \pi}\int_{-\infty}^{\infty} |F(\omega)|^2 d\omega \] %Enligt Beta s.316, säger i princip samma sak men kanske är tydligare. Kan ta bort den ovan.
 
-Det vill säga normen(alternativt ord?) av en funktion är samma sak som normen av dess fouriertransform delat med $2 \pi$. Eller mer specifikt, delat med perioden som den är definierad över. Inom detta området innebär normen av en signal den totala energin av signalen. %Vettigt när man kollar på totala energin i en signal. Exempel är nice!
+Det vill säga normen av en funktion är samma sak som normen av dess fouriertransform delat med $2 \pi$. Eller mer specifikt, delat med perioden som den är definierad över. Inom detta området innebär normen av en signal den totala energin av signalen. %Vettigt när man kollar på totala energin i en signal. Exempel är nice!
 
 \textbf{Exempel}
 Vi vill veta den totala energin i insignalen till ett system givet utsignalen y och impulssvaret h. Fouriertransformerar vi systemet får vi 
@@ -160,16 +159,16 @@ Så varför använda Plancherels sats? Mycket lättare att slippa återtransform
 %Såvida det här inte räcker.
 %--------------------------Slut på Exempel----------------------------
 
-\textbf{OBS!} Tillskillnad från när en utvecklar signalen till dess Fourierserie så är en transformerad funktion \textbf{inte} samma sak som den ursprungliga funktionen. Därför önskas det att återtransformera funktionen, vilket görs med följande formel!
+\textbf{OBS!} Tillskillnad från när en utvecklar signalen till dess fourierserie så är en transformerad funktion \textbf{inte} samma sak som den ursprungliga funktionen. Därför önskas det att återtransformera funktionen, vilket görs med följande formel!
 
 Invers fouriertransform - 
 \[f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty}  e^{j \omega t} d\omega \]
 
 Allt detta är under antagandet att signalens funktion är känd. Vad händer då om bara signalens värden är kända?
 
-%I princip, fouriertransform används på signaler som är periodiska eller definierad i [-\infty,\infty]. Laplace på LTI system för system definierade från 0 till \infty (anses oftast vara enklare att behandle en Fourier). Z-transform används på talserier ekvationer (differens ekvationer).
+%I princip, fouriertransform används på signaler som är periodiska eller definierad i [-\infty,\infty]. Laplace på LTI system för system definierade från 0 till \infty (anses oftast vara enklare att behandlar en Fourier). Z-transform används på talserier ekvationer (differensekvationer).
 \section{Diskret Fourier Transform}
-%Vi borde kanske förklara sampling tydligare någon stans? Eller räcker detta?
+%Vi borde kanske förklara sampling tydligare någon stans? Eller räcker detta? Mer är alltid bra. Dyker ändå upp på tentor.
 %TODO: Ja - sampling är en central operation (och också linjär, tar funktioner till funktioner, etc.)
 %Från det jag hittar så är sampling att reducera en kontinuerlig signal till diskret...
 %Detta kan göras genom att ta värden i jämna interval från en signal.
