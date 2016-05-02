@@ -7,6 +7,7 @@ import ComplexNumbers
 -- | Expression data type for numeric expressions
 data Expression a =  Const a
                   |  Id
+                  |  Pi
                   |  Exp (Expression a)
                   |  Expression a :+: Expression a
                   |  Expression a :*: Expression a
@@ -31,6 +32,7 @@ data Expression a =  Const a
 eval :: (Num a,Floating a) => Expression a -> (a -> a)
 eval (Const a)   = const a
 eval Id          = id
+eval Pi          = const pi
 eval (Exp e)     = exp . eval e
 eval (e0 :+: e1) = eval e0 + eval e1
 eval (e0 :*: e1) = eval e0 * eval e1
@@ -64,8 +66,7 @@ instance (Floating a) => Fractional (Expression a) where
 
 -- | Floating instance of our expression data type
 instance (Floating a) => Floating (Expression a) where
--- TODO: For symmetry, please make Pi a contructor in the Expression type. This also enables some nice algebraic simplifications (like sin pi, etc.).
-         pi    = Const pi
+         pi    = Pi
          exp   = Exp
          log   = Log
          sin   = Sin
