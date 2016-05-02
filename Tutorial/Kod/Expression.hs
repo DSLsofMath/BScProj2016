@@ -64,6 +64,7 @@ instance (Floating a) => Fractional (Expression a) where
 
 -- | Floating instance of our expression data type
 instance (Floating a) => Floating (Expression a) where
+-- TODO: For symmetry, please make Pi a contructor in the Expression type. This also enables some nice algebraic simplifications (like sin pi, etc.).
          pi    = Const pi
          exp   = Exp
          log   = Log
@@ -77,4 +78,3 @@ instance (Floating a) => Floating (Expression a) where
          acos  = Acos
          asinh = Asinh
          acosh = Acosh
-
