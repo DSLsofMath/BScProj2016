@@ -10,6 +10,7 @@ data Expression a =  Const a
                   |  Pi
                   |  Exp (Expression a)
                   |  Expression a :+: Expression a
+                  |  Expression a :-: Expression a
                   |  Expression a :*: Expression a
                   |  Expression a :/: Expression a
                   |  Conv (Expression a) (Expression a)
@@ -26,7 +27,7 @@ data Expression a =  Const a
                   |  Asinh (Expression a)
                   |  Acosh (Expression a)
                   |  Atanh (Expression a)
-                  deriving (Show, Eq)
+                  deriving (Eq)
 
 -- | Evaluates an Expression to a function
 eval :: (Num a,Floating a) => Expression a -> (a -> a)
@@ -35,6 +36,7 @@ eval Id          = id
 eval Pi          = const pi
 eval (Exp e)     = exp . eval e
 eval (e0 :+: e1) = eval e0 + eval e1
+eval (e0 :-: e1) = eval e0 - eval e1
 eval (e0 :*: e1) = eval e0 * eval e1
 eval (e0 :/: e1) = eval e0 / eval e1
 eval (Log e)     = log . eval e
@@ -79,3 +81,25 @@ instance (Floating a) => Floating (Expression a) where
          acos  = Acos
          asinh = Asinh
          acosh = Acosh
+
+instance Show a => Show (Expression a) where
+         show = showExp
+
+-- | Show instance for Showable Expressions
+showExp :: Show a => Expression a -> String
+showExp (Const a)   = show a
+showExp Id          = "var"
+showExp Pi          = "π"
+showExp (Exp e)     = "e^(" ++ showExp e ++ ")"
+showExp (e0 :*: e1) = showCompExps e0 ++ " × " ++ showCompExps e1
+showExp (e0 :+: e1) = showCompExps e0 ++ " + " ++ showCompExps e1
+showExp (e0 :-: e1) = showCompExps e0 ++ " - " ++ showCompExps e1
+showExp (e0 :/: e1) = showCompExps e0 ++ " / " ++ showCompExps e1
+
+-- | Composed Expressions needs to be enclosed in a pair of parens
+showCompExps :: (Show a) => Expression a -> String
+showCompExps (e0 :+: e1) = "(" ++ showCompExps e0 ++ " + " ++ showCompExps e1 ++ ")"
+showCompExps (e0 :-: e1) = "(" ++ showCompExps e0 ++ " - " ++ showCompExps e1 ++ ")"
+showCompExps (e0 :*: e1) = "(" ++ showCompExps e0 ++ " × " ++ showCompExps e1 ++ ")"
+showCompExps (e0 :/: e1) = "(" ++ showCompExps e0 ++ " / " ++ showCompExps e1 ++ ")"
+showCompExps exp         = showExp exp
