@@ -86,6 +86,15 @@ span {
    margin: 0 auto;
 }
 
+#signaler img.split {
+   display: inline-block;
+   margin-left: 100px;
+   margin-right: auto;
+   padding: 30px;
+   width: 30%;
+   height: auto;
+}
+
 /* --------------------------------------
    Media Queries
    -------------------------------------- */
@@ -104,6 +113,18 @@ span {
       height: auto;
    }
 
+   #signaler img {
+      width: 70%;
+      height: auto;
+   }
+
+   #signaler img.split {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      padding: 0 20 0 0;
+   }
+
    #disc {
       margin-left: 30px;
    }
@@ -116,6 +137,11 @@ span {
 
 @media (max-width: 450px) {
    #LTI img {
+      width: 100%;
+      height: auto;
+   }
+
+   #signaler img {
       width: 100%;
       height: auto;
    }

@@ -73,6 +73,19 @@ $(function() {
 	});
 
 
+	$('#signalerSvar1').click(function(e) {
+		
+		var correctAnswer = document.getElementById('1a');
+		e.preventDefault();
+
+		if (correctAnswer.checked === true) {
+			showResult('#rightSignal1')
+		}else {
+			showResult('#wrongSignal1')
+		};
+	});
+
+
 	$('#LTISvar2').click(function(e) {
 
 		var answer = $('#LTI2').val();
