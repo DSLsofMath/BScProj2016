@@ -29,7 +29,7 @@
 
 \section{Vad är egentligen Fourierserier och Fouriertransformer?}
 %Något kort om fourierserie.
-I teknikens underbara värld händer det ofta att man ställs inför ett stort och svårt problem. En vanlig teknik ingenjörer ofta använder sig av då är att man tar sitt stora, svåra problem och delar in det i flera enklare delar. Till exempel så går det att att  dela in en komplicerad \textbf{periodisk} signal till flera begripliga sinusvågor vilket är lättare att förstå och räkna på. Denna summa av sinusvågor kallas för en fourierserie. 
+I teknikens underbara värld händer det ofta att man ställs inför ett stort och svårt problem. En vanlig teknik ingenjörer ofta använder sig av då är att man tar sitt stora, svåra problem och delar in det i flera enklare delar. Till exempel så går det att att dela in en komplicerad \textbf{periodisk} signal till flera begripliga sinusvågor vilket är lättare att förstå och räkna på. Denna summa av sinusvågor kallas för en fourierserie. 
 
 Vad händer då om signalen inte är periodisk? Då plockar man fram fouriertransformen! En fouriertransform är en transform som kan användas för att föra över en funktion från tidsplanet till frekvensplanet. I frekvensplanet kan man sedan analysera och räkna på komplicerade signaler relativt enkelt vilket gör signalerna mycket lättare att hantera! 
 
@@ -42,7 +42,7 @@ När är då fourierserier och fouriertransformer användbart? Jo, de brukar anv
 
 Då ska vi börja med fourierserier!
 
-För att vi ska introducera fourierserier, så får du föreställa dig en trivial signal $sin(\omega_0 t)$. Om vi skriver om sinus med hjälp av Eulers fórmel får vi följande utseende:
+För att vi ska introducera fourierserier, så får du föreställa dig en trivial signal $sin(\omega_0 t)$. Om vi skriver om sinus med hjälp av Eulers formel får vi följande utseende:
 
 \[sin(\omega_0 t) = \frac{e^{j \omega_0 t}  - e^{-j \omega_0 t}}{2i}\]
 Detta är egentligen en form av en fourierserie. För att förklara detta i mer detalj så tar vi upp ett exempel.
@@ -57,7 +57,7 @@ vars graf man kan se här %fixa ref \ref{}.
 \label{}
 \end{figure}
 %TODO: Undvik \bf. Makrot heter \textbf sedan många år.
-Grafen visar hur mycket som finns kvar medan du dricker och är periodisk eftersom du bara \textbf{måste} ha en till. Systemsvaret ska bara påverka frekvensen med jordgubb i. Därför utvecklar vi smoothien till en serie som innehåller alla dess frekvenser(ingredienser). Vi kan då hitta frekvensen som vi vill påverka och så vet vi också vilka vi vill låta bli att påverka. För att kunna göra den här uppdelningen så krävs följande formel:
+Grafen visar hur mycket som finns kvar medan du dricker och är periodisk eftersom du bara \textbf{måste} ha en till så fort smoothien är slut. Systemsvaret ska bara påverka frekvensen med jordgubb i. Därför utvecklar vi smoothien till en serie som innehåller alla dess frekvenser(ingredienser). Vi kan då hitta frekvensen som vi vill påverka och så vet vi också vilka vi vill låta bli att påverka. För att kunna göra den här uppdelningen så krävs följande formel:
 \[ f(t) = \sum_{k=-1}^1 C_k e^{k j t} \]
 där konstanten $C_k$ är given från:
 \[C_k = \int_{k=-\infty}^{\infty} C_k e^{k j t}\] 
@@ -98,7 +98,7 @@ Definition för fouriertransform:
 
 Vi kan sedan observera att det är samma sak som att beräkna ut konstanten $C_k$ men i detta fall så är $\omega_0$ en variabel istället för en konstant, vilken betecknas som $\omega$ för att visa skillnaden. 
 Detta kan användas inom matematiken för att beräkna differentialekvationer över begränsade tidsintervall. I princip så ändras det hela från ett tidsplan till ett frekvensplan, det vill säga att det ändras från linjer till cirklar. %Kanske är onödigt?
-Bli nu inte skrämda av alla dessa integraler. Oftast så tillåts det en tabell som en kan utnyttja för att förenkla hela processen. Vi definerar en operator som fouriertransformerar $\mathcal{F}$. Några viktiga transformer:
+Bli nu inte skrämda av alla dessa integraler. Oftast så tillåts det en tabell som man kan använda sig av för att förenkla hela processen. Vi definerar en operator som fouriertransformerar $\mathcal{F}$. Några viktiga transformer:
 
 %TODO: Lite oklart var t och \omega binds. Vänligen förklara att t binds (implicit) i vänsterledet (inom parentesen) och att \omega binds i högerledet (utanför parentesen).
 \[\mathcal{F}(e^{j a t} f(t)) = F(\omega - a)\]%Translation
@@ -110,7 +110,7 @@ Fouriertransformen är även linjär vilket innebär
 
 Om vi då återgår till vårt smoothie-exempel så skulle det vara som att vi låter en maskin hitta alla ingredienser i smoothien åt oss.
 
-Varför skulle det här vara hjälpsamt? Om ni kommer ihåg från innan hur utsignalen till ett systemsvar är givet från $y(t) = x(t) * h(t)$, vilket är en faltning mellan två funktioner. I en frekvensdomän blir motsvarande $Y(\omega) = X(\omega) H(\omega)$. Det vill säga en enkel multiplikation mellan insignalen och \emph{frekvenssvaret} som är den fouriertransformerade impulssvaret.
+Varför skulle det här vara hjälpsamt? Om ni kommer ihåg från innan hur utsignalen till ett systemsvar är givet från $y(t) = x(t) * h(t)$, vilket är en faltning mellan två funktioner. I en frekvensdomän blir motsvarande $Y(\omega) = X(\omega) H(\omega)$. Det vill säga en enkel multiplikation mellan insignalen och \emph{frekvenssvaret} som är det fouriertransformerade impulssvaret.
 \[\mathcal{F}(f*g) = F G \]
 
 %Exempel på hur man fouriertransformerar i ett LTI-system.
@@ -173,7 +173,7 @@ Så varför använda Plancherels sats? Mycket lättare att slippa återtransform
 %Såvida det här inte räcker.
 %--------------------------Slut på Exempel----------------------------
 
-\textbf{OBS!} Tillskillnad från när en utvecklar signalen till dess fourierserie så är en transformerad funktion \textbf{inte} samma sak som den ursprungliga funktionen. Därför önskas det att återtransformera funktionen, vilket görs med följande formel!
+\textbf{OBS!} Tillskillnad från när man utvecklar signalen till dess fourierserie så är en transformerad funktion \textbf{inte} samma sak som den ursprungliga funktionen. Därför önskas det att återtransformera funktionen, vilket görs med följande formel!
 
 Invers fouriertransform - 
 \[f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty}  e^{j \omega t} d\omega \]
@@ -188,7 +188,7 @@ Allt detta är under antagandet att signalens funktion är känd. Vad händer d�
 %Detta kan göras genom att ta värden i jämna interval från en signal.
 
 Innan vi börjar med diskret fourier transform så förklarar vi lite om det viktiga begreppet \emph{sampling.}
-%Om detta är inte tillräckligt kan jag ta med samplingteoremet och förklara det. 
+%Om detta är inte tillräckligt kan jag ta med samplingteoremet och förklara det. Samplingstheoremet är jättebra att ta med!
 %Jag kan också skapa en bild likt den i wikipedia om ni tycker att det behövs.
 
 Sampling är definierad som \emph{genereringen av en ordningsföljd från en kontinuerlig insignal $x(t)$}. Vi får alltså talföljden $x(t_1), x(t_2), x(t_3)... $, där $t_n$ är tidpunkterna vi samplade. Vi låter nu denna talföljd skrivas om som $x[n]$, där n är värdets ordning i talföljden. Vi kan alltså se det som en funktion:
