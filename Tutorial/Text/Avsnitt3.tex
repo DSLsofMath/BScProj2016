@@ -60,7 +60,7 @@ vars graf man kan se här %fixa ref \ref{}.
 Grafen visar hur mycket som finns kvar medan du dricker och är periodisk eftersom du bara \textbf{måste} ha en till. Systemsvaret ska bara påverka frekvensen med jordgubb i. Därför utvecklar vi smoothien till en serie som innehåller alla dess frekvenser(ingredienser). Vi kan då hitta frekvensen som vi vill påverka och så vet vi också vilka vi vill låta bli att påverka. För att kunna göra den här uppdelningen så krävs följande formel:
 \[ f(t) = \sum_{k=-1}^1 C_k e^{k j t} \]
 där konstanten $C_k$ är given från:
-\[C_k = \sum_{k=-\infty}^{\infty} C_k e^{k j t}\] %Finns det en anledning till varför det är en summa? Brukar det inte vara en integral? Var detta jag som råkade skriva detta? Jopp, det var nog du.
+\[C_k = \int_{k=-\infty}^{\infty} C_k e^{k j t}\] 
 För vår smoothie så kommer serien ha följande utseende:
 \[f(t) = 2 \sum_{1}^{\infty} \frac{(-1)^{n+1}}{n} sin(n t) \]
 Obs! \emph{Om vi istället valt att gå till kassan och bett om en ny smoothie, så hade vi alltså bytt insignal in i vårt system istället för att påverka den vi har.}
@@ -106,15 +106,16 @@ Bli nu inte skrämda av alla dessa integraler. Oftast så tillåts det en tabell
 \[\mathcal{F}(\frac{d}{dt} f(t)) = i\omega F(\omega) \]%Derivering
 
 Fouriertransformen är även linjär vilket innebär
-$$\mathcal{F}(a f + b g) = a F + b G$$
+\[\mathcal{F}(a f + b g) = a F + b G\]
 
 Om vi då återgår till vårt smoothie-exempel så skulle det vara som att vi låter en maskin hitta alla ingredienser i smoothien åt oss.
 
-Varför skulle det här vara hjälpsamt? Om ni kommer ihåg från innan hur utsignalen till ett systemsvar är givet från $y(t) = x(t) * h(t)$, vilket är en faltning mellan två funktioner. I en frekvensdomän blir motsvarande $Y(\omega) = X(\omega) H(\omega)$. Det vill säga en enkel multiplikation mellan insignalen och systemsvaret.
+Varför skulle det här vara hjälpsamt? Om ni kommer ihåg från innan hur utsignalen till ett systemsvar är givet från $y(t) = x(t) * h(t)$, vilket är en faltning mellan två funktioner. I en frekvensdomän blir motsvarande $Y(\omega) = X(\omega) H(\omega)$. Det vill säga en enkel multiplikation mellan insignalen och \emph{frekvenssvaret} som är den fouriertransformerade impulssvaret.
 \[\mathcal{F}(f*g) = F G \]
 
 %Exempel på hur man fouriertransformerar i ett LTI-system.
 \textbf{Exempel} %(inspirerad från en tenta uppgift) (Inte helt klar)
+%OBS! Denna exempel använder sig av Invers Fourier Transform vilket vi introducerar efter.... så vi måste antingen dela upp exemplet eller flytta ner den. Cecilia får bestämma.
 %OBS!! kanske för jobbig för ett exempel.
 %OBS!!! Har ni lärt er en bättre metod för att hantera fourier transformen av en sinus? Detta är den enda metod jag kan. Vilket ger en trigonometrisk lösning skrivit i Eulers formel (tror jag). Skulle det vara ok att svara så i er tenta? Annars borde det gå att skriva om genom att multiplicera med nämnarens konjugat.
 
@@ -133,10 +134,20 @@ Vilket innebär att vi har löst problemet om vi återtransformerar vänsterlede
 Nu återstår bara $X_2 H$
 \[y_2=\mathcal{F}^{-1}(X_2 H) = \int_{-\infty}^{\infty} \pi(\delta(\omega - 5) + \delta(\omega + 5)) \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega \]
 %TODO: Det vore bra att vara mer tydlig här: vad innebär "knasig" och vilken definition hänvisas till?
-Integralen ovan innehåller impulsfunktioner vilket gör den svår att förstå intuitivt. Om man kollar på impulsfunktionens definition så ser vi att integranden bara kan anta värden då $\omega=5$ eller $\omega =-5$ eftersom annars tar impulsfunktionen värdet 0. Detta innebär att integralen blir följande:
-$$\frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$$ %Som förmodligen kan skrivas om till andra trigonometriska funktioner. Ska jag göra det?
+Integralen ovan innehåller impulsfunktioner vilket gör den svår att förstå intuitivt. Om man kollar på impulsfunktionens definition 
+
+\[
+\delta(\omega - \tau)=
+\begin{cases}
+"\infty",\quad \omega = \tau \\
+0, \quad else
+\end{cases}, \omega \in \mathbb{R}
+\]
+
+så ser vi att integranden bara kan anta värden då $\omega=5$ eller $\omega =-5$ eftersom annars tar impulsfunktionen värdet 0. Detta innebär att integralen blir följande:
+\[\frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}\] %Som förmodligen kan skrivas om till andra trigonometriska funktioner. Ska jag göra det?
 Utsignalen blir då $y=y_1 + y_2$ eller $e^{2 t} u(-t) + \frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$
-%---------------------------------Slut på exempel---------------------
+%---------------------------------Slut på exempel-----------------------
 
 Sen finns även Plancherel's ekvation: %Parsevals
 %$$ 2 \pi <f,f> = <F,F> $$
@@ -153,7 +164,10 @@ Detta ger oss enligt Plancherels formel följande relation
 Där vi kan se att högerledet är den totala energin från insignalen. 
 Det vill säga, bara lös vänsterledet. 
 
-Så varför använda fouriertransform? Det kan vara svårt att bryta upp en faltning! (Det vill säga vi vill bryta upp $x*h=y$ så att x blir ensam.)
+Så varför använda fouriertransform? I detta fall finns det två anledningar. %Kanske mer?
+
+Det kan vara svårt att bryta upp en faltning! (Det vill säga vi vill bryta upp $x*h=y$ så att x blir ensam.)
+
 Så varför använda Plancherels sats? Mycket lättare att slippa återtransformera och sedan beräkna normen. (Det vill säga högerledet...)
 %Vad finns kvar att göra, komma på en utsignal och impulssvar som gör följande integral enkel $\int_{-\infty}^{\infty} |(Y/H)(\omega)|^2 d \omega$
 %Såvida det här inte räcker.
@@ -172,7 +186,19 @@ Allt detta är under antagandet att signalens funktion är känd. Vad händer d�
 %TODO: Ja - sampling är en central operation (och också linjär, tar funktioner till funktioner, etc.)
 %Från det jag hittar så är sampling att reducera en kontinuerlig signal till diskret...
 %Detta kan göras genom att ta värden i jämna interval från en signal.
-Med hjälp av sampling kan vi reducera en kontinuerlig signal till en diskret signal. Därefter kan vi använda definitionen för DFT, \emph{diskret fouriertransform}, för att omvandla signalen från en tidsdomän till en frekvensdomän.
+
+Innan vi börjar med diskret fourier transform så förklarar vi lite om det viktiga begreppet \emph{sampling.}
+%Om detta är inte tillräckligt kan jag ta med samplingteoremet och förklara det. 
+%Jag kan också skapa en bild likt den i wikipedia om ni tycker att det behövs.
+
+Sampling är definierad som \emph{genereringen av en ordningsföljd från en kontinuerlig insignal $x(t)$}. Vi får alltså talföljden $x(t_1), x(t_2), x(t_3)... $, där $t_n$ är tidpunkterna vi samplade. Vi låter nu denna talföljd skrivas om som $x[n]$, där n är värdets ordning i talföljden. Vi kan alltså se det som en funktion:
+
+%-Visa upp det kodmässigt på något sätt?
+%\begin{minted}[haskell]
+
+%\end{minted} 
+
+Med andra ord, med hjälp av sampling kan vi reducera en kontinuerlig signal till en diskret signal. Därefter kan vi använda definitionen för DFT, \emph{diskret fouriertransform}, för att omvandla signalen från en tidsdomän till en frekvensdomän.
 \[X[k] = \frac{1}{N} \sum_{n=0}^{N-1} x[n] e^{-2 \pi j n k/N}\]
 Det vill säga, om man vill studera diskreta värden från en signal i dess frekvensdomän, då applicerar man DFT! Och precis som i det kontinuerliga fallet så finns det en invers DFT för att återomvandla signalen.
 \[x[n] = \sum_{k=0}^{N-1} X[k] e^{2 \pi j n k/N} \] %Betas
@@ -186,6 +212,8 @@ Parsevals ekvation för diskreta Fouriertransformer
 
 \[\sum_{n=0}^{N} |x[n]|^2 = \frac{1}{N} sum_{k=0}^{N-1} |X[k]|^2 \]
 %Wikipedias vilket är den jag känner till. 
+
+%Hur visar man exemplar på diskret fourier transform? Oftast brukar de användas numerisk väl? Lämnas som diskussion till gruppen. 
 
 
 \end{document}
