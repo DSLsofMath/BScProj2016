@@ -584,14 +584,17 @@ Bilderna i detta kapitel är gjorda i:
 \section{Lösningar}
 
 \textbf{Kryssfråga 1:} b) 10
+\\
 
 \textbf{Kryssfråga 2:} b) 65
+\\
 
 \textbf{Övning 1:}
 \begin{minted}{haskell}
 imPart :: Complex -> Double
 imPart (Complex c) = snd c
 \end{minted}
+
 \textbf{Övning 2:}
 \begin{minted}{haskell}
 printComplex :: Complex -> String
@@ -602,65 +605,74 @@ printComplex z
     where im = imPart z
           r = realPart z
 \end{minted}
+
 \textbf{Övning 3:}
-%TODO: Fixa typen på Complex (och ovanlig radbrytning)
 \begin{minted}{haskell}
 instance Num Complex where
-    z + w           = Complex (realPart z +
-                        realPart w, imPart z + imPart w)
+  z + w  = Complex (realPart z + realPart w) (imPart z + imPart w)
 \end{minted}
 
 \textbf{Övning 4:}
 \begin{minted}{haskell}
-   negate z        = Complex (negate $ realPart z, negate $ imPart z)
+  negate z = Complex (negate $ realPart z, negate $ imPart z)
 \end{minted}
 
 \textbf{Övning 5:}
 \begin{minted}{haskell}
-    abs z           = Complex (hyp, 0)
-        where hyp   = sqrt (r*r + im*im)
-              r     = realPart z
-              im    = imPart z
+  abs z = Complex (hyp, 0)
+    where hyp = sqrt (r*r + im*im)
+          r   = realPart z
+          im  = imPart z
 \end{minted}
+
 \textbf{Kryssfråga 3:} b) $\cos(3t) + j\sin(3t)$
+\\
 
 \textbf{Kryssfråga 4:} c) $e^{j4} + 5$
+\\
 
 \textbf{Kryssfråga 5:} b) Kontinuerlig
-\newline
+
+\newpage
+
 \textbf{Övning 6:}
 \begin{minted}{haskell}
-contHasPeriod :: ContTimeFun -> ContTime ->
-                                        Double -> Bool
-contHasPeriod signal step period =
-        and $ map (hasPeriod signal period)
-                                [0, step .. period]
-    where hasPeriod signal period t =
-                            signal t ~= signal (t+period)
+contHasPeriod :: ContTimeFun -> ContTime -> Double -> Bool
+contHasPeriod signal step period = and $ map (hasPeriod signal period)
+                                             [0, step .. period]
+  where hasPeriod signal period t = signal t ~= signal (t+period)
 \end{minted}
 
+
 \textbf{Kryssfråga 6:} a) $\pi$
+\\
 
 \textbf{Kryssfråga 7:} b) $8\pi$
+\\
 
 \textbf{Kryssfråga 8:} b) Udda
+\\
 
 \textbf{Kryssfråga 9:} a) Jämn
+\\
 
 \textbf{Övning 7:}
 \begin{minted}{haskell}
 contIsEven :: ContTimeFun -> ContTime -> Double -> Bool
 contIsEven signal step limit = and $ map testPair $ zip xs ys
-    where testPair (a,b) = a ~= b
-          xs = map signal [0, step .. limit]
-          ys = map signal [0,-step .. (-limit)]
+  where testPair (a,b) = a ~= b
+        xs = map signal [0, step .. limit]
+        ys = map signal [0,-step .. (-limit)]
 \end{minted}
+
+
 \textbf{Övning 8:}
 \begin{minted}{haskell}
 discImpulse :: DiscTimeFun
 discImpulse n | n == 0 = 1
               | otherwise = 0
 \end{minted}
+
 \textbf{Övning 9:}
 \begin{minted}{haskell}
 discStep :: DiscTimeFun
