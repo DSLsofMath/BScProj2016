@@ -13,11 +13,24 @@
 
 \section{Förkunskap}
 
-Denna text är skriven för att hjälpa studenter på Dataprogrammet på Chalmers med kurserna TSS och Reglerteknik och därför förutsätter vi att läsaren har de förkunskaper en datastudent har efter andra läsåret eller motsvarande. Vi kommer därför förutsätta att du har grundläggande kunskaper inom matematisk analys, komplexa tal, funktionell programmering och annat smått och gott.
+Denna text är skriven för att hjälpa studenter på Dataprogrammet på Chalmers med
+kurserna TSS och Reglerteknik och därför förutsätter vi att läsaren har de
+förkunskaper en datastudent har efter andra läsåret eller motsvarande.
+Vi kommer därför förutsätta att du har grundläggande kunskaper inom matematisk
+analys, komplexa tal, funktionell programmering och annat smått och gott.
 
-För att du ska kunna förstå exemplen och göra övningarna behöver du också grundläggande kunskaper i Haskell. Om du känner att dina Haskellkunskaper är lite ringrostiga så rekommenderar vi varmt sidan \url{www.learnyouahaskell.com}. Den är enkel, effektiv och innehåller förvånansvärt många bilder på djur.
+För att du ska kunna förstå exemplen och göra övningarna behöver du också
+grundläggande kunskaper i Haskell. Om du känner att dina Haskellkunskaper är
+lite ringrostiga så rekommenderar vi varmt sidan \url{www.learnyouahaskell.com}.
+Den är enkel, effektiv och innehåller förvånansvärt många bilder på djur.
 
-Det är ett plus att ha läst kursen DSLsofMath, men så länge dina Haskellkunskaper är hyfsade så ska det här allt gå bra ändå. Ni som har läst DSLofMath kan nu passa på att ge er själva en klapp på axeln och le belåtet över att ni kommer göra övningarna lite snabbare än alla andra. Om man känner att ens Haskellkunskaper är obefintliga och man inte tänkt ändra på det, så kan man fortfarande läsa igenom vår text men strunta i att göra programmeringsövningarna och se ifall lite teori kanske fastnar ändå.
+Det är ett plus att ha läst kursen DSLsofMath, men så länge dina
+Haskellkunskaper är hyfsade så ska det här allt gå bra ändå.
+Ni som har läst DSLofMath kan nu passa på att ge er själva en klapp på axeln
+och le belåtet över att ni kommer göra övningarna lite snabbare än alla andra.
+Om man känner att ens Haskellkunskaper är obefintliga och man inte tänkt ändra
+på det, så kan man fortfarande läsa igenom vår text men strunta i
+att göra programmeringsövningarna och se ifall lite teori kanske fastnar ändå.
 
 Nu till saken!
 
@@ -26,22 +39,54 @@ Nu till saken!
 \newpage
 
 \section{Vad är DSL och varför ska vi använda det?}
+DSL är en förkortning för Domain Specific Language,
+domänspecifika språk på svenska.
+Ett domänspecifikt språk är helt enkelt ett lite snävare programmeringsspråk
+som är specialanpassat för ett specifikt område, till skillnad från vanliga
+programmeringsspråk som t.ex. C och Java som man kan skriva alla möjliga typer
+av program i för att lösa alla möjliga typer av problem.
+Några välkända exempel på DSLer skulle exempelvis kunna vara SQL för
+databasrelaterade uppgifter, HTML för strukturering av data och CSS för
+utseende- och stilmanipulering av data, sen finns det även mindre kända
+språk (eller språk som mest dyker upp i vissa kretsar) som MATLAB som är
+till för att kunna göra olika matematiska uträkningar och VHDL som används
+för att beskriva hårdvara.
 
-DSL är en förkortning för Domain Specific Language, domänspecifika språk på svenska. Ett domänspecifikt språk är helt enkelt ett lite snävare programmeringsspråk som är specialanpassat för ett specifikt område, till skillnad från vanliga programmeringsspråk som t.ex. C och Java som man kan skriva alla möjliga typer av program i för att lösa alla möjliga typer av problem. Några välkända exempel på DSLer skulle exempelvis kunna vara SQL för databasrelaterade uppgifter, HTML för strukturering av data och CSS för utseende- och stilmanipulering av data, sen finns det även mindre kända språk(eller språk som mest dyker upp i vissa kretsar) som MATLAB som är till för att kunna göra olika matematiska uträkningar och VHDL som används för att beskriva hårdvara.
+Ett DSL kan man skriva från scratch eller bädda in i ett annat språk.
+Vi har valt att bädda in vårt språk i Haskell då det fungerar bra för att
+skriva DSLer som är inriktade mot matematik. Sen skadar det ju inte heller
+att datateknologerna på Chalmers har erfarenhet av Haskell sen tidigare.
 
-Ett DSL kan man skriva från scratch eller bädda in i ett annat språk. Vi har valt att bädda in vårt språk i Haskell då det fungerar bra för att skriva DSLer som är inriktade mot matematik. Sen skadar det ju inte heller att datateknologerna på Chalmers har erfarenhet av Haskell sen tidigare.
+Varför använder vi då oss utav domänspecifika språk? “Är det inte lättare
+att bara använda gamla hederliga programmeringsspråk så att jag slipper lära
+mig nya saker?”, frågar du då. Eh, nej.
+Att skriva något sånär korrekt matematisk notation i vanliga
+programmeringsspråk är i många fall omöjligt eller åtminstone riktigt besvärligt.
+Exempelvis skulle vi, om vi skulle komma på tanken, stöta på problem av
+astronomiska mått (okej kanske inte, men jobbigt hade det varit) om vi vill
+utföra matrismultiplikation i Haskell eller för den delen C,
+medan i MATLAB (som man skulle kunna se som ett DSL för bland annat
+matrisaritmetik) är det busenkelt.
 
-Varför använder vi då oss utav domänspecifika språk? “Är det inte lättare att bara använda gamla hederliga programmeringsspråk så att jag slipper lära mig nya saker?”, frågar du då. Eh, nej. Att skriva något sånär korrekt matematisk notation i vanliga programmeringsspråk är i många fall omöjligt eller åtminstone riktigt besvärligt.
-Exempelvis skulle vi, om vi skulle komma på tanken, stöta på problem av astronomiska mått (okej kanske inte, men jobbigt hade det varit) om vi vill utföra matrismultiplikation i Haskell eller för den delen C, medan i MATLAB (som man skulle kunna se som ett DSL för bland annat matrisaritmetik) är det busenkelt.
+Det var all bakgrund som kan tänkas behövas om man är intresserad av varför
+vi gör det här eller hur vi gjort det.
 
-Det var all bakgrund som kan tänkas behövas om man är intresserad av varför vi gör det här eller hur vi gjort det.
-
-
+\newpage
 
 \section{Upplägg}
-Denna text, eller handledning om man så vill, är uppdelad i 4 stycken delavsnitt plus introduktionsavsnittet du läser nu. Varje avsnitt kommer innehålla teori och exempel inom diverse ämnen samt ett antal förståelsefrågor och programmeringsövningar.
+Denna text, eller handledning om man så vill, är uppdelad i 4 stycken delavsnitt
+plus introduktionsavsnittet du läser nu. Varje avsnitt kommer innehålla teori
+och exempel inom diverse ämnen samt ett antal förståelsefrågor och
+programmeringsövningar.
 
-Till varje avsnitt finns det ett tillhörande kodpaket med fördefinierat material. Tanken är att du ska kunna skriva dina programmeringsövningar direkt i denna fördefinierade kod och på så sätt ha allt du behöver för att kunna köra och testa dina lösningar utan en massa onödigt kodande från din sida.
+Till varje avsnitt finns det ett tillhörande kodpaket med fördefinierat material.
+Tanken är att du ska kunna skriva dina programmeringsövningar direkt i denna
+fördefinierade kod och på så sätt ha allt du behöver för att kunna köra och
+testa dina lösningar utan en massa onödigt kodande från din sida.
 
-Avsnitten är tänkta att läsas i den ordning de står och det förutsätts att man har läst avsnitten som kom innan det aktuella avsnittet. Alltså, om du inte läser avsnitten i ordning så var beredd på att du får hoppa fram och tillbaka en hel del.
+Avsnitten är tänkta att läsas i den ordning de står och det förutsätts att man
+har läst avsnitten som kom innan det aktuella avsnittet.
+Alltså, om du inte läser avsnitten i ordning så var beredd på att du
+får hoppa fram och tillbaka en hel del.
+
 \end{document}
