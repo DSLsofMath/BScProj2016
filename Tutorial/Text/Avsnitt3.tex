@@ -30,7 +30,7 @@
 
 \section{Vad är egentligen Fourierserier och Fouriertransformer?}
 %Något kort om fourierserie.
-I teknikens underbara värld händer det ofta att man ställs inför ett stort och svårt problem. En vanlig teknik ingenjörer ofta använder sig av då är att man tar sitt stora, svåra problem och delar in det i flera enklare delar. Till exempel så går det att att dela in en komplicerad \textbf{periodisk} signal till flera begripliga sinusvågor vilket är lättare att förstå och räkna på. Denna summa av sinusvågor kallas för en fourierserie.
+I teknikens underbara värld händer det ofta att man ställs inför ett stort och svårt problem. En vanlig teknik ingenjörer ofta använder sig av då är att man tar sitt stora, svåra problem och delar in det i flera enklare delar. Till exempel så går det att dela in en komplicerad \textbf{periodisk} signal till flera begripliga sinusvågor vilket är lättare att förstå och räkna på. Denna summa av sinusvågor kallas för en fourierserie.
 
 Vad händer då om signalen inte är periodisk? Då plockar man fram fouriertransformen! En fouriertransform är en transform som kan användas för att föra över en funktion från tidsplanet till frekvensplanet. I frekvensplanet kan man sedan analysera och räkna på komplicerade signaler relativt enkelt vilket gör signalerna mycket lättare att hantera!
 
@@ -189,7 +189,7 @@ Allt detta är under antagandet att signalens funktion är känd. Vad händer d�
 %Detta kan göras genom att ta värden i jämna interval från en signal.
 
 Innan vi börjar med diskret fourier transform så förklarar vi lite om det viktiga begreppet \emph{sampling.}
-%Om detta är inte tillräckligt kan jag ta med samplingteoremet och förklara det. Samplingstheoremet är jättebra att ta med!
+%Om detta är inte tillräckligt kan jag ta med samplingteoremet och förklara det. Samplingsteoremet är jättebra att ta med!
 %Jag kan också skapa en bild likt den i wikipedia om ni tycker att det behövs.
 
 Sampling är definierad som \emph{genereringen av en ordningsföljd från en kontinuerlig insignal $x(t)$}. Vi får alltså talföljden $x(t_1), x(t_2), x(t_3)... $, där $t_n$ är tidpunkterna vi samplade. Vi låter nu denna talföljd skrivas om som $x[n]$, där n är värdets ordning i talföljden. Vi kan alltså se det som en funktion:
