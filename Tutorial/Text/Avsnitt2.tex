@@ -37,7 +37,6 @@ rysligt praktiskt!
 
 %------------------------------------------------------------------
 %*Ev Bild på några olika linjära ekv. i kordinatsystem
-\newline
 LTI-system är något man använder sig av väldigt mycket inom signallära. Även
 system som egentligen inte är linjära och tidsinvarianta approximeras ofta
 till LTI-system, eftersom det är så mycket trevligare att räkna på
@@ -318,12 +317,12 @@ Passa nu på att ge dig själv en välförtjänt klapp på axeln innan du går v
 Övning 1
 \begin{minted}{haskell}
 isLinearDisc :: DiscTimeFun -- ^ Insignal 1
-            -> DiscTimeFun -- ^ Insignal 2
-            -> DiscSystem  -- ^ System
-            -> Double -- ^ Skalningsfaktor 1
-            -> Double -- ^ Skalningsfaktor 2
-            -> DiscTime -- ^ Tid då vi mäter
-            -> Bool
+             -> DiscTimeFun -- ^ Insignal 2
+             -> DiscSystem  -- ^ System
+             -> Double -- ^ Skalningsfaktor 1
+             -> Double -- ^ Skalningsfaktor 2
+             -> DiscTime -- ^ Tid då vi mäter
+             -> Bool
 isLinearDisc x0 x1 sys a b t = testAt (y0' + y1') (y0 `scale` a + y1 `scale` b) t
     where y0  = discOutSignal sys x0
           y1  = discOutSignal sys x1
@@ -339,7 +338,7 @@ isTimeInvCont x sys t c = y' t ~= (timeShift y c) t
     where x' = timeShift x c
           y  = contOutSignal sys x
           y' = contOutSignal sys x'
-\end{minted}{haskell}
+\end{minted}
 
 Övning 4
 \begin{minted}{haskell}
