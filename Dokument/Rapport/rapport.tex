@@ -178,20 +178,33 @@ Därför fokuserades det endast på TSS.
 
 \section{Teori - Teknisk bakgrund om DSL mm}
 
-\subsection{DSL}
+\subsection{Allmänt om domänspecifika språk}
 % Allmänt om DSL
-Ett DSL är ett programmeringsspråk som till skillnad från ett \gls{GPL}, är anpassat
-för endast en specifik domän. De har alltid funnits sedan programmering
-skapades och exempel på DSL är HTML, MatLab och rpgmaker. Ett DSL kan
-byggas upp från grunden eller vara utvecklat från ett redan existerande GPL
-som Haskell. Fördelen med detta är att de erbjuder mer specialiserade egenskaper
-inom detta specifika område men är inte avsedda för att kunna appliceras till andra
-områden. Därför passar DSL utmärkt till detta kandidatarbete eftersom målet är
-att lära ut TSS via programmering.
+Ett domänspecifikt språk (\gls{DSL}) är ett programmeringsspråk som till
+skillnad från generella programmeringsspråk \gls{GPL}, är anpassat för en specifik domän.
+Att skapa domänspecifika språk är ingenting nytt och det finns flera exempel på
+DSL är HTML, MATLAB och Game Maker Language.
+Dessa DSL har gemensamt att det är relativt enkelt att formulera lösningar för
+problem i deras domäner, exempelvis är det enkelt att strukturera upp text och
+annat innehåll i HTML, utföra matrisoperationer i MATLAB eller skapa datorspel
+med Game Maker Language.
 
-\subsection{Funktionell programmering}
+När man designar domänspecifika språk kan man välja att skapa ett fristående
+språk som analyseras till någon typ av maskinkod eller att utveckla sitt
+domänspecifika språk i ett redan existerande generellt programmeringsspråk,
+där beståndsdelarna i språket är funktionsanrop och konstruktorer i värdspråket.
 
-\subsection{Signallära}
+\subsection{Om funktionell programmering}
+% -Referera till “Why functional programming matters”
+
+\subsection{Om transformer, signaler och system}
+Området beskriver olika typer av signaler, hur de relateras till ett
+linjär tidsinvariant system och hur en ingenjör kan använda denna relation
+för att modellera system. Ett system kan till exempel vara en fjäder vars
+signal är en kraft som påverkar fjädern utifrån.
+För att kunna behandla denna system så kan en utnyttja Fourier serier
+utveckling och olika typer av transformer vilket låter en betrakta signalen
+i en annan domän.
 
 \subsection{Didaktik}
 
