@@ -18,6 +18,15 @@ body{
    textrendering: optimizelegivility;
 }
 
+.modal-dialog {
+   overflow-y: initial;
+}
+
+.modal-body {
+   height: 400px;
+   overflow-y: auto;
+}
+
 ul.unstyled {
    list-style: none;
    padding: 0;
@@ -44,7 +53,7 @@ span {
 
 /* Buttons */
 
-#LTISvar2 {
+button.challenge {
    margin: 20px 0;
 }
 

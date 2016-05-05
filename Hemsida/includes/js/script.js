@@ -24,6 +24,9 @@ $(function() {
 		};
 	});
 
+
+
+
 	$('#komplexSvar1').click(function(e) {
 		
 		var correctAnswer = document.getElementById('1b');
@@ -72,6 +75,90 @@ $(function() {
 		};
 	});
 
+	$('#komplexTest1').click(function(e) {
+
+		var correctAnswer = "12+4j";
+		var answer = $('#komplexText1').val();
+		e.preventDefault;
+
+		if (answer === correctAnswer) {
+			showResult('#rightKomplexTest1')
+		}else {
+			showResult('#wrongKomplexTest1')
+		};
+
+	});
+
+
+	$('#komplexTest2').click(function(e) {
+
+		var correctAnswer1 = "25";
+		var correctAnswer2 = "25+0j"
+		var answer = $('#komplexText2').val();
+		e.preventDefault;
+
+		if (answer === correctAnswer1 || answer === correctAnswer2) {
+			showResult('#rightKomplexTest2')
+		}else {
+			showResult('#wrongKomplexTest2')
+		};
+	});
+
+	$('#komplexTest3').click(function(e) {
+
+		var correctAnswer1 = "6,708";
+		var correctAnswer2 = "6.708";
+		var answer = $('#komplexText3').val();
+		e.preventDefault;
+
+		if (answer === correctAnswer1 || answer === correctAnswer2) {
+			showResult('#rightKomplexTest3')
+		}else {
+			showResult('#wrongKomplexTest3')
+		};
+	});
+
+	$('#komplexTest4').click(function(e) {
+
+		var correctAnswer = "fromInteger 5";
+		var answer = $('#komplexText4').val();
+		e.preventDefault;
+
+		if (answer === correctAnswer) {
+			showResult('#rightKomplexTest4')
+		}else {
+			showResult('#wrongKomplexTest4')
+		};
+	});
+
+	$('#komplexSol1').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol1');	
+	});
+
+	$('#komplexSol2').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol2');	
+	});
+
+	$('#komplexSol3').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol3');	
+	});
+
+	$('#komplexSol4').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol4');	
+	});
+
+	$('#komplexSol5').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol5');	
+	});
+
+	
+
+
 
 	$('#signalerSvar1').click(function(e) {
 		
@@ -100,5 +187,9 @@ $(function() {
 
 	function showResult(a) {
 		$(a).show().delay(200).addClass("in").fadeOut(1500);
+	};
+
+	function showSolution(a) {
+		$(a).show().delay(200).addClass("in");
 	};
 });
