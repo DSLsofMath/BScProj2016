@@ -55,7 +55,9 @@ För att vi ska introducera fourierserier, så får du föreställa dig en
 trivial signal $sin(\omega_0 t)$.
 Om vi skriver om sinus med hjälp av Eulers formel får vi följande utseende:
 
-$$sin(\omega_0 t) = \frac{e^{j \omega_0 t}  - e^{-j \omega_0 t}}{2i}$$
+\begin{displaymath}
+  sin(\omega_0 t) = \frac{e^{j \omega_0 t}  - e^{-j \omega_0 t}}{2i}
+\end{displaymath}
 
 Detta är egentligen en form av en fourierserie.
 För att förklara detta i mer detalj så tar vi upp ett exempel.
@@ -68,7 +70,9 @@ eller så bryter du ner smoothien i dess ingredienser, tar bort all jordgubb
 och tillsätter choklad istället. Det andra alternativet låter väl ändå roligare?
 Då representerar vi smoothien med ett system med insignalen:
 
-$$f(t) = \frac{-t}{\pi} + 2, \quad t \in [0,2 \pi] $$
+\begin{displaymath}
+  f(t) = \frac{-t}{\pi} + 2, \quad t \in [0,2 \pi]
+\end{displaymath}
 
 vars graf man kan se i bild \ref{fig:smoothie}.
 
@@ -85,26 +89,42 @@ Därför utvecklar vi smoothien till en serie som innehåller alla dess
 frekvenser (ingredienser). Vi kan då hitta frekvensen som vi vill påverka och
 så vet vi också vilka vi vill låta bli att påverka.
 För att kunna göra den här uppdelningen så krävs följande formel:
-$$f(t) = \sum_{k=-1}^1 C_k e^{k j t}$$
+\begin{displaymath}
+  f(t) = \sum_{k=-1}^1 C_k e^{k j t}
+\end{displaymath}
 där konstanten $C_k$ är given från:
-$$C_k = \int_{k=-\infty}^{\infty} C_k e^{k j t}$$
+\begin{displaymath}
+  C_k = \int_{k=-\infty}^{\infty} C_k e^{k j t}
+\end{displaymath}
 För vår smoothie så kommer serien ha följande utseende:
-$$f(t) = 2 \sum_{1}^{\infty} \frac{(-1)^{n+1}}{n} sin(n t)$$
+\begin{displaymath}
+  f(t) = 2 \sum_{1}^{\infty} \frac{(-1)^{n+1}}{n} sin(n t)
+\end{displaymath}
 Obs! \emph{Om vi istället valt att gå till kassan och bett om en ny smoothie,
   så hade vi alltså bytt insignal in i vårt system istället för att påverka den vi har.}
 
 En mer matematiskt korrekt förklaring är att återigen observera den enkla
 signalen $sin(\omega_0 t)$. Som tidigare nämnt kan den skrivas om enligt Eulers
 formel till:
-$$\frac{e^{j \omega_0 t} - e^{-j \omega_0 t}}{2j}$$
+\begin{displaymath}
+  \frac{e^{j \omega_0 t} - e^{-j \omega_0 t}}{2j}
+\end{displaymath}
+
 vilket kan skrivas som om vi låter $C_0=0$, $C_{1}=\frac{1}{2j}$ och
 $C_{1}=-\frac{1}{2j}$
-$$\sum_{k=-1}^1 C_k e^{j k \omega_0 t}$$
+\begin{displaymath}
+  \sum_{k=-1}^1 C_k e^{j k \omega_0 t}
+\end{displaymath}
 Låter vi nu även \textbf{alla} andra $C_k = 0$ förutom  $C_1$ och $C_{-1}$ blir formen
-$$\sum_{k=-\infty}^{\infty} C_k e^{j k \omega_0 t}$$
+\begin{displaymath}
+  \sum_{k=-\infty}^{\infty} C_k e^{j k \omega_0 t}
+\end{displaymath}
 Det magiska är då att vi bara har skrivit om den ursprungliga funktionen,
 vilket innebär att
-$$\sin(\omega_0 t) = \sum_{k=-\infty}^{\infty} C_k e^{k j t}$$
+\begin{displaymath}
+  \sin(\omega_0 t) = \sum_{k=-\infty}^{\infty} C_k e^{k j t}
+\end{displaymath}
+
 %Funktionen behöver vara periodisk över någon konstant. Men det är mycket lättare att arbeta med 2pi.
 %Om det är viktigt så kan vi låta dem applicera formeln
 %$$ f(x) = \sum_{k=-1}^1 C_k e^{k j t} $$
@@ -145,7 +165,9 @@ enda ni behöver veta att formlerna ''transformerar'' signalen så att den kan
 studeras i en frekvensdomän.
 
 Definition för fouriertransform:
-$$\hat{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt$$
+\begin{displaymath}
+  \hat{f}(\omega) = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt
+\end{displaymath}
 
 Vi kan sedan observera att det är samma sak som att beräkna ut konstanten $C_k$
 men i detta fall så är $\omega_0$ en variabel istället för en konstant,
@@ -160,12 +182,20 @@ hela processen. Vi definerar en operator som fouriertransformerar $\mathcal{F}$.
 Några viktiga transformer:
 
 %TODO: Lite oklart var t och \omega binds. Vänligen förklara att t binds (implicit) i vänsterledet (inom parentesen) och att \omega binds i högerledet (utanför parentesen).
-$$\mathcal{F}(e^{j a t} f(t)) = F(\omega - a)$$%Translation
-$$\mathcal{F}(f(at)) = \frac{1}{|a|}F(\frac{\omega}{a})$$%Skalning
-$$\mathcal{F}(\frac{d}{dt} f(t)) = i\omega F(\omega)$$%Derivering
+\begin{displaymath}
+  \mathcal{F}(e^{j a t} f(t)) = F(\omega - a) %Translation
+\end{displaymath}
+\begin{displaymath}
+  \mathcal{F}(f(at)) = \frac{1}{|a|}F(\frac{\omega}{a}) %Skalning
+\end{displaymath}
+\begin{displaymath}
+  \mathcal{F}(\frac{d}{dt} f(t)) = i\omega F(\omega) %Derivering
+\end{displaymath}
 
 Fouriertransformen är även linjär vilket innebär
-$$\mathcal{F}(a f + b g) = a F + b G$$
+\begin{displaymath}
+  \mathcal{F}(a f + b g) = a F + b G
+\end{displaymath}
 
 Om vi då återgår till vårt smoothie-exempel så skulle det vara som att vi låter
 en maskin hitta alla ingredienser i smoothien åt oss.
@@ -176,7 +206,9 @@ vilket är en faltning mellan två funktioner.
 I en frekvensdomän blir motsvarande $Y(\omega) = X(\omega) H(\omega)$.
 Det vill säga en enkel multiplikation mellan insignalen och
 \emph{frekvenssvaret} som är det fouriertransformerade impulssvaret.
-$$\mathcal{F}(f*g) = F G$$
+\begin{displaymath}
+  \mathcal{F}(f*g) = F G
+\end{displaymath}
 
 %Exempel på hur man fouriertransformerar i ett LTI-system.
 \textbf{Exempel} %(inspirerad från en tenta uppgift) (Inte helt klar)
@@ -190,41 +222,53 @@ och impulssvaret $h(t) = e^{-2 t} u(t)$. Hur ser utsignalen ut?
 \textbf{Lösning:}
 
 Först beräknas fouriertransformen av impulssvaret ut.
-$$\mathcal{F}(h) = H = \frac{1}{2+j \omega}$$
+\begin{displaymath}
+  \mathcal{F}(h) = H = \frac{1}{2+j \omega}
+\end{displaymath}
 Eftersom fouriertransformen är linjär så kan vi behandla termerna i
 insignalen var för sig. Det vill säga
-$$\mathcal{F} (x) = \mathcal{F}(\delta{t}) + \mathcal{F}(\cos(5 t) = X_1 + X_2$$
+\begin{displaymath}
+  \mathcal{F} (x) = \mathcal{F}(\delta{t}) + \mathcal{F}(\cos(5 t) = X_1 + X_2
+\end{displaymath}
 Som båda är givna från tabeller och blir
 $1+\pi(\delta(\omega - 5) + \delta(\omega + 5))$.
 Vi har nu tagit bort faltningen och har följande förhållande.
-$$Y = X H = X_1 H + X_2 H$$
+\begin{displaymath}
+  Y = X H = X_1 H + X_2 H
+\end{displaymath}
 Vilket innebär att vi har löst problemet om vi återtransformerar vänsterledet.
 Vi börjar med $X_1 H$
 
-$$y_1=\mathcal{F}^{-1}(X_1 H) =  \int_{-\infty}^{\infty} 1 \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega = e^{2 t} u(-t)$$
+\begin{displaymath}
+  y_1 = \mathcal{F}^{-1}(X_1 H)
+  = \int_{-\infty}^{\infty} 1 \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega
+  = e^{2 t} u(-t)
+\end{displaymath}
 
 Nu återstår bara $X_2 H$
 
-$$
+\begin{displaymath}
   y_2=\mathcal{F}^{-1}(X_2 H) = \int_{-\infty}^{\infty} \pi(\delta(\omega - 5)
   + \delta(\omega + 5)) \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega
-$$
+\end{displaymath}
 %TODO: Det vore bra att vara mer tydlig här: vad innebär "knasig" och vilken definition hänvisas till?
 Integralen ovan innehåller impulsfunktioner vilket gör den svår att förstå
 intuitivt. Om man kollar på impulsfunktionens definition
 
-$$
+\begin{displaymath}
 \delta(\omega - \tau)=
 \begin{cases}
 "\infty",\quad \omega = \tau \\
 0, \quad else
 \end{cases}, \omega \in \mathbb{R}
-$$
+\end{displaymath}
 
 så ser vi att integranden bara kan anta värden då $\omega=5$ eller $\omega =-5$
 eftersom annars tar impulsfunktionen värdet 0.
 Detta innebär att integralen blir följande:
-$$\frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$$
+\begin{displaymath}
+  \frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}
+\end{displaymath}
 %Som förmodligen kan skrivas om till andra trigonometriska funktioner.
 %Ska jag göra det?
 Utsignalen blir då $y=y_1 + y_2$ eller
@@ -234,8 +278,10 @@ $e^{2 t} u(-t) + \frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$
 Sen finns även Plancherel's ekvation: %Parsevals
 %$$ 2 \pi <f,f> = <F,F> $$
 %$$<f,f> = \int_{-\infty}^{\infty} |f(x)|^2 dx $$
-$$\int_{-\infty}^{\infty} |f(x)|^2 dx =
-\frac{1}{2 \pi}\int_{-\infty}^{\infty} |F(\omega)|^2 d\omega$$
+\begin{displaymath}
+  \int_{-\infty}^{\infty} |f(x)|^2 dx =
+  \frac{1}{2 \pi}\int_{-\infty}^{\infty} |F(\omega)|^2 d\omega
+\end{displaymath}
 %Enligt Beta s.316, säger i princip samma sak men kanske är tydligare.
 %Kan ta bort den ovan.
 
@@ -248,10 +294,14 @@ totala energin av signalen.
 \textbf{Exempel}
 Vi vill veta den totala energin i insignalen till ett system givet utsignalen y
 och impulssvaret h. Fouriertransformerar vi systemet får vi
-$$XH = Y \implies X = Y/H$$
+\begin{displaymath}
+  XH = Y \implies X = Y/H
+\end{displaymath}
 Detta ger oss enligt Plancherels formel följande relation
-$$\frac{1}{2 \pi} \int_{-\infty}^{\infty} |X(\omega)|^2 d \omega =
-\int_{-\infty}^{\infty} |x(t)|^2 d t$$
+\begin{displaymath}
+  \frac{1}{2 \pi} \int_{-\infty}^{\infty} |X(\omega)|^2 d \omega =
+  \int_{-\infty}^{\infty} |x(t)|^2 d t
+\end{displaymath}
 Där vi kan se att högerledet är den totala energin från insignalen.
 Det vill säga, bara lös vänsterledet.
 
@@ -273,7 +323,9 @@ som den ursprungliga funktionen.
 Därför önskas det att återtransformera funktionen, vilket görs med följande formel!
 
 Invers fouriertransform -
-$$f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty}  e^{j \omega t} d\omega$$
+\begin{displaymath}
+  f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty}  e^{j \omega t} d\omega
+\end{displaymath}
 
 Allt detta är under antagandet att signalens funktion är känd.
 Vad händer då om bara signalens värden är kända?
@@ -306,12 +358,16 @@ till en diskret signal.
 Därefter kan vi använda definitionen för DFT,
 \emph{diskret fouriertransform}, för att omvandla signalen från en tidsdomän
 till en frekvensdomän.
-$$X[k] = \frac{1}{N} \sum_{n=0}^{N-1} x[n] e^{-2 \pi j n k/N}$$
+\begin{displaymath}
+  X[k] = \frac{1}{N} \sum_{n=0}^{N-1} x[n] e^{-2 \pi j n k/N}
+\end{displaymath}
 Det vill säga, om man vill studera diskreta värden från en signal
 i dess frekvensdomän, då applicerar man DFT! Och precis som i det kontinuerliga
 fallet så finns det en invers DFT för att återomvandla signalen.
 %Betas
-$$x[n] = \sum_{k=0}^{N-1} X[k] e^{2 \pi j n k/N}$$
+\begin{displaymath}
+  [n] = \sum_{k=0}^{N-1} X[k] e^{2 \pi j n k/N}
+\end{displaymath}
 %$$x[n] = \frac{1}{2\pi} \int X[k] e^{j n k}$$ TSS bokens definition
 Rent praktiskt används diskret fouriertransform oftast med sampling från en
 typ av signal. Detta görs ifall det finns någon typ av okänd signal,
@@ -323,7 +379,9 @@ Parsevals ekvation för diskreta Fouriertransformer
 %$$\sum_{-\infty}^{\infty} |x[n]|^2 = \frac{1}{2\pi} \int_{\pi}|X(\omega)|^2 d\omega $$
 %TSS bokens definition.
 
-$$\sum_{n=0}^{N} |x[n]|^2 = \frac{1}{N} sum_{k=0}^{N-1} |X[k]|^2$$
+\begin{displaymath}
+  \sum_{n=0}^{N} |x[n]|^2 = \frac{1}{N} sum_{k=0}^{N-1} |X[k]|^2
+\end{displaymath}
 %Wikipedias vilket är den jag känner till.
 
 %Hur visar man exempel på diskret fourier transform?
