@@ -76,6 +76,7 @@
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
   This report describes the development of the supplementary tutorial
+%TODO: "Control Theory" verkar inte ingå i den svenska sammanfattningen.
   ''Transforms, Signals and Systems and Control Theory with the help of a DSL''
   with provided code and solutions.
   The Tutorial is aimed at students studying Computer Science at
@@ -247,7 +248,7 @@ en unik produkt som är anpassad speciellt till TSS på Chalmers datatekniska
 program. Den ursprungliga produktspecifikationen som gruppen tilldelades vid
 arbetets start var relativt vag. Gruppens uppgift var att ``ta fram
 DSLsofMath-inspirerat kompletterande material för andra närliggande kurser''.
-Det önskade implementeringsspråket var haskell.
+Det önskade implementeringsspråket var Haskell.
 
 Gruppen beslutade snabbt att fokusera på kurserna TSS och Reglerteknik av de
 anledningar som nämns i problembeskrivningen. Dock konstaterade gruppen en bit
@@ -331,10 +332,12 @@ kursen \textit{TSS} och väcka intresse för ämnet.
 Därför är didaktik en viktig del av projektet.
 
 En stor del av didaktik handlar om hur man kan påverka studentens motivation.
+%TODO: stavning: "ingegörslärare" := "ingenjörslärare"
 I \textit{Didaktik för ingegörslärare} sammanfattas motivationens betydelse
 enligt följande: ”Varje kurs behöver motiveras för studenterna.
 Med motiverade studenter blir resultatet bättre.”.
-\textit{Didaktik för ingegörslärare} hävdar även att långt ifrån alla studenter 
+%TODO: Upprepa inte titeln här. "Boken hävdar" eller liknande blir bättre.
+\textit{Didaktik för ingegörslärare} hävdar även att långt ifrån alla studenter
 som går en kurs utgår från att den är läsvärd.
 Även i \textit{Motivational Design for Learning and Performance} påpekas det
 orimliga i att anta att alla studenter är motiverade att lära sig ett ämne
@@ -367,12 +370,13 @@ Perceptuellt triggande innebär att man på något sätt ändrar i
 undervisningsmiljön för att väcka studentens uppmärksamhet.
 Dessa miljöförändringar kan vara av varierande typ som t.ex. en ändring i
 röstläge, temperatur i en undervisningssal eller ett skämt.
+% "en tillfälligt" := ""en tillfällig"
 Denna typ av miljöförändringar väcker dock endast en tillfälligt uppmärksamhet
 och måste därför följas av frågor och variation för att ge en varaktig effekt.
-Därför är det viktigt att i detta skede omedelbart följa upp med frågor som väcker 
+Därför är det viktigt att i detta skede omedelbart följa upp med frågor som väcker
 studentens nyfikenhet. För att behålla hens nyfikenhet och
 intresse är det viktigt med variation undervisningen.
-Oavsett hur bra struktur man har i sin undervisning kommer studenterna att tappa 
+Oavsett hur bra struktur man har i sin undervisning kommer studenterna att tappa
 intresset om man inte varierar upplägget.
 
 Den andra grundpelaren \textit{Relevance}, relevans på svenska,
@@ -380,12 +384,12 @@ syftar till att övertyga studenten om att inlärningen är personligt relevant.
 För att en student ska vara intresserad av att lära sig måste hen känna
 att instruktionen är relaterad till personliga mål eller motiv.
 Detta uppnås genom målorientering och anknytning till bekant kunskap.
-Studenter är mycket mer motiverade att lära sig saker om dessa kan hjälpa dem 
-uppnå ett mål i nutid eller framtid, som att klara ett prov, få en befordran, 
+Studenter är mycket mer motiverade att lära sig saker om dessa kan hjälpa dem
+uppnå ett mål i nutid eller framtid, som att klara ett prov, få en befordran,
 eller liknande. Därför är det viktigt att studenterna vet hur det de lär sig är
-relaterat till deras mål. Ämnet kommer även att kännas mer relevant för studenten 
-om det kan knytas till hens tidigare kunskap eller intresse. Även om studenter kan 
-bli nyfikna på helt nya saker är de som regel mest intresserade av saker som på 
+relaterat till deras mål. Ämnet kommer även att kännas mer relevant för studenten
+om det kan knytas till hens tidigare kunskap eller intresse. Även om studenter kan
+bli nyfikna på helt nya saker är de som regel mest intresserade av saker som på
 något sätt är knutna till deras tidigare erfarenheter.
 Konkreta exempel från familjära områden gör det hela mer relevant för studenten,
 detta gäller i synnerhet när man lär ut abstrakt material.
@@ -397,11 +401,11 @@ att det är relevant är det möjligt att hen ändå inte är tillräckligt
 motiverade på grund av för mycket eller för lite självförtroende.
 Vissa studenter kan rentav vara rädda för ämnet. På grund av detta är det
 viktigt att utveckla materialet så att studenten övertygas om att hen kan
-lära sig ämnet. Därför behöver man med hjälp av relevanta uppgifter ge studenter 
-en upplevelse av framgång så fort som möjligt. Detta kan vara en viktigt 
-stimulans för fortsatt motivation, förutsatt att uppgiften kräver så pass 
-mycket ansträngning att det betyder något att lyckas med den, men inte kräver 
-så mycket att det uppgiften leder till allvarlig oro eller hot om misslyckande. 
+lära sig ämnet. Därför behöver man med hjälp av relevanta uppgifter ge studenter
+en upplevelse av framgång så fort som möjligt. Detta kan vara en viktigt
+stimulans för fortsatt motivation, förutsatt att uppgiften kräver så pass
+mycket ansträngning att det betyder något att lyckas med den, men inte kräver
+så mycket att det uppgiften leder till allvarlig oro eller hot om misslyckande.
 
 Studentens självförtroende kan byggas upp genom lärokrav,
 möjlighet till framgång och personlig kontroll.
@@ -410,7 +414,7 @@ källa till oro och osäkerhet för studenten att inte vete vad som
 förväntas av hen. Efter att ha skapat en förväntan av framgång är det
 viktigt att ge studenten möjlighet att lyckas med krävande och
 meningsfulla uppgifter. Dessa uppgifter bör se olika ut beroende på
-vilken nivå studenten befinner sig på. Studenter som är nya inom ett område 
+vilken nivå studenten befinner sig på. Studenter som är nya inom ett område
 reagerar generellt bäst på om att ha en relativt låg svårighetsnivå med frekvent
 återkoppling som hjälper dem lyckas eller bekräftar deras framgång.
 När studenter bemästrat grunderna är de redo för mer krävande uppgifter.
@@ -418,11 +422,11 @@ Slutgiltligen är det viktigt att studenten känner att hen har personlig
 kontroll över lärandesituationen. Att uppleva att  man själv kan
 kontrollera utgången av en situation är avgörande för självförtroendet.
 För att förstärka motivationen bör instruktören förse studenten med en
-stabil lärandemiljö och sedan låta studenten ha personlig kontroll över sin 
-inlärning. Det är viktigt att skapa en miljö där det är acceptabelt och helt 
+stabil lärandemiljö och sedan låta studenten ha personlig kontroll över sin
+inlärning. Det är viktigt att skapa en miljö där det är acceptabelt och helt
 i sin ordning att göra misstag och lära sig av dem.
 
-Om man använder de första tre grundpelarna, Attention, Relevance och Confidence, 
+Om man använder de första tre grundpelarna, Attention, Relevance och Confidence,
 väl, kommer studenten vara motiverad att lära sig.
 Det är för att upprätthålla denna motivation som den sista grundpelaren
 \textit{Satisfaction}, tillfredsställelse på svenska, används.
@@ -438,7 +442,7 @@ som till exempel en löneförhöjning, eller symboliska belöningar som diplom
 eller ett bara ett erkännande av studentens förmåga.
 
 Hur dessa didaktiska modeller och metoder har använts i projektet
-``Matematikens domänspecifika språk'' beskrivs i avsnittet 
+``Matematikens domänspecifika språk'' beskrivs i avsnittet
 \textit{Metod och Genomförande}.
 
 \subsection{Om Relaterad forskning}
@@ -531,9 +535,14 @@ För enkätundersökningen så används webbsidan \url{https://www.webbenkater.c
 
 Koden ska vara skriven i programmeringspråket Haskell och gruppen använde sig
 av \url{https://c9.io/} för att alla ska kunna ha tillgång till koden och en
-kompilator. Pågående under arbetets gång så laddas all någorlunda färdiga
-material upp i Github. Här kan gruppens handledare kolla igenom all produkt
-och ge sina kommentarer.
+kompilator.
+%TODO: "all någorlunda färdiga material" := "allt någorlunda färdigt material"
+Pågående under arbetets gång så laddas all någorlunda färdiga material
+upp i Github.
+%TODO: "all produkt"??
+Här kan gruppens handledare kolla igenom all produkt och ge sina
+kommentarer.
+%TODO: korrekt, men bara en lite del av motiveringen för github: materialet är även tillgängligt för andra (studentmålgruppen exempelvis) både för läsning och för att bygga vidare. Dessutom är git, och github, verktyg som ingår i många projekt i arbetslivet, dvs. git(hub)-kompetens är en del av de generella ingenjörskompetenserna. etc.
 
 %mer?
 

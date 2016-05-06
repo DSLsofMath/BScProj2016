@@ -36,7 +36,6 @@
     Uppgifter och utkast till alla (6) avsnitt klara.
 *** TODO Tutorial klar och testad
     DEADLINE: <2016-05-04 ons>
-
 * Rapport
   Vid sidan av tutorialen kommer vi skriva en vetenskaplig rapport.
   Om tid finns kommer vi också försöka skriva en engelsk artikel om
@@ -53,13 +52,14 @@
     DEADLINE: <2016-03-21 mån>
 *** TODO Andra utkast till rapporten klart
     DEADLINE: <2016-04-28 tor>
-*** TODO Rapporten klar
+*** TODO Rapporten klar (till Patrik för läsning 2016-05-12 kl. 13.00)
     DEADLINE: <2016-05-11 ons>
 *** TODO Fackspråkshandledningstillfälle 3
     DEADLINE: <2016-05-13 fre>
 *** TODO Första inlämningen
     DEADLINE: <2016-05-16 mån>
+*** TODO Rapporten till Patrik för sista läsning 2016-05-30 kl. 14.00)
+    DEADLINE: <2016-05-30 mån>
 *** TODO Sista inlämningen
     DEADLINE: <2016-06-01 ons>
-
 * TODO Presentationsmaterial (demo? poster? annat?)
