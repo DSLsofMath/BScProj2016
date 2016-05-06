@@ -77,7 +77,7 @@ Då representerar vi smoothien med ett system med insignalen:
 vars graf man kan se i bild \ref{fig:smoothie}.
 
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=0.55]{smoothie.eps}}
+\centerline{\includegraphics[scale=0.55]{smoothie.png}}
 \caption{Graf på hur mycket smoothie du har kvar!}
 \label{fig:smoothie}
 \end{figure}
@@ -210,71 +210,51 @@ Det vill säga en enkel multiplikation mellan insignalen och
   \mathcal{F}(f*g) = F G
 \end{displaymath}
 
-%Exempel på hur man fouriertransformerar i ett LTI-system.
-\textbf{Exempel} %(inspirerad från en tenta uppgift) (Inte helt klar)
-%OBS! Denna exempel använder sig av Invers Fourier Transform vilket vi introducerar efter.... så vi måste antingen dela upp exemplet eller flytta ner den. Cecilia får bestämma.
-%Det kan kanske vara bra att flytta ner exemplet. Det är ju inte så dumt att avsluta med ett stort exemplel där man tar upp i princip allt man gått igenom. Men i så fall är det nog bra om man kan lägga till ett annat exempel på Fouriertransform här.
-%OBS!! kanske för jobbig för ett exempel.
-%OBS!!! Har ni lärt er en bättre metod för att hantera fourier transformen av en sinus? Detta är den enda metod jag kan. Vilket ger en trigonometrisk lösning skrivit i Eulers formel (tror jag). Skulle det vara ok att svara så i er tenta? Annars borde det gå att skriva om genom att multiplicera med nämnarens konjugat.
+%Exempel på vanligt Fourier transform. 
+\textbf{Exempel:}
 
-%TODO: kontinuerligt
-Ett kontinuerligt LTI-system har insignalen $x(t)=\delta{t} + \cos(5 t)$
-och impulssvaret $h(t) = e^{-2 t} u(t)$. Hur ser utsignalen ut?
+Vi har ett LTI-system med impulssvaret $h(t) = e^{-2 t} u(t)$. Ifall vi skulle behöva göra några beräkningar med systemet, hur skulle dess fouriertransform då se ut?
+
 \textbf{Lösning:}
 
-Först beräknas fouriertransformen av impulssvaret ut.
-\begin{displaymath}
-  \mathcal{F}(h) = H = \frac{1}{2+j \omega}
-\end{displaymath}
-Eftersom fouriertransformen är linjär så kan vi behandla termerna i
-insignalen var för sig. Det vill säga
-\begin{displaymath}
-  \mathcal{F} (x) = \mathcal{F}(\delta{t}) + \mathcal{F}(\cos(5 t) = X_1 + X_2
-\end{displaymath}
-Som båda är givna från tabeller och blir
-$1+\pi(\delta(\omega - 5) + \delta(\omega + 5))$.
-Vi har nu tagit bort faltningen och har följande förhållande.
-\begin{displaymath}
-  Y = X H = X_1 H + X_2 H
-\end{displaymath}
-Vilket innebär att vi har löst problemet om vi återtransformerar vänsterledet.
-Vi börjar med $X_1 H$
-
-\begin{displaymath}
-  y_1 = \mathcal{F}^{-1}(X_1 H)
-  = \int_{-\infty}^{\infty} 1 \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega
-  = e^{2 t} u(-t)
+Vi har då följande integral att lösa. 
+\begin{displaymath} 
+  \mathcal{F}(h) = \int_{-\infty}^{\infty} e^{-2 t} u(t) e^{j \omega t} dt
 \end{displaymath}
 
-Nu återstår bara $X_2 H$
+Då finns det flera alternativ. Två av dem är att antingen lösa integralen explicit eller helt enkelt kolla igenom en tabell. För att vara ärlig, så är det bäst att inte göra problemet jobbigare än nödvändigt. Alltså rekommenderas tabell lösningen men vi visar upp den explicita lösningen också. (En annan möjlig lösning är att fråga en vän...)
 
-\begin{displaymath}
-  y_2=\mathcal{F}^{-1}(X_2 H) = \int_{-\infty}^{\infty} \pi(\delta(\omega - 5)
-  + \delta(\omega + 5)) \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega
-\end{displaymath}
-%TODO: Det vore bra att vara mer tydlig här: vad innebär "knasig" och vilken definition hänvisas till?
-Integralen ovan innehåller impulsfunktioner vilket gör den svår att förstå
-intuitivt. Om man kollar på impulsfunktionens definition
+Tabell lösningen är att känna igen vilka standard funktioner det är som ska transformeras skrivet i sin generalla form. Vi observerar att u(t) är ett enhetssteg MEN $e^{-2t}$ är inte en frekvensförkjutning eftersom potensen antar inte imaginära värden. Alltså letar vi efter följande funktion $e^{-a t} u(t)$ där $a>0$. Vi får från tabellen att transformen är $\frac{1}{2+j\omega}$.
 
-\begin{displaymath}
-\delta(\omega - \tau)=
-\begin{cases}
-"\infty",\quad \omega = \tau \\
-0, \quad else
-\end{cases}, \omega \in \mathbb{R}
-\end{displaymath}
+%Intressant nog gav wolframalpha F(\omega + a) istället...
+%Jag förstår dock inte varför och från andra källor som Beta + testat själv 
+%så bör det vara F(\omega - a)...
+%Är jag helt ute och cyklar..?
+(Obs! Om fallet var att exponenten var imaginär det vill säga 
+$h(t)= e^{-2 j t} u(t)$
+så skulle detta vara en kombination mellan translation
+$\mathcal{F}(e^{j a t} f(t)) = F(\omega - a)$
+och fouriertransformen till en enhetsteg 
+$\mathcal{F}(u(t)) = \frac{1}{j\omega} + \pi \delta (\omega) $
+vilket är
+$\frac{1}{j(\omega+2)} + \pi \delta (\omega+2)$
+)
+% Denna del kanske inte är nödvändig.....
+Här nedan kommer den explicita lösningen. Rent generellt kommer du inte behöva lösa en integral explicit så DET ÄR OK att skippa denna del.
 
-så ser vi att integranden bara kan anta värden då $\omega=5$ eller $\omega =-5$
-eftersom annars tar impulsfunktionen värdet 0.
-Detta innebär att integralen blir följande:
-\begin{displaymath}
-  \frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}
+Integralen kan skrivas om som
+\begin{displaymath} 
+  \int_{-\infty}^{\infty} e^{-2 t} u(t) e^{j \omega t} dt = \int_{0}^{\infty} e^{-t(j \omega + 2)} dt
 \end{displaymath}
-%Som förmodligen kan skrivas om till andra trigonometriska funktioner.
-%Ska jag göra det?
-Utsignalen blir då $y=y_1 + y_2$ eller
-$e^{2 t} u(-t) + \frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$
-%---------------------------------Slut på exempel-----------------------
+Där integranden som tur konvergerar. Integralen till en exponentialekvation är helt enkelt
+\begin{displaymath}
+  \int_{0}^{N} e^{-t(j \omega + 2)} = 
+  [\frac{e^{-t(\omega + 2)}}{-(j \omega + 2)}]_{0}^N 
+  = \frac{e^{-N (\omega + 2)}}{-(j \omega + 2)} + \frac{1}{(j \omega + 2)}
+  \underset{\rightarrow}{N \to \infty} \frac{1}{(j \omega + 2) 
+\end{displaymath}
+Eftersom \( \frac{e^{-N (\omega + 2)}}{-(j \omega + 2)} \to 0 \) då N går mot oändligheten. Slut på exempel!
+%------------------------------Slut på exempel--------------------
 
 Sen finns även Plancherel's ekvation: %Parsevals
 %$$ 2 \pi <f,f> = <F,F> $$
@@ -327,6 +307,69 @@ Invers fouriertransform -
 \begin{displaymath}
   f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty}  e^{j \omega t} d\omega
 \end{displaymath}
+
+%Exempel på hur man fouriertransformerar i ett LTI-system.
+\textbf{Exempel} %(inspirerad från en tenta uppgift)
+%OBS!! kanske för jobbig för ett exempel.
+%OBS!!! Har ni lärt er en bättre metod för att hantera fourier transformen av en sinus? Detta är den enda metod jag kan. Vilket ger en trigonometrisk lösning skrivit i Eulers formel (tror jag). Skulle det vara ok att svara så i er tenta? Annars borde det gå att skriva om genom att multiplicera med nämnarens konjugat.
+
+Ett kontinuerligt LTI-system har insignalen $x(t)=\delta{t} + \cos(5 t)$
+och impulssvaret $h(t) = e^{-2 t} u(t)$. Hur ser utsignalen ut?
+\textbf{Lösning:}
+
+Från den tidigare exemplet så beräknades transformen av impulssvaret till
+\begin{displaymath}
+  \mathcal{F}(h) = H = \frac{1}{2+j \omega}
+\end{displaymath}
+Eftersom fouriertransformen är linjär så kan vi behandla termerna i
+insignalen var för sig. Det vill säga
+\begin{displaymath}
+  \mathcal{F} (x) = \mathcal{F}(\delta{t}) + \mathcal{F}(\cos(5 t) = X_1 + X_2
+\end{displaymath}
+Som båda är givna från tabeller och blir
+$1+\pi(\delta(\omega - 5) + \delta(\omega + 5))$.
+Vi har nu tagit bort faltningen och har följande förhållande.
+\begin{displaymath}
+  Y = X H = X_1 H + X_2 H
+\end{displaymath}
+Vilket innebär att vi har löst problemet om vi återtransformerar vänsterledet.
+Vi börjar med $X_1 H$
+
+\begin{displaymath}
+  y_1 = \mathcal{F}^{-1}(X_1 H)
+  = \int_{-\infty}^{\infty} 1 \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega
+  = e^{2 t} u(-t)
+\end{displaymath}
+
+Nu återstår bara $X_2 H$
+
+\begin{displaymath}
+  y_2=\mathcal{F}^{-1}(X_2 H) = \int_{-\infty}^{\infty} \pi(\delta(\omega - 5)
+  + \delta(\omega + 5)) \cdot \frac{1}{2+j \omega} e^{j \omega t} d\omega
+\end{displaymath}
+%TODO: Det vore bra att vara mer tydlig här: vad innebär "knasig" och vilken definition hänvisas till?
+Integralen ovan innehåller impulsfunktioner vilket gör den svår att förstå
+intuitivt. Om man kollar på impulsfunktionens definition
+
+\begin{displaymath}
+\delta(\omega - \tau)=
+\begin{cases}
+"\infty",\quad \omega = \tau \\
+0, \quad else
+\end{cases}, \omega \in \mathbb{R}
+\end{displaymath}
+
+så ser vi att integranden bara kan anta värden då $\omega=5$ eller $\omega =-5$
+eftersom annars tar impulsfunktionen värdet 0.
+Detta innebär att integralen blir följande:
+\begin{displaymath}
+  \frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}
+\end{displaymath}
+%Som förmodligen kan skrivas om till andra trigonometriska funktioner.
+%Ska jag göra det?
+Utsignalen blir då $y=y_1 + y_2$ eller
+$e^{2 t} u(-t) + \frac{1}{2+j 5} e^{j 5 t} + \frac{1}{2-j 5} e^{-j 5 t}$
+%---------------------------------Slut på exempel-----------------------
 
 Allt detta är under antagandet att signalens funktion är känd.
 Vad händer då om bara signalens värden är kända?
