@@ -91,27 +91,30 @@
 						<p>Här kan du se ett exempel på en kontinuerlig funktion, 
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>t</mi></mrow><annotation encoding="application/x-tex">f(t)=2t</annotation></semantics></math></p>
 						
-						<div class="figure">
-						<img src="images/signaler/image06.png" alt="" />
-						<p class="caption"><span data-label=""></span></p>	
+						<div class="figure col-12">
+						<img src="images/signaler/image06.png" class="figure" alt="" />
+						<p class="text-center"><strong>Figure 1</strong></p>	
 						</div>
-						
+
+						<div class="col-12">
 						<p>En diskret variabel däremot har bara ett visst antal värden den kan anta och en diskret funktion är bara definierad för dessa möjliga värden. Om vi t.ex. beteckar alla heltal med variabeln n så kommer en funktion <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[n]</annotation></semantics></math> vara definierad, alltså ha ett värde, i punkten <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mn>2</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[2]</annotation></semantics></math> men vara odefinierad, sakna värde, i punkten <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mn>2.5</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">f[2.5]</annotation></semantics></math>. För att förtydliga att en variabel är diskret brukar man omge den med hakparentes, som t.ex. [n], istället för vanlig parentes, som (t).</p>
 						
 						<p>Här nedan ser du ett exempel på en diskret funktion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">f[n]=2 n</annotation></semantics></math></p>
-						
-						<div class="figure">
-						<img src="images/signaler/image10.png" alt="" />
-						<p class="caption"><span data-label=""></span></p>
 						</div>
-						<p><strong>Kryssfråga 5:</strong> Är signalen på bilden nedan diskret eller kontinuerlig?</p>
+
+						<div class="figure">
+						<img src="images/signaler/image10.png" class="figure" alt="" />
+						<p class="text-center"><span data-label=""><strong>Figure 2</strong></span></p>
+						</div>
+
+						<p><strong>Kryssfråga 1:</strong> Är signalen på bilden nedan diskret eller kontinuerlig?</p>
 						<ol>
 						<li><p>Diskret</p></li>
 						<li><p>Kontinuerlig</p></li>
 						</ol>
 						<div class="figure">
-						<img src="images/signaler/image13.png" alt="" />
-						<p class="caption"><span data-label=""></span></p>
+						<img src="images/signaler/image13.png" class="figure" alt="" />
+						<p class="text-center"><span data-label=""><strong>Figure 3</strong></span></p>
 						</div>
 						<p>Det är möjligt, och rentav vanligt att approximera en kontinuerlig signal med en diskret. Om man har väldigt små steg mellan värdena i den diskreta approximationen, t.ex. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mrow><mn>0.000001</mn><mo>;</mo><mn>0.000002</mn><mo>;</mo><mn>0.000003</mn></mrow></mrow><annotation encoding="application/x-tex">n={0.000001 ; 0.000002 ; 0.000003}</annotation></semantics></math>, kan man rentav få en ganska bra approximation. I praktiken är detta faktiskt precis vad man gör när man hanterar kontinuerliga signaler med datorer. En dator kan egentligen inte hantera kontinuerliga signaler men den kan approximera dem med diskreta signaler med väldigt små steg mellan värdena, vilket oftast är gott nog.</p>
 						<div class="figure">
@@ -123,8 +126,8 @@
 						<p>Lite mer formellt definieras en periodisk signal så här:</p>
 						<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>+</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t) = f(t+T)</annotation></semantics></math>, för alla värden på t, där T är perioden</p>
 						<div class="figure">
-						<img	 src="images/signaler/image12.png" alt="Här ser du t.ex. en periodisk signal f(t)=2 \sin(3 t), som har perioden T=\frac{2\pi}{3}. Notera att f(t)=f(t+T) är sant, avsett vilken punkt t du tittar på." />
-						<p class="caption">Här ser du t.ex. en periodisk signal <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=2 \sin(3 t)</annotation></semantics></math>, som har perioden <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">T=\frac{2\pi}{3}</annotation></semantics></math>. Notera att <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>+</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=f(t+T)</annotation></semantics></math> är sant, avsett vilken punkt t du tittar på.<span data-label=""></span></p>
+						<img	 src="images/signaler/image12.png" class="figure" alt="Här ser du t.ex. en periodisk signal f(t)=2 \sin(3 t), som har perioden T=\frac{2\pi}{3}. Notera att f(t)=f(t+T) är sant, avsett vilken punkt t du tittar på." />
+						<p class="text-center"><strong>Figure 5: </strong>Här ser du t.ex. en periodisk signal <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=2 \sin(3 t)</annotation></semantics></math>, som har perioden <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mi>π</mi></mrow><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">T=\frac{2\pi}{3}</annotation></semantics></math>. Notera att <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>+</mo><mi>T</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=f(t+T)</annotation></semantics></math> är sant, avsett vilken punkt t du tittar på.<span data-label=""></span></p>
 						</div>
 						<p>Övning 6: Här har du en nästan färdig funktion som undersöker om en signal har en viss period. Fyll i det som ska stå i parentesen.</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">contHasPeriod ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span>
@@ -135,7 +138,7 @@ contHasPeriod signal step period <span class="fu">=</span>
             signal t <span class="fu">~=</span> signal (t<span class="fu">+</span>period)</code></pre></div>
 						
 						<div class="well" id="signalerQ1">
-							<h5><strong>Kryssfråga 6:</strong> I bilden nedan ser du en funktion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=0.5\sin(2t)</annotation></semantics></math>. Vad har den för period?</p>
+							<h5><strong>Kryssfråga 2:</strong> I bilden nedan ser du en funktion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=0.5\sin(2t)</annotation></semantics></math>. Vad har den för period?</p>
 							<ul class="unstyled">
 								<li><input type="radio" name="radio1" id="1a" value="1a"> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math></li>
 								<li><input type="radio" name="radio1" id="1b" value="1b"> 2 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math></li>
@@ -154,58 +157,62 @@ contHasPeriod signal step period <span class="fu">=</span>
 						</div><!--end signalerQ1-->				
 
 						<div class="figure">	
-						<img src="images/signaler/image08.png" alt="funktionen f(t) = 0.5 \sin(2t)" />
-						<p class="caption">funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t) = 0.5 \sin(2t)</annotation></semantics></math><span data-label=""></span></p>
+						<img src="images/signaler/image08.png" class="figure" alt="funktionen f(t) = 0.5 \sin(2t)" />
+						<p class="text-center"><strong>Figure 6: </strong>Funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t) = 0.5 \sin(2t)</annotation></semantics></math><span data-label=""></span></p>
 						</div>
-						<p>Kryssfråga 7: Här nedan ser vi en annan funktion, f(t)=3cos(0.25t). Vad har den för period?</p>
+						<p>Kryssfråga 3: Här nedan ser vi en annan funktion, f(t)=3cos(0.25t). Vad har den för period?</p>
 						<ol>
 						<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>4</mn></mfrac><mi>π</mi></mrow><annotation encoding="application/x-tex">\frac{1}{4}\pi</annotation></semantics></math></p></li>
 						<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">8\pi</annotation></semantics></math></p></li>
 						<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>π</mi></mrow><annotation encoding="application/x-tex">3\pi</annotation></semantics></math></p></li>
 						</ol>
 						<div class="figure">
-						<img src="images/signaler/image11.png" alt="" />
-						<p class="caption"><span data-label=""></span></p>
+						<img src="images/signaler/image11.png" class="figure" alt="" />
+						<p class="text-center"><span data-label=""><strong>Figure 7</strong></span></p>
 						</div>
-						<p>Vad har man då för nytt	a av tt kunna avgöra om en signal är periodisk? Jo, en periodisk signal kan utvecklas till en Fourier serie. Mer om detta i avsnitt 3.</p>
+						<p>Vad har man då för nytta av att kunna avgöra om en signal är periodisk? Jo, en periodisk signal kan utvecklas till en Fourier serie. Mer om detta i avsnitt 3.</p>
 
 						<h2 id="udda-och-jämna-signaler">Udda och Jämna Signaler</h2>
 						
 						<p>Eftersom signaler kan betraktas som matematiska funktioner kan vi säga att vi har udda och jämna signaler, precis som vi har jämna och udda funktioner. En funktion kan vara jämn, udda eller inget utav dem.</p>
 						
-						<p>En funktion f är jämn om <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math> är samma som <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x)</annotation></semantics></math>. I den vänstra bilden här nedan ser du ett exempel på en jämn funktion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)=\cos(x)</annotation></semantics></math>. Notera att vilken punkt du än tittar på i figur 6a här nedan så gäller alltid 
+						<p>En funktion f är jämn om <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math> är samma som <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x)</annotation></semantics></math>. I den vänstra bilden här nedan ser du ett exempel på en jämn funktion, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)=\cos(x)</annotation></semantics></math>. Notera att vilken punkt du än tittar på i figur 8a här nedan så gäller alltid 
 
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x) = f(-x)</annotation></semantics></math>.</p>
 						
-						<p>En funktion f är udda om <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x)</annotation></semantics></math> är samma som <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">-f(x)</annotation></semantics></math>. I den högra bilden nedan ser du ett exempel på en udda funktion , <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)=sin(x)</annotation></semantics></math>. Notera att vilken punkt du än tittar på i figur 6b här nedan så gäller alltid <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x) = -f(x)</annotation></semantics></math>.</p>
-						<div class="col-12">
-							<img src="images/signaler/image09.png" title="fig: 6a" alt="6a" class="split" />
-							<img src="images/signaler/image14.png" title="fig: 6b" alt="6b" class="split" />
+						<p>En funktion f är udda om <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x)</annotation></semantics></math> är samma som <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">-f(x)</annotation></semantics></math>. I den högra bilden nedan ser du ett exempel på en udda funktion , <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x)=sin(x)</annotation></semantics></math>. Notera att vilken punkt du än tittar på i figur 8b här nedan så gäller alltid <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x) = -f(x)</annotation></semantics></math>.</p>
+						<div class="col-sm-6">
+							<img src="images/signaler/image09.png" title="fig: 8a" alt="8a" class="split" />
+							<p class="text-center"><strong>8a</strong></p>
+						</div>
+						<div class="col-sm-6">
+							<img src="images/signaler/image14.png" title="fig: 8b" alt="8b" class="split" />
+							<p class="text-center"><strong>8b</strong></p>
 						</div>
 
 						<p>Alltså:</p>
 						<p>Jämn funktion:Udda funktion:</p>
 						<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex"> f(x)=f(-x)</annotation></semantics></math> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(-x)=-f(x) </annotation></semantics></math></p>
 						<p>Varför är det då bra att veta om en signal är jämn eller udda? Mer om det kommer i avsnittet om Fourierserier!</p>
-						<p><strong>Kryssfråga 8:</strong> Är funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=0.5\sin(2t)</annotation></semantics></math> här nedan jämn, udda eller ingetdera?</p>
+						<p><strong>Kryssfråga 4:</strong> Är funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=0.5\sin(2t)</annotation></semantics></math> här nedan jämn, udda eller ingetdera?</p>
 						<ol>
 						<li><p>Jämn</p></li>
 						<li><p>Udda</p></li>
 						<li><p>Ingetdera</p></li>
 						</ol>
 						<div class="figure">
-						<img src="images/signaler/image08.png" alt="funktionen f(t) = 0.5 \sin(2t)" />
-						<p class="caption">funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t) = 0.5 \sin(2t)</annotation></semantics></math><span data-label=""></span></p>
+						<img src="images/signaler/image08.png" class="figure" alt="funktionen f(t) = 0.5 \sin(2t)" />
+						<p class="text-center"><strong>Figure 9: </strong>Funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0.5</mn><mo>sin</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t) = 0.5 \sin(2t)</annotation></semantics></math><span data-label=""></span></p>
 						</div>
-						<p>Kryssfråga 9: Är funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mn>0.25</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=3\cos(0.25t)</annotation></semantics></math> här nedan jämn, udda eller ingetdera?</p>
+						<p>Kryssfråga 5: Är funktionen <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><mo>cos</mo><mo stretchy="false" form="prefix">(</mo><mn>0.25</mn><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(t)=3\cos(0.25t)</annotation></semantics></math> här nedan jämn, udda eller ingetdera?</p>
 						<ol>
 						<li><p>Jämn</p></li>
 						<li><p>Udda</p></li>
 						<li><p>Ingetdera</p></li>
 						</ol>
 						<div class="figure">
-						<img src="images/signaler/image11.png" alt="" />
-						<p class="caption"><span data-label=""></span></p>
+						<img src="images/signaler/image11.png" class="figure" alt="" />
+						<p class="text-center"><strong>Figure 10</strong></p>
 						</div>
 						<p>Då ska vi se hur man kan implementera det här! En funktion som avgör om en signal är udda kan se ut så här:</p>
 

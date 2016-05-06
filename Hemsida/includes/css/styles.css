@@ -27,6 +27,12 @@ body{
    overflow-y: auto;
 }
 
+#signaler img.figure {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
 ul.unstyled {
    list-style: none;
    padding: 0;
@@ -97,10 +103,8 @@ button.challenge {
 
 #signaler img.split {
    display: inline-block;
-   margin-left: 100px;
-   margin-right: auto;
    padding: 30px;
-   width: 30%;
+   width: 100%;
    height: auto;
 }
 
@@ -153,6 +157,8 @@ button.challenge {
    #signaler img {
       width: 100%;
       height: auto;
+      margin-left: 0;
+      margin-left: 0;
    }
 
    #mathforms {
