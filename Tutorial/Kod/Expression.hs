@@ -37,7 +37,7 @@ eval (Const a)   = const a
 eval Id          = id
 eval Pi          = const pi
 eval (Impulse)   = \t -> if t == 0
-                            then 1
+                            then 1 -- TODO: I would suggest 1/0 (Inf) or 1/eps where eps is the smallest double greater than zero
                             else 0
 eval (Exp e)     = exp . eval e
 eval (e0 :+: e1) = eval e0 + eval e1
