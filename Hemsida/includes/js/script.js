@@ -197,13 +197,25 @@ $(function() {
 	
 	$('#signalerSvar4').click(function(e) {
 		
-		var correctAnswer = document.getElementById('3b');
+		var correctAnswer = document.getElementById('4b');
 		e.preventDefault();
 
 		if (correctAnswer.checked === true) {
 			showResult('#rightSignaler4')
 		}else {
 			showResult('#wrongSignaler4')
+		};
+	});
+
+	$('#signalerSvar5').click(function(e) {
+		
+		var correctAnswer = document.getElementById('5a');
+		e.preventDefault();
+
+		if (correctAnswer.checked === true) {
+			showResult('#rightSignaler5')
+		}else {
+			showResult('#wrongSignaler5')
 		};
 	});
 
