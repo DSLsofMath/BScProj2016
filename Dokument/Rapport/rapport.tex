@@ -77,7 +77,7 @@
 \begin{abstract}
   This report describes the development of the supplementary tutorial
 %TODO: "Control Theory" verkar inte ingå i den svenska sammanfattningen.
-  ''Transforms, Signals and Systems and Control Theory with the help of a DSL''
+  ''Transforms, Signals and Systems with the help of a DSL''
   with provided code and solutions.
   The Tutorial is aimed at students studying Computer Science at
   Chalmers University of Technology and its aim is to be a supplementary
@@ -517,11 +517,75 @@ svåra och formulera lite uppgifter som ska kunna lösas via programmering.
 % -Inte något vi har gjort.
 
 \subsection{Implementation i DSL}
+%Förklara hur komplexa tal och alla typer av transformer implementerades i DSL. 
+Vårt DSL ska vara uppbyggt från Haskell och ska täcka området TSS.
+I kursen så används komplexa tal vilket innebär att det först måste implementeras i vårt DSL och att implementationen av komplexa tal kommer fungera som en introduktion till hur vårt DSL fungerar och hur de kommer få använda sig av det. 
+Implementationen har skett på så vis att först skrevs koden till ett helt avsnitt så vi hade .hs-filer som var till för att användas internt för testning och för användarna av handledningen som ett facit när de inte kommer på vad de ska skriva. Sedan skapades nya filer där delar av den färdiga koden lades in och vissa segment av koden utelämnades för att studenten som följer handledningen ska få komplettera och skriva egna varianter av vissa funktioner. Då har dock de delar som skrevs av gruppen använts som mall för att bestämma vad som ska fås ut av funktionen som skrivs av studenterna, dess output med andra ord. 
 
-%Förklara hur komplexa tal och alla typer av transformer implementerades i DSL.
-Vårt DSL ska vara uppbyggt från Haskell och ska täcka områdena TSS och
-Reglerteknik. I båda kurserna så används komplexa tal vilket innebär att
-det först måste implementeras i vårt DSL.
+Exempelvis om man undersöker hur komplexa tal implementerades så börjar man med hur ett komplext tal representeras, i vårt fall som två flyttalsvärden. Ett värde för den reella delen av talet och ett för den imaginära. Så “1 + 1j” representeras som:
+
+\begin{minted}{haskell}
+Complex 1 1 
+\end{minted}
+
+Efter det så undersöktes vilka funktioner som borde implementeras för att vår tolkning komplexa talen skulle bete sig som matematikens komplexa tal. 
+Addition implementeras relativt enkelt då de reella delarna adderas med varandra och de imaginära med de imaginära enligt den här formeln: 
+(a, b) + (c, d) = (a + c, b + d)
+Så det implementerades så här: 
+\begin{minted}{haskell}
+z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
+\end{minted}
+
+Här ovan användes funktioner som plockar ut den reella(realPart) respektive den imaginära delen(imPart) ur ett komplext tal. 
+Båda funktionerna gavs ett så beskrivande namn som möjligt samtidigt som ett så lättläst syntax som möjligt användes så de här(och alla andra) funktioner kan läsas och förstås av någon som behärskar grundläggande Haskell och på så vis undviker vi att handledningen bara fungerar för studenter som är intresserade av Haskell. 
+
+Med multiplikationen så var det lite mer komplicerat då formeln ser ut så här:
+ (a, b)*(c, d) = (ac − bd, ad + bc) 
+
+\begin{minted}{haskell}
+z * w       = Complex (realZ*realW - imZ*imW, realZ*imW + realW*imZ)
+      where realZ = realPart z
+      realW = realPart w
+     imZ     = imPart z
+     imW    = imPart w
+\end{minted}
+
+Här skapades hjälpfunktionerna(som man finner efter ‘where’ i koden.) för att undvika att man skrev samma funktion om och om igen, samtidigt som de håller koden tydlig och lättläst.
+
+Efter att dessa operationer var implementerade så var division nästa ‘’stora’’ operation, och formeln för det ser ut som följer:
+z / w = (z * w’) / (w * w’) (sommarmatte.se)  där w’ är w:s konjugat. 
+Man förlänger både täljare och nämnare med nämnarens konjugat vilket innebär att nämnaren blir helt reell. 
+För att implementera division var man tvungen att först göra så man kunde ta konjugatet på ett komplext tal. Det innebär att man byter tecknet på den imaginära delen av talet. 
+Vår funktion för det såg ut så här:
+\begin{minted}{haskell}
+conjugate z = Complex (realPart z) (negate (imPart z))
+\end{haskell}
+Vår implementation av division blev då som det står här under:
+\begin{minted}{haskell}
+z / w = Complex (realPart zw’ / realPart ww’) (imPart zw’ / realPart ww’)
+     where zw’ = z * (conjugate w)
+     ww’= w * (conjugate w)
+\end{minted}
+
+En viktig sak att implementera för att kunna koppla de komplexa talen till kursen TSS är att man kan använda sig av Eulers formel och kan skapa komplexa tal med hjälp av en vinkel. 
+Eulers formel ser ut så här:
+e^{iz}=\cos z+i\sin z (encyclopediaofmath)
+Implementationen av den här representationen skedde i flera steg. Funktionen ‘’euler’’ skapar ett komplext tal utifrån en given vinkel(representerad av ett flyttal). 
+\begin{minted}{haskell}
+euler phi = Complex (cos phi) (sin phi)
+\end{minted}
+Enligt potenslagarna(formelsamlingen) så är e^(a+bj) = e^(a) * e^(bj) och enligt Eulers formel så är e^(bj) = cos b + j*sin b så då är exponentialfunktionen för ett komplext talimplementerad enligt nedanstående kod:
+\begin{minted}{haskell}
+exp z = scale (exp (realPart z)) euler (imPart z))
+\end{minted}
+Sedan implementerades även sinus-(och cosinus)funktioner med hjälp av Eulers formel. Så här representeras sinus som ett komplext tal:
+sin(x) = (e^ix − e^(−ix)) / 2i
+Vilket ser ut så här i koden:
+\begin{minted}{haskell}
+sin z = (exp (j*z) - exp (-(j*z))) / (scale 2 j )
+      where j = Complex 0 1
+\end{minted}
+
 
 \subsection{Verktyg}%behövs denna?
 % Kanske skriva om hur vi använder google drive?
