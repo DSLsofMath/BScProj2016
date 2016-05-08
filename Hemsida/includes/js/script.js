@@ -219,6 +219,51 @@ $(function() {
 		};
 	});
 
+	$('#signalerTest1').click(function(e) {
+		
+		var correctAnswer1 = document.getElementById('T11a');
+		var correctAnswer2 = document.getElementById('T12a');
+		e.preventDefault();
+
+		if (correctAnswer1.checked === true && correctAnswer2.checked === true) {
+			showResult('#rightSignalerTest1')
+		}else {
+			showResult('#wrongSignalerTest1')
+		};
+	});
+
+	$('#signalerTest2').click(function(e) {
+		
+		var correctAnswer1 = document.getElementById('T21c');
+		var correctAnswer2 = document.getElementById('T22b');
+		e.preventDefault();
+
+		if (correctAnswer1.checked === true && correctAnswer2.checked === true) {
+			showResult('#rightSignalerTest2')
+		}else {
+			showResult('#wrongSignalerTest2')
+		};
+	});
+
+	$('#signalerSol1').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol1');	
+	});
+	
+	$('#signalerSol2').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol2');	
+	});
+
+	$('#signalerSol3').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol3');	
+	});
+
+	$('#signalerSol4').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol4');	
+	});
 
 
 	$('#LTISvar2').click(function(e) {
