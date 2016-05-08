@@ -158,19 +158,55 @@ $(function() {
 
 	
 
-
-
 	$('#signalerSvar1').click(function(e) {
 		
-		var correctAnswer = document.getElementById('1a');
+		var correctAnswer = document.getElementById('1b');
 		e.preventDefault();
 
 		if (correctAnswer.checked === true) {
-			showResult('#rightSignal1')
+			showResult('#rightSignaler1')
 		}else {
-			showResult('#wrongSignal1')
+			showResult('#wrongSignaler1')
 		};
 	});
+
+
+	$('#signalerSvar2').click(function(e) {
+		
+		var correctAnswer = document.getElementById('2a');
+		e.preventDefault();
+
+		if (correctAnswer.checked === true) {
+			showResult('#rightSignaler2')
+		}else {
+			showResult('#wrongSignaler2')
+		};
+	});
+
+	$('#signalerSvar3').click(function(e) {
+		
+		var correctAnswer = document.getElementById('3b');
+		e.preventDefault();
+
+		if (correctAnswer.checked === true) {
+			showResult('#rightSignaler3')
+		}else {
+			showResult('#wrongSignaler3')
+		};
+	});
+	
+	$('#signalerSvar4').click(function(e) {
+		
+		var correctAnswer = document.getElementById('3b');
+		e.preventDefault();
+
+		if (correctAnswer.checked === true) {
+			showResult('#rightSignaler4')
+		}else {
+			showResult('#wrongSignaler4')
+		};
+	});
+
 
 
 	$('#LTISvar2').click(function(e) {
