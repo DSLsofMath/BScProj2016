@@ -8,12 +8,14 @@ import ComplexNumbers
 data Expression a =  Const a
                   |  Id
                   |  Pi
+                  |  Impulse
                   |  Exp (Expression a)
                   |  Expression a :+: Expression a
                   |  Expression a :-: Expression a
                   |  Expression a :*: Expression a
                   |  Expression a :/: Expression a
                   |  Conv (Expression a) (Expression a)
+                  |  Shift a (Expression a)
                   |  Log (Expression a)
                   |  Negate (Expression a)
                   |  Sin (Expression a)
@@ -30,10 +32,13 @@ data Expression a =  Const a
                   deriving (Eq)
 
 -- | Evaluates an Expression to a function
-eval :: (Num a,Floating a) => Expression a -> (a -> a)
+eval :: (Num a, Floating a, Eq a) => Expression a -> (a -> a)
 eval (Const a)   = const a
 eval Id          = id
 eval Pi          = const pi
+eval (Impulse)   = \t -> if t == 0
+                            then 1
+                            else 0
 eval (Exp e)     = exp . eval e
 eval (e0 :+: e1) = eval e0 + eval e1
 eval (e0 :-: e1) = eval e0 - eval e1
@@ -51,6 +56,7 @@ eval (Cosh e)    = cosh . eval e
 eval (Asinh e)   = asinh . eval e
 eval (Acosh e)   = acosh . eval e
 eval (Atanh e)   = atanh . eval e
+eval (Shift offset exp) = \t -> (eval exp) (t - offset)
 
 -- | Numeric instance of our expression data type
 instance (Num a, Floating a) => Num (Expression a) where
@@ -82,24 +88,42 @@ instance (Floating a) => Floating (Expression a) where
          asinh = Asinh
          acosh = Acosh
 
-instance Show a => Show (Expression a) where
-         show = showExp
-
 -- | Show instance for Showable Expressions
-showExp :: Show a => Expression a -> String
+instance Show a => Show (Expression a) where
+         show = showE
+
+showE :: (Show a) => Expression a -> String
+showE exp = "f(var) = " ++ showExp exp
+
+showExp :: (Show a) => Expression a -> String
 showExp (Const a)   = show a
 showExp Id          = "var"
 showExp Pi          = "π"
+showExp Impulse     = "δ(var)"
 showExp (Exp e)     = "e^(" ++ showExp e ++ ")"
 showExp (e0 :*: e1) = showCompExps e0 ++ " × " ++ showCompExps e1
 showExp (e0 :+: e1) = showCompExps e0 ++ " + " ++ showCompExps e1
 showExp (e0 :-: e1) = showCompExps e0 ++ " - " ++ showCompExps e1
 showExp (e0 :/: e1) = showCompExps e0 ++ " / " ++ showCompExps e1
+showExp (Shift offset exp) = showExpWithOffset offset exp
 
 -- | Composed Expressions needs to be enclosed in a pair of parens
 showCompExps :: (Show a) => Expression a -> String
 showCompExps (e0 :+: e1) = "(" ++ showCompExps e0 ++ " + " ++ showCompExps e1 ++ ")"
 showCompExps (e0 :-: e1) = "(" ++ showCompExps e0 ++ " - " ++ showCompExps e1 ++ ")"
-showCompExps (e0 :*: e1) = "(" ++ showCompExps e0 ++ " × " ++ showCompExps e1 ++ ")"
+showCompExps (e0 :*: e1) =  showCompExps e0 ++ " × " ++ showCompExps e1
 showCompExps (e0 :/: e1) = "(" ++ showCompExps e0 ++ " / " ++ showCompExps e1 ++ ")"
 showCompExps exp         = showExp exp
+
+showExpWithOffset :: (Show a) => a -> Expression a -> String
+showExpWithOffset offset Id      = "(var - " ++ show offset ++ ")"
+showExpWithOffset offset Impulse = "δ(var - " ++ show offset ++ ")"
+showExpWithOffset offset Pi      = "π"
+showExpWithOffset _ (Const a)    = show a
+showExpWithOffset offset exp     = showExp (traverseExpE (Shift offset) exp)
+
+traverseExpE e (e0 :*: e1) = (e e0) :*: (e e1)
+traverseExpE e (e0 :+: e1) = (e e0) :+: (e e1)
+traverseExpE e (e0 :-: e1) = (e e0) :-: (e e1)
+traverseExpE e (e0 :/: e1) = (e e0) :/: (e e1)
+traverseExpE e exp         = e exp
