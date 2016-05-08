@@ -544,19 +544,19 @@ Så det implementerades så här:
 z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
 \end{minted}
 
-Här ovan så plockar funktionen \mintinline{realPart} ut den reella delen ur ett komplex tal och \mintinline{imPart} plockar ut den imaginära delan. 
+Här ovan så plockar funktionen \mintinline{haskell}{realPart} ut den reella delen ur ett komplex tal och \mintinline{haskell}{imPart} plockar ut den imaginära delan. 
 
 Båda funktionerna, liksom alla andra, är given ett så beskrivande namn som möjligt samtidigt som vi försökte få syntaxen så lättläst som möjligt. Detta gjordes för att funktionerna kan läsas och förstås av inte bara studenter med djupare intresse av Haskell utan även dem med enbart grundläggande kunskaper för programmeringsspråket.
 
 Med multiplikationen så var det lite mer komplicerat då formeln ser ut så här:
- \[(a, b) \cdot (c, d) = (ac − bd, ad + bc) \]
+ \[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \]
 
 \begin{minted}{haskell}
 z * w       = Complex (realZ*realW - imZ*imW, realZ*imW + realW*imZ)
       where realZ = realPart z
       realW = realPart w
-     imZ     = imPart z
-     imW    = imPart w
+      imZ   = imPart z
+      imW   = imPart w
 \end{minted}
 
 %Är detta nödvändigt? Vi borde liksom inte vara för förklarande.
@@ -583,7 +583,7 @@ En viktig sak att implementera för att kunna koppla de komplexa talen till kurs
 Eulers formel ser ut så här:
 \[e^{jz}=\cos z+ j \cdot \sin z \]
 %(encyclopediaofmath) -kan lämnas som reference
-Implementationen av den här representationen skedde i flera steg. Funktionen \mintinline{euler} skapar ett komplext tal utifrån en given vinkel, representerad av ett flyttal. %Tror vi kan ta bort paranteserna.
+Implementationen av den här representationen skedde i flera steg. Funktionen \mintinline{haskell}{euler} skapar ett komplext tal utifrån en given vinkel, representerad av ett flyttal. %Tror vi kan ta bort paranteserna.
 \begin{minted}{haskell}
 euler phi = Complex (cos phi) (sin phi)
 \end{minted}
@@ -593,7 +593,7 @@ så är $e^{a+jb} = e^{a} \cdot e^{jb}$ och enligt Eulers formel så är $e^{j b
 exp z = scale (exp (realPart z)) euler (imPart z))
 \end{minted}
 Sedan implementerades även trigonometriska funktioner med hjälp av Eulers formel. Så här representeras sinus som ett komplext tal:
-\[ sin(x) = (e^{j x} − e^{−j x}) / 2 j \]
+\[ sin(x) = (e^{j x} - e^{-j x}) / 2 j \]
 Vilket ser ut så här i koden:
 \begin{minted}{haskell}
 sin z = (exp (j*z) - exp (-(j*z))) / (scale 2 j )
