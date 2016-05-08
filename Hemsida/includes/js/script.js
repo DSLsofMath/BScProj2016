@@ -247,7 +247,7 @@ $(function() {
 
 	$('#signalerSol1').click(function(e) {
 		e.preventDefault;
-		showSolution('#showSol1');	
+		$('#showSol1').slideDown();	
 	});
 	
 	$('#signalerSol2').click(function(e) {
@@ -285,4 +285,8 @@ $(function() {
 	function showSolution(a) {
 		$(a).show().delay(200).addClass("in");
 	};
+
+	$(".alert button.close").click(function (e) {
+    	$(this).parent().fadeOut('slow');
+});
 });

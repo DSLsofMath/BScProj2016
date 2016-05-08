@@ -95,11 +95,11 @@
 							<button type="button" class="btn btn-primary" id="komplexSvar1">Svara</button>
 
 							<div class="alert alert-success alert-block fade in" id="rightKomplex1">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<button type="button" class="close">&times;</button>
 								<h4>Rätt svar!</h4>
 							</div><!--End alert-->
 							<div class="alert alert-danger alert-block fade in" id="wrongKomplex1">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<button type="button" class="close">&times;</button>
 								<h4>Fel svar!</h4>
 							</div><!--End alert-->
 						</div><!--end komplexQ1-->
@@ -108,16 +108,16 @@
 							<h5><b>Kryssfråga 2:</b> Vad är den imaginära delen i talet <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>+</mo><mfrac><mn>6</mn><mn>5</mn></mfrac><mi>j</mi></mrow><annotation encoding="application/x-tex">4 + \frac{6}{5}j</annotation></semantics></math>?</h5>
 							<ul class="unstyled">
 								<li>a) <input type="radio" name="radio2" id="2a" value="2a"> 4</li>
-								<li>b) <input type="radio" name="radio2" id="2b" value="2b"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>6</mn><mn>5</mn></mfrac><annotation encoding="application/x-tex">\frac{6}{5}</annotation></semantics></math></li>
+								<li>b) <input type="radio" name="radio2" id="2b" value="2b"> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>6</mn><mn>5</mn></mfrac><annotation encoding="application/x-tex">\frac{6}{5}</annotation></semantics></math></li>
 							</ul>
 							<button type="button" class="btn btn-primary" id="komplexSvar2">Svara</button>
 
 							<div class="alert alert-success alert-block fade in" id="rightKomplex2">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<button type="button" class="close">&times;</button>
 								<h4>Rätt svar!</h4>
 							</div><!--End alert-->
 							<div class="alert alert-danger alert-block fade in" id="wrongKomplex2">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<button type="button" class="close">&times;</button>
 								<h4>Fel svar!</h4>
 							</div><!--End alert-->
 						</div><!--end komplexQ2-->
@@ -148,7 +148,7 @@
 						</div>
 
 <div class="alert alert-success alert-block fade in" id="showSol1">
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<button type="button" class="close">&times;</button>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">imPart ::</span> <span class="dt">Complex</span> <span class="ot">-&gt;</span> <span class="dt">Double</span>
 imPart (<span class="dt">Complex</span> c) <span class="fu">=</span> snd c</code></pre></div>
 </div><!--End alert-->
@@ -168,7 +168,7 @@ imPart (<span class="dt">Complex</span> c) <span class="fu">=</span> snd c</code
               			<button type="button" class="btn btn-primary" id="komplexSol2">Lösning</button>
 
 <div class="alert alert-success alert-block fade in" id="showSol2">
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<button type="button" class="close">&times;</button>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">printComplex ::</span> <span class="dt">Complex</span> <span class="ot">-&gt;</span> <span class="dt">String</span>
 printComplex z
   <span class="fu">|</span> r <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> show im <span class="fu">++</span> <span class="st">&quot;j&quot;</span>
@@ -200,7 +200,7 @@ printComplex z
     					<button type="button" class="btn btn-primary" id="komplexSol3">Lösning</button>
 
 <div class="alert alert-success alert-block fade in" id="showSol3">
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<button type="button" class="close">&times;</button>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">instance</span> <span class="dt">Num</span> <span class="dt">Complex</span> <span class="kw">where</span>
     z <span class="fu">+</span> w           <span class="fu">=</span> <span class="dt">Complex</span> (realPart z <span class="fu">+</span>
                         realPart w, imPart z <span class="fu">+</span> imPart w)</code></pre></div>
@@ -214,11 +214,11 @@ printComplex z
 						<button type="button" class="btn btn-primary challenge" id="komplexTest1">Svara</button>
 
 						<div class="alert alert-success alert-block fade in" id="rightKomplexTest1">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<button type="button" class="close">&times;</button>
 							<h4>Rätt svar!</h4>
 						</div><!--End alert-->
 						<div class="alert alert-danger alert-block fade in" id="wrongKomplexTest1">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<button type="button" class="close">&times;</button>
 							<h4>Fel svar!</h4>
 						</div><!--End alert-->
 
@@ -244,11 +244,11 @@ printComplex z
 						<button type="button" class="btn btn-primary challenge" id="komplexTest2">Svara</button>
 
 						<div class="alert alert-success alert-block fade in" id="rightKomplexTest2">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<button type="button" class="close">&times;</button>
 							<h4>Rätt svar!</h4>
 						</div><!--End alert-->
 						<div class="alert alert-danger alert-block fade in" id="wrongKomplexTest2">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<button type="button" class="close">&times;</button>
 							<h4>Fel svar!</h4>
 						</div><!--End alert-->
 						</div>
@@ -263,7 +263,7 @@ printComplex z
 						<button type="button" class="btn btn-primary" id="komplexSol4">Lösning</button>
 
 <div class="alert alert-success alert-block fade in" id="showSol4">
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<button type="button" class="close">&times;</button>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">   negate z        <span class="fu">=</span> <span class="dt">Complex</span> (negate <span class="fu">$</span> realPart z, negate <span class="fu">$</span> imPart z)</code></pre></div>
 </div><!--End alert-->
 						</div>
@@ -281,7 +281,7 @@ printComplex z
                  		<button type="button" class="btn btn-primary" id="komplexSol5">Lösning</button>
 
 <div class="alert alert-success alert-block fade in" id="showSol5">
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<button type="button" class="close">&times;</button>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">    abs z           <span class="fu">=</span> <span class="dt">Complex</span> (hyp, <span class="dv">0</span>)
         <span class="kw">where</span> hyp   <span class="fu">=</span> sqrt (r<span class="fu">*</span>r <span class="fu">+</span> im<span class="fu">*</span>im)
               r     <span class="fu">=</span> realPart z
@@ -297,11 +297,11 @@ printComplex z
 						<button type="button" class="btn btn-primary challenge" id="komplexTest3">Svara</button>
 
 						<div class="alert alert-success alert-block fade in" id="rightKomplexTest3">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<button type="button" class="close">&times;</button>
 							<h4>Rätt svar!</h4>
 						</div><!--End alert-->
 						<div class="alert alert-danger alert-block fade in" id="wrongKomplexTest3">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<button type="button" class="close">&times;</button>
 							<h4>Fel svar!</h4>
 						</div><!--End alert-->
 						</div>
@@ -315,11 +315,11 @@ printComplex z
 						<button type="button" class="btn btn-primary challenge" id="komplexTest4">Svara</button>
 
 						<div class="alert alert-success alert-block fade in" id="rightKomplexTest4">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<button type="button" class="close">&times;</button>
 							<h4>Rätt svar!</h4>
 						</div><!--End alert-->
 						<div class="alert alert-danger alert-block fade in" id="wrongKomplexTest4">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<button type="button" class="close">&times;</button>
 							<h4>Fel svar!</h4>
 						</div><!--End alert-->
 						</div>
@@ -342,11 +342,11 @@ printComplex z
 							<button type="button" class="btn btn-primary" id="komplexSvar3">Svara</button>
 
 							<div class="alert alert-success alert-block fade in" id="rightKomplex3">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<button type="button" class="close">&times;</button>
 								<h4>Rätt svar!</h4>
 							</div><!--End alert-->
 							<div class="alert alert-danger alert-block fade in" id="wrongKomplex3">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<button type="button" class="close">&times;</button>
 								<h4>Fel svar!</h4>
 							</div><!--End alert-->
 						</div><!--end komplexQ3-->
@@ -362,11 +362,11 @@ printComplex z
 							<button type="button" class="btn btn-primary" id="komplexSvar4">Svara</button>
 
 							<div class="alert alert-success alert-block fade in" id="rightKomplex4">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<button type="button" class="close">&times;</button>
 								<h4>Rätt svar!</h4>
 							</div><!--End alert-->
 							<div class="alert alert-danger alert-block fade in" id="wrongKomplex4">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
+								<button type="button" class="close">&times;</button>
 								<h4>Fel svar!</h4>
 							</div><!--End alert-->
 						</div><!--end komplexQ4-->
