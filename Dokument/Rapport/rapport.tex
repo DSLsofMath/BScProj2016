@@ -316,13 +316,15 @@ där beståndsdelarna i språket är funktionsanrop och konstruktorer i värdspr
 % -Referera till “Why functional programming matters”
 
 \subsection{Om transformer, signaler och system}
-Området beskriver olika typer av signaler, hur de relateras till ett
-linjär tidsinvariant system och hur en ingenjör kan använda denna relation
-för att modellera system. Ett system kan till exempel vara en fjäder vars
-signal är en kraft som påverkar fjädern utifrån.
-För att kunna behandla denna system så kan en utnyttja Fourier serier
-utveckling och olika typer av transformer vilket låter en betrakta signalen
-i en annan domän.
+Området transformer, signaler och system inom signalbehandling beskriver olika typer av signaler, hur de relateras till ett system och hur en ingenjör kan modellera denna relation mellan signaler och systemet i matematiska termer. Ett system kan till exempel vara en fjäder vars signal är en kraft som påverkar fjädern utifrån. Inom detta område så begränsas signalen till enbart en oberoende variabel som brukas väljas som tiden och att systemen är linjära och tidsinvarianta. Det vill säga, ett LTI-system.
+För att kunna lösa problem inom dessa system så kan man utveckla signalen i en fourierserie eller använda sig av olika typer av transformer vilket låter en betrakta signalen i en annan domän. 
+\begin{itemize}
+\item Fouriertransform - En operator som transformerar en funktion från tidsdomän till fen annan domän som brukar kallas för frekvensplanet. 
+\item Laplacetransform - En transform i kontinuerlig tid som transformerar funktionen till s-planet, en generalisering av den kontinuerliga frekvensplanet. Anses vara lättare att hantera jämfört med Fouriertransform.  
+\item Z-transform - En transform i diskret tid som transformerar funktionen till Z-planet, en generalisering av den diskreta frekvensplanet.
+\end{itemize}
+Dessutom så innehåller området andra begrepp och operator som komplexa tal, faltning, sampling m.m. Alla dessa grundkunskaper och transformer behövs för att modulera system och signaler.
+
 
 \subsection{Didaktik}
 Didaktik är vetenskapen om undervisning.
@@ -607,11 +609,7 @@ Koden ska vara skriven i programmeringspråket Haskell och gruppen använde sig
 av \url{https://c9.io/} för att alla ska kunna ha tillgång till koden och en
 kompilator.
 %TODO: "all någorlunda färdiga material" := "allt någorlunda färdigt material"
-Pågående under arbetets gång så laddas all någorlunda färdiga material
-upp i Github.
-%TODO: "all produkt"??
-Här kan gruppens handledare kolla igenom all produkt och ge sina
-kommentarer.
+Pågående under arbetets gång så laddas allt någorlunda färdigt material upp i \url{https://github.com/}. Här kan gruppens handledare kolla igenom materialet och ge sina kommentarer. Dessutom så blir materialet tillgänglig för andra att kolla igenom och bygga vidare på. 
 %TODO: korrekt, men bara en lite del av motiveringen för github: materialet är även tillgängligt för andra (studentmålgruppen exempelvis) både för läsning och för att bygga vidare. Dessutom är git, och github, verktyg som ingår i många projekt i arbetslivet, dvs. git(hub)-kompetens är en del av de generella ingenjörskompetenserna. etc.
 
 %mer?
@@ -690,6 +688,19 @@ möjligt.
 %
 % Illustrationer:
 % * Utdrag ur tutorialen
+
+\section{Hantering av TSS}
+
+Gruppen började med att kolla igenom kursernas kursplan som ställde upp lärandemålen. Från lärandemålen och resultaten från intervjun och enkätundersökningarna blir det tänkt att sluta sig till de områden som handledningen är tänkt att täcka. %Vi kollade även igenom tentorna över de senaste åren för att se vilka begrepp och områden som brukade komma för att höja säkerheten.
+
+Efter områdena har blivit bestämda påbörjades skrivandet av texter och koden. %Dessa ansvarsområden delades inom gruppen.
+Vi försökte att gå direkt till poängen vid beskrivandet av definitioner till olika operator och deras applikation. Därefter följs det av en väldigt informell text vars mål är att måla en ungefärlig bild på hur operatorn fungerar. Allt avslutades med exempel på hur operatorn kan appliceras och uppgifter där det är tänkt att lösas med programmering 
+
+Ett alternativ metod är att presentera definitionen till det man vill förklara strax följt av beviset till definitionen samt exemplar. Det vill säga, en formell ansats med tyngd på matematisk korrekthet. För somliga studenter inom matematik så ger beviset en djupare förståelse för operatorn och därmed förstår de varför den fungerar och hur den kan appliceras. Denna metod kommer dock använda sig helt av den matematiska domän specifika språket och inte av programmering vilket gör det i teorin svårläsligt till målgruppen handledningen riktar sig mot.
+
+Eftersom handledningen är tänkt att vara lätt tillgänglig och uttryckt i ett språk som \emph{studenterna} förstår så valde gruppen den informella ansatsen till förklarandet av ämnet. Detta har även med hur gruppen tyckte att \cite{learnyouahaskell} och texter från sidan
+\url{http://betterexplained.com/} var väldigt pedagogiska.  
+
 
 \section{Diskussion}
 
