@@ -3,10 +3,8 @@
 \usepackage[swedish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[backend=biber]{biblatex}
-\usepackage{hyperref,url,bbm,graphicx,icomma,units,lmodern,amsmath,glossaries}
+\usepackage{hyperref,url,bbm,graphicx,icomma,units,lmodern,amsmath,glossaries,minted}
 
-\addbibresource{referenser.bib}
 \loadglsentries{ordlista.tex}
 
 \date{\today}
@@ -277,7 +275,7 @@ behövs för att bygga upp handledningen.
 \subsection{Allmänt om domänspecifika språk}
 % Allmänt om DSL
 Ett domänspecifikt språk (\gls{DSL}) är ett programmeringsspråk som till
-skillnad från generella programmeringsspråk \gls{GPL}, är anpassat för en
+skillnad från generella programmeringsspråk är anpassat för en
 specifik domän. Att skapa domänspecifika språk är ingenting nytt och det
 finns flera exempel på DSL är HTML, MATLAB och Game Maker Language.
 Dessa DSL har gemensamt att det är relativt enkelt att formulera lösningar för
@@ -292,7 +290,7 @@ där beståndsdelarna i språket är funktionsanrop och konstruktorer i värdspr
 
 Det finns även olika nivåer av DSL, så kallade djupa DSL (deep embedding) och
 ytliga DSL (shallow embedding). I introduktionen till sin artikel skriver
-Svenningson och Axelsson \cite{svenningsson2013combining} att man i ett djupt
+Svenningson och Axelsson \cite{Svenningsson2013} att man i ett djupt
 DSL använder sig av abstrakta datatyper och att man med dessa bygger upp ett
 abstrakt syntaxträd som sedan tolkas av olika funktioner.
 Man skapar alltså egna typer och funktioner som bygger upp strukturer med dessa
@@ -770,7 +768,10 @@ fann i kursen var kopplingen mellan matematiken och den bakomliggande fysiken.
 
 \newpage
 
-\printbibliography
+\bibliographystyle{IEEEtran}
+\bibliography{referenser.bib}
+
+\newpage
 
 \section{Bilagor}
 % * Utdrag ur tutorial?
