@@ -528,25 +528,28 @@ Vårt DSL ska vara uppbyggt från Haskell och ska täcka området TSS.
 I kursen så används komplexa tal vilket innebär att det först måste implementeras i vårt DSL och att implementationen av komplexa tal kommer fungera som en introduktion till hur vårt DSL fungerar och hur de kommer få använda sig av det. 
 Implementationen har skett på så vis att först skrevs koden till ett helt avsnitt så vi hade .hs-filer som var till för att användas internt för testning och för användarna av handledningen som ett facit när de inte kommer på vad de ska skriva. Sedan skapades nya filer där delar av den färdiga koden lades in och vissa segment av koden utelämnades för att studenten som följer handledningen ska få komplettera och skriva egna varianter av vissa funktioner. Då har dock de delar som skrevs av gruppen använts som mall för att bestämma vad som ska fås ut av funktionen som skrivs av studenterna, dess output med andra ord. 
 
-Exempelvis om man undersöker hur komplexa tal implementerades så börjar man med hur ett komplext tal representeras, i vårt fall som två flyttalsvärden. Ett värde för den reella delen av talet och ett för den imaginära. Så “1 + 1j” representeras som:
+Exempelvis om man undersöker hur komplexa tal implementerades så börjar man med hur ett komplext tal representeras, i vårt fall som två flyttalsvärden. Ett värde för den reella delen av talet och ett för den imaginära. Så ett komplext tal 
+\(z = 1 + 1j = (1,1) \) representeras i vår DSL som:
 
 \begin{minted}{haskell}
 Complex 1 1 
 \end{minted}
 
 Efter det så undersöktes vilka funktioner som borde implementeras för att vår tolkning komplexa talen skulle bete sig som matematikens komplexa tal. 
+
 Addition implementeras relativt enkelt då de reella delarna adderas med varandra och de imaginära med de imaginära enligt den här formeln: 
-(a, b) + (c, d) = (a + c, b + d)
+\[(a, b) + (c, d) = (a + c, b + d)\]
 Så det implementerades så här: 
 \begin{minted}{haskell}
 z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
 \end{minted}
 
-Här ovan användes funktioner som plockar ut den reella(realPart) respektive den imaginära delen(imPart) ur ett komplext tal. 
-Båda funktionerna gavs ett så beskrivande namn som möjligt samtidigt som ett så lättläst syntax som möjligt användes så de här(och alla andra) funktioner kan läsas och förstås av någon som behärskar grundläggande Haskell och på så vis undviker vi att handledningen bara fungerar för studenter som är intresserade av Haskell. 
+Här ovan så plockar funktionen \mintinline{realPart} ut den reella delen ur ett komplex tal och \mintinline{imPart} plockar ut den imaginära delan. 
+
+Båda funktionerna, liksom alla andra, är given ett så beskrivande namn som möjligt samtidigt som vi försökte få syntaxen så lättläst som möjligt. Detta gjordes för att funktionerna kan läsas och förstås av inte bara studenter med djupare intresse av Haskell utan även dem med enbart grundläggande kunskaper för programmeringsspråket.
 
 Med multiplikationen så var det lite mer komplicerat då formeln ser ut så här:
- (a, b)*(c, d) = Complex (ac - bd) (ad + bc)
+ \[(a, b) \cdot (c, d) = (ac − bd, ad + bc) \]
 
 \begin{minted}{haskell}
 z * w       = Complex (realZ*realW - imZ*imW, realZ*imW + realW*imZ)
@@ -556,11 +559,14 @@ z * w       = Complex (realZ*realW - imZ*imW, realZ*imW + realW*imZ)
      imW    = imPart w
 \end{minted}
 
+%Är detta nödvändigt? Vi borde liksom inte vara för förklarande.
 Här skapades hjälpfunktionerna(som man finner efter ‘where’ i koden.) för att undvika att man skrev samma funktion om och om igen, samtidigt som de håller koden tydlig och lättläst.
 
 Efter att dessa operationer var implementerade så var division nästa ‘’stora’’ operation, och formeln för det ser ut som följer:
-z / w = (z * w’) / (w * w’) (sommarmatte.se)  där w’ är w:s konjugat. 
-Man förlänger både täljare och nämnare med nämnarens konjugat vilket innebär att nämnaren blir helt reell. 
+\[ z / w = (z \cdot w’) / (w \cdot w’) \]
+%(sommarmatte.se)  Kan lämnas som reference.
+där w’ är w:s konjugat. 
+%Man förlänger både täljare och nämnare med nämnarens konjugat vilket innebär att nämnaren blir helt reell. 
 För att implementera division var man tvungen att först göra så man kunde ta konjugatet på ett komplext tal. Det innebär att man byter tecknet på den imaginära delen av talet. 
 Vår funktion för det såg ut så här:
 \begin{minted}{haskell}
@@ -575,18 +581,19 @@ z / w = Complex (realPart zw’ / realPart ww’) (imPart zw’ / realPart ww’
 
 En viktig sak att implementera för att kunna koppla de komplexa talen till kursen TSS är att man kan använda sig av Eulers formel och kan skapa komplexa tal med hjälp av en vinkel. 
 Eulers formel ser ut så här:
-$e^{iz}=\cos z+i\sin z$ (encyclopediaofmath)
-Implementationen av den här representationen skedde i flera steg. Funktionen ``euler'' skapar ett komplext tal utifrån en given vinkel (representerad av ett flyttal).
+\[e^{jz}=\cos z+ j \cdot \sin z \]
+%(encyclopediaofmath) -kan lämnas som reference
+Implementationen av den här representationen skedde i flera steg. Funktionen \mintinline{euler} skapar ett komplext tal utifrån en given vinkel, representerad av ett flyttal. %Tror vi kan ta bort paranteserna.
 \begin{minted}{haskell}
 euler phi = Complex (cos phi) (sin phi)
 \end{minted}
-Enligt potenslagarna (formelsamlingen) så är $e^{(a+bj)} = e^a * e^{bj}$ och enligt Eulers formel så är $e^{bj} = \cos b + j*\sin b$ så då är exponentialfunktionen för ett komplext talimplementerad enligt nedanstående kod:
+Enligt potenslagarna%(formelsamlingen) - lämnas till reference?
+så är $e^{a+jb} = e^{a} \cdot e^{jb}$ och enligt Eulers formel så är $e^{j b} = cos b + j\dot sin b$ så då är exponentialfunktionen för ett komplext talimplementerad enligt nedanstående kod:
 \begin{minted}{haskell}
 exp z = scale (exp (realPart z)) euler (imPart z))
 \end{minted}
-Sedan implementerades även sinus- och cosinusfunktioner med hjälp av Eulers formel.
-Så här representeras sinus som ett komplext tal:
-$\sin(x) = (e^{ix} - e^{(-ix)}) / 2i$
+Sedan implementerades även trigonometriska funktioner med hjälp av Eulers formel. Så här representeras sinus som ett komplext tal:
+\[ sin(x) = (e^{j x} − e^{−j x}) / 2 j \]
 Vilket ser ut så här i koden:
 \begin{minted}{haskell}
 sin z = (exp (j*z) - exp (-(j*z))) / (scale 2 j )
