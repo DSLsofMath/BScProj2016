@@ -10,6 +10,7 @@ transform Pi          = Pi :*: Impulse
 transform Id          = Id
 transform Impulse     = 1
 transform (e0 :+: e1) = transform e0 + transform e1
+transform (e0 :-: e1) = transform e0 - transform e1
 -- TODO: x :-: y == x :+: (negate y) which means transform (x :-: y) == transform x :-: transform y
 -- TODO: To exppress time shift you need another operation on Expressions. Is that what Shift is for?
 -- | Time shift property
