@@ -554,7 +554,7 @@ att vår tolkning komplexa talen skulle bete sig som matematikens komplexa tal.
 
 Addition kunde implementeras relativt enkelt då de reella delarna adderas med
 varandra och de imaginära med de imaginära enligt formeln nedan:
-\[(a, b) + (c, d) = (a + c, b + d)\]
+\[(a, b) + (c, d) = (a + c, b + d)\] \cite{conway1978functions}
 Vilket i Haskell implementerades så här:
 \begin{minted}{haskell}
 z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
@@ -571,7 +571,7 @@ studenter med djupare intresse av Haskell utan även av dem som enbart besitter
 grundläggande kunskaper för programmeringsspråket.
 
 Med multiplikationen så var det lite mer komplicerat då formeln ser ut så här:
- \[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \]
+ \[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \] \cite{conway1978functions}
 
 \begin{minted}{haskell}
 z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
