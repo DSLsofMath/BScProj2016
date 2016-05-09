@@ -1,5 +1,6 @@
 > module ComplexNumbers where
 > import GHC.Real
+> import qualified Test.QuickCheck as Q
 
 Komplexa tal kan ses som ett par av reella värden.
 
@@ -107,9 +108,6 @@ En kvot av två heltal är helt reell och därför kommer imaginärdelen vara 0
 
 Garanterar att imaginärdelen alltid är 0 ifrån en fromRational
 
-> prop_testRatioNoImpart :: Rational -> Bool
-> prop_testRatioNoImpart ratio = imPart (fromRational ratio :: Complex) == 0
-
 > instance Floating Complex where
 
 Det komplexa talet pi är ett tal med realdelen pi och imaginärdelen 0
@@ -151,3 +149,9 @@ odefinierade än så länge.
 >     asin  = undefined
 >     acosh = undefined
 >     acos  = undefined
+
+> instance Q.Arbitrary Complex where
+>   arbitrary = do
+>      re <- Q.arbitrary
+>      im <- Q.arbitrary
+>      return (Complex re im)
