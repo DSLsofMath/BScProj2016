@@ -41,6 +41,16 @@
 \end{titlepage}
 \newpage
 
+\section*{Förord}
+Denna rapport behandlar kandidatarbetet “Matematikens domänspecifika språk (DSLsofMath) för andra kurser” som 
+genomfördes på Chalmers Tekniska Högskola under vårterminen 2016. Vi som har gjort detta kandidatarbete är fem studenter 
+från civilingenjörsprogrammen Datateknik och Teknisk Matematik på Chalmers. 
+
+Vi vill tacka Patrik Jansson, vår handledare, som har varit väldigt hjälpsam och skickat oss i rätt riktning när vi 
+varit vilsna. Vi vill tacka Adam som har svarat på frågor vi haft och funnits tillgänglig när vi undrat saker. Vi vill 
+tacka Bo Egardt och Ants Silberberg som tagit sig tid att diskutera sina kurser med oss. Och slutligen vill vi tacka vår 
+testgrupp som gått igenom vårt material och gett oss återkoppling för att förbättra vår produkt.
+
 \renewcommand*\abstractname{Sammandrag}
 \begin{abstract}
   %Ett Sammandrag
@@ -273,6 +283,29 @@ I detta kapitel så beskrivs det kortfattad de områden och programvara som
 behövs för att bygga upp handledningen.
 % Huvudpoänger:
 % * Ta upp och introducera tekniken vi bygger vår tutorial på.
+
+\subsection{Git och Github}
+Git är en versionshanteringsmjukvara som gör det möjligt för flera personer att arbeta med samma material samtidigt utan 
+att de skriver över varandras arbete. Så länge inte två versioner innehåller ändringar som står i konflikt med varandra, 
+exempelvis att man samtidigt ändrat på samma rader, slås de ihop och bildar då en tredje version vars innehåll kommer 
+från båda de tidigare versionerna. Alla tidigare versioner utav en fil sparas och kan återställas och man kan också 
+återställa enstaka förändringar utan att behöva återställa hela filen. Skulle två versioner stå i konflikt med varandra 
+krävs däremot en del manuellt hantverk.
+
+För ytterligare information om Git se hemsidan \url{https://git-scm.com}.
+
+GitHub är en hemsida som använder git. GitHub gör det möjligt för utvecklare av mjukvara med öppen källkod att utveckla 
+kod och annat material offentligt. Mjukvara med öppen källkod är mjukvara vars källkod är tillgänglig för vem som helst 
+att använda och vidareutveckla.
+
+GitHub förenklar kommunikationen mellan användare och utvecklare av mjukvara med öppen källkod genom att tillhandahålla 
+verktyg såsom möjligheter att kommentera på enskilda versioner av mjukvaran, uppföljningsverktyg för ärenden och problem, 
+samt dokumentationsverktyg. GitHub har även verktyg för att underlätta samarbete mellan utvecklare genom att man kan 
+klona varandras projekt och bidra med egna ändringar som huvudutvecklaren kan godkänna. GitHub underlättar även framtida 
+vidareutveckling av kod, eftersom koden lagras offentligt på hemsidan och vara lättåtkomlig för andra utvecklare. 
+
+För ytterligare information om GitHub se hemsidan \url{https://github.com}.
+
 
 \subsection{Domänspecifika språk}
 % Allmänt om DSL
@@ -634,26 +667,31 @@ något eller kan det sedan innan. Efter att studenten har läst teorin inom ett 
 med en lista på vad studenten nu har lärt sig. Studenten får alltså både ett erkännande av sin kunskap 
 och förmåga, samt möjlighet att praktisera detta. 
 
-\subsection{Implementation i DSL}
+\subsection{Implementationen av vårt DSL}
 %Förklara hur komplexa tal och alla typer av transformer implementerades i DSL. 
-Det DSL som använts i detta läromaterial har utvecklats i Haskell och har
-designats för att kunna täcka de enligt gruppen viktigaste delarna som
-behandlas i TSS.
-Exempel på detta är komplexa tal som används flitigt när man arbetar med
-signaler och system och därför implementerades också komplexa tal som första
-momentet i vårt DSL. Komplexa tal är också ett förkunskapskrav till kursen TSS
-och därför lämpade sig det också bra som ett första avsnitt för att
-introducera läsarna till det DSL som använts och hur vi skrivit vårt
-läromaterial.
+Det DSL som används i detta läromaterial har utvecklats i Haskell av projektgruppen. Det har designats för att täcka de 
+valda delarna av TSS som behandlas i läromaterialet. Se avsnittet \textit{Inledande forskning} för mer information om 
+hur dessa delar valts ut.
+
+En av dessa delar är komplexa tal, vilket används flitigt när man arbetar med
+signaler och system. Därför implementerades också komplexa tal som första byggstenen
+i vårt DSL. Därefter implementerades signaler, LTI-system och fouriertransform.
 
 Själva utvecklingen av det DSL som använts har skett genom att gruppen först
-utvecklat all kod som behövts för ett avsnitt och sedan när koden är testad och
-funkar tillfredsställande har den delats upp i kodpaket. I dessa kodpaket
+utvecklat all kod som behövts för ett avsnitt. När koden sedan hade testats och
+fungerade tillfredsställande delades den upp i kodpaket. I dessa kodpaket
 har vissa funktioner tagits bort för att lämnas som övningar till läsarna att
-implementera.
+implementera. Resterande kod i paketen kan användas av studenten så att hen kan köra sin egen kod direkt och 
+testa sina lösningar.
 
-Exempelvis om man undersöker hur komplexa tal implementerades så börjar man med
-hur ett komplext tal representeras, i vårt fall som två flyttalsvärden.
+Samtliga funktionerna har givits så beskrivande namn som möjligt. Projektgruppen har även försökt åstadkomma en så 
+lättläst syntax som möjligt där alla implementerade funktioner kan läsas och förstås av någon som behärskar 
+grundläggande Haskell. Detta var viktigt då gruppen ville åstadkomma kod som kan förstås av hela målruppen och inte 
+bara av studenter som är särskilt intresserade av Haskell. 
+
+
+För att visa hur projektgruppen har tänkt vid implementationen av sitt DSL kommer delar av implementationen av komplexa 
+tal nu att beskrivas. Vi börjar med hur ett komplext tal representeras, i vårt fall som två flyttalsvärden.
 Ett värde för den reella delen av talet och ett för den imaginära.
 Så ett komplext tal \(z = 1 + 1j = (1,1) \) representeras i vår DSL som:
 
@@ -661,11 +699,10 @@ Så ett komplext tal \(z = 1 + 1j = (1,1) \) representeras i vår DSL som:
 Complex 1 1
 \end{minted}
 
-Efter det så undersöktes vilka funktioner som borde implementeras för
-att vår tolkning komplexa talen skulle bete sig som matematikens komplexa tal.
-
-Addition kunde implementeras relativt enkelt då de reella delarna adderas med
-varandra och de imaginära med de imaginära enligt formeln nedan:
+Efter det undersöktes vilka funktioner som borde implementeras för att vår tolkning. De implementerade komplexa 
+talen skulle bete sig som matematikens komplexa tal och därför var det nödvändigt att implementera diverse 
+beräkningsoperatorer för dem. Addition kunde implementeras relativt enkelt då de reella delarna adderas med 
+varandra och de imaginära med de imaginära enligt formeln nedan: 
 \[(a, b) + (c, d) = (a + c, b + d)\] \cite{conway1978functions}
 Vilket i Haskell implementerades så här:
 \begin{minted}{haskell}
@@ -676,15 +713,14 @@ I kodexemplen ovan används funktioner som plockar ut den reella
 (\mintinline{haskell}{realPart}) respektive den imaginära delen
 (\mintinline{haskell}{imPart}) ur ett komplext tal.
 
-Gemensamt för hela det DSL som använts i läromaterialet är att så beskrivande
-namn som möjligt är givna till funktioner och typer.
-Detta gjordes för att funktionerna ska kunna läsas och förstås av inte bara
-studenter med djupare intresse av Haskell utan även av dem som enbart besitter
-grundläggande kunskaper för programmeringsspråket.
 
-Med multiplikationen så var det lite mer komplicerat då formeln ser ut så här:
+
+
+Multiplikationen var lite mer komplicerad än additionen, då den matematiska formeln för multiplikation med komplexa 
+tal ser ut så här:
  \[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \] \cite{conway1978functions}
-
+ 
+Detta implementerades enligt följande i vårt DSL:
 \begin{minted}{haskell}
 z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
   where realZ = realPart z
@@ -694,34 +730,37 @@ z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
 \end{minted}
 
 %Är detta nödvändigt? Vi borde liksom inte vara för förklarande.
-Här skapades hjälpfunktionerna (som man finner efter \mintinline{haskell}{where}
-i koden) för att undvika att man skrev samma funktion om och om igen,
-samtidigt som de håller koden tydlig och lättläst.
+Här skapades även hjälpfunktioner, vilka är de funktioner man finner efter \mintinline{haskell}{where}
+i koden. Detta var för att undvika att skriva samma kod om och om igen, samtidigt som det koden mer tydlig och 
+lättläst för studenten.
 
-Efter att dessa operationer var implementerade så var division nästa ``stora''
-operation, och formeln för det ser ut som följer:
+
+Efter att dessa operationer var färdiga så var division nästa stora operator att implementera. Den matematiska formeln 
+för detta ser ut som följer:
 \[ z / w = (z \cdot w’) / (w \cdot w’) \]
 %(sommarmatte.se)  Kan lämnas som reference.
 där w’ är w:s konjugat.
 %Man förlänger både täljare och nämnare med nämnarens konjugat vilket innebär
 %att nämnaren blir helt reell.
-För att implementera division var man tvungen att först göra så man kunde ta
-konjugatet på ett komplext tal.
-Det innebär att man byter tecknet på den imaginära delen av talet.
-Vår funktion för det såg ut så här:
+Man förlänger alltså både täljare och nämnare med nämnarens konjugat, vilket innebär att nämnaren 
+blir helt reell. För att implementera division var gruppen därför tvungen att först implementera en 
+funktion som tar fram konjugatet av ett komplext tal. Detta innebär att man byter tecknet på den imaginära 
+delen av talet. Vår funktion för det såg ut så här:
+
 \begin{minted}{haskell}
 conjugate z = Complex (realPart z) (negate (imPart z))
 \end{minted}
-Vår implementation av division blev då som det står här under:
+Vår implementation av division blev då följande:
 \begin{minted}{haskell}
 z / w = Complex (realPart zw’ / realPart ww’) (imPart zw’ / realPart ww’)
   where zw’ = z * (conjugate w)
         ww’ = w * (conjugate w)
 \end{minted}
 
-En viktig sak att implementera för att kunna koppla de komplexa talen till
-kursen TSS är att man kan använda sig av Eulers formel och kan skapa komplexa
-tal med hjälp av en vinkel. Eulers formel ser ut så här \cite{trott2004}:
+En viktig förutsättning för att kunna koppla de komplexa talen till kursen TSS var att man först 
+implementerade Eulers formel, som kan användas för att skapa komplexa tal utifrån en vinkel. Eulers 
+formel ser ut så här:
+% \cite{trott2004}:
 \[e^{jz}=\cos z+ j \cdot \sin z \]
 %(encyclopediaofmath) -kan lämnas som reference
 Implementationen av den här representationen skedde i flera steg.
@@ -730,46 +769,44 @@ given vinkel, representerad av ett flyttal.
 \begin{minted}{haskell}
 euler phi = Complex (cos phi) (sin phi)
 \end{minted}
-Enligt potenslagarna%(formelsamlingen) - lämnas till reference?
+Enligt potenslagarna%(formelsamlingen) - lämnas till reference? -Borde inte behövas
 så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och enligt Eulers formel så är
-\(e^{j b} = cos b + j\dot sin b\) så då är exponentialfunktionen för ett
-komplext talimplementerad enligt nedanstående kod:
+\(e^{j b} = cos b + j\dot sin b\) Exponentialfunktionen för ett komplext tal kan 
+därför implementeras enligt nedanstående kod:
+
 \begin{minted}{haskell}
 exp z = scale (exp (realPart z)) euler (imPart z))
 \end{minted}
 Sedan implementerades även trigonometriska funktioner med hjälp av Eulers
-formel. Så här representeras sinus som ett komplext tal:
+formel. Så här representeras $sin(x)$ som ett komplext tal:
 \[ sin(x) = (e^{j x} - e^{-j x}) / 2 j \]
-Vilket ser ut så här i koden:
+Vilket ser ut så här i vårt DSL:
 \begin{minted}{haskell}
 sin z = (exp (j*z) - exp (-(j*z))) / (scale 2 j )
   where j = Complex 0 1
 \end{minted}
 
-\subsection{Verktyg}%behövs denna?
-% Kanske skriva om hur vi använder google drive?
-% Jag skulle säga att det bara är värt att ta upp verktyg som påverkar
-% resultatet, t.ex. att vi
-% skrivit koden i haskell, men att vi t.ex. arbetat fram texten i google
-% drive känns inte så relevant att ha med här.
-Gruppen ska använda sig av Google Documents för att skriva den första utkasten
-av handledningen. Efter faktan och strukturen för varje kapitel blev
-färdigställd så överfördes det till \url{https://www.sharelatex.com/},
-en webbsida som erbjuder en gemensam latex kompilator.
-Tillslut så ska den överföras till en HTML format som är slutprodukten.
+Den fullständiga koden kan läsas på gruppens hemsida:
+\url{https://cdn.rawgit.com/DSLsofMath/BScProj/master/Hemsida/}
 
-Matlab och \url{fooplot.com/} används till att skapa figurer på funktions
-kurvor eller vektor värden ifall det behövs till handledningen.
-För enkätundersökningen så används webbsidan \url{https://www.webbenkater.com/}.
+Ett av de största problemen vid implementationen av signaler, och all kod som bygger på signaler, var hur man 
+skulle hantera kontinuerlig tid. Kursen \textit{TSS} behandlar både diskreta och kontinuerliga signaler och det var 
+därför önskvärt att implementera båda dessa. En dator kan dock i praktiken inte hantera kontinuerliga funktioner utan 
+endast diskreta. 
 
-Koden ska vara skriven i programmeringspråket Haskell och gruppen använde sig
-av \url{https://c9.io/} för att alla ska kunna ha tillgång till koden och en
-kompilator.
-%TODO: "all någorlunda färdiga material" := "allt någorlunda färdigt material"
-Pågående under arbetets gång så laddas allt någorlunda färdigt material upp i \url{https://github.com/}. Här kan gruppens handledare kolla igenom materialet och ge sina kommentarer. Dessutom så blir materialet tillgänglig för andra att kolla igenom och bygga vidare på. 
-%TODO: korrekt, men bara en lite del av motiveringen för github: materialet är även tillgängligt för andra (studentmålgruppen exempelvis) både för läsning och för att bygga vidare. Dessutom är git, och github, verktyg som ingår i många projekt i arbetslivet, dvs. git(hub)-kompetens är en del av de generella ingenjörskompetenserna. etc.
+Ett sätt att hantera detta är att simulera ingående data till en  kontinuerlig funktion med diskret data, där 
+man låter avståndet mellan de diskreta värden datan kan anta vara väldigt små. Ju mindre dessa steg är desto bättre 
+approximation av en kontinuerlig funktion får man. Frågan som uppstår är hur lämplig en diskret approximation är för 
+att främja förståelsen av signaler mm i kontinuerlig tid. Se avsnittet \textit{Diskussion} för vidare diskussion om detta.
 
-%mer?
+Ett annat sätt att implementera kontinuerliga fall är med så kallad \textit{pattern matching}. Det man då gör är att 
+implementera olika utfall av en funktion var för sig. Funktioner som implementeras på detta sett ger svar som är mer 
+matematiskt korrekta än en diskret approximation. Detta ger dock inte samma möjlighet att se mönster och att sammanfatta 
+området i en funktion.
+
+Projektgruppen valde till slut en kompromiss av dessa två angreppssätt och använde både diskreta approximationer och 
+\textit{pattern matching} för att beskriva kontinuerliga fall. Gruppen har växlat mellan varianterna beroende på vilken 
+av dem som föreföll ge den tydligaste förklaringen av det aktuella ämnet.
 
 \subsection{Test av läromaterialet}
 
