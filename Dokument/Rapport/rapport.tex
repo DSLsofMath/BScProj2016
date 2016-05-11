@@ -42,13 +42,13 @@
 \newpage
 
 \section*{Förord}
-Denna rapport behandlar kandidatarbetet “Matematikens domänspecifika språk (DSLsofMath) för andra kurser” som 
-genomfördes på Chalmers Tekniska Högskola under vårterminen 2016. Vi som har gjort detta kandidatarbete är fem studenter 
-från civilingenjörsprogrammen Datateknik och Teknisk Matematik på Chalmers. 
+Denna rapport behandlar kandidatarbetet “Matematikens domänspecifika språk (DSLsofMath) för andra kurser” som
+genomfördes på Chalmers Tekniska Högskola under vårterminen 2016. Vi som har gjort detta kandidatarbete är fem studenter
+från civilingenjörsprogrammen Datateknik och Teknisk Matematik på Chalmers.
 
-Vi vill tacka Patrik Jansson, vår handledare, som har varit väldigt hjälpsam och skickat oss i rätt riktning när vi 
-varit vilsna. Vi vill tacka Adam som har svarat på frågor vi haft och funnits tillgänglig när vi undrat saker. Vi vill 
-tacka Bo Egardt och Ants Silberberg som tagit sig tid att diskutera sina kurser med oss. Och slutligen vill vi tacka vår 
+Vi vill tacka Patrik Jansson, vår handledare, som har varit väldigt hjälpsam och skickat oss i rätt riktning när vi
+varit vilsna. Vi vill tacka Adam som har svarat på frågor vi haft och funnits tillgänglig när vi undrat saker. Vi vill
+tacka Bo Egardt och Ants Silberberg som tagit sig tid att diskutera sina kurser med oss. Och slutligen vill vi tacka vår
 testgrupp som gått igenom vårt material och gett oss återkoppling för att förbättra vår produkt.
 
 \renewcommand*\abstractname{Sammandrag}
@@ -62,10 +62,10 @@ testgrupp som gått igenom vårt material och gett oss återkoppling för att f�
 % * Jättekort om syfte, resultat etc
 % Illustration: Borde inte behövas
 Denna rapport beskriver utvecklingen av läromaterialet “TSS med DSL” med dess tillhörande programmeringskod och lösningar.
-Läromaterialet riktar sig till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom signallära där man utnyttjar studenternas kunskaper inom programmering. 
+Läromaterialet riktar sig till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom signallära där man utnyttjar studenternas kunskaper inom programmering.
 Materialet innehåller förklarande text och teori, samt programmeringsövningar med domänspecifika språk.
 
-Bakgrunden till detta projekt är att kursen TSS på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kurserna. 
+Bakgrunden till detta projekt är att kursen TSS på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kurserna.
 Detta har visats sig inte vara något som är unikt för datastudenterna på Chalmers utan det är tvärtom ett problem inom många discipliner.
 
 Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts för att ta kunna ta fram läromaterialet, samt de tester som gjorts på den färdiga produkten.
@@ -77,7 +77,7 @@ Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts f�
 This report describes the development of the supplementary tutorial ''Transforms, Signals and Systems with the help of a DSL'' with provided code and solutions.
 The tutorial is aimed at students studying Computer Science at Chalmers University of Technology and its aim is to be a supplementary teaching material for the course ''Transforms, Signals and Systems'' where you will be progamming in domain specific languages.
 
-The background to this project is that the computer science students studying the course ''Transforms, Signals and Systems'' have gotten poor results on the tests for several years and this might be because of the CS students unfamiliarity with the kind of mathematics which is the backbone of that course. 
+The background to this project is that the computer science students studying the course ''Transforms, Signals and Systems'' have gotten poor results on the tests for several years and this might be because of the CS students unfamiliarity with the kind of mathematics which is the backbone of that course.
 
 The report further describes the surveying and analysis done to be able to produce this tutorial along with the tests that have been done on the finished product.
 \end{abstract}
@@ -173,16 +173,16 @@ till endast en kurs, TSS. Detta då projektet är tidsbegränsat.
 Läromaterialet som tagits fram är ett kompletterande material och är inte
 tänkt att kunna ersätta kursen eller dess material.
 
-Gruppen har under utvecklingen av materialet inte heller lagt fokus på matematisk korrekthet, 
-matematiska bevis, avancerade matematiska begrepp eller teorier.  Anledningen till detta är att 
-materialet  i första hand är tänkt att främja förståelse och väcka intresse för ämnet. Detta beslut 
-baserades även på \textit{Didaktik för ingenjörslärare} där författarna, under en diskussion om aktivt lärande, 
-hävdar att: ”När man lär sig något kan man få det att fastna på olika sätt. En ytligt inlärd kunskap 
-eller ett beteende som inte tränats tillräckligt glöms snart bort. Det är med andra ord viktigt att 
-metoderna tillämpas så att djuplärande uppnås. Textens detaljer är då inte lika intressanta som textens 
-budskap, förståelse, sammanhang och principer. Snarare än att lära sig ”det man måste” utantill för 
-reproduktion, sker ett personligt tillägnande relaterat till tidigare kunskap.” I detta projekt är det 
-alltså viktigt att ta fram ett interaktivt material som främjar förståelse och inte fastna i detaljer. 
+Gruppen har under utvecklingen av materialet inte heller lagt fokus på matematisk korrekthet,
+matematiska bevis, avancerade matematiska begrepp eller teorier.  Anledningen till detta är att
+materialet  i första hand är tänkt att främja förståelse och väcka intresse för ämnet. Detta beslut
+baserades även på \textit{Didaktik för ingenjörslärare} där författarna, under en diskussion om aktivt lärande,
+hävdar att: ”När man lär sig något kan man få det att fastna på olika sätt. En ytligt inlärd kunskap
+eller ett beteende som inte tränats tillräckligt glöms snart bort. Det är med andra ord viktigt att
+metoderna tillämpas så att djuplärande uppnås. Textens detaljer är då inte lika intressanta som textens
+budskap, förståelse, sammanhang och principer. Snarare än att lära sig ”det man måste” utantill för
+reproduktion, sker ett personligt tillägnande relaterat till tidigare kunskap.” I detta projekt är det
+alltså viktigt att ta fram ett interaktivt material som främjar förståelse och inte fastna i detaljer.
 
 \section{Problemanalys}
 %Huvudpoänger:
@@ -269,13 +269,13 @@ beskrivas med funktionell programmering och DSL, samt programmeringsövningar.
 
 \subsection{Programmeringskod och övningar}
 
-Programmeringskoden och övningarna ska skrivas på ett sådant sätt att det endast krävs grundläggande förkunskaper i 
-funktionell programmering och Haskell för att förstå dem. Studenten ska inte behöva ha läst kursen DSLOfMath eller 
-motsvarande för att förstå övningarna, även om det självklart underlättar. 
+Programmeringskoden och övningarna ska skrivas på ett sådant sätt att det endast krävs grundläggande förkunskaper i
+funktionell programmering och Haskell för att förstå dem. Studenten ska inte behöva ha läst kursen DSLOfMath eller
+motsvarande för att förstå övningarna, även om det självklart underlättar.
 
-Koden ska i första hand vara lättläst och pedagogiskt skriven snarare än att vara effektiv, eftersom koden endast är 
-tänkt som ett läromedel och inte ska användas för att t.ex. fouriertransformera signaler i andra sammanhang än i 
-undervisningssyfte.  
+Koden ska i första hand vara lättläst och pedagogiskt skriven snarare än att vara effektiv, eftersom koden endast är
+tänkt som ett läromedel och inte ska användas för att t.ex. fouriertransformera signaler i andra sammanhang än i
+undervisningssyfte.
 
 
 \section{Teknisk bakgrund}
@@ -285,24 +285,24 @@ behövs för att bygga upp handledningen.
 % * Ta upp och introducera tekniken vi bygger vår tutorial på.
 
 \subsection{Git och Github}
-Git är en versionshanteringsmjukvara som gör det möjligt för flera personer att arbeta med samma material samtidigt utan 
-att de skriver över varandras arbete. Så länge inte två versioner innehåller ändringar som står i konflikt med varandra, 
-exempelvis att man samtidigt ändrat på samma rader, slås de ihop och bildar då en tredje version vars innehåll kommer 
-från båda de tidigare versionerna. Alla tidigare versioner utav en fil sparas och kan återställas och man kan också 
-återställa enstaka förändringar utan att behöva återställa hela filen. Skulle två versioner stå i konflikt med varandra 
+Git är en versionshanteringsmjukvara som gör det möjligt för flera personer att arbeta med samma material samtidigt utan
+att de skriver över varandras arbete. Så länge inte två versioner innehåller ändringar som står i konflikt med varandra,
+exempelvis att man samtidigt ändrat på samma rader, slås de ihop och bildar då en tredje version vars innehåll kommer
+från båda de tidigare versionerna. Alla tidigare versioner utav en fil sparas och kan återställas och man kan också
+återställa enstaka förändringar utan att behöva återställa hela filen. Skulle två versioner stå i konflikt med varandra
 krävs däremot en del manuellt hantverk.
 
 För ytterligare information om Git se hemsidan \url{https://git-scm.com}.
 
-GitHub är en hemsida som använder git. GitHub gör det möjligt för utvecklare av mjukvara med öppen källkod att utveckla 
-kod och annat material offentligt. Mjukvara med öppen källkod är mjukvara vars källkod är tillgänglig för vem som helst 
+GitHub är en hemsida som använder git. GitHub gör det möjligt för utvecklare av mjukvara med öppen källkod att utveckla
+kod och annat material offentligt. Mjukvara med öppen källkod är mjukvara vars källkod är tillgänglig för vem som helst
 att använda och vidareutveckla.
 
-GitHub förenklar kommunikationen mellan användare och utvecklare av mjukvara med öppen källkod genom att tillhandahålla 
-verktyg såsom möjligheter att kommentera på enskilda versioner av mjukvaran, uppföljningsverktyg för ärenden och problem, 
-samt dokumentationsverktyg. GitHub har även verktyg för att underlätta samarbete mellan utvecklare genom att man kan 
-klona varandras projekt och bidra med egna ändringar som huvudutvecklaren kan godkänna. GitHub underlättar även framtida 
-vidareutveckling av kod, eftersom koden lagras offentligt på hemsidan och vara lättåtkomlig för andra utvecklare. 
+GitHub förenklar kommunikationen mellan användare och utvecklare av mjukvara med öppen källkod genom att tillhandahålla
+verktyg såsom möjligheter att kommentera på enskilda versioner av mjukvaran, uppföljningsverktyg för ärenden och problem,
+samt dokumentationsverktyg. GitHub har även verktyg för att underlätta samarbete mellan utvecklare genom att man kan
+klona varandras projekt och bidra med egna ändringar som huvudutvecklaren kan godkänna. GitHub underlättar även framtida
+vidareutveckling av kod, eftersom koden lagras offentligt på hemsidan och vara lättåtkomlig för andra utvecklare.
 
 För ytterligare information om GitHub se hemsidan \url{https://github.com}.
 
@@ -348,33 +348,33 @@ om det på nytt.
 % -Referera till “Why functional programming matters”
 
 \subsection{Transformer, signaler och system}
-Transformer, signaler och system, inom signalbehandling, beskriver olika typer av signaler, hur de relateras till ett 
-system och hur en ingenjör kan modellera denna relation mellan signaler och systemet i matematiska termer. Ett exempel 
-på ett system kan till exempel vara en fjäder vars insignal är en kraft som påverkar fjädern utifrån. I kursen 
-\textit{TSS} och så även i vårt projekt begränsas signalen till enbart en oberoende variabel som beskriver tid och de 
+Transformer, signaler och system, inom signalbehandling, beskriver olika typer av signaler, hur de relateras till ett
+system och hur en ingenjör kan modellera denna relation mellan signaler och systemet i matematiska termer. Ett exempel
+på ett system kan till exempel vara en fjäder vars insignal är en kraft som påverkar fjädern utifrån. I kursen
+\textit{TSS} och så även i vårt projekt begränsas signalen till enbart en oberoende variabel som beskriver tid och de
 system som som betraktas är linjära och tidsinvarianta, så kallade  LTI-system.
 
-För att kunna lösa problem med denna typ av signaler och system så kan man utveckla signalen i en fourierserie eller 
-använda sig av olika typer av transformer, vilket gör det möjligt att betrakta signalen i en annan domän. De transformer 
-som tas upp i kursen \textit{TSS} är \textit{Fouriertransform}, \textit{Laplacetransform} och \textit{Z-transformen}. 
+För att kunna lösa problem med denna typ av signaler och system så kan man utveckla signalen i en fourierserie eller
+använda sig av olika typer av transformer, vilket gör det möjligt att betrakta signalen i en annan domän. De transformer
+som tas upp i kursen \textit{TSS} är \textit{Fouriertransform}, \textit{Laplacetransform} och \textit{Z-transformen}.
 
 
-\textit{Fouriertransformen} är en transform i diskret eller kontinuerlig tid som transformerar en funktion från 
+\textit{Fouriertransformen} är en transform i diskret eller kontinuerlig tid som transformerar en funktion från
 tidsdomänen till frekvensdomänen. \textit{Fouriertransformen} är definierad enligt följande:
 %*ekv
 
-\textit{Laplacetransformen} är en transform i kontinuerlig tid som transformerar en funktion från tidsdomänen till 
-s-domänen. s-domänen är en generalisering av den kontinuerliga frevensdomänen.  \textit{Laplacetransformen} är 
+\textit{Laplacetransformen} är en transform i kontinuerlig tid som transformerar en funktion från tidsdomänen till
+s-domänen. s-domänen är en generalisering av den kontinuerliga frevensdomänen.  \textit{Laplacetransformen} är
 definierad som:
 %*ekv
- 
 
-\textit{Z-transformen} är en transform i diskret tid som transformerar en funktion från tidsdomänen till z-domänen. 
+
+\textit{Z-transformen} är en transform i diskret tid som transformerar en funktion från tidsdomänen till z-domänen.
 z-domänen är en generalisering av den diskreta frekvensdomänen. \textit{Z-transformen} är definierad som:
 %*ekv
 
-Området transformer, signaler och system innehåller även andra begrepp och operatorer som komplexa tal, faltning, 
-sampling med flera.  Alla dessa grundkunskaper behövs för att modulera system och signaler. 
+Området transformer, signaler och system innehåller även andra begrepp och operatorer som komplexa tal, faltning,
+sampling med flera.  Alla dessa grundkunskaper behövs för att modulera system och signaler.
 
 \subsection{Didaktik}
 Didaktik är vetenskapen om undervisning.
@@ -395,7 +395,7 @@ I \textit{Didaktik för ingejörslärare} sammanfattas motivationens betydelse
 enligt följande: ”Varje kurs behöver motiveras för studenterna.
 Med motiverade studenter blir resultatet bättre.”.
 %TODO: Upprepa inte titeln här. "Boken hävdar" eller liknande blir bättre.
-%\textit{Didaktik för ingegörslärare} 
+%\textit{Didaktik för ingegörslärare}
 Boken hävdar även att långt ifrån alla studenter
 som går en kurs utgår från att den är läsvärd.
 Även i \textit{Motivational Design for Learning and Performance} påpekas det
@@ -522,18 +522,18 @@ Hur dessa didaktiska modeller och metoder har använts i projektet
 % * Testning
 
 
-I detta avsnitt beskrivs hur projektgruppen gått till väga under utvecklingen av läromaterialet, samt vilka verktyg och 
+I detta avsnitt beskrivs hur projektgruppen gått till väga under utvecklingen av läromaterialet, samt vilka verktyg och
 metoder som använts och hur dessa tillämpats.
 
-Enligt boken Motivational design for learning and performance kan man använda sig av en modell med 10 steg vid 
+Enligt boken Motivational design for learning and performance kan man använda sig av en modell med 10 steg vid
 framtagningen av nytt material till en kurs. Dessa 10 steg är som följer:
 
 \begin{enumerate}
   \item Erhållning av kursinformation. Hur ser situationen ut nu? Vad är nuvarande kursbeskrivning, kursmål, etc?
-  \item Erhållning av information om studenterna. Vad har studenterna för relevant egenskaper i form av intressen och 
+  \item Erhållning av information om studenterna. Vad har studenterna för relevant egenskaper i form av intressen och
   tidigare erfarenheter och förkunskaper?
   \item Analys av studenterna. Vad har studenterna för motivation och syn på kursen?
-  \item Analys av existerande material. Finns det någon motivationstaktik i det nuvarande materialet och är den i så 
+  \item Analys av existerande material. Finns det någon motivationstaktik i det nuvarande materialet och är den i så
   fall lämplig?
   \item Lista mål och utvärderingar. Vad vill jag åstadkomma och hur bedömer jag om jag lyckas?
   \item Lista möjliga taktiker. Vilka möjliga taktiker kan uppnå de satta målen?
@@ -544,133 +544,133 @@ framtagningen av nytt material till en kurs. Dessa 10 steg är som följer:
 \end{enumerate}
 
 
-Dessa steg har legat till grund för, och även använts för att komplettera, mycket av projektgruppens metodik när 
-läromaterialet utvecklats. Gruppen inledde i enlighet med de 10 stegen med att samla in och analysera information om 
-kursen och målgruppen, se avsnitt Utveckling - Inledande efterforskning och förundersökning, arbetade fram en taktik 
-enligt ARCS-modellen, se \textit{Utveckling - Didaktik}, utvecklade och testade materialet, se avsnitt 
+Dessa steg har legat till grund för, och även använts för att komplettera, mycket av projektgruppens metodik när
+läromaterialet utvecklats. Gruppen inledde i enlighet med de 10 stegen med att samla in och analysera information om
+kursen och målgruppen, se avsnitt Utveckling - Inledande efterforskning och förundersökning, arbetade fram en taktik
+enligt ARCS-modellen, se \textit{Utveckling - Didaktik}, utvecklade och testade materialet, se avsnitt
 {Utveckling - Testning}, utvärderat och kompletterat det.
 
-Gruppen hade även två inspirationskällor i form av \cite{learnyouahaskell} och \url{http://betterexplained.com/}. 
+Gruppen hade även två inspirationskällor i form av \cite{learnyouahaskell} och \url{http://betterexplained.com/}.
 
 
 \subsection{Inledande efterforskning och Förundersökning}
 
-Projektgruppen inledde med litteraturstudier och efterforskningar inom ämnet. Projektdeltagarna läste in sig på 
+Projektgruppen inledde med litteraturstudier och efterforskningar inom ämnet. Projektdeltagarna läste in sig på
 Signallära, DSL, didaktik, funktionell programmering och annan relaterad forskning.
 
-Under projektets tidiga fas intervjuades två personer ur personalstyrkan på Chalmers som undervisat och varit 
-examinatorer i kurserna \textit{TSS} och \textit{Reglerteknik}. Se {bilaga 2} för en sammanfattning av denna intervju. 
-Under intervjun redogjorde examinatorerna för hur de upplevde studenternas problem med kurserna och vad de trodde var 
+Under projektets tidiga fas intervjuades två personer ur personalstyrkan på Chalmers som undervisat och varit
+examinatorer i kurserna \textit{TSS} och \textit{Reglerteknik}. Se {bilaga 2} för en sammanfattning av denna intervju.
+Under intervjun redogjorde examinatorerna för hur de upplevde studenternas problem med kurserna och vad de trodde var
 orsaken.
 
-Projektgruppen sammanställde sedan en enkät, riktad till de studenter som läst kurserna \textit{TSS} och 
-\textit{Reglerteknik}, eller skulle läsa kurserna inom ett år. Denna enkät arbetades fram utifrån böckerna 
+Projektgruppen sammanställde sedan en enkät, riktad till de studenter som läst kurserna \textit{TSS} och
+\textit{Reglerteknik}, eller skulle läsa kurserna inom ett år. Denna enkät arbetades fram utifrån böckerna
 \textit{Enkäten i praktiken} och \textit{Enkätboken}.
 
-När enkäten var framtagen användes \textit{webbenkater.com} för att enkelt kunna hantera ach analysera studenternas svar 
-anonymt. Länken till enkäten på \textit{webbenkater.com} mejlades ut till alla datastudenter från årgångarna x-y och 
+När enkäten var framtagen användes \textit{webbenkater.com} för att enkelt kunna hantera ach analysera studenternas svar
+anonymt. Länken till enkäten på \textit{webbenkater.com} mejlades ut till alla datastudenter från årgångarna x-y och
 gruppen erhöll totalt 77 svar.  Se \textit{bilaga 1} för ett utdrag ur dessa svar.
 
-Projektgruppen sammanställde sedan den insamlade informationen om kursen, såsom kursplan, lärandemål samt de senaste 
-årens tentor. Utifrån kursinformationen, samt intervjun och resultatet från enkätundersökningen, beslutades vilka 
+Projektgruppen sammanställde sedan den insamlade informationen om kursen, såsom kursplan, lärandemål samt de senaste
+årens tentor. Utifrån kursinformationen, samt intervjun och resultatet från enkätundersökningen, beslutades vilka
 områden som läromaterialet skulle täcka.
 
 
 \subsection{Läromaterialets struktur}
 
-Läromaterialet är uppdelat i fyra ämnesavsnitt samt en introduktion. I introduktionen beskrivs läromaterialet 
-övergripande samt vilka förkunskaper som krävs. Där förklaras även konceptet DSL. Efter introduktionen följer det 
-första avsnittet, vilket kort beskriver komplexa tal och Eulers formel samt introducerar studenten till vårt DSL. Det 
-andra avsnittet beskriver olika typer av signaler och deras egenskaper, det tredje beskriver LTI-system och det fjärde 
-och sista beskriver Fourierserier och Fouriertransformen. De ämnen avsnitten beskriver valdes, som nämns i avsnittet 
-\textit{Utveckling av läromaterialet - Inledande forskning}, utifrån information från kursen, intervjun med 
-examinatorerna samt studenternas enkätsvar. Ursprunglingen ville projektgruppen även skriva ett avsnitt som beskrev 
-Laplacetransformen och Z-transformen, men detta fick bortprioriteras på grund av tidsbrist. 
+Läromaterialet är uppdelat i fyra ämnesavsnitt samt en introduktion. I introduktionen beskrivs läromaterialet
+övergripande samt vilka förkunskaper som krävs. Där förklaras även konceptet DSL. Efter introduktionen följer det
+första avsnittet, vilket kort beskriver komplexa tal och Eulers formel samt introducerar studenten till vårt DSL. Det
+andra avsnittet beskriver olika typer av signaler och deras egenskaper, det tredje beskriver LTI-system och det fjärde
+och sista beskriver Fourierserier och Fouriertransformen. De ämnen avsnitten beskriver valdes, som nämns i avsnittet
+\textit{Utveckling av läromaterialet - Inledande forskning}, utifrån information från kursen, intervjun med
+examinatorerna samt studenternas enkätsvar. Ursprunglingen ville projektgruppen även skriva ett avsnitt som beskrev
+Laplacetransformen och Z-transformen, men detta fick bortprioriteras på grund av tidsbrist.
 
-Läromaterialets första ämnesavsnitt beskriver komplexa tal. Eftersom förståelse av komplexa tal är en viktig förkunskap 
-till \textit{TSS} valde gruppen att inleda med repetition av detta ämne. En annan anledning till att inleda med komplexa 
-tal var att detta är ett område datastudenter känner relativt väl till vid den tidpunkt i studierna då de läser 
-\textit{TSS}. Gruppen ville ge studenterna möjlighet att bekanta sig med det DSL som används och hur man kan 
-implementera matematik med detta innan man började beskriva nytt material. Därför ansåg gruppen att det var lämpligt att 
-inleda med ett ämne som datastudenterna kände sig relativt bekväma med för att de skulle kunna fokusera på 
+Läromaterialets första ämnesavsnitt beskriver komplexa tal. Eftersom förståelse av komplexa tal är en viktig förkunskap
+till \textit{TSS} valde gruppen att inleda med repetition av detta ämne. En annan anledning till att inleda med komplexa
+tal var att detta är ett område datastudenter känner relativt väl till vid den tidpunkt i studierna då de läser
+\textit{TSS}. Gruppen ville ge studenterna möjlighet att bekanta sig med det DSL som används och hur man kan
+implementera matematik med detta innan man började beskriva nytt material. Därför ansåg gruppen att det var lämpligt att
+inleda med ett ämne som datastudenterna kände sig relativt bekväma med för att de skulle kunna fokusera på
 programmeringsaspekten och förstå upplägget med DSL.
 
-Det andra avsnittet beskriver signaler. Signaler är ett viktigt begrepp i kursen \textit{TSS} och kunskap om signaler är 
-en nödvändig grund för att förstå de följande avsnitten. Därför var det ett självklart val för gruppen att låta andra 
-avsnittet handla om detta. I avsnittet förklaras, något förenklat, med text och figurer vad signaler är och hur några 
+Det andra avsnittet beskriver signaler. Signaler är ett viktigt begrepp i kursen \textit{TSS} och kunskap om signaler är
+en nödvändig grund för att förstå de följande avsnitten. Därför var det ett självklart val för gruppen att låta andra
+avsnittet handla om detta. I avsnittet förklaras, något förenklat, med text och figurer vad signaler är och hur några
 vanliga typer av signaler, som till exempel enhetssteg, ser ut och beter sig.
 
-Det tredje avsnittet beskriver LTI-system. Alla system som beskrivs i \textit{TSS} är LTI-system. Kunskap om LTI-system 
-och dess egenskaper är därför avgörande för att förstå och räkna på de system som tas upp i \textit{TSS}. Avsnittet tar 
+Det tredje avsnittet beskriver LTI-system. Alla system som beskrivs i \textit{TSS} är LTI-system. Kunskap om LTI-system
+och dess egenskaper är därför avgörande för att förstå och räkna på de system som tas upp i \textit{TSS}. Avsnittet tar
 även upp faltning och hur detta fungerar i LTI-system.
 
-Det fjärde avsnittet beskriver Fourierserier och Fouriertransformen. Dessa är centrala begrepp i kursen och något som 
-många datastudenter upplever som svårt. Därför valde gruppen, då det konstaterades att det inte fanns tid att beskriva 
-alla transformer som finns med i \textit{TSS}, att fokusera på Fourier. Fouriertransformen är även nära besläktad med 
-såväl Laplacetransformen som Z-transformen och gruppen bedömde att förståelse för Fouriertransformen sannolikt skulle 
+Det fjärde avsnittet beskriver Fourierserier och Fouriertransformen. Dessa är centrala begrepp i kursen och något som
+många datastudenter upplever som svårt. Därför valde gruppen, då det konstaterades att det inte fanns tid att beskriva
+alla transformer som finns med i \textit{TSS}, att fokusera på Fourier. Fouriertransformen är även nära besläktad med
+såväl Laplacetransformen som Z-transformen och gruppen bedömde att förståelse för Fouriertransformen sannolikt skulle
 bidra till förståelse för de andra två transformerna.
 
-Mer information om hur avsnitten utformats för att uppmuntra till inlärning följer i nästa avsnitt, 
+Mer information om hur avsnitten utformats för att uppmuntra till inlärning följer i nästa avsnitt,
 \textit{Didaktik i läromaterialet}.
 
 \subsection{Didaktik}
-Läromaterialet ska vara uppbyggt så att studenten själv får arbeta med det utifrån sina tidigare 
-kunskaper. Vi ville åstadkomma ett aktivt lärande som ger studenten långvarig förståelse och 
-intresse för ämnet, snarare än kunskap studenten lär sig tillfälligt utantill. \textit{Didaktik för 
-ingenjörslärare} beskriver aktivt lärande enligt följande: ”Idéen bakom aktivt lärande är att en 
-lärprocess bygger på en konkret erfarenhet som följs av reflektion och observation.” Med bakgrund av 
-detta har vi lagt en stor del av vårt fokus på att göra läromaterialet interaktivt. Vi har lagt in 
-enklare kryssfrågor i texten för att låta studenten arbeta aktivt med ämnet när de läser teorin och 
-vi har även lagt in programmeringsövningar där studenten får använda och utveckla sina kunskaper i 
+Läromaterialet ska vara uppbyggt så att studenten själv får arbeta med det utifrån sina tidigare
+kunskaper. Vi ville åstadkomma ett aktivt lärande som ger studenten långvarig förståelse och
+intresse för ämnet, snarare än kunskap studenten lär sig tillfälligt utantill. \textit{Didaktik för
+ingenjörslärare} beskriver aktivt lärande enligt följande: ”Idéen bakom aktivt lärande är att en
+lärprocess bygger på en konkret erfarenhet som följs av reflektion och observation.” Med bakgrund av
+detta har vi lagt en stor del av vårt fokus på att göra läromaterialet interaktivt. Vi har lagt in
+enklare kryssfrågor i texten för att låta studenten arbeta aktivt med ämnet när de läser teorin och
+vi har även lagt in programmeringsövningar där studenten får använda och utveckla sina kunskaper i
 ämnet.
 
-Eftersom läromaterialet som tagits fram är ett komplement till en redan existerande kurs har gruppen 
-bedömt det som extra viktigt att materialet är motiverande eftersom studenten läser det vid sidan av 
-sina vanliga studier. Därför har gruppen valt att använda sig av ARCS-modellen som beskrivs i avsnitt 
-Teknisk bakgrund - Didaktik. 
+Eftersom läromaterialet som tagits fram är ett komplement till en redan existerande kurs har gruppen
+bedömt det som extra viktigt att materialet är motiverande eftersom studenten läser det vid sidan av
+sina vanliga studier. Därför har gruppen valt att använda sig av ARCS-modellen som beskrivs i avsnitt
+Teknisk bakgrund - Didaktik.
 
-ARCS-modellens första grundpelare, \textit{Attention}, har vi praktiserat bland annat genom att använda 
-skämtsamma formuleringar, sammanfattningar och exempel inom ämnet. Vi har strävat efter att hålla en 
-lättsam och humoristisk ton för att hålla strudenternas uppmärksamhet. Vi har dock försökt undvika 
-lustiga utvikningar, formuleringar och exempel som avviker från ämnet eller inte fyller sin funktion 
-att främja intresse och förståelse för ämnet. För att sedan väcka ett mer varaktigt intresse hos 
-studenten ställer vi frågor i löpande text och övningar. Varje avsnitt inleds med en fråga av typen 
-“Vad är det här egentligen för något och vad används det till?”. För att behålla studentens intresse 
-genom hela läromaterialet har vi valt att variera upplägget på avsnitten till viss del. Eftersom vi 
-vill behålla en läsvänlig och överskådlig struktur i hela läromaterialet har vi valt att främst variera 
-materialet med olika typer av exempel och uppgifter. I ett kapitel får studenterna fylla i ett relativt 
-stort antal kryssfrågor och i ett annat lägger vi stort fokus på en viss typ av programmeringsövningar 
-där studenten får fylla i saknad kod. Vi har alltså siktat på att göra studenternas eget arbete 
+ARCS-modellens första grundpelare, \textit{Attention}, har vi praktiserat bland annat genom att använda
+skämtsamma formuleringar, sammanfattningar och exempel inom ämnet. Vi har strävat efter att hålla en
+lättsam och humoristisk ton för att hålla strudenternas uppmärksamhet. Vi har dock försökt undvika
+lustiga utvikningar, formuleringar och exempel som avviker från ämnet eller inte fyller sin funktion
+att främja intresse och förståelse för ämnet. För att sedan väcka ett mer varaktigt intresse hos
+studenten ställer vi frågor i löpande text och övningar. Varje avsnitt inleds med en fråga av typen
+“Vad är det här egentligen för något och vad används det till?”. För att behålla studentens intresse
+genom hela läromaterialet har vi valt att variera upplägget på avsnitten till viss del. Eftersom vi
+vill behålla en läsvänlig och överskådlig struktur i hela läromaterialet har vi valt att främst variera
+materialet med olika typer av exempel och uppgifter. I ett kapitel får studenterna fylla i ett relativt
+stort antal kryssfrågor och i ett annat lägger vi stort fokus på en viss typ av programmeringsövningar
+där studenten får fylla i saknad kod. Vi har alltså siktat på att göra studenternas eget arbete
 omväxlande för att att de inte ska bli uttråkade och ge upp.
 
-Den andra grundpelaren, \textit{Relevance}, har vi praktiserat främst i inledningen av avsnitten och i 
-introduktionsavsnittet. Introduktionsavsnittet förklarar att läromaterialet finns till för att vara ett 
-komplement till, och hjälpa datastudenterna med, \textit{TSS}. Varje ämnesavsnitt inleds sedan med en kort 
-beskrivning av ämnet och vad det kan användas till. På detta sätt förklarar vi inledningsvis varför 
-läromaterialet är relevant för studentens studier. Sedan förklarar vi mer i detalj vad de olika 
+Den andra grundpelaren, \textit{Relevance}, har vi praktiserat främst i inledningen av avsnitten och i
+introduktionsavsnittet. Introduktionsavsnittet förklarar att läromaterialet finns till för att vara ett
+komplement till, och hjälpa datastudenterna med, \textit{TSS}. Varje ämnesavsnitt inleds sedan med en kort
+beskrivning av ämnet och vad det kan användas till. På detta sätt förklarar vi inledningsvis varför
+läromaterialet är relevant för studentens studier. Sedan förklarar vi mer i detalj vad de olika
 ämnesområderna kan användas till alteftersom studenten stöter på dem i materialet.
 
-Den tredje grundpelaren, \textit{Confidence}, har vi praktiserat genom att skapa övningar och uppgifter 
-av varierande svårighetsgrad och ett upplägg där studenten själv kontrollerar sin inlärning. Vad gäller 
-övningarna så inleder vi i det första avsnittet med enklare kryssfrågor och relativt enkla 
-programmeringsövningar. Kryssfrågorna kan kryssas i direkt på hemsidan, varpå de rättas direkt för att 
-ge studenten omedelbar bekräftelse. Det finns även lösningsförslag till programmeringsövningarna som 
-studenten kan jämföra sin kod med eller titta på om hen kör fast. Eftersom vi vill att studenten själv 
-ska kunna kontrollera sin inlärning och arbeta i en takt som fungerar för hen passar det utmärkt att 
-lägga upp läromaterialet i form av en hemsida. På så vis har studenten tillgång till all information och 
+Den tredje grundpelaren, \textit{Confidence}, har vi praktiserat genom att skapa övningar och uppgifter
+av varierande svårighetsgrad och ett upplägg där studenten själv kontrollerar sin inlärning. Vad gäller
+övningarna så inleder vi i det första avsnittet med enklare kryssfrågor och relativt enkla
+programmeringsövningar. Kryssfrågorna kan kryssas i direkt på hemsidan, varpå de rättas direkt för att
+ge studenten omedelbar bekräftelse. Det finns även lösningsförslag till programmeringsövningarna som
+studenten kan jämföra sin kod med eller titta på om hen kör fast. Eftersom vi vill att studenten själv
+ska kunna kontrollera sin inlärning och arbeta i en takt som fungerar för hen passar det utmärkt att
+lägga upp läromaterialet i form av en hemsida. På så vis har studenten tillgång till all information och
 alla uppgifter men kan arbeta med materialet som hen vill.
 
-Den fjärde och sista grundpelaren, \textit{Satisfaction}, har vi praktiserat främst i slutet på 
-avsnitten och i uppgifterna. I våra kryssfrågor får studenten omedelbar bekräftelse när hen har lärt sig 
-något eller kan det sedan innan. Efter att studenten har läst teorin inom ett område följer vi upp med 
-övningar där studenten får praktisera sin nyvunna kunskap. Varje avsnitt i läromaterialet avslutas sedan 
-med en lista på vad studenten nu har lärt sig. Studenten får alltså både ett erkännande av sin kunskap 
-och förmåga, samt möjlighet att praktisera detta. 
+Den fjärde och sista grundpelaren, \textit{Satisfaction}, har vi praktiserat främst i slutet på
+avsnitten och i uppgifterna. I våra kryssfrågor får studenten omedelbar bekräftelse när hen har lärt sig
+något eller kan det sedan innan. Efter att studenten har läst teorin inom ett område följer vi upp med
+övningar där studenten får praktisera sin nyvunna kunskap. Varje avsnitt i läromaterialet avslutas sedan
+med en lista på vad studenten nu har lärt sig. Studenten får alltså både ett erkännande av sin kunskap
+och förmåga, samt möjlighet att praktisera detta.
 
 \subsection{Implementationen av vårt DSL}
-%Förklara hur komplexa tal och alla typer av transformer implementerades i DSL. 
-Det DSL som används i detta läromaterial har utvecklats i Haskell av projektgruppen. Det har designats för att täcka de 
-valda delarna av TSS som behandlas i läromaterialet. Se avsnittet \textit{Inledande forskning} för mer information om 
+%Förklara hur komplexa tal och alla typer av transformer implementerades i DSL.
+Det DSL som används i detta läromaterial har utvecklats i Haskell av projektgruppen. Det har designats för att täcka de
+valda delarna av TSS som behandlas i läromaterialet. Se avsnittet \textit{Inledande forskning} för mer information om
 hur dessa delar valts ut.
 
 En av dessa delar är komplexa tal, vilket används flitigt när man arbetar med
@@ -681,16 +681,16 @@ Själva utvecklingen av det DSL som använts har skett genom att gruppen först
 utvecklat all kod som behövts för ett avsnitt. När koden sedan hade testats och
 fungerade tillfredsställande delades den upp i kodpaket. I dessa kodpaket
 har vissa funktioner tagits bort för att lämnas som övningar till läsarna att
-implementera. Resterande kod i paketen kan användas av studenten så att hen kan köra sin egen kod direkt och 
+implementera. Resterande kod i paketen kan användas av studenten så att hen kan köra sin egen kod direkt och
 testa sina lösningar.
 
-Samtliga funktionerna har givits så beskrivande namn som möjligt. Projektgruppen har även försökt åstadkomma en så 
-lättläst syntax som möjligt där alla implementerade funktioner kan läsas och förstås av någon som behärskar 
-grundläggande Haskell. Detta var viktigt då gruppen ville åstadkomma kod som kan förstås av hela målruppen och inte 
-bara av studenter som är särskilt intresserade av Haskell. 
+Samtliga funktionerna har givits så beskrivande namn som möjligt. Projektgruppen har även försökt åstadkomma en så
+lättläst syntax som möjligt där alla implementerade funktioner kan läsas och förstås av någon som behärskar
+grundläggande Haskell. Detta var viktigt då gruppen ville åstadkomma kod som kan förstås av hela målruppen och inte
+bara av studenter som är särskilt intresserade av Haskell.
 
 
-För att visa hur projektgruppen har tänkt vid implementationen av sitt DSL kommer delar av implementationen av komplexa 
+För att visa hur projektgruppen har tänkt vid implementationen av sitt DSL kommer delar av implementationen av komplexa
 tal nu att beskrivas. Vi börjar med hur ett komplext tal representeras, i vårt fall som två flyttalsvärden.
 Ett värde för den reella delen av talet och ett för den imaginära.
 Så ett komplext tal \(z = 1 + 1j = (1,1) \) representeras i vår DSL som:
@@ -699,10 +699,10 @@ Så ett komplext tal \(z = 1 + 1j = (1,1) \) representeras i vår DSL som:
 Complex 1 1
 \end{minted}
 
-Efter det undersöktes vilka funktioner som borde implementeras för att vår tolkning. De implementerade komplexa 
-talen skulle bete sig som matematikens komplexa tal och därför var det nödvändigt att implementera diverse 
-beräkningsoperatorer för dem. Addition kunde implementeras relativt enkelt då de reella delarna adderas med 
-varandra och de imaginära med de imaginära enligt formeln nedan: 
+Efter det undersöktes vilka funktioner som borde implementeras för att vår tolkning. De implementerade komplexa
+talen skulle bete sig som matematikens komplexa tal och därför var det nödvändigt att implementera diverse
+beräkningsoperatorer för dem. Addition kunde implementeras relativt enkelt då de reella delarna adderas med
+varandra och de imaginära med de imaginära enligt formeln nedan:
 \[(a, b) + (c, d) = (a + c, b + d)\] \cite{conway1978functions}
 Vilket i Haskell implementerades så här:
 \begin{minted}{haskell}
@@ -716,10 +716,10 @@ I kodexemplen ovan används funktioner som plockar ut den reella
 
 
 
-Multiplikationen var lite mer komplicerad än additionen, då den matematiska formeln för multiplikation med komplexa 
+Multiplikationen var lite mer komplicerad än additionen, då den matematiska formeln för multiplikation med komplexa
 tal ser ut så här:
  \[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \] \cite{conway1978functions}
- 
+
 Detta implementerades enligt följande i vårt DSL:
 \begin{minted}{haskell}
 z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
@@ -731,20 +731,20 @@ z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
 
 %Är detta nödvändigt? Vi borde liksom inte vara för förklarande.
 Här skapades även hjälpfunktioner, vilka är de funktioner man finner efter \mintinline{haskell}{where}
-i koden. Detta var för att undvika att skriva samma kod om och om igen, samtidigt som det koden mer tydlig och 
+i koden. Detta var för att undvika att skriva samma kod om och om igen, samtidigt som det koden mer tydlig och
 lättläst för studenten.
 
 
-Efter att dessa operationer var färdiga så var division nästa stora operator att implementera. Den matematiska formeln 
+Efter att dessa operationer var färdiga så var division nästa stora operator att implementera. Den matematiska formeln
 för detta ser ut som följer:
 \[ z / w = (z \cdot w’) / (w \cdot w’) \]
 %(sommarmatte.se)  Kan lämnas som reference.
 där w’ är w:s konjugat.
 %Man förlänger både täljare och nämnare med nämnarens konjugat vilket innebär
 %att nämnaren blir helt reell.
-Man förlänger alltså både täljare och nämnare med nämnarens konjugat, vilket innebär att nämnaren 
-blir helt reell. För att implementera division var gruppen därför tvungen att först implementera en 
-funktion som tar fram konjugatet av ett komplext tal. Detta innebär att man byter tecknet på den imaginära 
+Man förlänger alltså både täljare och nämnare med nämnarens konjugat, vilket innebär att nämnaren
+blir helt reell. För att implementera division var gruppen därför tvungen att först implementera en
+funktion som tar fram konjugatet av ett komplext tal. Detta innebär att man byter tecknet på den imaginära
 delen av talet. Vår funktion för det såg ut så här:
 
 \begin{minted}{haskell}
@@ -757,8 +757,8 @@ z / w = Complex (realPart zw’ / realPart ww’) (imPart zw’ / realPart ww’
         ww’ = w * (conjugate w)
 \end{minted}
 
-En viktig förutsättning för att kunna koppla de komplexa talen till kursen TSS var att man först 
-implementerade Eulers formel, som kan användas för att skapa komplexa tal utifrån en vinkel. Eulers 
+En viktig förutsättning för att kunna koppla de komplexa talen till kursen TSS var att man först
+implementerade Eulers formel, som kan användas för att skapa komplexa tal utifrån en vinkel. Eulers
 formel ser ut så här:
 % \cite{trott2004}:
 \[e^{jz}=\cos z+ j \cdot \sin z \]
@@ -771,7 +771,7 @@ euler phi = Complex (cos phi) (sin phi)
 \end{minted}
 Enligt potenslagarna%(formelsamlingen) - lämnas till reference? -Borde inte behövas
 så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och enligt Eulers formel så är
-\(e^{j b} = cos b + j\dot sin b\) Exponentialfunktionen för ett komplext tal kan 
+\(e^{j b} = cos b + j\dot sin b\) Exponentialfunktionen för ett komplext tal kan
 därför implementeras enligt nedanstående kod:
 
 \begin{minted}{haskell}
@@ -789,44 +789,44 @@ sin z = (exp (j*z) - exp (-(j*z))) / (scale 2 j )
 Den fullständiga koden kan läsas på gruppens hemsida:
 \url{https://cdn.rawgit.com/DSLsofMath/BScProj/master/Hemsida/}
 
-Ett av de största problemen vid implementationen av signaler, och all kod som bygger på signaler, var hur man 
-skulle hantera kontinuerlig tid. Kursen \textit{TSS} behandlar både diskreta och kontinuerliga signaler och det var 
-därför önskvärt att implementera båda dessa. En dator kan dock i praktiken inte hantera kontinuerliga funktioner utan 
-endast diskreta. 
+Ett av de största problemen vid implementationen av signaler, och all kod som bygger på signaler, var hur man
+skulle hantera kontinuerlig tid. Kursen \textit{TSS} behandlar både diskreta och kontinuerliga signaler och det var
+därför önskvärt att implementera båda dessa. En dator kan dock i praktiken inte hantera kontinuerliga funktioner utan
+endast diskreta.
 
-Ett sätt att hantera detta är att simulera ingående data till en  kontinuerlig funktion med diskret data, där 
-man låter avståndet mellan de diskreta värden datan kan anta vara väldigt små. Ju mindre dessa steg är desto bättre 
-approximation av en kontinuerlig funktion får man. Frågan som uppstår är hur lämplig en diskret approximation är för 
+Ett sätt att hantera detta är att simulera ingående data till en  kontinuerlig funktion med diskret data, där
+man låter avståndet mellan de diskreta värden datan kan anta vara väldigt små. Ju mindre dessa steg är desto bättre
+approximation av en kontinuerlig funktion får man. Frågan som uppstår är hur lämplig en diskret approximation är för
 att främja förståelsen av signaler mm i kontinuerlig tid. Se avsnittet \textit{Diskussion} för vidare diskussion om detta.
 
-Ett annat sätt att implementera kontinuerliga fall är med så kallad \textit{pattern matching}. Det man då gör är att 
-implementera olika utfall av en funktion var för sig. Funktioner som implementeras på detta sett ger svar som är mer 
-matematiskt korrekta än en diskret approximation. Detta ger dock inte samma möjlighet att se mönster och att sammanfatta 
+Ett annat sätt att implementera kontinuerliga fall är med så kallad \textit{pattern matching}. Det man då gör är att
+implementera olika utfall av en funktion var för sig. Funktioner som implementeras på detta sett ger svar som är mer
+matematiskt korrekta än en diskret approximation. Detta ger dock inte samma möjlighet att se mönster och att sammanfatta
 området i en funktion.
 
-Projektgruppen valde till slut en kompromiss av dessa två angreppssätt och använde både diskreta approximationer och 
-\textit{pattern matching} för att beskriva kontinuerliga fall. Gruppen har växlat mellan varianterna beroende på vilken 
+Projektgruppen valde till slut en kompromiss av dessa två angreppssätt och använde både diskreta approximationer och
+\textit{pattern matching} för att beskriva kontinuerliga fall. Gruppen har växlat mellan varianterna beroende på vilken
 av dem som föreföll ge den tydligaste förklaringen av det aktuella ämnet.
 
 \subsection{Test av läromaterialet}
 
-För att få så givande testsvar som möjligt ville vi givetvis testa vårt läromaterial på den aktuella målgruppen.  Därför 
-tog vi kontakt med studenter som kunde tänka sig att delta i testandet när vi skickade ut enkäten som beskrivs i avsnitt 
-\textit{Utveckling av läromaterialet - Inledande efterforskningar och förstudier}. De som sedan ville deltaga i 
-testandet av vår produkt lämnade en mailadress. Detta resulterade i en testgrupp på 13 personer. 
- 
-När vi ansåg att läromaterialets tre första avsnitt var redo för att testas mailade vi ut dessa till testgruppen. 
-Testningen fungerade så som att man som testperson fick ta del av materialet, med texter, exempel och tillhörande 
-uppgifter. Testgruppen fick även tillgång till programkoden som var skriven till uppgifterna, samt även facitkod och 
+För att få så givande testsvar som möjligt ville vi givetvis testa vårt läromaterial på den aktuella målgruppen.  Därför
+tog vi kontakt med studenter som kunde tänka sig att delta i testandet när vi skickade ut enkäten som beskrivs i avsnitt
+\textit{Utveckling av läromaterialet - Inledande efterforskningar och förstudier}. De som sedan ville deltaga i
+testandet av vår produkt lämnade en mailadress. Detta resulterade i en testgrupp på 13 personer.
+
+När vi ansåg att läromaterialets tre första avsnitt var redo för att testas mailade vi ut dessa till testgruppen.
+Testningen fungerade så som att man som testperson fick ta del av materialet, med texter, exempel och tillhörande
+uppgifter. Testgruppen fick även tillgång till programkoden som var skriven till uppgifterna, samt även facitkod och
 lösningar till uppgifterna.
 
-När studenterna sedan har testat produkten och gått igenom vad de tyckte var bra och vad de tyckte var dåligt så 
-bearbetade vi deras feedback, utvärderade och såg ifall vi hittade några större fel eller delar som vi tycker att vi 
-borde fokusera på att förbättra. Sedan implementerade vi förbättringarna så att läromaterialet på det stora hela blir 
+När studenterna sedan har testat produkten och gått igenom vad de tyckte var bra och vad de tyckte var dåligt så
+bearbetade vi deras feedback, utvärderade och såg ifall vi hittade några större fel eller delar som vi tycker att vi
+borde fokusera på att förbättra. Sedan implementerade vi förbättringarna så att läromaterialet på det stora hela blir
 mer lättläst och bättre anpassad till målgruppen.
 
-Det sista avsnittet skickades inte ut till testgruppen utan utvärderades endast internt av gruppens medlemmar då detta 
-avsnitt inte var klart i tillräckligt god tid för att ge testgruppen en rimlig chans att arbeta med materialet. Den mer 
+Det sista avsnittet skickades inte ut till testgruppen utan utvärderades endast internt av gruppens medlemmar då detta
+avsnitt inte var klart i tillräckligt god tid för att ge testgruppen en rimlig chans att arbeta med materialet. Den mer
 generella feedback som gavs på de tre första avsnitten tillämpades dock även på det sista avsnittet.
 
 
@@ -855,32 +855,32 @@ generella feedback som gavs på de tre första avsnitten tillämpades dock även
 % * Utdrag ur tutorialen
 
 \subsection{Läromaterialet}
-Det färdiga läromaterialet består av fyra avsnitt med förklarande text, bilder och uppgifter. Varje avsnitt har även 
+Det färdiga läromaterialet består av fyra avsnitt med förklarande text, bilder och uppgifter. Varje avsnitt har även
 ett tillhörande kodpaket med förimplementerad kod till övningarna samt lösningar till dessa.
 
-Se \textit{bilaga 3} för ett utdrag ur läromaterialet. Detta utdrag är ett delavsnitt från avsnitt 2. Detta delavsnitt 
-beskriver \textit{Udda och Jämna signaler}. Delavsnittet inleds med övergripande definitioner och förklaringar av vad 
-som menas med udda och jämna signaler inom signallära. Udda och jämna signaler illustreras sedan med figurer. Därefter 
-följer två kryssfrågor där studenten ska avgöra om den givna signalen är jämn, udda eller ingetdera. Sedan följer ett 
-kodexempel där studenten får se hur man kan implementera en funktion som avgör om en signal är udda. Studenten får sedan 
-implementera motsvarande funktion för jämna funktioner själv som en övning. Till sist ges studenten två signaler att 
+Se \textit{bilaga 3} för ett utdrag ur läromaterialet. Detta utdrag är ett delavsnitt från avsnitt 2. Detta delavsnitt
+beskriver \textit{Udda och Jämna signaler}. Delavsnittet inleds med övergripande definitioner och förklaringar av vad
+som menas med udda och jämna signaler inom signallära. Udda och jämna signaler illustreras sedan med figurer. Därefter
+följer två kryssfrågor där studenten ska avgöra om den givna signalen är jämn, udda eller ingetdera. Sedan följer ett
+kodexempel där studenten får se hur man kan implementera en funktion som avgör om en signal är udda. Studenten får sedan
+implementera motsvarande funktion för jämna funktioner själv som en övning. Till sist ges studenten två signaler att
 testa sina funktioner från detta och föregående delavsnitt på.
 
 Läromaterialet finns upplagt på en hemsida. Följ länken nedan för att se hela materialet:
 \url{https://cdn.rawgit.com/DSLsofMath/BScProj/master/Hemsida/Signaler.html}
 
 \subsection{Testresultat}
-Responsen från projektets testgrupp var genomgående positiv. Samtliga testsvar som kommenterade texten angav att 
+Responsen från projektets testgrupp var genomgående positiv. Samtliga testsvar som kommenterade texten angav att
 studenterna tilltalades av textens nivå och formuleringar. Här följer några citat från studenter som testat materialet:
 \begin{itemize}
   \item “Det lättsamma sättet som texten var skriven på gjorde att man inte tappade intresset.”
   \item “Texten var i allmänhet bra och kul att läsa, gillade den lättsamma tonen.”
-  \item “Nivån är väldigt bra och att ni ibland använder monolog, där ni ställer en fråga och sen svarar som "en vän", 
+  \item “Nivån är väldigt bra och att ni ibland använder monolog, där ni ställer en fråga och sen svarar som "en vän",
   gör att det känns mer begripligt och man får en känsla av att man pratar och diskuterar med en kompis om diverse ämnen.
   Detta ökar då förståelse enormt då det är annorlunda skrivet än hur t.ex. föreläsare skriver sitt material. “
 \end{itemize}
 
-Responsen från testgruppen innefattade även konkret kritik, t.ex. önskade flera studenter ett annat typsnitt för 
+Responsen från testgruppen innefattade även konkret kritik, t.ex. önskade flera studenter ett annat typsnitt för
 övningarna än för den övriga texten. Materialet har uppdaterats utifrån dessa önskemål och kommentarer.
 
 \section{Diskussion}
@@ -928,23 +928,23 @@ fann i kursen var kopplingen mellan matematiken och den bakomliggande fysiken.
 % * Utdrag ur tutorial?
 % * Utdrag ur intervju med examinatorer?
 % * Utdrag ur enkätsvar?
-\subsection{Bilaga 1} 
-Denna bilaga är ett utdrag ur den enkätundersökning som genomfördes av kandidatgruppen under våren 2015 
-via \textit{“webbenkater.com}. Bilagan innehåller endast de delar av undersökningen som bedömts som relevanta 
-för rapporten och är tömd på all information som kan länkas till enskilda individer. Samtliga bilder i bilagan 
+\subsection{Bilaga 1}
+Denna bilaga är ett utdrag ur den enkätundersökning som genomfördes av kandidatgruppen under våren 2015
+via \textit{“webbenkater.com}. Bilagan innehåller endast de delar av undersökningen som bedömts som relevanta
+för rapporten och är tömd på all information som kan länkas till enskilda individer. Samtliga bilder i bilagan
 kommer från \textitwebbenkater.com}.
 %infoga bilaga 1
 \newpage
 
-\subsection{Bilaga 2} 
-Denna bilaga är en sammanfattning av den intervju projektgruppen höll med Bo Egardt och Ants Silberberg. Bo och Ants 
-har under flera år varit både lärare och examinatorer i \textit{Reglerteknik} respektive \textit{TSS} på Chalmers. 
+\subsection{Bilaga 2}
+Denna bilaga är en sammanfattning av den intervju projektgruppen höll med Bo Egardt och Ants Silberberg. Bo och Ants
+har under flera år varit både lärare och examinatorer i \textit{Reglerteknik} respektive \textit{TSS} på Chalmers.
 Sammanfattningen är granskad och godkänd av både Bo och Ants.
 %infoga bilaga 2
 \newpage
 
-\subsection{Bilaga 3} 
-Denna bilaga är ett utdrag ur det läromaterial projektgruppen utvecklat. Utdraget beskriver udda och jämna signaler och 
+\subsection{Bilaga 3}
+Denna bilaga är ett utdrag ur det läromaterial projektgruppen utvecklat. Utdraget beskriver udda och jämna signaler och
 är hämtat från avsnitt 2 i läromaterialet.
 %infoga bilaga 3
 
