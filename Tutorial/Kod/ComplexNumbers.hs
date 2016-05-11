@@ -1,5 +1,6 @@
 module ComplexNumbers where
 import GHC.Real
+import qualified Test.QuickCheck as Q
 
 -- Komplexa tal kan ses som ett par av reella värden.
 
@@ -13,7 +14,7 @@ realPart :: Complex -> Double
 realPart (Complex re im) = re
 
 imPart :: Complex -> Double
-imPart = undefined
+imPart (Complex re im) = im
 
 conjugate :: Complex -> Complex
 conjugate z = Complex (realPart z) (negate (imPart z))
@@ -48,28 +49,36 @@ scale a z = Complex (a * realPart z) (a * imPart z)
 j :: Complex
 j = Complex 0 1
 
+-- TODO: Försök få   read . printComplex = id genom att göra printComplex
+-- enklare
+-- TODO: "name and reuse" something like showIm im = show im ++ "j" to make it
+-- easy to change the spacing (or change "j" to "i", or the type from String
+-- to ShowS) in only one place
+
 instance Show Complex where
     show = printComplex
 
-{-
-   | Printfunktionen för complexa tal
-   Exempel på hur utskriften bör funka:
-   Complex 1 1    <-> 1.0 + 1.0j
-   Complex 0 1    <-> 1.0j
-   Complex 1 0    <-> 1.0
-   Complex 1 (-1) <-> 1.0 - 1.0j
--}
 printComplex :: Complex -> String
-printComplex = undefined
+printComplex z
+  | r == 0    = imj
+  | im == 0   = show r
+  | im < 0    = show r ++ " - " ++ show (abs im) ++ "j"
+  | otherwise = show r ++ " + " ++ imj
+    where im  = imPart z
+          r   = realPart z
+          imj = show im ++ "j"
 
 -- | Skapar ett komplext tal utifrån en vinkel.
 euler :: Double -> Complex
 euler phi = Complex (cos phi) (sin phi)
 
+instance Read Complex where
+  read = readComplex
 
 instance Num Complex where
 -- Plus är förhållandevist trivialt
-  z + w = undefined
+  z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
+
 -- Multiplikationen följer ifrån att vi multiplicerar komponenterna
 -- parvis med varandra (i likhet med (a+b) * (c+d))
   z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
@@ -80,7 +89,7 @@ instance Num Complex where
 
 -- Negationen av ett komplext tal är ett komplext tal där båda komponenter är negerade
 
-  negate z = undefined
+  negate z = Complex (negate $ realPart z) (negate $ imPart z)
 
 -- Den naturliga generaliseringen av signum från reella till komplexa tal:
 
@@ -88,7 +97,10 @@ instance Num Complex where
 
 -- Absolutbeloppet av ett komplext tal är pythagoras sats på dess komponenter.
 
-  abs z = undefined
+  abs z = Complex hyp 0
+    where hyp  = sqrt (r*r + im*im)
+          r    = realPart z
+          im   = imPart z
 
 -- Heltal är bara komplexa tal utan imaginärdel
 
@@ -148,3 +160,9 @@ instance Floating Complex where
   asin  = undefined
   acosh = undefined
   acos  = undefined
+
+instance Q.Arbitrary Complex where
+  arbitrary = do
+     re <- Q.arbitrary
+     im <- Q.arbitrary
+     return (Complex re im)
