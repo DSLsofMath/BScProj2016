@@ -555,7 +555,7 @@ Hur dessa didaktiska modeller och metoder har använts i projektet
 I detta avsnitt beskrivs hur projektgruppen gått till väga under utvecklingen av läromaterialet, samt vilka verktyg och
 metoder som använts och hur dessa tillämpats.
 
-Enligt boken Motivational design for learning and performance kan man använda sig av en modell med 10 steg vid
+Enligt boken \textit{Motivational design for learning and performance} kan man använda sig av en modell med 10 steg vid
 framtagningen av nytt material till en kurs. Dessa 10 steg är som följer:
 
 \begin{enumerate}
@@ -576,7 +576,7 @@ framtagningen av nytt material till en kurs. Dessa 10 steg är som följer:
 
 Dessa steg har legat till grund för, och även använts för att komplettera, mycket av projektgruppens metodik när
 läromaterialet utvecklats. Gruppen inledde i enlighet med de 10 stegen med att samla in och analysera information om
-kursen och målgruppen, se avsnitt Utveckling - Inledande efterforskning och förundersökning, arbetade fram en taktik
+kursen och målgruppen, se avsnitt \textit{Utveckling - Inledande efterforskning och förundersökning}, arbetade fram en taktik
 enligt ARCS-modellen, se \textit{Utveckling - Didaktik}, utvecklade och testade materialet, se avsnitt
 {Utveckling - Testning}, utvärderat och kompletterat det.
 
@@ -614,8 +614,7 @@ första avsnittet, vilket kort beskriver komplexa tal och Eulers formel samt int
 andra avsnittet beskriver olika typer av signaler och deras egenskaper, det tredje beskriver LTI-system och det fjärde
 och sista beskriver Fourierserier och Fouriertransformen. De ämnen avsnitten beskriver valdes, som nämns i avsnittet
 \textit{Utveckling av läromaterialet - Inledande forskning}, utifrån information från kursen, intervjun med
-examinatorerna samt studenternas enkätsvar. Ursprunglingen ville projektgruppen även skriva ett avsnitt som beskrev
-Laplacetransformen och Z-transformen, men detta fick bortprioriteras på grund av tidsbrist.
+examinatorerna samt studenternas enkätsvar. 
 
 Läromaterialets första ämnesavsnitt beskriver komplexa tal. Eftersom förståelse av komplexa tal är en viktig förkunskap
 till \textit{TSS} valde gruppen att inleda med repetition av detta ämne. En annan anledning till att inleda med komplexa
@@ -630,13 +629,13 @@ en nödvändig grund för att förstå de följande avsnitten. Därför var det 
 avsnittet handla om detta. I avsnittet förklaras, något förenklat, med text och figurer vad signaler är och hur några
 vanliga typer av signaler, som till exempel enhetssteg, ser ut och beter sig.
 
-Det tredje avsnittet beskriver LTI-system. Alla system som beskrivs i \textit{TSS} är LTI-system. Kunskap om LTI-system
+Det tredje avsnittet beskriver LTI-system. I princip alla system som beskrivs i \textit{TSS} är LTI-system. Kunskap om LTI-system
 och dess egenskaper är därför avgörande för att förstå och räkna på de system som tas upp i \textit{TSS}. Avsnittet tar
 även upp faltning och hur detta fungerar i LTI-system.
 
 Det fjärde avsnittet beskriver Fourierserier och Fouriertransformen. Dessa är centrala begrepp i kursen och något som
 många datastudenter upplever som svårt. Därför valde gruppen, då det konstaterades att det inte fanns tid att beskriva
-alla transformer som finns med i \textit{TSS}, att fokusera på Fourier. Fouriertransformen är även nära besläktad med
+alla transformer som finns med i \textit{TSS}, att fokusera på Fourier. En anledning till detta var att Fouriertransformen är nära besläktad med
 såväl Laplacetransformen som Z-transformen och gruppen bedömde att förståelse för Fouriertransformen sannolikt skulle
 bidra till förståelse för de andra två transformerna.
 
@@ -657,7 +656,7 @@ vi har även lagt in programmeringsövningar där studenten får använda och ut
 Eftersom läromaterialet som tagits fram är ett komplement till en redan existerande kurs har gruppen
 bedömt det som extra viktigt att materialet är motiverande eftersom studenten läser det vid sidan av
 sina vanliga studier. Därför har gruppen valt att använda sig av ARCS-modellen som beskrivs i avsnitt
-Teknisk bakgrund - Didaktik.
+\textit{Teknisk bakgrund - Didaktik}.
 
 ARCS-modellens första grundpelare, \textit{Attention}, har vi praktiserat bland annat genom att använda
 skämtsamma formuleringar, sammanfattningar och exempel inom ämnet. Vi har strävat efter att hålla en
@@ -838,6 +837,35 @@ Projektgruppen valde till slut en kompromiss av dessa två angreppssätt och anv
 \textit{pattern matching} för att beskriva kontinuerliga fall. Gruppen har växlat mellan varianterna beroende på vilken
 av dem som föreföll ge den tydligaste förklaringen av det aktuella ämnet.
 
+\subsection{Presentation av läromaterialet}
+%* PDF
+%* Bootstrap
+%* GitHub
+Vi började med att skriva läromaterialet i LaTeX-format för att kunna skicka ut en prototyp, en PDF-fil, till vår 
+testgrupp. Det var även lätt att få en bra struktur och att få ett bra utseende på vårt läromaterial på detta sättet. 
+
+Allt arbete har även under projektets gång legat uppe på GitHub så det har varit möjligt att följa projektet samt ge 
+studenter och lärare möjlighet att ge sina åsikter på ändringar m.m..
+
+När de olika delarna i läromaterialet blivit färdiga så skrevs dem över till HTML, med hjälp av Pandoc, för att kunna 
+skapa en hemsida så att det blir mer lättåtkomligt. Pandoc är ett program som översätter text mellan olika märkspråk och 
+fungerar till den största delen ganska smidigt, det blir bara några fel om man använder vissa speciella tillägg. En 
+annan fördel med att arbeta med HTML-sidor i stället för PDF är att man kan använda sig av JavaScript, vilket ger 
+möjligheten att kunna göra uppgifterna interaktiva. Med hjälp av JavaScript blir det bättre flyt i frågorna och man 
+känner att man hänger med mer i vad man lär sig så det inte känns som lika mycket att läsa.
+
+
+Vi använde oss av jQuery, vilket är ett JavaScript-bibliotek, för att göra det lättare att arbeta med JavaScript. jQuery 
+anses av många vara lättare att läsa och blir därmed lättare att felsöka problem i kodningen.
+
+Vi använde oss även av Bootstrap som stöd för hemsidan. Bootstrap gör det lättare att få sidan att se snygg ut och gör 
+även det möjligt att gå in på sådan från en mobil eller surfplatta, vilket gör att det går att lära sig på bussen eller 
+liknande.
+
+De figurer som gjorts till läromaterialet i form av funktionskurvor och liknande är skapade i  
+Matlab och \url{fooplot.com/}.
+
+
 \subsection{Test av läromaterialet}
 
 För att få så givande testsvar som möjligt ville vi givetvis testa vårt läromaterial på den aktuella målgruppen.  Därför
@@ -885,23 +913,39 @@ generella feedback som gavs på de tre första avsnitten tillämpades dock även
 % * Utdrag ur tutorialen
 
 \subsection{Läromaterialet}
-Det färdiga läromaterialet består av fyra avsnitt med förklarande text, bilder och uppgifter. Varje avsnitt har även
-ett tillhörande kodpaket med förimplementerad kod till övningarna samt lösningar till dessa.
+Projektgruppens uppgift var, vilket beskrivs i detalj i avsnittet \textit{Produktspecifikation}, att ta fram ett kompletterande 
+läromaterial till \textit{TSS} inspirerat av \textit{DSLsofMath}.
 
-Se \textit{bilaga 3} för ett utdrag ur läromaterialet. Detta utdrag är ett delavsnitt från avsnitt 2. Detta delavsnitt
-beskriver \textit{Udda och Jämna signaler}. Delavsnittet inleds med övergripande definitioner och förklaringar av vad
-som menas med udda och jämna signaler inom signallära. Udda och jämna signaler illustreras sedan med figurer. Därefter
-följer två kryssfrågor där studenten ska avgöra om den givna signalen är jämn, udda eller ingetdera. Sedan följer ett
-kodexempel där studenten får se hur man kan implementera en funktion som avgör om en signal är udda. Studenten får sedan
-implementera motsvarande funktion för jämna funktioner själv som en övning. Till sist ges studenten två signaler att
-testa sina funktioner från detta och föregående delavsnitt på.
+Läromaterialet består av fyra avsnitt samt en introduktion. Avsnitten innehåller förklarande text, bilder, kodexempel 
+och uppgifter. Varje avsnitt har även ett tillhörande kodpaket med förimplementerad kod till övningarna och lösningar 
+till dessa. De fyra avsnitten behandlar i huvudsak komplexa tal, signaler, LTI-system och fouriertransformen. 
+Ytterligare avsnitt, som beskriver laplacetransformen och Z-transformen,var planerat men detta fick bortprioriteras på 
+grund av tidsbrist. 
 
-Läromaterialet finns upplagt på en hemsida. Följ länken nedan för att se hela materialet:
+Läromaterialet finns samlat på en hemsida, där det även är möjligt att ladda ner materialet i form av en PDF-fil. Följ 
+länken nedan för att se hela materialet:
 \url{https://cdn.rawgit.com/DSLsofMath/BScProj/master/Hemsida/Signaler.html}
 
+\textit{Bilaga 3} innehåller ett utdrag ur läromaterialet. Detta utdrag är ett delavsnitt från avsnitt 2. Delavsnittet 
+beskriver \textit{Udda och Jämna signaler}. Det inleds med övergripande definitioner och förklaringar av vad som menas med udda 
+och jämna signaler inom signallära, detta illustreras sedan med figurer. Därefter följer kryssfrågor där studenten ska 
+avgöra om den givna signalen är jämn, udda eller ingetdera. Detta följs av ett kodexempel där studenten får se hur man 
+kan implementera en funktion som avgör om en signal är udda. Studenten får sedan implementera motsvarande funktion för 
+jämna funktioner själv som en övning. Till sist ges studenten två signaler att testa sina programmeringsfunktioner på, 
+både för detta och föregående delavsnitt.
+
+
 \subsection{Testresultat}
-Responsen från projektets testgrupp var genomgående positiv. Samtliga testsvar som kommenterade texten angav att
-studenterna tilltalades av textens nivå och formuleringar. Här följer några citat från studenter som testat materialet:
+Introduktionen och de tre första avsnitten i läromaterialet har granskats av den testgrupp som beskrivs i avsnittet 
+\textit{Utveckling av läromaterialet - Test av läromaterialet}. Det sista avsnittet har inte granskats av testgruppen, 
+utan endast av projektgruppen själva samt projektgruppens handledare. Orsaken till detta beskrivs i 
+\textit{Utveckling av läromaterialet - Test av läromaterialet}.
+
+Responsen från projektets testgrupp var genomgående positiv. Testgruppen hävdade att de trodde att läromaterialet var 
+ett bra komplement till kursen. 
+
+Samtliga testsvar som kommenterade texten angav att studenterna tilltalades av textens nivå och formuleringar. Här 
+följer några citat från studenter som testat materialet:
 \begin{itemize}
   \item “Det lättsamma sättet som texten var skriven på gjorde att man inte tappade intresset.”
   \item “Texten var i allmänhet bra och kul att läsa, gillade den lättsamma tonen.”
@@ -909,6 +953,14 @@ studenterna tilltalades av textens nivå och formuleringar. Här följer några 
   gör att det känns mer begripligt och man får en känsla av att man pratar och diskuterar med en kompis om diverse ämnen.
   Detta ökar då förståelse enormt då det är annorlunda skrivet än hur t.ex. föreläsare skriver sitt material. “
 \end{itemize}
+
+Testgruppen ansåg även att programmeringsövningarna var begripliga och låg på en bra nivå. Några citat från testgruppen 
+angående övningarna följer här:
+\begin{itemize}
+  \item “Övningarna känns begripliga och att ni visar vilket "out-come" som efterfrågas hjälper en att förstå vad 
+  exakt som behöver göras.”
+  \item “De övningarna jag gjorde kändes lagom svåra.”
+  \end{itemize}
 
 Responsen från testgruppen innefattade även konkret kritik, t.ex. önskade flera studenter ett annat typsnitt för
 övningarna än för den övriga texten. Materialet har uppdaterats utifrån dessa önskemål och kommentarer.
@@ -925,27 +977,140 @@ Responsen från testgruppen innefattade även konkret kritik, t.ex. önskade fle
 % * Hur kan man bygga vidare på detta?
 
 
-%Problem med hur vi implementerar integraler och annat kontinuerliga fall
 
-Från intervjun förklarade examinatorerna att den största svårigheten studenterna
-fann i kursen var kopplingen mellan matematiken och den bakomliggande fysiken.
-% Hur tacklade vi denna problem?
+I inledningen nämns det grundläggande problemet att datateknologer har svårt för kursen \textit{TSS}, eftersom de har problem 
+med matematiken. Frågor man då kan ställa sig är vad som är orsaken till detta problem, huruvida problemet går att lösa 
+helt, och om det verkligen är en bra metod att använda programmering för att lösa det?
+%Svara på frågorna! Hänvisa till didaktik för ingenjörslärare etc
 
-% Ett problem var själva storleken på uppgiften gruppen tog sig an.
-% För att kunna skriva en bra handledning så krävs det goda
-% förkunskaper om både ämnet och pedagogik.
+Något som möjligen är en del av orsaken till problemet är när kursen \textit{TSS} ges. Det nuvarande upplägget på 
+datateknologernas studier är sådant att de läser ett antal kurser i matematik under sitt första år, ingen matematik 
+under sitt andra år och sedan läser de \textit{TSS} i årskurs tre. Det är alltså ett år mellan matematikkurserna och 
+\textit{TSS}. Denna del av problemet kan i så fall lösas genom att till exempel ge TSS i årskurs två. Det är dock 
+osäkert om detta är en tillräckligt stor del av problemet för att en förändring i kursupplägget skulle ge synbar effekt.
 
-% Ta även upp varför reglerteknik inte togs med i projektet.
+Under intervjun med examinatorerna, se \textit{bilaga 2}, framgick det att de tror att en stor del av problemet ligger i 
+svårigheten att koppla den formella matematiken till dess praktiska tolkning.
 
-\section{Slutsatser}
+Detta skulle i så fall kunna orsaka problem när datateknologer kommer i kontakt med matematiska läromaterial. Många 
+matematiska texter är uppbyggda så att de har ett inledande fokus på formell matematik, med tyngd på matematisk 
+korrekthet, och praktiska exempel och förklaringar följer först senare, om alls. Ett exempel på hur en matematisk 
+lärotext kan vara upplagd att man inleder med en formell definition, följd av ett matematiskt bevis, och till sist 
+exempel. Denna typ av upplägg kan mycket väl fungera bra för studenter som är vara vid formell matematik men risken är 
+att studenter som inte är det, till exempel datateknologer, tappar bort sig redan vid definitionen.
+
+I de följande delavsnitt kommer projektets metod, resultat och möjlig framtida utveckling att diskuteras.
+
+\subsection{Metod}
+För att utveckla ett väl fungerande läromaterial krävs goda kunskaper inom såväl ämnet som didaktik. Ett problem under 
+produktens utveckling har varit att projektgruppen består av fem studenter, vars erfarenhet inom området signal och 
+systemlära var att fyra av dem läst kursen \textit{TSS}. Studenternas tidigare kunskap i didaktik var också ytterst 
+begränsad. På grund av detta lade projektgruppen en stor del av sin tid på nödvändig förberedande efterforskning. Detta 
+lämnade mindre tid till själva utvecklingen av läromaterialet. 
+
+Eftersom projektet inledningsvis var relativt oklart definierat behövde projektgruppen även lägga mycket tid på att 
+arbeta fram en produktspecifikation. 
+
+På grund av projektgruppens bristande erfarenhet av denna typ av projektarbete uppstod problem med arbetets upplägg, 
+rollfördelning och struktur. Detta var ett internt problem som vi identifierade och åtgärdade så fort vi kunde, men 
+projektet hade saknat en tydlig projektledare i början av arbetet och på grund av att ämnet för vårt projekt var såpass 
+oklart definierat så rörde sig projektet väldigt långsamt framåt i början. Det var ungefär efter att halva tiden för 
+projektet hade passerat som vi lyckades identifiera var vår projektstruktur hade varit bristande och försökte åtgärda 
+problemet genom en mer genomtänkt omstrukturering av arbetet och gruppen.
+
+En stor del av utmaningen med detta projekt har varit att det inte fanns någon uppenbar lösning på vad som skulle 
+implementeras i programmeringskoden. För varje område som läromaterialet tar upp har projektgruppen behövt utvärdera 
+vad som skulle ingå och vad som var möjligt att implementera på en nivå som studenterna i målgruppen kan förstå. Det 
+har varit en ständig avvägning av att få med de mest vitala delarna i \textit{TSS} och att implementera kod som är 
+begriplig.  \textit{The Fastest Fourier Transform in the West} %https://hackage.haskell.org/package/fft-0.1.8.3/docs/Math-FFT.html
+är ett exempel på hur fouriertransform kan implementeras relativt effektivt i Haskell, men problemet är att koden då 
+hamnar på en nivå som överstiger förmågan hos många studenter i målgruppen. Kod av detta slag är alltså, oavsett hur 
+effektiv den är, inte önskvärd i vårt läromaterial eftersom vi vill använda koden för att förklara ett annat ämne. Om 
+koden är för svårläst riskerar vi att hamna i en situation där studenten varken förstår programmeringen eller ämnet den 
+beskriver.
+
+När man beslutat \textbf{vad} som ska implementeras uppstår frågan \textbf{hur} det ska implementeras. Som nämndes i 
+\textit{Utveckling av läromaterialet - Implementationen av vårt DSL} finns det flera sätt att hantera detta. När man 
+arbetar med signaler finns det två grundtyper; diskreta signaler och kontinuerliga signaler. Diskreta signaler kan 
+implementeras relativt enkelt, medan kontinuerliga signaler blir betydligt mer komplicerat. Projektgruppen har under 
+projektets gång granskat två olika metoder för att hanterar kontinuerlig tid i programmeringskoden. En variant är att 
+approximera en kontinuerlig signal med en diskret. Använder man väldigt små steg kan man få en relativt bra 
+approximation på detta sätt, men det är fortfarande endast en approximation och därför blir resultatet inte 
+fullständigt korrekt. En annan variant är att använda \textit{pattern matching}, där funktioner definieras exakt för 
+ett antal givna insignaler som definieras var för sig. Detta ger mer korrekta svar, men ger inte samma möjlighet att 
+sammanfatta och abstrahera området som en diskret approximation. Denna variant gör det å andra sidan möjligt att 
+definiera typfall som studenten kan känna igen i kursen \textit{TSS}.
+
+Vad är då bäst i vårt fall, att använda en approximation som ger större möjlighet att abstrahera och sammanfatta kärnan 
+i ämnet eller en mer matematiskt korrekt variant som använder formler som studenten kan känna igen? Detta är en fråga 
+som projektgruppen inte har kunnat ta fram ett generellt svar på. Projektgruppen har, efter mycket diskussion, valt att 
+använda båda varianter i läromaterialet. Vi ansåg att det fanns stora för- och nackdelar med båda lösningarna och att 
+de argument som vägde tyngst berodde på vilket ämne som togs upp i det aktuella avsnittet. Inom vissa områden avgjorde 
+gruppen att det gav större förståelse att sammanfatta och abstrahera, medan matematisk exakthet och typfall gjorde 
+detta bättre inom andra områden.
+
+Som beskrivs i \textit{Teknisk bakgrund - Didaktik} är en av utmaningarna när man utvecklar läromaterial att göra 
+materialet tilltalande utan att det blir ren underhållning. Detta innebär en ständig balansgång när man utvecklar 
+materialet. Å ena sidan vill man att materialet ska vara så informativt och effektivt som möjligt. Å andra sidan vill 
+man fånga och behålla studentens intresse och uppmuntra till vidare inlärning. Vi har i vårt material strävat efter att 
+beakta båda sidorna och försökt hålla en lättsam och lätt humoristisk ton utan att överskugga det faktiska innehållet. 
+Mer om hur detta gått diskuteras i det kommande avsnittet \textit{Diskussion - Resultat}.
+
+\subsection{Resultat}
+
+Den slutgiltiga produkten uppfyller alla delar av produktspecifikationen med ett undantag. Ambitionen var att 
+läromaterialet skulle täcka in hela kursen \textit{TSS}. I nuläget saknas dock avsnitt som beskriver laplacetransformen 
+och Z-transformen. Detta prioriterades bort på grund av tidsbrist i slutet av projektet. Projektgruppen hamnade i läget 
+att de kunde fokusera på antingen fouriertransformen eller laplacetransformen och Z-transformen. Gruppen valde då att 
+fokusera på fouriertransformen eftersom den är nära besläktad med laplacetransformen och Z-transformen, dessa kan i det 
+närmaste betraktas som specialfall av fouriertransformen. Ur programmeringssynpunkt var det även svårt att implementera 
+laplacetransformen och Z-transformen utan att först implementera fouriertransformen. Det finns emellertid ett utkast 
+till avsnitt om laplacetransformen och Z-transformen som utvecklas i framtiden. 
+
+Som beskrivs i avsnittet \textit{Resultat} ställde sig testgrupppen väldigt positiv till läromaterialet.
+Det är dock värt att påpeka att testgruppen bestod av en relativt liten grupp, total 13 personer.
+Även om testgruppens svar är en positiv indikation är det därför svårt att dra några definitiva slutsatser om huruvida 
+vårt läromaterial uppnår sitt mål i nuläget. 
+
+Vidare är det så att flera personer i testgruppen går i samma årskurs och på samma program som flera av medlemmarna i 
+projektgruppen. Återkopplingen kunde av praktiska skäl heller inte vara helt anonym. Det är därför inte orimligt att 
+anta att vissa medlemmar i testgruppen kan ha varit partiska i sin bedömning och att detta kan ha påverkat resultatet.
+
+För en bättre utvärdering av läromaterialet krävs att fler studenter inom målgruppen använder sig av det i samband med k
+ursen \textit{TSS}. Det kommer därför dröja innan man kan se det verkliga resultatet. Detta kan dock vara svårt att 
+utvärdera även då eftersom det kan finnas många andra faktorer som kan påverka. Om en ökning i antalet godkända 
+studenter i kursen observeras i framtiden är det svårt att säga med säkerhet i vilken utsträckning denna förändring 
+beror på vårt läromaterial.
+
+%Stämmer vårt resultat överens med tidigare forskning? Har vi fått samma resultat som liknande projekt?
+
+\subsection{Vad kan utvecklas?}
+%* Hur kan man bygga vidare på detta?
+%* 		Implementera fler transformer + Regler
+%* 		Testa mer mot målgruppen
+
+Allt skrivet material finns på \url{https://github.com/} ifall man vill ta del av eller arbeta vidare med handledningen.
+Det som saknas är kod till de övriga transformerna och en mer komplett tillhörande text till transformen. Dessutom 
+saknar den koppling och även egna avsnitt till reglerteknik.  Det behöver också inte begränsas till just dessa två 
+kurser eftersom handledningen kan förbättras så att den även täcker alla matematik relaterade kurser. Det slutgiltiga 
+målet är dock att detta inte ska behövas. Det vill säga att programmering inte ska ses som ett helt främmande språk 
+från matematiken.
+
+Under arbetsgången så har projekthandledaren och gruppen försökt uppfylla rollen av en redaktör men språkliga fel och 
+förbättringar kan fortfarande förekomma. En av dessa förbättringar är att ytterligare efterlikna språket 
+från \url{http://learnyouahaskell.com/} och ett sammanhang(röd tråd?) för alla exempel i varje avsnitt. %Om det känns som om ett exempel fortsätter från ett tidigare exempel vilket enligt Relevance visar hur allt relaterar till modelleringen av ett system.
+
+Dessutom behöver handledningen några bilder skilt från grafer men är fortfarande relevanta till exemplen i texten. %Jag tänker mig i fallet med smoothien så kunde vi ta med en smoothie bara för att få en klarare bild med exemplen. Tyckte det hjälpte när jag läste igenom learnyousomeerlang.
+
+Bilderna kommer hjälpa till med att hålla elevernas uppmärksamhet vilket är den första grundpelaren i ARCS-modellen. %Och grafer ses allmänt som tråkiga och tillhörande det matematiska språket såvida de inte är väldigt förklarande.
+
+Tillslut så behövs en implementation för kontinuerliga operatorer. %Eller förbättringar?
+
+
+\section{Slutsatser och avslutning}
 % Huvudpoänger:
 % * Sammanfattar vad vi kommit fram till i diskussion och resultat
-
-\section{Avslutning}
-% Huvudpoänger:
 % * Vad är gjort och vad återstår att göra?
-%
-% Illustration: Borde inte behövas
 
 \newpage
 
