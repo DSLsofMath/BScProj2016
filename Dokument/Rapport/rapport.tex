@@ -61,12 +61,9 @@ testgrupp som gått igenom vårt material och gett oss återkoppling för att f�
 %     (Läsare ska här kunna bedöma om rapporten är intressant att läsa för dem)
 % * Jättekort om syfte, resultat etc
 % Illustration: Borde inte behövas
-Denna rapport beskriver utvecklingen av läromaterialet “TSS med DSL” med dess tillhörande programmeringskod och lösningar.
-Läromaterialet riktar sig till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom signallära där man utnyttjar studenternas kunskaper inom programmering.
-Materialet innehåller förklarande text och teori, samt programmeringsövningar med domänspecifika språk.
+Denna rapport beskriver utvecklingen av läromaterialet “Transforms, Signals and Systems with the help of a DSL” med dess tillhörande programmeringskod och lösningar. Läromaterialet riktar sig främst till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom signallära, där man utnyttjar studenternas kunskaper inom programmering. Materialet innehåller förklarande text och teori om bl.a. komplexa tal, signaler, system och transformer. I materialet ingår även programmeringsövningar som är skrivna med domänspecifika språk i programmeringsspråket Haskell.
 
-Bakgrunden till detta projekt är att kursen TSS på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kurserna.
-Detta har visats sig inte vara något som är unikt för datastudenterna på Chalmers utan det är tvärtom ett problem inom många discipliner.
+Bakgrunden till detta projekt är att kursen inom signallära, TSS, på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kursen. Detta har visats sig inte vara något som är unikt för datastudenterna på Chalmers utan det är tvärtom ett problem inom många discipliner.
 
 Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts för att ta kunna ta fram läromaterialet, samt de tester som gjorts på den färdiga produkten.
 
@@ -74,12 +71,18 @@ Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts f�
 
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-This report describes the development of the supplementary tutorial ''Transforms, Signals and Systems with the help of a DSL'' with provided code and solutions.
-The tutorial is aimed at students studying Computer Science at Chalmers University of Technology and its aim is to be a supplementary teaching material for the course ''Transforms, Signals and Systems'' where you will be progamming in domain specific languages.
+This report describes the development of the tutorial ''Transforms, Signals and 
+Systems with the help of a DSL'' with associated programming code and solutions. The 
+tutorial is aimed at students studying Computer Science at Chalmers University of 
+Technology and the aim of the tutorial is to be a supplementary learning material 
+for the course ''Transforms, Signals and Systems''. The tutorial contains 
+explanations and theory concerning complex numbers, signals, systems and transforms. 
+The tutorial also includes programming exercises using domain specific language 
+written in Haskell.
 
-The background to this project is that the computer science students studying the course ''Transforms, Signals and Systems'' have gotten poor results on the tests for several years and this might be because of the CS students unfamiliarity with the kind of mathematics which is the backbone of that course.
+The background to this project is that the computer science students studying the course ''Transforms, Signals and Systems'' have gotten poor results for several years due to the students unfamiliarity with the kind of mathematics which is necessary for that course. As it turned out this is general problem and not unique to Computer science students at Chalmers.
 
-The report further describes the surveying and analysis done to be able to produce this tutorial along with the tests that have been done on the finished product.
+The report further describes the surveys and analysis done in order to produce this tutorial and the test results from the finished product.
 \end{abstract}
 \newpage
 
@@ -313,10 +316,12 @@ Ett domänspecifikt språk (\gls{DSL}) är ett programmeringsspråk som till
 skillnad från generella programmeringsspråk är anpassat för en
 specifik domän. Att skapa domänspecifika språk är ingenting nytt och det
 finns flera exempel på DSL är HTML, MATLAB och Game Maker Language.
-Dessa DSL har gemensamt att det är relativt enkelt att formulera lösningar för
-problem i deras domäner, exempelvis är det enkelt att strukturera upp text och
-annat innehåll i HTML, utföra matrisoperationer i MATLAB eller skapa datorspel
-med Game Maker Language.
+
+Det som är grundtanken med DSL är att det är relativt enkelt att formulera lösningar
+för problem inom deras domäner, exempelvis är det enkelt att strukturera upp text i
+HTML, utföra matrisoperationer i MATLAB eller skapa datorspel med Game Maker Language.
+Däremot är DSL ineffektiva inom andra områden än de som de är implementerade för.
+Det är t.ex. inte effektivt att försöka skapa datorspel i MATLAB
 
 När man designar domänspecifika språk kan man välja att skapa ett fristående
 språk som analyseras till någon typ av maskinkod eller att utveckla sitt
@@ -346,6 +351,30 @@ om det på nytt.
 
 \subsection{Funktionell programmering}
 % -Referera till “Why functional programming matters”
+Funktionell programmering är en programmeringsparadigm där de huvudsakliga
+byggstenarna är funktioner.
+Som Hughes nämner i sin välciterade "Why Functional Programming Matters"
+\cite{hughes1989functional}, handlar funktionell programmering mycket om att göra det
+möjligt att skriva så modulär kod som möjligt.
+Anledningen till detta är att det lättaste sättet att angripa ett problem på är
+genom att bryta ner det i mindre delproblem, lösa delproblemen och sen
+sammanfoga lösningarna till en helhetslösning.
+Hur mycket man kan bryta ned ett problem beror då på hur enkelt man sedan kan
+sammanfoga delproblemens lösningar igen när man är klar.
+
+Vad som gör funktioner till grundläggande byggstenar i funktionella
+programmeringsspråk är att de kan skickas som parametrar till andra funktioner,
+så kallade högre ordningens funktioner.
+Detta gör att vi kan bygga funktioner som exempelvis bara tar hand om
+datastrukturer och skicka funktionen som löser delproblemet som en parameter.
+I språk som Haskell fixeras dessutom de givna parametrarna till en funktion,
+även om funktionen är given ett färre antal parametrar än den är definierad för. Man får då en ny funktion som är definerad för de saknade parametrarna. 
+Detta kallas för partiell funktionsapplikation och gör det enklare att modularisera funktioner.
+
+Haskell är ett funktionellt programmeringsspråk med stöd för partiell funktionskomposition,
+högre ordningens funktioner, abstrakta datatyper samt lat evaluering.
+Lat evaluering betyder att Haskell inte evaluerar ett uttryck förrän det behövs, vilket gör att man kan arbeta med oändliga datastrukturer utan att Haskell hänger sig.
+I Haskell är det enkelt att definiera egna datatyper vilket gör att man exempelvis kan inkapsla redan existerande typer för att göra deras syfte mer tydligt. Det finns även stöd för abstrakta datatyper med vilka man kan bygga ett abstrakt syntaxträd. Med högre ordningens funktioner kan man dessutom skapa generella funktioner som arbetar på dessa typers strukturer. Detta gör att Haskell lämpar sig bra som värdspråk för djupa domänspecifika språk.
 
 \subsection{Transformer, signaler och system}
 Transformer, signaler och system, inom signalbehandling, beskriver olika typer av signaler, hur de relateras till ett
@@ -356,7 +385,7 @@ system som som betraktas är linjära och tidsinvarianta, så kallade  LTI-syste
 
 För att kunna lösa problem med denna typ av signaler och system så kan man utveckla signalen i en fourierserie eller
 använda sig av olika typer av transformer, vilket gör det möjligt att betrakta signalen i en annan domän. De transformer
-som tas upp i kursen \textit{TSS} är \textit{Fouriertransform}, \textit{Laplacetransform} och \textit{Z-transformen}.
+som tas upp i kursen \textit{TSS} är \textit{fouriertransform}, \textit{laplacetransform} och \textit{Z-transformen}.
 
 
 \textit{Fouriertransformen} är en transform i diskret eller kontinuerlig tid som transformerar en funktion från
