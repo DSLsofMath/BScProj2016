@@ -72,7 +72,7 @@ instance Num Complex where
   z + w = undefined
 -- Multiplikationen följer ifrån att vi multiplicerar komponenterna
 -- parvis med varandra (i likhet med (a+b) * (c+d))
-  z * w  = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
+  z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
     where realZ = realPart z
           realW = realPart w
           imZ   = imPart z
@@ -96,19 +96,17 @@ instance Num Complex where
 
 instance Fractional Complex where
 -- Division utförs genom att man förlänger hela bråket med nämnarens konjugat
-
   z / w = Complex (realPart zw' / realPart ww') (imPart zw' / realPart ww')
     where zw' = z * (conjugate w)
           ww' = w * (conjugate w)
--- En kvot av två heltal är helt reell och därför kommer imaginärdelen vara 0
 
+-- En kvot av två heltal är helt reell och därför kommer imaginärdelen vara 0
   fromRational z = Complex re 0
     where re = fromInteger (numerator z) / fromInteger (denominator z)
 
 instance Floating Complex where
-
 -- Det komplexa talet pi är ett tal med realdelen pi och imaginärdelen 0
-  pi    = Complex pi 0
+  pi = Complex pi 0
 
 {-
    Potenslagarna ger att e^(a+bj) <=> e^a * e^bj och
@@ -131,7 +129,6 @@ instance Floating Complex where
 
   sinh z = Complex (sin (realPart z) * cosh (imPart z))
                    (cos (realPart z) * sinh (imPart z))
-
 
 {-
    Eulers formel ger att z = re^(j*phi) och eftersom log och exponentialfunktionen
