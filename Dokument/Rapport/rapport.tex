@@ -644,7 +644,7 @@ enligt ARCS-modellen, se \textit{Utveckling - Didaktik}, utvecklade och testade 
 Gruppen hade även två inspirationskällor i form av \cite{learnyouahaskell} och \url{http://betterexplained.com/}.
 
 
-\subsection{Inledande efterforskning och Förundersökning}
+\subsection{Inledande efterforskning och förundersökning}
 
 Projektgruppen inledde med litteraturstudier och efterforskningar inom ämnet. Projektdeltagarna läste in sig på
 Signallära, DSL, didaktik, funktionell programmering och annan relaterad forskning.
@@ -790,9 +790,9 @@ Så ett komplext tal \(z = 1 + 1j = (1,1) \) representeras i vår DSL som:
 Complex 1 1
 \end{minted}
 
-Efter det undersöktes vilka funktioner som borde implementeras för att vår tolkning. De implementerade komplexa
-talen skulle bete sig som matematikens komplexa tal och därför var det nödvändigt att implementera diverse
-beräkningsoperatorer för dem. Addition kunde implementeras relativt enkelt då de reella delarna adderas med
+De implementerade komplexa talen skulle bete sig som matematikens komplexa tal
+och därför var det nödvändigt att implementera diverse beräkningsoperatorer för dem.
+Addition kunde implementeras relativt enkelt då de reella delarna adderas med
 varandra och de imaginära med de imaginära enligt formeln nedan:
 \[(a, b) + (c, d) = (a + c, b + d)\] \cite{conway1978functions}
 Vilket i Haskell implementerades så här:
