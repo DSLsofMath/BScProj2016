@@ -418,19 +418,21 @@ som tas upp i kursen \textit{TSS} är \textit{fouriertransform}, \textit{laplace
 \textit{Fouriertransformen} är en transform i diskret eller kontinuerlig tid som
 transformerar en funktion från tidsdomänen till frekvensdomänen.
 \textit{Fouriertransformen} är definierad enligt följande:
-% TODO: ekv
+
+\[\mathcal{F} f = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
 
 \textit{Laplacetransformen} är en transform i kontinuerlig tid som
 transformerar en funktion från tidsdomänen till s-domänen. s-domänen är en
 generalisering av den kontinuerliga frekvensdomänen. \textit{Laplacetransformen}
 är definierad som:
-% TODO: ekv
 
+\[ \mathcal{L} f = \int_{0}^{\infty} f(t)e^{-st} dt \]
 
 \textit{Z-transformen} är en transform i diskret tid som transformerar en
 funktion från tidsdomänen till z-domänen. z-domänen är en generalisering av
 den diskreta frekvensdomänen. \textit{Z-transformen} är definierad som:
-% TODO: ekv
+
+\[\mathcal{Z} x = \sum_{n=-\infty}^{\infty} x[n] \cdot z^{-n}\]
 
 Området transformer, signaler och system innehåller även andra begrepp och
 operatorer som komplexa tal, faltning, sampling med flera. Alla dessa
@@ -1120,10 +1122,11 @@ Mer om hur detta gått diskuteras i det kommande avsnittet \textit{Diskussion - 
 
 Den slutgiltiga produkten uppfyller alla delar av produktspecifikationen med ett undantag. Ambitionen var att
 läromaterialet skulle täcka in hela kursen \textit{TSS}. I nuläget saknas dock avsnitt som beskriver laplacetransformen
-och Z-transformen. Detta prioriterades bort på grund av tidsbrist i slutet av projektet. Projektgruppen hamnade i läget
-att de kunde fokusera på antingen fouriertransformen eller laplacetransformen och Z-transformen. Gruppen valde då att
-fokusera på fouriertransformen eftersom den är nära besläktad med laplacetransformen och Z-transformen, dessa kan i det
-närmaste betraktas som specialfall av fouriertransformen. Ur programmeringssynpunkt var det även svårt att implementera
+och Z-transformen. Detta prioriterades bort på grund av tidsbrist i slutet av projektet. %Projektgruppen hamnade i läget
+%att de kunde fokusera på antingen fouriertransformen eller laplacetransformen och Z-transformen. Gruppen valde då att 
+%fokusera på fouriertransformen eftersom den är nära besläktad med laplacetransformen och Z-transformen.%, dessa kan i det närmaste betraktas som specialfall av fouriertransformen. -Inte säker om detta stämmer för Z.
+%Detta repeteras också mycket från metod. Tycker det är bra om vi bara tar bort det liksom.
+Ur programmeringssynpunkt var det även svårt att implementera
 laplacetransformen och Z-transformen utan att först implementera fouriertransformen. Det finns emellertid ett utkast
 till avsnitt om laplacetransformen och Z-transformen som utvecklas i framtiden.
 
