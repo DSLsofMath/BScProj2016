@@ -63,7 +63,7 @@ testgrupp som gått igenom vårt material och gett oss återkoppling för att f�
 % * Jättekort om syfte, resultat etc
 % Illustration: Borde inte behövas
 %TODO: varför är titeln på materialet på engelska när själva materialet är på svenska?
-Denna rapport beskriver utvecklingen av läromaterialet ``Transforms, Signals and Systems with the help of a DSL'' med dess tillhörande programmeringskod och lösningar. Läromaterialet riktar sig främst till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom signallära, där man utnyttjar studenternas kunskaper inom programmering. Materialet innehåller förklarande text och teori om bl.a. komplexa tal, signaler, system och transformer. I materialet ingår även programmeringsövningar som är skrivna med domänspecifika språk i programmeringsspråket Haskell.
+Denna rapport beskriver utvecklingen av läromaterialet ``TSS med DSL'' med dess tillhörande programmeringskod och lösningar. Läromaterialet riktar sig främst till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom signallära, där man utnyttjar studenternas kunskaper inom programmering. Materialet innehåller förklarande text och teori om bl.a. komplexa tal, signaler, system och transformer. I materialet ingår även programmeringsövningar som är skrivna med domänspecifika språk i programmeringsspråket Haskell.
 
 Bakgrunden till detta projekt är att kursen inom signallära, TSS, på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kursen. Detta har visats sig inte vara något som är unikt för datastudenterna på Chalmers utan det är tvärtom ett problem inom många discipliner.
 
@@ -74,8 +74,7 @@ Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts f�
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
 \selectlanguage{english}
-This report describes the development of the tutorial ``Transforms, Signals and
-Systems with the help of a DSL'' with associated programming code and solutions. The
+This report describes the development of the tutorial ``TSS med DSL'' with associated programming code and solutions. The
 tutorial is aimed at students studying Computer Science at Chalmers University of
 Technology and the aim of the tutorial is to be a supplementary learning material
 for the course ``Transforms, Signals and Systems''. The tutorial contains
@@ -107,7 +106,7 @@ The report further describes the surveys and analyses done in order to produce t
 
 \section{Inledning}
 %TODO: undvik "kommer att" och gör texten mer direkt: "Vi inleder med ..."
-Vi kommer nu inledningsvis att gå igenom bakgrunden till projektet och hur det
+Vi inleder med att gå igenom bakgrunden till projektet och hur det
 uppstod, samt beskriva projektets mål och rapportens syfte.
 
 \subsection{Bakgrund}
@@ -141,7 +140,7 @@ studenterna inte är tillräckligt bekväma i det matematiska språket.
 
 Inspirerat av bland andra Sussman, Wisdom och Wells artiklar påbörjades ett
 %TODO: definiera en förkortning med \gls
-pedagogiskt projekt på Chalmers, DSLsofMath, vars syfte var att minska
+pedagogiskt projekt på Chalmers, \gls{DSLofMath}, vars syfte var att minska
 svårigheterna som studenterna hade med kursena TSS och Reglerteknik.
 Projektet har resulterat hittills i en kurs som heter
 \textit{Matematikens domänspecifika språk} och har körts i ett år och nu
@@ -381,7 +380,7 @@ Man skapar alltså egna typer och funktioner som bygger upp strukturer med dessa
 typer och skiljer på så sätt den domänspecifika logiken från värdspråkets logik.
 I ett ytligt DSL använder man sig däremot av värdspråkets typer och försöker
 %TODO: "korresponderande" := "motsvarande"
-representera den domänspecifika logiken med korresponderande funktioner och
+representera den domänspecifika logiken med motsvarande funktioner och
 typer i värdspråket.
 Båda sätten att beskriva DSL har sina fördelar och nackdelar då det exempelvis
 i ett djupt DSL är förhållandevis lätt att ge fler tolkningar av det abstrakta
@@ -890,11 +889,11 @@ z / w = Complex (realPart zw' / realPart ww') (imPart zw' / realPart ww')
 \end{minted}
 
 En viktig förutsättning för att kunna koppla de komplexa talen till kursen TSS var att man först
-implementerade Eulers formel, som kan användas för att skapa komplexa tal utifrån en vinkel. Eulers
+implementerade Eulers formel, som kan användas för att skapa komplexa tal utifrån en vinkel $\phi$. Eulers
 formel ser ut så här:
 %TODO: använd helst samma variabelnamn efter j här och nedan. ("z" här känns som ett komplext tal, men texten pratar om en "vinkel" dvs. ett reellt tal)
 % \cite{trott2004}:
-\[e^{jz}=\cos z+ j \cdot \sin z \]
+\[e^{j\phi}=\cos \phi+ j \cdot \sin \phi \]
 %(encyclopediaofmath) -kan lämnas som reference
 Implementationen av den här representationen skedde i flera steg.
 Funktionen \mintinline{haskell}{euler} skapar ett komplext tal utifrån en
