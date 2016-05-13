@@ -247,7 +247,7 @@ $(function() {
 
 	$('#signalerSol1').click(function(e) {
 		e.preventDefault;
-		$('#showSol1').slideDown();	
+		showSolution('#showSol1');
 	});
 	
 	$('#signalerSol2').click(function(e) {
@@ -265,17 +265,19 @@ $(function() {
 		showSolution('#showSol4');	
 	});
 
+	$('#LTISol1').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol1');
+	});
 
-	$('#LTISvar2').click(function(e) {
+	$('#LTISol2').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol2'); 
+	});
 
-		var answer = $('#LTI2').val();
-		e.preventDefault();
-
-		if (answer === "4") {
-			showResult('#rightLTI2')
-		}else {
-			showResult('#wrongLTI2')
-		};	
+	$('#LTISol4').click(function(e) {
+		e.preventDefault;
+		showSolution('#showSol4')
 	});
 
 	function showResult(a) {
