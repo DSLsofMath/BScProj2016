@@ -1,4 +1,4 @@
-planeringsrapport.pdf
+# Konstiga filer från LaTeX.
 *.aux
 *.fdb_latexmk
 *.fls
@@ -9,3 +9,8 @@ planeringsrapport.pdf
 *.bcf
 *.blg
 *.run.xml
+*.glg
+*.dvi
+*.ist
+*.glo
+*.gls
