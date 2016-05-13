@@ -83,7 +83,9 @@
 						
 						<img src="images/LTI/LTI1.png">
 						
-						<p>Linjära tidsinvarianta system, eller LTI-system, är logiskt nog system som är linjära och tidsinvarianta. Hurra för logik! Men för att den förklaringen ska bli lite mer begriplig kan det ju vara bra att reda ut vad som menas med “Linjär” och “Tidsinvariant”. Med ett linjärt system menar man, lite förenklat uttryckt, ett system där man kan separera signalerna i sina beståndsdelar. Ett tidsinvariant system är ett system vars egenskaper inte ändras med tiden. En mer detaljerad beskrivning av dessa egenskaper kommer senare men inledelsevis kan vi konstatera att ett LTI-system är ett system med fina konsekventa ekvationer som är relativt enkla att räkna på. Så rysligt praktiskt! LTI-system är något man använder sig av väldigt mycket inom signallära. Även system som egentligen inte är linjära och tidsinvarianta approximeras ofta till LTI-system, eftersom det är så mycket trevligare att räkna på LTI-system. Alla älskar LTI-system! Åtminstone jämfört med andra system som ändrar sig hela tiden och är odrägliga att försöka räkna på, usch och fy!</p>
+						<p>Linjära tidsinvarianta system, eller LTI-system, är logiskt nog system som är linjära och tidsinvarianta. Hurra för logik! Men för att den förklaringen ska bli lite mer begriplig kan det ju vara bra att reda ut vad som menas med “Linjär” och “Tidsinvariant”. Med ett linjärt system menar man, lite förenklat uttryckt, ett system där man kan separera signalerna i sina beståndsdelar. Ett tidsinvariant system är ett system vars egenskaper inte ändras med tiden. En mer detaljerad beskrivning av dessa egenskaper kommer senare men inledelsevis kan vi konstatera att ett LTI-system är ett system med fina konsekventa ekvationer som är relativt enkla att räkna på. Så rysligt praktiskt! </p> 
+
+						<p>LTI-system är något man använder sig av väldigt mycket inom signallära. Även system som egentligen inte är linjära och tidsinvarianta approximeras ofta till LTI-system, eftersom det är så mycket trevligare att räkna på LTI-system. Alla älskar LTI-system! Åtminstone jämfört med andra system som ändrar sig hela tiden och är odrägliga att försöka räkna på, usch och fy!</p>
 						
 						<hr>
 
@@ -107,8 +109,21 @@
 						
 						<hr>
 
-						<strong>Övning 1:</strong> Här följer ett kodskelett till en funktion som undersöker om ett system är Linjärt. Fyll i det som saknas.</p>
+						<div class="well"> 
+						<p><strong>Övning 1:</strong> Här följer ett kodskelett till en funktion som undersöker om ett system är Linjärt. Fyll i det som saknas.</p>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isLinearDisc ::</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Insignal 1</span>
+            <span class="ot">-&gt;</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Insignal 2</span>
+            <span class="ot">-&gt;</span> <span class="dt">DiscSystem</span>  <span class="co">-- ^ System</span>
+            <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="co">-- ^ Skalningsfaktor 1</span>
+            <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="co">-- ^ Skalningsfaktor 2</span>
+            <span class="ot">-&gt;</span> <span class="dt">DiscTime</span> <span class="co">-- ^ Tid då vi mäter</span>
+            <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+isLinearDisc x0 x1 sys a b t <span class="fu">=</span> undefined</code></pre></div>
 
+						<p><strong>Tips!</strong> Du kommer behöva skala om signalerna, kolla i <span>Signals.hs</span> efter en lämplig funktion.</p>
+
+						<button type="button" class="btn btn-primary" id="LTISol1">Lösning</button>
+						</div>
 
 						<hr>
 						<h3 id="tidsinvarians">Tidsinvarians</h3>
@@ -118,7 +133,9 @@
 						<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isTimeInvCont ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span> <span class="dt">ContSystem</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span></code></pre></div><p><strong>Tips!</strong> Använd dig av följande funktion för tidsskift:<br />
 						</p>
 
-						<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">timeShift ::</span> <span class="dt">Num</span> a <span class="ot">=&gt;</span> <span class="dt">Signal</span> a b <span class="ot">-&gt;</span> a <span class="ot">-&gt;</span> <span class="dt">Signal</span> a b <p id="timeShift">timeShift sig o <span class="fu">=</span> \t <span class="ot">-&gt;</span></p><p id="left">sig (t <span class="fu">-</span> o)</p></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">timeShift ::</span> <span class="dt">Num</span> time <span class="ot">=&gt;</span> <span class="dt">Signal</span> time val
+          <span class="ot">-&gt;</span> time <span class="ot">-&gt;</span> time <span class="ot">-&gt;</span> <span class="dt">Signal</span> time val
+timeShift sig o t <span class="fu">=</span> sig (t <span class="fu">-</span> o)</code></pre></div>
 
 						<p><strong>Exempel input: 1+3. Vilket svar gav programmet dig?</strong></p>
 
