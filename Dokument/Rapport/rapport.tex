@@ -876,7 +876,8 @@ conjugate z = Complex (realPart z) (negate (imPart z))
 Vår implementation av division blev då följande:
 %TODO: för lång rad
 \begin{minted}{haskell}
-z / w = Complex (realPart zw' / realPart ww') (imPart zw' / realPart ww')
+z / w = Complex (realPart zw' / realPart ww')
+                (imPart zw' / realPart ww')
   where zw' = z * (conjugate w)
         ww' = w * (conjugate w)
 \end{minted}
