@@ -62,7 +62,6 @@ testgrupp som gått igenom vårt material och gett oss återkoppling för att f�
 %     (Läsare ska här kunna bedöma om rapporten är intressant att läsa för dem)
 % * Jättekort om syfte, resultat etc
 % Illustration: Borde inte behövas
-%TODO: varför är titeln på materialet på engelska när själva materialet är på svenska?
 Denna rapport beskriver utvecklingen av läromaterialet ``TSS med DSL'' med dess tillhörande programmeringskod och lösningar. Läromaterialet riktar sig främst till studenter på det datatekniska programmet på Chalmers och har som syfte att vara ett kompletterande läromedel inom signallära, där man utnyttjar studenternas kunskaper inom programmering. Materialet innehåller förklarande text och teori om bl.a. komplexa tal, signaler, system och transformer. I materialet ingår även programmeringsövningar som är skrivna med domänspecifika språk i programmeringsspråket Haskell.
 
 Bakgrunden till detta projekt är att kursen inom signallära, TSS, på det aktuella programmet under många år har haft väldigt dåliga studieresultat på grund av studenternas ovana att hantera den typ av matematik som utgör grundstommen i kursen. Detta har visats sig inte vara något som är unikt för datastudenterna på Chalmers utan det är tvärtom ett problem inom många discipliner.
@@ -329,11 +328,9 @@ man kan också återställa enstaka förändringar utan att behöva återställa
 filen. Skulle två versioner stå i konflikt med varandra krävs däremot en del
 manuellt arbete.
 
-%TODO: skriv "git" eller "Git" - inte båda. Se nedan.
 För ytterligare information om Git se hemsidan \url{https://git-scm.com}.
 
-%TODO: skriv "git" eller "Git" - inte båda. Se ovan.
-GitHub är en hemsida som använder git. GitHub gör det möjligt för utvecklare av
+GitHub är en hemsida som använder Git. GitHub gör det möjligt för utvecklare av
 program med öppen källkod att utveckla kod och annat material offentligt.
 Öppen källkod innebär att den kod som programmet är uppbyggt utav är offentlig
 och tillgänglig för alla att läsa och kontrollera.
@@ -368,8 +365,7 @@ Det är till exempel inte effektivt att försöka skapa datorspel i MATLAB
 När man designar domänspecifika språk kan man välja att skapa ett fristående
 språk som analyseras till någon typ av maskinkod eller att utveckla sitt
 domänspecifika språk i ett redan existerande generellt programmeringsspråk,
-%TODO: "konstruktor" := "konstruerare" (här och på ett par ställen till)
-där beståndsdelarna i språket är funktionsanrop och konstruktorer i värdspråket.
+där beståndsdelarna i språket är funktionsanrop och konstruerare i värdspråket.
 
 Det finns även olika nivåer av DSL; så kallade djupa DSL (deep embedding) och
 ytliga DSL (shallow embedding). I introduktionen till sin artikel skriver
@@ -379,15 +375,14 @@ abstrakt syntaxträd som sedan tolkas av olika funktioner.
 Man skapar alltså egna typer och funktioner som bygger upp strukturer med dessa
 typer och skiljer på så sätt den domänspecifika logiken från värdspråkets logik.
 I ett ytligt DSL använder man sig däremot av värdspråkets typer och försöker
-%TODO: "korresponderande" := "motsvarande"
 representera den domänspecifika logiken med motsvarande funktioner och
 typer i värdspråket.
 Båda sätten att beskriva DSL har sina fördelar och nackdelar då det exempelvis
 i ett djupt DSL är förhållandevis lätt att ge fler tolkningar av det abstrakta
 syntaxträdet och därmed kunna bygga vidare på domänspecifika logiken,
-men svårare att lägga till konstruktorer eller på andra sätt ändra i typerna som
+men svårare att lägga till konstruerare eller på andra sätt ändra i typerna som
 bygger upp syntaxträdet eftersom man då måste ändra i de funktioner som tolkar
-dem. I ett ytligt DSL är det lätt att lägga till konstruktorer och typer
+dem. I ett ytligt DSL är det lätt att lägga till konstruerare och typer
 eftersom man bara måste kunna representera dem med värdspråket och alltså inte
 behöver hantera ett syntaxträd, men å andra sidan är dess semantik fixerad.
 För att lägga till nya sätt att tolka ett ytligt DSL måste vi implementera
@@ -694,7 +689,6 @@ När enkäten var framtagen användes \textit{webbenkater.com} för att enkelt k
 anonymt.
 %TODO: Skriv hellre "skickades" (se även "mailades" nedan)
 Länken till enkäten på \textit{webbenkater.com} skickades ut till alla datastudenter från
-%TODO: "x-y" = ??
 årgångarna 2012-2014 och gruppen erhöll totalt 77 svar.  Se \textit{bilaga 1} för ett utdrag ur dessa svar.
 
 Projektgruppen sammanställde sedan den insamlade informationen om kursen, såsom kursplan, lärandemål samt de senaste
