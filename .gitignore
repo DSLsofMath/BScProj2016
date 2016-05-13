@@ -1,1 +1,9 @@
 *~
+
+# Haskell bös
+Tutorial/.stack-work/
+Tutorial/Kod/.stack-work/
+
+# Minted-bös
+Dokument/Rapport/_minted-*/
+Tutorial/Text/_minted-*/
