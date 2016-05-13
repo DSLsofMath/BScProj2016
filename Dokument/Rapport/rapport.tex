@@ -845,8 +845,8 @@ Complex 1 1
 De implementerade komplexa talen skulle bete sig som matematikens komplexa tal
 och därför var det nödvändigt att implementera diverse beräkningsoperatorer för dem.
 Addition kunde implementeras relativt enkelt då de reella delarna adderas med
-varandra och de imaginära med de imaginära enligt formeln nedan:
-\[(a, b) + (c, d) = (a + c, b + d)\] \cite{conway1978functions}
+varandra och de imaginära med de imaginära enligt formeln nedan \cite{conway1978functions}.
+\[(a, b) + (c, d) = (a + c, b + d)\]
 %TODO: Ändra så att citeringen görs i löpande text och inte "Hänger lös" i början av en rad.
 %TODO: punkt i slutet av förra meningen
 Vilket i Haskell implementerades så här:
@@ -906,7 +906,7 @@ z / w = Complex (realPart zw' / realPart ww')
 \end{minted}
 
 En viktig förutsättning för att kunna koppla de komplexa talen till kursen TSS var att man först
-implementerade Eulers formel, som kan användas för att skapa komplexa tal utifrån en vinkel $\phi$. Eulers
+implementerade Eulers formel, som kan användas för att skapa komplexa tal utifrån en vinkel \(\phi\). Eulers
 formel ser ut så här:
 %TODO: använd helst samma variabelnamn efter j här och nedan. ("z" här känns som ett komplext tal, men texten pratar om en "vinkel" dvs. ett reellt tal)
 % \cite{trott2004}:
