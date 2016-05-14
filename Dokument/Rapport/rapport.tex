@@ -478,36 +478,37 @@ som betraktas är linjära och tidsinvarianta, så kallade LTI-system.
 För att kunna lösa problem med denna typ av signaler och system så kan
 man utveckla signalen i en fourierserie eller använda sig av olika
 typer av transformer, vilket gör det möjligt att betrakta signalen i
-en annan domän. De transformer som tas upp i kursen \textit{TSS} är
-\textit{fouriertransform}, \textit{laplacetransform} och
-\textit{Z-transformen}.
+en annan domän. %De transformer som tas upp i kursen \textit{TSS} är
+%\textit{fouriertransform}, \textit{laplacetransform} och
+%\textit{Z-transformen}.
+En av transformerna som tas upp i kursen är fouriertransform.
 %TODO: välj en stil: två av tre slutar på "form" och en på "formen"
 %TODO: homogenisera: "laplacetransform" eller "Laplacetransform"
 
 
-\textit{Fouriertransformen} är en transform i diskret eller
+\textit{Fouriertransform} är en transform i diskret eller
 kontinuerlig tid som transformerar en funktion från tidsdomänen till
-frekvensdomänen. \textit{Fouriertransformen} är definierad enligt
-följande:
+frekvensdomänen. \textit{Fouriertransform} i kontinuerlig tid är
+definierad enligt följande:
 %TODO: visa eller förklara var variabeln \omega binds
 
-\[\mathcal{F} f = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
+\[F \omega = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
 
-\textit{Laplacetransformen} är en transform i kontinuerlig tid som
-transformerar en funktion från tidsdomänen till s-domänen. s-domänen
-är en generalisering av den kontinuerliga
-frekvensdomänen. \textit{Laplacetransformen} är definierad som:
+%\textit{Laplacetransformen} är en transform i kontinuerlig tid som
+%transformerar en funktion från tidsdomänen till s-domänen. s-domänen
+%är en generalisering av den kontinuerliga
+%frekvensdomänen. \textit{Laplacetransformen} är definierad som:
 %TODO: visa eller förklara var variabeln s binds
 
-\[ \mathcal{L} f = \int_{0}^{\infty} f(t)e^{-st} dt \]
+%\[ \mathcal{L} f = \int_{0}^{\infty} f(t)e^{-st} dt \]
 
-\textit{Z-transformen} är en transform i diskret tid som transformerar
-en funktion från tidsdomänen till z-domänen. z-domänen är en
-generalisering av den diskreta frekvensdomänen. \textit{Z-transformen}
-är definierad som:
+%\textit{Z-transformen} är en transform i diskret tid som transformerar
+%en funktion från tidsdomänen till z-domänen. z-domänen är en
+%generalisering av den diskreta frekvensdomänen. \textit{Z-transformen}
+%är definierad som:
 %TODO: visa eller förklara var variabeln z binds
 
-\[\mathcal{Z} x = \sum_{n=-\infty}^{\infty} x[n] \cdot z^{-n}\]
+%\[\mathcal{Z} x = \sum_{n=-\infty}^{\infty} x[n] \cdot z^{-n}\]
 
 Området transformer, signaler och system innehåller även andra begrepp
 och operatorer som komplexa tal, faltning, sampling med flera. Alla
@@ -1469,16 +1470,30 @@ beror på vårt läromaterial.
 \subsection{Hållbar utveckling}
 %Social dimension - Bygga upp och bevara sociala institutioner och strukturer som är viktiga för mänskligt välbefinnande. T.ex så är det viktigt för universitet att upprätthålla kunskap och ideer som idag inte är så centrala men som kan vara viktigt i framtiden. Undervisningsorganisationer etc. 
 
-Ett läromaterial som \emph{lyckas} få datastudenter att \emph{förstå} innehållet i kursen som annars skulle finna den svår kommer att leda till positiva påverkan i den sociala dimension. %Kan någon hjälpa mig formulera om detta?
+Ett läromaterial som \emph{lyckas} få datastudenter att \emph{förstå}
+innehållet i kursen som annars skulle finna den svår kommer att leda
+till positiva påverkan i den sociala dimension. %Kan någon hjälpa mig formulera om detta?
 
-Det kortsiktiga resultatet från läromaterialet är att andelen godkända studenter i kursen TSS höjs. Därför kan en säga att välbefinnandet förbättras för studenterna som annars inte skulle klara kursen eftersom studenten har mindre tentamen efter sig.
+Det kortsiktiga resultatet från läromaterialet är att andelen godkända
+studenter i kursen TSS höjs. Därför kan en säga att välbefinnandet
+förbättras för studenterna som annars inte skulle klara kursen eftersom
+studenten har mindre tentamen efter sig.
 
 %---------------------OBS detta kanske är för dramatiskt....---------
-Det långsiktiga målet för projektet DSLsofMath är dock att minska gapet mellan matematik och programmering. %Kanske formuleras om?
-Detta kommer att öppna upp flera möjligheter för att tackla framtida utmaningar eftersom det blir i framtiden fler ingenjörer som inte är begränsade till enbart ett tankesätt.
-Läromaterialet är då ett \emph{social support} som stödjer studenterna med att få en bättre förståelse inom båda domänen. Detta förbättrar inte bara till studenternas utan möjligen även individerna de framtida ingenjörerna kommer att påverka.
+Det långsiktiga målet för projektet DSLsofMath är dock att minska gapet
+mellan matematik och programmering. %Kanske formuleras om?
+Detta kommer att öppna upp flera möjligheter för att tackla framtida
+utmaningar eftersom det blir i framtiden fler ingenjörer som inte är
+begränsade till enbart ett tankesätt.
+Läromaterialet är då ett \emph{social support} som stödjer studenterna
+med att få en bättre förståelse inom båda domänen. Detta förbättrar inte
+bara till studenternas utan möjligen även individerna de framtida
+ingenjörerna kommer att påverka.
 
-Alla dessa möjliga påverkan resulteras från en kompetent läromaterial som verkligen lyckas minska gapet mellan programmering och matematik. Detta är definitivt inte något som projektets resultat har lyckats uppnå vilket innebär att ytterliggare arbeten kommer att behövas.
+Alla dessa möjliga påverkan resulteras från en kompetent läromaterial som
+verkligen lyckas minska gapet mellan programmering och matematik. Detta är
+definitivt inte något som projektets resultat har lyckats uppnå vilket
+innebär att ytterliggare arbeten kommer att behövas.
 
 \subsection{Framtida utveckling}
 %* Hur kan man bygga vidare på detta?
