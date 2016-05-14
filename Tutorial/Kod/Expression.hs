@@ -118,7 +118,7 @@ showCompExps exp         = showExp exp
 showExpWithOffset :: (Show a) => a -> Expression a -> String
 showExpWithOffset offset Id      = "(var - " ++ show offset ++ ")"
 showExpWithOffset offset Impulse = "δ(var - " ++ show offset ++ ")"
-showExpWithOffset offset Pi      = "π"
+showExpWithOffset _ Pi           = "π"
 showExpWithOffset _ (Const a)    = show a
 showExpWithOffset offset exp     = showExp (traverseExpE (Shift offset) exp)
 
