@@ -383,7 +383,7 @@ För ytterligare information om GitHub se hemsidan \url{https://github.com}.
 % Allmänt om DSL
 Ett domänspecifikt språk (\gls{DSL}) är ett programmeringsspråk som
 till skillnad från generella programmeringsspråk är anpassat för en
-specifik domän. Att skapa domänspecifika språk är ingenting nytt, det 
+specifik domän. Att skapa domänspecifika språk är ingenting nytt, det
 finns tvärtom många DSL som används i vid utstäckning.
 Exempel på några relativt välkända DSL är HTML, MATLAB och Game Maker
 Language.
@@ -410,11 +410,11 @@ att man i ett djupt EDSL använder sig av abstrakta datatyper och att
 man med dessa bygger upp ett abstrakt syntaxträd som sedan tolkas av
 olika funktioner. Man definierar alltså egna typer och funktioner som
 bygger upp strukturer med dessa typer och skiljer på så sätt det
-domänspecifika språket från värdspråket.  I ett ytligt EDSL försöker
+domänspecifika språket från värdspråket. I ett ytligt EDSL försöker
 man däremot uttrycka sitt domänspecifika språk i termer av
 värdspråkets funktioner och typer. Ett uttryck i ett ytligt EDSL
 motsvaras alltså av ett uttryck i värdspråket och behöver inte tolkas
-ytterligare.  Båda sätten att beskriva %är beskriva rätt ord?
+ytterligare. Båda sätten att beskriva %är beskriva rätt ord?
 ett EDSL har sina fördelar och nackdelar då det exempelvis i ett djupt
 EDSL är förhållandevis lätt att ge fler tolkningar av det abstrakta
 syntaxträdet och därmed kunna bygga vidare på det domänspecifika
@@ -445,7 +445,9 @@ programmeringsspråk är att de kan skickas som parametrar till andra
 funktioner, så kallade högre ordningens funktioner. Detta gör att vi
 kan bygga funktioner som exempelvis bara tar hand om datastrukturer
 och skicka funktionen som löser delproblemet som en parameter.
-%TODO: Skriv om "fixeras dessutom de givna parametrarna till en funktion ..." - jag förstår inte. Det är nog enklare att ge ett exempel - som plusEtt = (1+) eller dubbel = (2*).
+% TODO: Skriv om "fixeras dessutom de givna parametrarna till en
+% funktion ..." - jag förstår inte. Det är nog enklare att ge ett
+% exempel - som plusEtt = (1+) eller dubbel = (2*).
 I språk som Haskell fixeras dessutom de givna parametrarna till en
 funktion, även om funktionen är given ett färre antal parametrar än
 den är definierad för. Man får då en ny funktion som är definerad för
@@ -491,7 +493,7 @@ kontinuerlig tid som transformerar en funktion från tidsdomänen till
 frekvensdomänen. \textit{Fouriertransform} i kontinuerlig tid är
 definierad enligt följande:
 %TODO: visa eller förklara var variabeln \omega binds
-\[\mathcal{F}[f] (\omega) 
+\[\mathcal{F}[f] (\omega)
 %\mathcal{F} f \omega
 %\mathcal{F} [f] \omega
 = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
@@ -647,7 +649,7 @@ Hur dessa didaktiska modeller och metoder har använts i projektet
 \textit{Utveckling av läromaterialet}.
 
 \subsection{Relaterad forskning}
-Som Sussman och Wisdom uttrycker det är det svårt att lära sig fysik: 
+Som Sussman och Wisdom uttrycker det är det svårt att lära sig fysik:
 de resonerar att detta troligen kan bero på
 att studenter tycker att det är svårt med det matematiska språket och
 att det därför blir problematiskt att lära sig både ämnet och språket
@@ -754,7 +756,7 @@ komplettera, mycket av projektgruppens metodik när läromaterialet
 utvecklats. Gruppen inledde i enlighet med de 10 stegen med att samla
 in och analysera information om kursen och målgruppen, se avsnitt
 \textit{6.1 - Inledande efterforskning och förundersökning},
-arbetade fram en taktik enligt ARCS-modellen, se avsnitt \textit{6.3 
+arbetade fram en taktik enligt ARCS-modellen, se avsnitt \textit{6.3
 - Didaktik}, utvecklade och testade materialet, se avsnitt \textit{6.6
 - Test av läromaterialet}, utvärderat och kompletterat det.
 
@@ -931,8 +933,8 @@ förmåga, samt möjlighet att praktisera detta.
 %Förklara hur komplexa tal och alla typer av transformer implementerades i DSL.
 Det DSL som används i detta läromaterial har utvecklats i Haskell av
 projektgruppen. Det har designats för att täcka de valda delarna av
-TSS som behandlas i läromaterialet. Se avsnitt 
-\textit{6.1 - Inledande efterforskning och förundersökning} för mer 
+TSS som behandlas i läromaterialet. Se avsnitt
+\textit{6.1 - Inledande efterforskning och förundersökning} för mer
 information om hur dessa delar valts ut.
 
 En av dessa delar är komplexa tal, vilket används flitigt när man
@@ -1073,7 +1075,7 @@ Ett av de största problemen vid implementationen av signaler, och all
 kod som bygger på signaler, var hur man skulle hantera kontinuerlig
 tid. Kursen \textit{TSS} behandlar både diskreta och kontinuerliga
 signaler och det var därför önskvärt att implementera båda dessa. En
-dator kan dock under normala förhållanden inte hantera kontinuerliga 
+dator kan dock under normala förhållanden inte hantera kontinuerliga
 funktioner utan endast diskreta. %Osäker på hur man borde uttrycka detta för att det ska vara korrekt
 
 Ett sätt att hantera detta är att simulera ingående data till en
@@ -1140,7 +1142,7 @@ och liknande är skapade i Matlab och \url{fooplot.com/}.
 För att få så givande testsvar som möjligt ville vi givetvis testa
 vårt läromaterial på den aktuella målgruppen. Därför tog vi kontakt
 med studenter som kunde tänka sig att delta i testandet när vi
-skickade ut enkäten som beskrivs i avsnitt \textit{6.1 - 
+skickade ut enkäten som beskrivs i avsnitt \textit{6.1 -
 Inledande efterforskningar och förstudier}. De som
 sedan ville deltaga i testandet av vår produkt lämnade en
 mailadress. Detta resulterade i en testgrupp på 13 personer.
@@ -1216,11 +1218,11 @@ programmeringsfunktioner på, både för detta och föregående delavsnitt.
 
 \subsection{Testresultat}
 Introduktionen och de tre första avsnitten i läromaterialet har
-granskats av den testgrupp som beskrivs i avsnittet \textit{6.6 - Test av läromaterialet}. 
-Det sista avsnittet har
-inte granskats av testgruppen, utan endast av projektgruppen själva
-samt projektgruppens handledare. Orsaken till detta beskrivs även det 
- i avsnitt \textit{6.6 - Test av läromaterialet}.
+granskats av den testgrupp som beskrivs i avsnittet \textit{6.6 - Test
+  av läromaterialet}. Det sista avsnittet har inte granskats av
+testgruppen, utan endast av projektgruppen själva samt projektgruppens
+handledare. Orsaken till detta beskrivs även det i avsnitt \textit{6.6
+  - Test av läromaterialet}.
 
 Responsen från projektets testgrupp var genomgående
 positiv. Testgruppen hävdade att de trodde att läromaterialet var ett
@@ -1315,9 +1317,9 @@ av sin tid på nödvändig förberedande efterforskning. Detta lämnade
 mindre tid till själva utvecklingen av läromaterialet.
 
 Man kan ställa sig frågan om det överhuvudtaget är en bra idé att
-låta studenter ta fram den här typen av läromaterial. En nackdel 
-är att studenterna som skriver materialet behöver lägga en stor 
-del av tiden på att lära sig ämnet och nödvändig didaktik 
+låta studenter ta fram den här typen av läromaterial. En nackdel
+är att studenterna som skriver materialet behöver lägga en stor
+del av tiden på att lära sig ämnet och nödvändig didaktik
 tillräckligt bra, precis som projektgruppen har behövt göra.
 Därmot är följden av detta att studenterna
 får en djupare förståelse för ämnet samt får nya
@@ -1326,26 +1328,26 @@ Därför går det att argumentera för utvecklandet av ett läromaterial
 som ett läromedel.
 
 En annan fördel med ett läromaterial som utvecklas av studenter
-är att dessa känner till målgruppen studenter relativt väl, 
-eftersom de ingår i den. Studenterna har därför rimligtvis lättare 
+är att dessa känner till målgruppen studenter relativt väl,
+eftersom de ingår i den. Studenterna har därför rimligtvis lättare
 att sätta sig in i vad som är svårt att förstå för en student
 än vad en expert inom ämnet har. Det är också möjligt att studenter
-har lättare för uttrycka sig på ett sätt som andra studenter  
-kan förstå och ta till sig. Däremot kommer man inte ifrån 
+har lättare för uttrycka sig på ett sätt som andra studenter
+kan förstå och ta till sig. Däremot kommer man inte ifrån
 att experterna har betydligt djupare kunskaper inom sitt ämne
 än studenterna och det är ytterst tveksamt att en grupp studenter
-skulle kunna ta fram ett läromaterial som är på samma nivå med 
+skulle kunna ta fram ett läromaterial som är på samma nivå med
 lika goda insikter i ämnet som en expert. Det kan dock vara så
 att den här typen av studentutvecklade läromaterial är ett bra
-komplement till ämnesexperterna. En av kommentarerna från 
+komplement till ämnesexperterna. En av kommentarerna från
 testgruppen, se avsnitt \textit{Resultat - Testning} för hela sammanhanget,
-påpekade just att: “att ni ibland använder monolog, där ni 
+påpekade just att: “att ni ibland använder monolog, där ni
 ställer en fråga och sen svarar som "en vän", gör
-att det känns mer begripligt och man får en känsla av att man 
-pratar och diskuterar med en kompis om diverse ämnen. Detta 
-ökar då förståelse enormt då det är annorlunda skrivet än hur 
-t.ex. föreläsare skriver sitt material.“ Denna och andra 
-kommentarer är starka argument för att denna typ av 
+att det känns mer begripligt och man får en känsla av att man
+pratar och diskuterar med en kompis om diverse ämnen. Detta
+ökar då förståelse enormt då det är annorlunda skrivet än hur
+t.ex. föreläsare skriver sitt material.“ Denna och andra
+kommentarer är starka argument för att denna typ av
 läromaterial kan fungera bra som komplement till annan
 undervisning.
 
@@ -1373,8 +1375,8 @@ projektgruppen behövt utvärdera vad som skulle ingå och vad som var
 möjligt att implementera på en nivå som studenterna i målgruppen kan
 förstå. Det har varit en ständig avvägning av att få med de mest
 vitala delarna i \textit{TSS} och att implementera kod som är
-begriplig. \textit{The Fastest Fourier Transform in the
- West} \cite{fastestfourier} %Osäker på om denna referens är korrekt, kontrollera gärna 
+begriplig. \textit{The Fastest Fourier Transform in the West}
+\cite{fastestfourier} %Osäker på om denna referens är korrekt, kontrollera gärna
 är ett exempel på hur Fouriertransform kan implementeras relativt
 effektivt i Haskell, men problemet är att koden då hamnar på en nivå
 som överstiger förmågan hos många studenter i målgruppen. Kod av detta
@@ -1399,22 +1401,23 @@ en kontinuerlig signal med en diskret. Använder man väldigt små steg
 kan man få en relativt bra approximation på detta sätt, men det är
 fortfarande endast en approximation och därför blir resultatet inte
 fullständigt korrekt.
-%TODO: "pattern matching" = mönstermatchning (ni kanske vill ange båda första gången ni använder ordet)
+% TODO: "pattern matching" = mönstermatchning (ni kanske vill ange
+% båda första gången ni använder ordet)
 En annan variant är att använda \textit{pattern matching}, där
 funktioner definieras exakt för ett antal givna insignaler som
 definieras var för sig. Detta ger mer korrekta svar, men ger inte
 samma möjlighet att
 
-sammanfatta 
-%och abstrahera 
-området som en diskret approximation eftersom man definierar 
+sammanfatta
+%och abstrahera
+området som en diskret approximation eftersom man definierar
 olika fall var för sig. Denna
 variant gör det å andra sidan möjligt att definiera typfall som
 studenten kan känna igen i kursen \textit{TSS}.
 
 Vad är då bäst i vårt fall, att använda en approximation som ger
 större möjlighet att abstrahera
-% och 
+% och
 sammanfatta kärnan i ämnet eller
 en mer matematiskt korrekt variant som använder formler som studenten
 kan känna igen? Detta är en fråga som projektgruppen inte har kunnat
@@ -1448,7 +1451,7 @@ detta bort på grund av tidsbrist i slutet av projektet. Projektgruppen
 hamnade i läget att de kunde fokusera på antingen Fouriertransform
 eller Laplacetransform och Z-transform. Anledningen till att
 gruppen valde att fokusera på Fouriertransform var att den är nära
-besläktad med Laplacetransformen och Z-transformen. Ur 
+besläktad med Laplacetransformen och Z-transformen. Ur
 programmeringssynpunkt var det även svårt att implementera
 Laplacetransform och Z-transform utan att först implementera Fouriertransform. Det finns emellertid ett utkast
 till avsnitt om Laplacetransform och Z-transform som kan utvecklas i framtiden.
@@ -1480,7 +1483,7 @@ beror på vårt läromaterial.
 %Stämmer vårt resultat överens med tidigare forskning? Har vi fått samma resultat som liknande projekt?
 
 \subsection{Hållbar utveckling}
-%Social dimension - Bygga upp och bevara sociala institutioner och strukturer som är viktiga för mänskligt välbefinnande. T.ex så är det viktigt för universitet att upprätthålla kunskap och ideer som idag inte är så centrala men som kan vara viktigt i framtiden. Undervisningsorganisationer etc. 
+%Social dimension - Bygga upp och bevara sociala institutioner och strukturer som är viktiga för mänskligt välbefinnande. T.ex så är det viktigt för universitet att upprätthålla kunskap och ideer som idag inte är så centrala men som kan vara viktigt i framtiden. Undervisningsorganisationer etc.
 
 Ett läromaterial som \emph{lyckas} få datastudenter att \emph{förstå}
 innehållet i kursen som annars skulle finna den svår kommer att leda
@@ -1561,27 +1564,27 @@ finns liknande problem även inom andra områden.
 % * Vad är gjort och vad återstår att göra?
 
 Projektets mål var att ta fram ett kompletterande läromaterial till
-kursen \textit{TSS} inspirerat av \textit{DSLsofMath} som uppfyller 
+kursen \textit{TSS} inspirerat av \textit{DSLsofMath} som uppfyller
 produktspecifikationen som beskrivs i avsnitt \textit{4 - Produktspecifikation}.
 
 Projektgruppen har utifrån detta tagit fram ett material som finns
 samlat på en hemsida. Materialet innehåller förklarande text och exempel, bilder
 samt programmeringsövningar. Det består av 4 delavsnitt
-som i stora drag täcker  in innehållet i kursen \textit{TSS}, med 
+som i stora drag täcker  in innehållet i kursen \textit{TSS}, med
 undantag för Laplacetransform och Z-transform.
 
 Enligt testgruppen är texten underhållande och informativ och
- övningarna ligger på en lagom svår nivå. På grund av testgruppens 
-ringa storlek är det svårt att dra några definitiva slutsatser, 
+ övningarna ligger på en lagom svår nivå. På grund av testgruppens
+ringa storlek är det svårt att dra några definitiva slutsatser,
 men testresultaten indikerar att materialet uppfyller de krav
 som ställs i produktpecifikationen. Den faktiska kvalitén på
  läromaterialet är även svår att bedöma eftersom det
-ännu inte har använts i samband med kursen. 
+ännu inte har använts i samband med kursen.
 
 Sammanfattningsvis har projektgruppen alltså tagit
 fram ett läromaterial som uppfyller kraven i produktspecifikationen,
 med undantag av ett saknat delavsnitt. Testrusultaten har varit
-positiva men är inte nog för att dra definitiva slutsatser. Hur väl detta 
+positiva men är inte nog för att dra definitiva slutsatser. Hur väl detta
 material fyller sin funktion kommer förhppningsvis att
 visa sig i framtiden när det anvnds av studenter i målgruppen.
 
@@ -1608,7 +1611,7 @@ Denna bilaga är ett utdrag ur den enkätundersökning som genomfördes av
 kandidatgruppen under våren 2015 via \textit{webbenkater.com}. Bilagan
 innehåller endast de delar av undersökningen som bedömts som relevanta
 för rapporten och är tömd på all information som kan länkas till
-enskilda individer. 
+enskilda individer.
 
 Observera att antalet deltagare varierar markant. Detta beror på att
  fråga 1 och 9 riktade sig även till studenter som ska läsa kursen nästa
