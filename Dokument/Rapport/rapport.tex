@@ -414,18 +414,17 @@ domänspecifika språket från värdspråket. I ett ytligt EDSL försöker
 man däremot uttrycka sitt domänspecifika språk i termer av
 värdspråkets funktioner och typer. Ett uttryck i ett ytligt EDSL
 motsvaras alltså av ett uttryck i värdspråket och behöver inte tolkas
-ytterligare. Båda sätten att beskriva %är beskriva rätt ord?
-ett EDSL har sina fördelar och nackdelar då det exempelvis i ett djupt
-EDSL är förhållandevis lätt att ge fler tolkningar av det abstrakta
-syntaxträdet och därmed kunna bygga vidare på det domänspecifika
-språket, men svårare att lägga till konstruerare eller på andra sätt
-ändra i typerna som bygger upp syntaxträdet eftersom man då måste
-ändra i de funktioner som tolkar dem. I ett ytligt EDSL är det lätt
-att lägga till konstruerare och typer eftersom man bara måste kunna
-representera dem i värdspråket och alltså inte behöver hantera ett
-syntaxträd, men å andra sidan är dess tolkning fixerad. För att lägga
-till nya sätt att tolka ett ytligt EDSL måste vi implementera om det
-på nytt.
+ytterligare. Båda sätten att implementera ett EDSL har sina fördelar
+och nackdelar då det exempelvis i ett djupt EDSL är förhållandevis
+lätt att ge fler tolkningar av det abstrakta syntaxträdet och därmed
+kunna bygga vidare på det domänspecifika språket, men svårare att
+lägga till konstruerare eller på andra sätt ändra i typerna som bygger
+upp syntaxträdet eftersom man då måste ändra i de funktioner som
+tolkar dem. I ett ytligt EDSL är det lätt att lägga till konstruerare
+och typer eftersom man bara måste kunna representera dem i värdspråket
+och alltså inte behöver hantera ett syntaxträd, men å andra sidan är
+dess tolkning fixerad. För att lägga till nya sätt att tolka ett
+ytligt EDSL måste vi implementera om det på nytt.
 
 \subsection{Funktionell programmering}
 % -Referera till “Why functional programming matters”
