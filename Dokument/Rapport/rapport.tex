@@ -407,7 +407,7 @@ Partiell funktionsapplikation är en annan egenskap som underlättar för
 funktionella programmerare att skriva mer modulär kod.  Partiell
 funktionsapplikation innebär att funktioner som appliceras på färre
 argument än de är definierade för skapar en ny funktion, se exemplet i
-figur \ref{hask:partfunapp} nedan.
+figur \ref{fig:hask_partfunapp} nedan.
 
 \begin{figure}[H]
   \begin{minted}{haskell}
@@ -423,10 +423,11 @@ figur \ref{hask:partfunapp} nedan.
     3
   \end{minted}
   \caption{Figuren visar hur Haskell hanterar partiellt applicerade
-    funktioner.  I bilden är (+) operationen + som är definierad på
-    två numeriska värden och plusEtt, (+ 1), är en funktion som givet
-    ett annat numeriskt värde adderar 1 till det.}
-  \label{hask:partfunapp}
+    funktioner. I bilden är \mintinline{haskell}{(+)} addition som är
+    definierad på två numeriska värden och
+    \mintinline{haskell}{plusEtt}, \mintinline{haskell}{(+ 1)}, är en
+    funktion som givet ett annat numeriskt värde adderar 1 till det.}
+  \label{fig:hask_partfunapp}
 \end{figure}
 
 Haskell är ett funktionellt programmeringsspråk med stöd för partiell
