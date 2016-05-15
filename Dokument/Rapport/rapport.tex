@@ -51,16 +51,15 @@ Denna rapport behandlar kandidatarbetet ``Matematikens domänspecifika språk
 från civilingenjörsprogrammen Datateknik och Teknisk Matematik på Chalmers.
 
 Vi vill tacka Patrik Jansson, vår handledare, som har varit väldigt hjälpsam
-och skickat oss i rätt riktning när vi varit vilsna. Vi vill tacka Adam som
-har svarat på frågor vi haft och funnits tillgänglig när vi undrat saker. Vi
+och skickat oss i rätt riktning när vi varit vilsna. Vi vill tacka Adam Sandberg Eriksson
+som har svarat på frågor vi haft och funnits tillgänglig när vi undrat saker. Vi
 vill tacka Bo Egardt och Ants Silberberg som tagit sig tid att diskutera sina
 kurser med oss. Och slutligen vill vi tacka vår testgrupp som gått igenom vårt
 material och gett oss återkoppling för att förbättra vår produkt.
 
 \newpage
 
-\renewcommand*\abstractname{Sammandrag}
-\begin{abstract}
+\section*{Sammandrag}
   %Ett Sammandrag
 %Subject to Change!--------------------------------------------
 % Huvudpoänger:
@@ -71,8 +70,8 @@ material och gett oss återkoppling för att förbättra vår produkt.
 % Illustration: Borde inte behövas
 Denna rapport beskriver utvecklingen av läromaterialet ``TSS med DSL'' med dess
 tillhörande programmeringskod och lösningar. Läromaterialet riktar sig främst
-till studenter på det datatekniska programmet på Chalmers och har som syfte att
-vara ett kompletterande läromedel inom signallära, där man utnyttjar studenternas
+till studenter på det datatekniska programmet på Chalmers tekniska högskola qoch har som syfte att
+vara ett kompletterande läromedel inom signallära där man utnyttjar studenternas
 kunskaper inom programmering. Materialet innehåller förklarande text och teori
 om bland annat komplexa tal, signaler, system och transformer. I materialet
 ingår även programmeringsövningar som är skrivna med domänspecifika språk i
@@ -89,10 +88,8 @@ Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts
 för att ta kunna ta fram läromaterialet, samt de tester som gjorts på den
 färdiga produkten.
 
-\end{abstract}
 \newpage
-\renewcommand*\abstractname{Abstract}
-\begin{abstract}
+\section*{Abstract}
 \selectlanguage{english}
 This report describes the development of the tutorial ``TSS med DSL'' with
 associated programming code and solutions. The tutorial is aimed at students
@@ -100,7 +97,7 @@ studying Computer Science at Chalmers University of Technology and the aim of
 the tutorial is to be a supplementary learning material for the course
 ``Transforms, Signals and Systems''. The tutorial contains explanations and
 theory concerning complex numbers, signals, systems and transforms. The
-tutorial also includes programming exercises using domain specific languages
+tutorial also includes programming exercises using a domain specific languages
 written in Haskell.
 
 The background to this project is that the computer science students studying
@@ -111,7 +108,6 @@ and not unique to Computer science students at Chalmers.
 
 The report further describes the surveys and analyses done in order to produce
 this tutorial and the test results from the finished product.
-\end{abstract}
 
 \newpage
 
@@ -162,7 +158,7 @@ studenterna inte är tillräckligt bekväma i det matematiska språket.
 %Detta syns bland annat i statistiken av hur många datastudenter som klarar kurserna.
 
 Inspirerat av bland andra Sussman, Wisdom och Wells artiklar påbörjades ett
-pedagogiskt projekt på Chalmers, \gls{DSLsofMath}, vars syfte var att minska
+pedagogiskt projekt på Chalmers, Domain Specific Languages of Mathematics (\gls{DSLsofMath}), vars syfte var att minska
 svårigheterna som studenterna hade med kursena TSS och Reglerteknik.
 Projektet har resulterat hittills i en kurs som heter
 \textit{Matematikens domänspecifika språk} och har körts i ett år och nu
@@ -170,7 +166,7 @@ Projektet har resulterat hittills i en kurs som heter
 matematiska problem och försöka lösa dem med ett verktyg de är
 mer familjära med än matematik, nämligen det funktionella
 programmerings\-språket Haskell. Förutom det faktum att studenterna tidigare
-kommit i kontakt med Haskell har det dessutom en notation med fokus på
+kommit i kontakt med Haskell har språket dessutom en notation med fokus på
 tydlighet som lämpar sig väl för att lära ut matematiska begrepp
 \cite{TFPIE15_DSLsofMath_IonescuJansson}.
 
@@ -218,17 +214,17 @@ dess material.
 
 %TODO: kolla upp avstavningarna - kanske någon LaTeX-inställning är fel? Det borde inte bli "matem-atisk", "tex-tens", etc.
 Gruppen har under utvecklingen av materialet inte heller lagt fokus på
-matematisk korrekthet, matematiska bevis, avancerade matematiska
+ett matematiskt korrekt språk, matematiska bevis, avancerade matematiska
 begrepp eller teorier. Anledningen till detta är att materialet i
 första hand är tänkt att främja förståelse och väcka intresse för
-ämnet. Detta beslut baserades även på \textit{Didaktik för
+ämnet. Detta beslut baserades även på boken \textit{Didaktik för
  ingenjörslärare} där författarna, under en diskussion om aktivt
 lärande, hävdar att: ”När man lär sig något kan man få det att fastna
-på olika sätt. En ytligt inlärd kunskap eller ett beteende som inte
+på olika sätt \cite{didaktik_for_ingenjorslarare}. En ytligt inlärd kunskap eller ett beteende som inte
 tränats tillräckligt glöms snart bort. Det är med andra ord viktigt
 att metoderna tillämpas så att djuplärande uppnås. Textens detaljer är
 då inte lika intressanta som textens budskap, förståelse, sammanhang
-och principer. Snarare än att lära sig ”det man måste” utantill för
+och principer. Snarare än att lära sig 'det man måste' utantill för
 reproduktion, sker ett personligt tillägnande relaterat till tidigare
 kunskap.” I detta projekt är det alltså viktigt att ta fram ett
 interaktivt material som främjar förståelse och inte fastna i
@@ -254,8 +250,8 @@ datastudenterna på Chalmers har svårt för två av sina kurser, TSS och
 Reglerteknik.
 
 Statistiken från Chalmers visar tydligt att kurserna TSS och
-Reglerteknik har en ovanligt hög andel studenter som inte blir
-godkända på tentamen. Under perioden 2010 till 2016 blev i genomsnitt
+Reglerteknik har en ovanligt hög andel studenter som blir
+underkända på tentamen. Under perioden 2010 till 2016 blev i genomsnitt
 endast 51\% av de som skrev tentamen i TSS godkända och under samma
 period blev 53\% godkända i Reglerteknik \cite{tentastatistik}.
 %Pajdiagram
@@ -387,11 +383,12 @@ För ytterligare information om GitHub se hemsidan \url{https://github.com}.
 % Allmänt om DSL
 Ett domänspecifikt språk (\gls{DSL}) är ett programmeringsspråk som
 till skillnad från generella programmeringsspråk är anpassat för en
-specifik domän. Att skapa domänspecifika språk är ingenting nytt och
-det finns flera exempel på DSL som HTML, MATLAB och Game Maker
+specifik domän. Att skapa domänspecifika språk är ingenting nytt, det 
+finns tvärtom många DSL som används i vid utstäckning.
+Exempel på några relativt välkända DSL är HTML, MATLAB och Game Maker
 Language.
 
-Det som är grundtanken med DSL är att det är relativt enkelt att
+Det som är grundtanken med ett DSL är att det är relativt enkelt att
 formulera lösningar för problem inom deras domäner, exempelvis är det
 enkelt att strukturera upp text i HTML, utföra matrisoperationer i
 MATLAB eller skapa datorspel med Game Maker Language. Däremot är DSL
@@ -400,7 +397,7 @@ Det är till exempel inte effektivt att försöka skapa datorspel i
 MATLAB
 
 När man designar domänspecifika språk kan man välja att skapa ett
-fristående språk som analyseras till någon typ av maskinkod eller att
+fristående språk som kompileras till någon typ av maskinkod eller att
 utveckla sitt domänspecifika språk i ett redan existerande generellt
 programmeringsspråk, där beståndsdelarna i språket är funktionsanrop
 och konstruerare i värdspråket.
@@ -415,17 +412,18 @@ bygger upp strukturer med dessa typer och skiljer på så sätt den
 domänspecifika logiken från värdspråkets logik. I ett ytligt DSL
 använder man sig däremot av värdspråkets typer och försöker
 representera den domänspecifika logiken med motsvarande funktioner och
-typer i värdspråket. Båda sätten att beskriva DSL har sina fördelar
+typer i värdspråket. Båda sätten att beskriva %är beskriva rätt ord?
+ett DSL har sina fördelar
 och nackdelar då det exempelvis i ett djupt DSL är förhållandevis lätt
 att ge fler tolkningar av det abstrakta syntaxträdet och därmed kunna
 bygga vidare på domänspecifika logiken, men svårare att lägga till
 konstruerare eller på andra sätt ändra i typerna som bygger upp
 syntaxträdet eftersom man då måste ändra i de funktioner som tolkar
 dem. I ett ytligt DSL är det lätt att lägga till konstruerare och
-typer eftersom man bara måste kunna representera dem med värdspråket
+typer eftersom man bara måste kunna representera dem i värdspråket
 och alltså inte behöver hantera ett syntaxträd, men å andra sidan är
 dess semantik fixerad. För att lägga till nya sätt att tolka ett
-ytligt DSL måste vi implementera om det på nytt.
+ytligt DSL måste vi implementera om det på nytt. 
 
 \subsection{Funktionell programmering}
 % -Referera till “Why functional programming matters”
@@ -520,13 +518,13 @@ dessa grundkunskaper behövs för att modulera system och signaler.
 \subsection{Didaktik}
 Didaktik är vetenskapen om undervisning. I \textit{Didaktik för
  ingenjörslärare} hävdar författarna att didaktik kan ses som ett
-komplement till pedagogik. De didaktiska frågorna handlar, enligt
+komplement till pedagogik \cite{didaktik_for_ingenjorslarare}. De didaktiska frågorna handlar, enligt
 författarna, inte om hur studenten lär sig utan snarare om hur läraren
 skapar en situation lämplig för lärande.
 
 %TODO: "Matematikens domänspecifika språk" är namnet på det pedagogiska projektet och kursen. Ert kandidatprojekt (som jag gissar att ni hänvisar till) heter något annat: "Programmering som undervisningsverktyg för signaler och system" enligt titeln (eller "Matematikens domänspecifika språk (DSLsofMath) för andra kurser" i projektförslaget).
-Som nämndes i inledningen har projektet “Matematikens domänspecifika
-språk” som syfte att utveckla läromaterial som kan fungera som ett
+Som nämndes i inledningen har projektet \textit{DSLsofMath}
+ som syfte att utveckla läromaterial som kan fungera som ett
 komplement till kursen \textit{TSS} och väcka intresse för ämnet.
 Därför är didaktik en viktig del av projektet.
 
@@ -538,7 +536,7 @@ Boken hävdar även att långt ifrån alla studenter som går en kurs utgår
 från att den är läsvärd. Även i \textit{Motivational Design for
  Learning and Performance} påpekas det orimliga i att anta att alla
 studenter är motiverade att lära sig ett ämne redan när de först
-kommer i kontakt med det. Det är alltså viktigt att ett läromedel är
+kommer i kontakt med det \cite{motivational_design}. Det är alltså viktigt att ett läromedel är
 uppbyggt så att det motiverar studenterna att lära sig.
 
 %TODO: Upprepa inte hela bokens titel flera gånger
@@ -647,11 +645,11 @@ Hur dessa didaktiska modeller och metoder har använts i projektet
 \textit{Utveckling av läromaterialet}.
 
 \subsection{Relaterad forskning}
-Som Sussman och Wisdom uttrycker det är det svårt att lära sig fysik
-\cite{sussman2002role}. De resonerar att detta troligen kan bero på
+Som Sussman och Wisdom uttrycker det är det svårt att lära sig fysik: 
+de resonerar att detta troligen kan bero på
 att studenter tycker att det är svårt med det matematiska språket och
 att det därför blir problematiskt att lära sig både ämnet och språket
-som ämnet är uttryckt i. De jämför det med att försöka läsa
+som ämnet är uttryckt i \cite{sussman2002role}. De jämför det med att försöka läsa
 \textit{Les Misérables} samtidigt som man försöker lära sig
 franska. Det huvudsakliga problemet med att uttrycka idéer och koncept
 i det matematiska språket är dock inte språket i sig utan snarare att
@@ -663,13 +661,13 @@ matematiken så tydligt som man bör snarare skissar upp en lösning,
 vilket för den matematiskt ovane studenten blir i det närmaste
 obegripligt.
 
-En bra lösning, som föreslås i artikeln, på hur man hittar den
+En lösning, som föreslås i artikeln, på hur man hittar den
 detaljnivån som krävs för att otvetydigt förklara något matematiskt är
 att försöka förklara det för en dator. En dator försöker inte tänka
 själv och accepterar inte halvfärdiga instruktioner där resten lämnas
 till intuitionen.
 
-Charles Wells publicerade under 1995 en artikel
+Charles Wells publicerade 1995 en artikel
 \cite{wells1995communicating} i vilken han argumenterar för att
 matematiker har mycket att vinna på att uttrycka sig tydligare. Wells
 drar paralleller till datavetenskapen där man skiljer noga på syntax
@@ -686,6 +684,8 @@ hantera problemen programmeringsmässigt. För att kunna göra detta
 måste studenterna fundera över vad de faktiskt ska modellera och vilka
 typer de kan tänkas behöva för att uttrycka problemet
 med~\cite{kursplan:dslsofmath}.
+
+\newpage
 
 \section{Utveckling av läromaterialet}
 \label{sec:utveckling}
@@ -709,7 +709,7 @@ använts och hur dessa tillämpats.
 
 Enligt boken \textit{Motivational design for learning and performance}
 kan man använda sig av en modell med 10 steg vid framtagningen av nytt
-material till en kurs. Dessa 10 steg är som följer:
+material till en kurs \cite{motivational_design}. Dessa 10 steg är som följer:
 
 \begin{enumerate}
 %TODO: Formulera om "Erhållning av". Kanske "Samla"?
@@ -751,13 +751,16 @@ Dessa steg har legat till grund för, och även använts för att
 komplettera, mycket av projektgruppens metodik när läromaterialet
 utvecklats. Gruppen inledde i enlighet med de 10 stegen med att samla
 in och analysera information om kursen och målgruppen, se avsnitt
-\textit{Utveckling - Inledande efterforskning och förundersökning},
-arbetade fram en taktik enligt ARCS-modellen, se \textit{Utveckling
-- Didaktik}, utvecklade och testade materialet, se avsnitt {Utveckling
-- Testning}, utvärderat och kompletterat det.
+\textit{6.1 - Inledande efterforskning och förundersökning},
+arbetade fram en taktik enligt ARCS-modellen, se avsnitt \textit{6.3 
+- Didaktik}, utvecklade och testade materialet, se avsnitt \textit{6.6
+- Test av läromaterialet}, utvärderat och kompletterat det.
 
 Gruppen hade även två inspirationskällor i form av
-\url{http://betterexplained.com/} och \cite{learnyouahaskell}.
+%Borde betterexplained också ha en riktig referens?
+\url{http://betterexplained.com/} och \textit{Learn You a Haskell for Great Good} \cite{learnyouahaskell}.
+Detta är två läromaterial som projektgruppen upplevt är både
+informativa och underhållande läsning.
 
 \subsection{Inledande efterforskning och förundersökning}
 
@@ -769,7 +772,7 @@ Under projektets tidiga fas intervjuades två personer ur
 personalstyrkan på Chalmers som undervisat och varit examinatorer i
 kurserna \textit{TSS} och \textit{Reglerteknik}.
 %TODO: homogenisera \ref till bilagorna: här "Bilaga \ref...", nedan "bilaga 1".
-Se Bilaga \ref{bil:exam_intervju} för en sammanfattning av denna
+Se \textit{\ref{bil:exam_intervju} - Bilaga 2} för en sammanfattning av denna
 intervju. Under intervjun redogjorde examinatorerna för hur de
 upplevde studenternas problem med kurserna och vad de trodde var
 orsaken.
@@ -777,14 +780,14 @@ orsaken.
 Projektgruppen sammanställde sedan en enkät, riktad till de studenter
 som läst kurserna \textit{TSS} och \textit{Reglerteknik}, eller skulle
 läsa kurserna inom ett år. Denna enkät arbetades fram utifrån böckerna
-\textit{Enkäten i praktiken} och \textit{Enkätboken}.
+\textit{Enkäten i praktiken}\cite{enkaten_i_praktiken} och \textit{Enkätboken}\cite{enkatboken}.
 
 När enkäten var framtagen användes \textit{webbenkater.com} för att
 enkelt kunna hantera och analysera studenternas svar anonymt.
 %TODO: Skriv hellre "skickades" (se även "mailades" nedan)
-Länken till enkäten på \textit{webbenkater.com} skickades ut till alla
+Länken till enkäten skickades ut till alla
 datastudenter från årgångarna 2012-2014 och gruppen erhöll totalt 77
-svar. Se \textit{bilaga 1} för ett utdrag ur dessa svar.
+svar. Se \textit{10.1 - Bilaga 1} för ett utdrag ur dessa svar.
 
 Projektgruppen sammanställde sedan den insamlade informationen om
 kursen, såsom kursplan, lärandemål samt de senaste årens
@@ -843,14 +846,14 @@ förståelse för Fouriertransformen sannolikt skulle bidra till
 förståelse för de andra två transformerna.
 
 Mer information om hur avsnitten utformats för att uppmuntra till
-inlärning följer i nästa avsnitt, \textit{Didaktik i läromaterialet}.
+inlärning följer i nästa avsnitt, \textit{6.3 - Didaktik i läromaterialet}.
 
-\subsection{Didaktik}
+\subsection{Didaktik i läromaterialet}
 Läromaterialet ska vara uppbyggt så att studenten själv får arbeta med
 det utifrån sina tidigare kunskaper. Vi ville åstadkomma ett aktivt
 lärande som ger studenten långvarig förståelse och intresse för ämnet,
 snarare än kunskap studenten lär sig tillfälligt
-utantill. \textit{Didaktik för ingenjörslärare} beskriver aktivt
+utantill. \textit{Didaktik för ingenjörslärare}\cite{didaktik_for_ingenjorslarare} beskriver aktivt
 lärande enligt följande: ”Idéen bakom aktivt lärande är att en
 lärprocess bygger på en konkret erfarenhet som följs av reflektion och
 observation.” Med bakgrund av detta har vi lagt en stor del av vårt
@@ -880,8 +883,8 @@ att behålla studentens intresse genom hela läromaterialet har vi valt
 att variera upplägget på avsnitten till viss del. Eftersom vi vill
 behålla en läsvänlig och överskådlig struktur i hela läromaterialet
 har vi valt att främst variera materialet med olika typer av exempel
-och uppgifter. I ett kapitel får studenterna fylla i ett relativt
-stort antal kryssfrågor och i ett annat lägger vi stort fokus på en
+och uppgifter. I ett kapitel får studenterna fylla i ett jämförelsevis
+stort antal kryssfrågor och i ett annat lägger vi istället mer fokus på en
 viss typ av programmeringsövningar där studenten får fylla i saknad
 kod. Vi har alltså siktat på att göra studenternas eget arbete
 omväxlande för att att de inte ska bli uttråkade och ge upp.
@@ -926,13 +929,14 @@ förmåga, samt möjlighet att praktisera detta.
 %Förklara hur komplexa tal och alla typer av transformer implementerades i DSL.
 Det DSL som används i detta läromaterial har utvecklats i Haskell av
 projektgruppen. Det har designats för att täcka de valda delarna av
-TSS som behandlas i läromaterialet. Se avsnittet \textit{Inledande
- forskning} för mer information om hur dessa delar valts ut.
+TSS som behandlas i läromaterialet. Se avsnitt 
+\textit{6.1 - Inledande efterforskning och förundersökning} för mer 
+information om hur dessa delar valts ut.
 
 En av dessa delar är komplexa tal, vilket används flitigt när man
 arbetar med signaler och system. Därför implementerades också komplexa
 tal som första byggstenen i vårt DSL. Därefter implementerades
-signaler, LTI-system och fouriertransform.
+signaler, LTI-system och Fouriertransform.
 
 Själva utvecklingen av det DSL som använts har skett genom att gruppen
 först utvecklat all kod som behövts för ett avsnitt. När koden sedan
@@ -994,7 +998,7 @@ Detta implementerades enligt följande i vårt DSL:
 \end{minted}
 
 %Är detta nödvändigt? Vi borde liksom inte vara för förklarande.
-Här skapades även hjälpfunktioner, vilka är de funktioner man finner
+Här skapades även hjälpdefinitioner, vilka är de funktioner man finner
 efter \mintinline{haskell}{where} i koden. Detta var för att undvika
 att skriva samma kod om och om igen, samtidigt som det koden mer
 tydlig och lättläst för studenten.
@@ -1004,7 +1008,7 @@ operator att implementera. Den matematiska formeln för detta ser ut
 som följer:
 \[ z / w = (z \cdot w') / (w \cdot w') \]
 %(sommarmatte.se) Kan lämnas som reference.
-där w' är w:s konjugat.
+där $w'$ är $w$:s konjugat.
 %Man förlänger både täljare och nämnare med nämnarens konjugat vilket innebär
 %att nämnaren blir helt reell.
 Man förlänger alltså både täljare och nämnare med nämnarens konjugat,
@@ -1038,7 +1042,7 @@ Implementationen av den här representationen skedde i flera steg.
 Funktionen \mintinline{haskell}{euler} skapar ett komplext tal utifrån
 en given vinkel, representerad av ett flyttal.
 \begin{minted}{haskell}
-euler phi = Complex (cos phi) (sin phi)
+euler z = Complex (cos z) (sin z)
 \end{minted}
 Enligt potenslagarna %(formelsamlingen) - lämnas till reference? -Borde inte behövas
 så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och enligt Eulers formel så är
@@ -1067,8 +1071,8 @@ Ett av de största problemen vid implementationen av signaler, och all
 kod som bygger på signaler, var hur man skulle hantera kontinuerlig
 tid. Kursen \textit{TSS} behandlar både diskreta och kontinuerliga
 signaler och det var därför önskvärt att implementera båda dessa. En
-dator kan dock i praktiken inte hantera kontinuerliga funktioner utan
-endast diskreta.
+dator kan dock under normala förhållanden inte hantera kontinuerliga 
+funktioner utan endast diskreta. %Osäker på hur man borde uttrycka detta för att det ska vara korrekt
 
 Ett sätt att hantera detta är att simulera ingående data till en
 kontinuerlig funktion med diskret data, där man låter avståndet mellan
@@ -1134,8 +1138,8 @@ och liknande är skapade i Matlab och \url{fooplot.com/}.
 För att få så givande testsvar som möjligt ville vi givetvis testa
 vårt läromaterial på den aktuella målgruppen. Därför tog vi kontakt
 med studenter som kunde tänka sig att delta i testandet när vi
-skickade ut enkäten som beskrivs i avsnitt \textit{Utveckling av
- läromaterialet - Inledande efterforskningar och förstudier}. De som
+skickade ut enkäten som beskrivs i avsnitt \textit{6.1 - 
+Inledande efterforskningar och förstudier}. De som
 sedan ville deltaga i testandet av vår produkt lämnade en
 mailadress. Detta resulterade i en testgrupp på 13 personer.
 
@@ -1177,16 +1181,16 @@ avsnittet.
 
 \subsection{Läromaterialet}
 Projektgruppens uppgift var, vilket beskrivs i detalj i avsnittet
-\textit{Produktspecifikation}, att ta fram ett kompletterande
+\textit{4 - Produktspecifikation}, att ta fram ett kompletterande
 läromaterial till \textit{TSS} inspirerat av \textit{DSLsofMath}.
 
 Läromaterialet består av fyra avsnitt samt en introduktion. Avsnitten
 innehåller förklarande text, bilder, kodexempel och uppgifter. Varje
 avsnitt har även ett tillhörande kodpaket med förimplementerad kod
 till övningarna och lösningar till dessa. De fyra avsnitten behandlar
-i huvudsak komplexa tal, signaler, LTI-system och fouriertransformen.
-Ytterligare avsnitt, som beskriver laplacetransformen och
-Z-transformen,var planerat men detta fick bortprioriteras på grund av
+i huvudsak komplexa tal, signaler, LTI-system och Fouriertransformen.
+Ytterligare avsnitt, som beskriver Laplacetransformen och
+Z-transformen, var planerat men detta fick bortprioriteras på grund av
 tidsbrist.
 
 Läromaterialet finns samlat på en hemsida, där det även är möjligt att
@@ -1210,11 +1214,11 @@ programmeringsfunktioner på, både för detta och föregående delavsnitt.
 
 \subsection{Testresultat}
 Introduktionen och de tre första avsnitten i läromaterialet har
-granskats av den testgrupp som beskrivs i avsnittet \textit{Utveckling
- av läromaterialet - Test av läromaterialet}. Det sista avsnittet har
+granskats av den testgrupp som beskrivs i avsnittet \textit{6.6 - Test av läromaterialet}. 
+Det sista avsnittet har
 inte granskats av testgruppen, utan endast av projektgruppen själva
-samt projektgruppens handledare. Orsaken till detta beskrivs i
-\textit{Utveckling av läromaterialet - Test av läromaterialet}.
+samt projektgruppens handledare. Orsaken till detta beskrivs även det 
+ i avsnitt \textit{6.6 - Test av läromaterialet}.
 
 Responsen från projektets testgrupp var genomgående
 positiv. Testgruppen hävdade att de trodde att läromaterialet var ett
@@ -1281,7 +1285,7 @@ osäkert om detta är en tillräckligt stor del av problemet för att en
 förändring i kursupplägget skulle ge synbar effekt.
 
 %TODO: använd \ref för att hänvisa till bilagan
-Under intervjun med examinatorerna, se \textit{bilaga 2}, framgick det
+Under intervjun med examinatorerna, se \textit{10.2 - Bilaga 2}, framgick det
 att de tror att en stor del av problemet ligger i svårigheten att
 koppla den formella matematiken till dess praktiska tolkning.
 
@@ -1368,7 +1372,7 @@ möjligt att implementera på en nivå som studenterna i målgruppen kan
 förstå. Det har varit en ständig avvägning av att få med de mest
 vitala delarna i \textit{TSS} och att implementera kod som är
 begriplig. \textit{The Fastest Fourier Transform in the
- West} %https://hackage.haskell.org/package/fft-0.1.8.3/docs/Math-FFT.html
+ West} \cite{fastestfourier} %Osäker på om denna referens är korrekt, kontrollera gärna 
 är ett exempel på hur fouriertransform kan implementeras relativt
 effektivt i Haskell, men problemet är att koden då hamnar på en nivå
 som överstiger förmågan hos många studenter i målgruppen. Kod av detta
@@ -1382,8 +1386,7 @@ När man beslutat \textbf{vad} som ska implementeras uppstår frågan
 \textbf{hur} det ska implementeras. Som nämndes i
 % TODO: Byt ut alla dessa "handgjorda" referenser till riktiga
 % LaTeX-referenser - kanske något i stil med mitt exempel nedan.
-avsnitt \ref{sec:implDSL} (\nameref{sec:implDSL})
-% \textit{Utveckling av läromaterialet - Implementationen av vårt DSL}
+avsnitt textit{\ref{sec:implDSL} - \nameref{sec:implDSL}}
 finns det flera sätt att hantera detta. När man arbetar med signaler
 finns det två grundtyper; diskreta signaler och kontinuerliga
 signaler. Diskreta signaler kan implementeras relativt enkelt, medan
@@ -1399,13 +1402,18 @@ En annan variant är att använda \textit{pattern matching}, där
 funktioner definieras exakt för ett antal givna insignaler som
 definieras var för sig. Detta ger mer korrekta svar, men ger inte
 samma möjlighet att
-%TODO: ?? jag förstår inte "sammanfatta och abstrahera området" ??
-sammanfatta och abstrahera området som en diskret approximation. Denna
+
+sammanfatta 
+%och abstrahera 
+området som en diskret approximation eftersom man definierar 
+olika fall var för sig. Denna
 variant gör det å andra sidan möjligt att definiera typfall som
 studenten kan känna igen i kursen \textit{TSS}.
 
 Vad är då bäst i vårt fall, att använda en approximation som ger
-större möjlighet att abstrahera och sammanfatta kärnan i ämnet eller
+större möjlighet att abstrahera
+% och 
+sammanfatta kärnan i ämnet eller
 en mer matematiskt korrekt variant som använder formler som studenten
 kan känna igen? Detta är en fråga som projektgruppen inte har kunnat
 ta fram ett generellt svar på. Projektgruppen har, efter mycket
@@ -1432,15 +1440,14 @@ hur detta gått diskuteras i det kommande avsnittet \textit{Diskussion
 Den slutgiltiga produkten uppfyller alla delar av
 produktspecifikationen med ett undantag. Ambitionen var att
 läromaterialet skulle täcka in hela kursen \textit{TSS}. I nuläget
-saknas dock avsnitt som beskriver laplacetransformen och
+saknas dock avsnitt som beskriver Laplacetransformen och
 Z-transformen. Som nämns i avsnittet \textit{Metod} prioriterades
 detta bort på grund av tidsbrist i slutet av projektet. Projektgruppen
 hamnade i läget att de kunde fokusera på antingen fouriertransformen
 eller laplacetransformen och Z-transformen. Anledningen till att
-gruppen valde att fokusera på fouriertransformen var att den är nära
-besläktad med laplacetransformen och Z-transformen.
-%, dessa kan i det närmaste betraktas som specialfall av fouriertransformen.
-Ur programmeringssynpunkt var det även svårt att implementera
+gruppen valde att fokusera på Fouriertransformen var att den är nära
+besläktad med Laplacetransformen och Z-transformen. Ur 
+programmeringssynpunkt var det även svårt att implementera
 laplacetransformen och Z-transformen utan att först implementera fouriertransformen. Det finns emellertid ett utkast
 till avsnitt om laplacetransformen och Z-transformen som kan utvecklas i framtiden.
 
@@ -1506,7 +1513,7 @@ innebär att ytterliggare arbeten kommer att behövas.
 Vad återstår då att utveckla i framtiden? En möjlighet är givetvis att
 vidareutveckla det befintliga läromaterialet. Till att börja med
 skulle man kunna komplettera materialet med avsnitt om
-laplacetransformen och Z-transformen. Det finns, som tidigare nämnts,
+Laplacetransformen och Z-transformen. Det finns, som tidigare nämnts,
 påbörjade utkast för dessa och om de färdigställs täcker
 läromaterialet in hela kursen \textit{TSS}
 
@@ -1568,6 +1575,9 @@ TODO
 \newpage
 
 \section{Bilagor}
+Bilaga 1 - Enkätundersökning
+Bilaga 2 - Intervju med examiniatorer
+Bilaga 3 - Utdrag ur läromaterialet \textit{TSS med DSL}
 % * Utdrag ur tutorial?
 % * Utdrag ur intervju med examinatorer?
 % * Utdrag ur enkätsvar?
@@ -1576,7 +1586,16 @@ Denna bilaga är ett utdrag ur den enkätundersökning som genomfördes av
 kandidatgruppen under våren 2015 via \textit{webbenkater.com}. Bilagan
 innehåller endast de delar av undersökningen som bedömts som relevanta
 för rapporten och är tömd på all information som kan länkas till
-enskilda individer. Samtliga bilder i bilagan kommer från
+enskilda individer. 
+
+Observera att antalet deltagare varierar markant. Detta beror på att
+ fråga 1 och 9 riktade sig även till studenter som ska läsa kursen nästa
+år, medans övriga frågor endast riktar sig till studenter som redan läst
+kursen.
+
+
+
+Samtliga bilder i bilagan kommer från
 \textit{webbenkater.com}.
 %TODO: saknas
 %infoga bilaga 1
