@@ -1,11 +1,8 @@
-\documentclass[]{article}
+\documentclass[12pt,a4paper,twoside,openright]{article}
 
-\usepackage[swedish,english]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{hyperref,url,bbm,graphicx,icomma,units,lmodern,amsmath,glossaries,minted}
+\input{include/settings/Settings.tex}
 
-\loadglsentries{ordlista.tex}
+\loadglsentries{include/ordlista.tex}
 
 \date{\today}
 
@@ -14,6 +11,7 @@
 \makeglossaries
 
 \begin{document}
+\pagenumbering{roman}
 
 \begin{titlepage} \newcommand{\HRule}{\rule{\linewidth}{0.3mm}}
   \center
@@ -59,6 +57,8 @@ material och gett oss återkoppling för att förbättra vår produkt.
 
 \newpage
 
+\thispagestyle{plain}
+
 \section*{Sammandrag}
   %Ett Sammandrag
 %Subject to Change!--------------------------------------------
@@ -91,6 +91,9 @@ färdiga produkten.
 Materialet som utvecklats kan ses på \url{https://github.com/DSLsofMath/BScProj}.
 
 \newpage
+
+\thispagestyle{plain}
+
 \section*{Abstract}
 \selectlanguage{english}
 This report describes the development of the tutorial ``TSS med DSL'' with
@@ -116,9 +119,6 @@ The developed material can be viewed at \url{https://github.com/DSLsofMath/BScPr
 \newpage
 
 \selectlanguage{swedish}
-
-\newpage
-
 \tableofcontents
 
 \newpage
@@ -126,6 +126,10 @@ The developed material can be viewed at \url{https://github.com/DSLsofMath/BScPr
 \printglossary[title=Ordlista,nonumberlist]
 
 \newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}			% Arabic numbering starting from 1 (one)
+\setlength{\parskip}{0pt plus 1pt}
 
 \section{Inledning}
 Vi inleder med att gå igenom bakgrunden till projektet och hur det
@@ -1663,7 +1667,7 @@ visa sig i framtiden när det används av studenter i målgruppen.
 %TODO: Lägg in länk till learn you a Haskell i bib-filen
 
 \bibliographystyle{IEEEtran}
-\bibliography{referenser}
+\bibliography{include/referenser}
 
 \newpage
 
