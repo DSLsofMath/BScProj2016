@@ -16,14 +16,23 @@ cleanup:
 clean: cleanup
 	rm *.pdf
 
-install: glossaries ieeetran
+install: glossaries ieeetran minted
 
-glossaries:
-	mkdir -p "$(TEXHOME)/glossaries-swedish"
-	cp include/packages/* $(TEXHOME)/glossaries-swedish/
-	cd $(TEXHOME)/glossaries-swedish
+init:
+	mkdir -p "$(TEXHOME)/"
+
+glossaries: init
+	echo "Installing glossaries..."
+	cp -r include/packages/glossaries-swedish $(TEXHOME)/
+	cd $(TEXHOME)/glossaries-swedish && \
 	latex glossaries-swedish.ins > /dev/null
 
-ieeetran:
+ieeetran: init
+	echo "Copying ieeetran.bst into texmf/..."
 	mkdir -p "$(HOME)/texmf/bibtex/bst/ieeetran/"
 	cp include/ieeetran.bst "$(HOME)/texmf/bibtex/bst/ieeetran/"
+
+minted: init
+	echo "Installing minted..."
+	cp -r include/packages/minted $(TEXHOME)/
+	cd $(TEXHOME)/minted && make > /dev/null
