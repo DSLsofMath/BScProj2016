@@ -70,7 +70,7 @@ material och gett oss återkoppling för att förbättra vår produkt.
 % Illustration: Borde inte behövas
 Denna rapport beskriver utvecklingen av läromaterialet ``TSS med DSL'' med dess
 tillhörande programmeringskod och lösningar. Läromaterialet riktar sig främst
-till studenter på det datatekniska programmet på Chalmers tekniska högskola qoch har som syfte att
+till studenter på det datatekniska programmet på Chalmers tekniska högskola och har som syfte att
 vara ett kompletterande läromedel inom signallära där man utnyttjar studenternas
 kunskaper inom programmering. Materialet innehåller förklarande text och teori
 om bland annat komplexa tal, signaler, system och transformer. I materialet
@@ -400,31 +400,30 @@ När man designar domänspecifika språk kan man välja att skapa ett
 fristående språk som kompileras till någon typ av maskinkod eller att
 utveckla sitt domänspecifika språk i ett redan existerande generellt
 programmeringsspråk, där beståndsdelarna i språket är funktionsanrop
-och konstruerare i värdspråket. Ett DSL som är inbäddat i ett
-värdspråk kallas för ``\gls{EDSL}''.
+och konstruerare i värdspråket.
 
-Det finns även olika nivåer av EDSL; så kallade djupa EDSL (deep
-embedding) och ytliga EDSL (shallow embedding). I introduktionen till
+Det finns även olika nivåer av DSL; så kallade djupa DSL (deep
+embedding) och ytliga DSL (shallow embedding). I introduktionen till
 sin artikel skriver Svenningson och Axelsson \cite{Svenningsson2013}
-att man i ett djupt EDSL använder sig av abstrakta datatyper och att
+att man i ett djupt DSL använder sig av abstrakta datatyper och att
 man med dessa bygger upp ett abstrakt syntaxträd som sedan tolkas av
 olika funktioner. Man skapar alltså egna typer och funktioner som
 bygger upp strukturer med dessa typer och skiljer på så sätt den
-domänspecifika logiken från värdspråkets logik. I ett ytligt EDSL
+domänspecifika logiken från värdspråkets logik. I ett ytligt DSL
 använder man sig däremot av värdspråkets typer och försöker
 representera den domänspecifika logiken med motsvarande funktioner och
 typer i värdspråket. Båda sätten att beskriva %är beskriva rätt ord?
-ett EDSL har sina fördelar
-och nackdelar då det exempelvis i ett djupt EDSL är förhållandevis lätt
+ett DSL har sina fördelar
+och nackdelar då det exempelvis i ett djupt DSL är förhållandevis lätt
 att ge fler tolkningar av det abstrakta syntaxträdet och därmed kunna
 bygga vidare på domänspecifika logiken, men svårare att lägga till
 konstruerare eller på andra sätt ändra i typerna som bygger upp
 syntaxträdet eftersom man då måste ändra i de funktioner som tolkar
-dem. I ett ytligt EDSL är det lätt att lägga till konstruerare och
+dem. I ett ytligt DSL är det lätt att lägga till konstruerare och
 typer eftersom man bara måste kunna representera dem i värdspråket
 och alltså inte behöver hantera ett syntaxträd, men å andra sidan är
 dess semantik fixerad. För att lägga till nya sätt att tolka ett
-ytligt EDSL måste vi implementera om det på nytt.
+ytligt DSL måste vi implementera om det på nytt. 
 
 \subsection{Funktionell programmering}
 % -Referera till “Why functional programming matters”
@@ -1316,13 +1315,13 @@ mindre tid till själva utvecklingen av läromaterialet.
 Man kan ställa sig frågan om det överhuvudtaget är en bra idé att
 låta studenter ta fram den här typen av läromaterial. En nackdel 
 är att studenterna som skriver materialet behöver lägga en stor 
-del av sin tid på att lära sig ämnet och nödvändig didaktik 
-tillräckligt bra, precis som vår projektgrupp har behövt göra. 
-En positiv bieffekt av detta blir dock att studenterna som skriver 
-lär sig ämnet på en helt annan nivå än de kunde det innan 
-samt får nya eller förbättrade kunskaper i didaktik. Man kan 
-rentav argumentera för att det är ett bra läromedel just att 
-utveckla denna typ av läromedel.
+del av tiden på att lära sig ämnet och nödvändig didaktik 
+tillräckligt bra, precis som projektgruppen har behövt göra.
+Därmot är följden av detta att studenterna
+får en djupare förståelse för ämnet samt får nya
+eller förbättrade kunskaper inom didaktik.
+Därför går det att argumentera för utvecklandet av ett läromaterial
+som ett läromedel.
 
 En annan fördel med ett läromaterial som utvecklas av studenter
 är att dessa känner till målgruppen studenter relativt väl, 
@@ -1349,9 +1348,9 @@ läromaterial kan fungera bra som komplement till annan
 undervisning.
 
 %Vill vi ha med detta stycke? Känns lite malplacerat. Borde nog utvecklas mer elller tas bort.
-Eftersom projektet inledningsvis var relativt oklart definierat
-behövde projektgruppen även lägga mycket tid på att arbeta fram en
-produktspecifikation.
+%Eftersom projektet inledningsvis var relativt oklart definierat
+%behövde projektgruppen även lägga mycket tid på att arbeta fram en
+%produktspecifikation.
 
 % På grund av projektgruppens bristande erfarenhet av denna typ av
 % projektarbete uppstod problem med arbetets upplägg, rollfördelning
