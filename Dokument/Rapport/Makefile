@@ -24,3 +24,6 @@ glossaries:
 	cd $(TEXHOME)/glossaries-swedish
 	latex glossaries-swedish.ins > /dev/null
 
+ieeetran:
+	mkdir -p "$(HOME)/texmf/bibtex/bst/ieeetran/"
+	cp include/ieeetran.bst "$(HOME)/texmf/bibtex/bst/ieeetran/"
