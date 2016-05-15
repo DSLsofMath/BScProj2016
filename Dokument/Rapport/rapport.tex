@@ -404,11 +404,32 @@ och skicka funktionen som löser delproblemet som en parameter.
 % TODO: Skriv om "fixeras dessutom de givna parametrarna till en
 % funktion ..." - jag förstår inte. Det är nog enklare att ge ett
 % exempel - som plusEtt = (1+) eller dubbel = (2*).
-I språk som Haskell fixeras dessutom de givna parametrarna till en
-funktion, även om funktionen är given ett färre antal parametrar än
-den är definierad för. Man får då en ny funktion som är definerad för
-de saknade parametrarna. Detta kallas för partiell
-funktionsapplikation och gör det enklare att modularisera funktioner.
+
+Partiell funktionsapplikation är en annan egenskap som underlättar för
+funktionella programmerare att skriva mer modulär kod.  Partiell
+funktionsapplikation innebär att funktioner som appliceras på färre
+argument än de är definierade för skapar en ny funktion, se exemplet i
+figur \ref{hask:partfunapp} nedan.
+
+\begin{figure}
+  \begin{minted}{haskell}
+    ghci> :t (+)
+    (+) :: Num a => a -> a -> a
+
+    ghci> :t (+ 1)
+    (+ 1) :: Num a => a -> a
+
+    ghci> let plusEtt = (+1)
+
+    ghci> plusEtt 2
+    3
+  \end{minted}
+  \caption{Figuren visar hur Haskell hanterar partiellt applicerade
+    funktioner.  I bilden är (+) operationen + som är definierad på
+    två numeriska värden och plusEtt, (+ 1), är en funktion som givet
+    ett annat numeriskt värde adderar 1 till det.}
+  \label{hask:partfunapp}
+\end{figure}
 
 Haskell är ett funktionellt programmeringsspråk med stöd för partiell
 funktionsapplikation, högre ordningens funktioner, algebraiska datatyper
