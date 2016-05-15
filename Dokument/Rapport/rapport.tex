@@ -309,6 +309,7 @@ TSS, med motiveringen att TSS innehåller förkunskaper som är
 nödvändiga för Reglerteknik.
 
 \subsection{Produktens struktur}
+\label{sec:prodSpec}
 För att göra läromaterialet så lättillgängligt som möjligt beslutades att
 %TODO: kolla användningen av ordet "materiel" (här) jmf. med "material" (som ni skriver i övrigt)
 all materiel skulle samlas på en hemsida. På detta sätt kan man enkelt
@@ -544,6 +545,7 @@ och operatorer som komplexa tal, faltning, sampling med flera. Alla
 dessa grundkunskaper behövs för att modulera system och signaler.
 
 \subsection{Didaktik}
+\label{sec:didaktik}
 Didaktik är vetenskapen om undervisning. I \textit{Didaktik för
  ingenjörslärare} hävdar författarna att didaktik kan ses som ett
 komplement till pedagogik \cite{didaktik_for_ingenjorslarare}. De didaktiska frågorna handlar, enligt
@@ -673,6 +675,7 @@ Hur dessa didaktiska modeller och metoder har använts i projektet
 \textit{Utveckling av läromaterialet}.
 
 \subsection{Relaterad forskning}
+\label{sec:relForsk}
 I detta avsnitt kommer vi i korthet beskriva några studier som
 är nära relaterade till vårt projekt.
 
@@ -788,10 +791,10 @@ Dessa steg har legat till grund för, och även använts för att
 komplettera, mycket av projektgruppens metodik när läromaterialet
 utvecklats. Gruppen inledde i enlighet med de 10 stegen med att samla
 in och analysera information om kursen och målgruppen, se avsnitt
-\textit{6.1 - Inledande efterforskning och förundersökning},
-arbetade fram en taktik enligt ARCS-modellen, se avsnitt \textit{6.3
-- Didaktik}, utvecklade och testade materialet, se avsnitt \textit{6.6
-- Test av läromaterialet}, utvärderat och kompletterat det.
+\textit{\ref{sec:efterforskning} - \nameref{sec:efterforskning}},
+arbetade fram en taktik enligt ARCS-modellen, se avsnitt \textit{\ref{sec:didaktik}
+- \nameref{sec:didaktik}}, utvecklade och testade materialet, se avsnitt \textit{\ref{sec:test}
+- \nameref{sec:test}}, utvärderat och kompletterat det.
 
 Gruppen hade även två inspirationskällor i form av
 %Borde betterexplained också ha en riktig referens?
@@ -800,6 +803,7 @@ Detta är två läromaterial som projektgruppen upplevt är både
 informativa och underhållande läsning.
 
 \subsection{Inledande efterforskning och förundersökning}
+\label{sec:efterforskning}
 
 Projektgruppen inledde med litteraturstudier och efterforskningar inom
 ämnet. Projektdeltagarna läste in sig på signallära, DSL, didaktik,
@@ -809,7 +813,7 @@ Under projektets tidiga fas intervjuades två personer ur
 personalstyrkan på Chalmers som undervisat och varit examinatorer i
 kurserna \textit{TSS} och \textit{Reglerteknik}.
 %TODO: homogenisera \ref till bilagorna: här "Bilaga \ref...", nedan "bilaga 1".
-Se \textit{\ref{bil:exam_intervju} - Bilaga 2} för en sammanfattning av denna
+Se \textit{\ref{bil:exam_intervju} - \nameref{bil:exam_intervju}} för en sammanfattning av denna
 intervju. Under intervjun redogjorde examinatorerna för hur de
 upplevde studenternas problem med kurserna och vad de trodde var
 orsaken.
@@ -824,7 +828,7 @@ enkelt kunna hantera och analysera studenternas svar anonymt.
 %TODO: Skriv hellre "skickades" (se även "mailades" nedan)
 Länken till enkäten skickades ut till alla
 datastudenter från årgångarna 2012-2014 och gruppen erhöll totalt 77
-svar. Se \textit{10.1 - Bilaga 1} för ett utdrag ur dessa svar.
+svar. Se \textit{\ref{bil:1} - \nameref{bil:1}} för ett utdrag ur dessa svar.
 
 Projektgruppen sammanställde sedan den insamlade informationen om
 kursen, såsom kursplan, lärandemål samt de senaste årens
@@ -833,7 +837,7 @@ enkätundersökningen, beslutades vilka områden som läromaterialet
 skulle täcka.
 
 \subsection{Läromaterialets struktur}
-
+\label{sec:struktur}
 Läromaterialet är uppdelat i fyra ämnesavsnitt samt en introduktion. I
 introduktionen beskrivs läromaterialet övergripande samt vilka
 förkunskaper som krävs. Där förklaras även konceptet DSL. Efter
@@ -842,8 +846,7 @@ komplexa tal och Eulers formel samt introducerar studenten till vårt
 DSL. Det andra avsnittet beskriver olika typer av signaler och deras
 egenskaper, det tredje beskriver LTI-system och det fjärde och sista
 beskriver Fourierserier och Fouriertransform. De ämnen avsnitten
-beskriver valdes, som nämns i avsnittet \textit{Utveckling av
- läromaterialet - Inledande forskning}, utifrån information från
+beskriver valdes, som nämns i avsnittet \textit{\ref{sec:efterforskning} - \nameref{sec:efterforskning}}, utifrån information från
 kursen, intervjun med examinatorerna samt studenternas enkätsvar.
 
 Läromaterialets första ämnesavsnitt beskriver komplexa tal. Eftersom
@@ -883,9 +886,10 @@ förståelse för Fouriertransform sannolikt skulle bidra till
 förståelse för de andra två transformerna.
 
 Mer information om hur avsnitten utformats för att uppmuntra till
-inlärning följer i nästa avsnitt, \textit{6.3 - Didaktik i läromaterialet}.
+inlärning följer i nästa avsnitt, \textit{\ref{sec:matDidaktik} - \nameref{sec:matDidaktik}}.
 
 \subsection{Didaktik i läromaterialet}
+\label{sec:matDidaktik}
 Läromaterialet ska vara uppbyggt så att studenten själv får arbeta med
 det utifrån sina tidigare kunskaper. Vi ville åstadkomma ett aktivt
 lärande som ger studenten långvarig förståelse och intresse för ämnet,
@@ -967,7 +971,7 @@ förmåga, samt möjlighet att praktisera detta.
 Det DSL som används i detta läromaterial har utvecklats i Haskell av
 projektgruppen. Det har designats för att täcka de valda delarna av
 TSS som behandlas i läromaterialet. Se avsnitt
-\textit{6.1 - Inledande efterforskning och förundersökning} för mer
+\textit{\ref{sec:efterforskning} - \nameref{sec:efterforskning}} för mer
 information om hur dessa delar valts ut.
 
 En av dessa delar är komplexa tal, vilket används flitigt när man
@@ -1171,12 +1175,13 @@ De figurer som gjorts till läromaterialet i form av funktionskurvor
 och liknande är skapade i Matlab och \url{fooplot.com/}.
 
 \subsection{Test av läromaterialet}
+\label{sec:test}
 
 För att få så givande testsvar som möjligt ville vi givetvis testa
 vårt läromaterial på den aktuella målgruppen. Därför tog vi kontakt
 med studenter som kunde tänka sig att delta i testandet när vi
-skickade ut enkäten som beskrivs i avsnitt \textit{6.1 -
-Inledande efterforskningar och förstudier}. De som
+skickade ut enkäten som beskrivs i avsnitt \textit{\ref{sec:efterforskning} -
+\nameref{sec:efterforskning}}. De som
 sedan ville deltaga i testandet av vår produkt lämnade en
 mailadress. Detta resulterade i en testgrupp på 13 personer.
 
@@ -1216,7 +1221,7 @@ avsnittet.
 % Illustrationer:
 % * Utdrag ur tutorialen
 Projektgruppens uppgift var, vilket beskrivs i detalj i avsnittet
-\textit{4 - Produktspecifikation}, att ta fram ett kompletterande
+\textit{\ref{sec:prodSpec} - \nameref{sec:prodSpec}}, att ta fram ett kompletterande
 läromaterial till \textit{TSS} inspirerat av \textit{DSLsofMath}.
 
 %I detta avsnitt beskrivs det resulterande läromaterialet och
@@ -1254,12 +1259,12 @@ programmeringsfunktioner på, både för detta och föregående delavsnitt.
 
 
 \subsection{Testresultat}
+\label{sec:testResultat}
 Introduktionen och de tre första avsnitten i läromaterialet har
-granskats av den testgrupp som beskrivs i avsnittet \textit{6.6 - Test
-  av läromaterialet}. Det sista avsnittet har inte granskats av
+granskats av den testgrupp som beskrivs i avsnittet \textit{\ref{sec:test} - \nameref{sec:test}}. Det sista avsnittet har inte granskats av
 testgruppen, utan endast av projektgruppen själva samt projektgruppens
-handledare. Orsaken till detta beskrivs även det i avsnitt \textit{6.6
-  - Test av läromaterialet}.
+handledare. Orsaken till detta beskrivs även det i avsnitt \textit{\ref{sec:test}
+  - \nameref{sec:test}}.
 
 Responsen från projektets testgrupp var genomgående
 positiv. Testgruppen hävdade att de trodde att läromaterialet var ett
@@ -1326,7 +1331,7 @@ osäkert om detta är en tillräckligt stor del av problemet för att en
 förändring i kursupplägget skulle ge synbar effekt.
 
 %TODO: använd \ref för att hänvisa till bilagan
-Under intervjun med examinatorerna, se \textit{10.2 - Bilaga 2}, framgick det
+Under intervjun med examinatorerna, se \textit{\ref{bil:exam_intervju} - \nameref{bil:exam_intervju}}, framgick det
 att de tror att en stor del av problemet ligger i svårigheten att
 koppla den formella matematiken till dess praktiska tolkning.
 
@@ -1344,7 +1349,8 @@ exempel datateknologer, tappar bort sig redan vid definitionen.
 I de följande delavsnitt kommer projektets metod, resultat och möjlig
 framtida utveckling att diskuteras.
 
-\subsection{Metod}
+\subsection{Metoddiskussion}
+\label{sec:metDisk}
 För att utveckla ett väl fungerande läromaterial krävs goda kunskaper
 inom såväl ämnet som didaktik. Projektgruppen består dock av fem studenter, vars erfarenhet
 inom området signal och systemlära var att fyra av dem läst kursen
@@ -1377,7 +1383,7 @@ skulle kunna ta fram ett läromaterial som är på samma nivå med
 lika goda insikter i ämnet som en expert. Det kan dock vara så
 att den här typen av studentutvecklade läromaterial är ett bra
 komplement till ämnesexperterna. En av kommentarerna från
-testgruppen, se avsnitt \textit{Resultat - Testning} för hela sammanhanget,
+testgruppen, se avsnitt \textit{\ref{sec:testResultat} - \nameref{sec:testResultat}} för hela sammanhanget,
 påpekade just att: “att ni ibland använder monolog, där ni
 ställer en fråga och sen svarar som "en vän", gör
 att det känns mer begripligt och man får en känsla av att man
@@ -1427,7 +1433,7 @@ När man beslutat \textbf{vad} som ska implementeras uppstår frågan
 \textbf{hur} det ska implementeras. Som nämndes i
 % TODO: Byt ut alla dessa "handgjorda" referenser till riktiga
 % LaTeX-referenser - kanske något i stil med mitt exempel nedan.
-avsnitt textit{\ref{sec:implDSL} - \nameref{sec:implDSL}}
+avsnitt \textit{\ref{sec:implDSL} - \nameref{sec:implDSL}}
 finns det flera sätt att hantera detta. När man arbetar med signaler
 finns det två grundtyper; diskreta signaler och kontinuerliga
 signaler. Diskreta signaler kan implementeras relativt enkelt, medan
@@ -1466,7 +1472,7 @@ aktuella avsnittet. Inom vissa områden avgjorde gruppen att det gav
 större förståelse att sammanfatta och abstrahera, medan matematisk
 exakthet och typfall gjorde detta bättre inom andra områden.
 
-Som beskrivs i \textit{Teknisk bakgrund - Didaktik} är en av
+Som beskrivs i \textit{\ref{sec:didaktik} - \nameref{sec:didaktik}} är en av
 utmaningarna när man utvecklar läromaterial att göra materialet
 tilltalande utan att det blir ren underhållning. Detta innebär en
 ständig balansgång när man utvecklar materialet. Å ena sidan vill man
@@ -1475,10 +1481,10 @@ andra sidan vill man fånga och behålla studentens intresse och
 uppmuntra till vidare inlärning. Vi har i vårt material strävat efter
 att beakta båda sidorna och försökt hålla en lättsam och lätt
 humoristisk ton utan att överskugga det faktiska innehållet. Mer om
-hur detta gått diskuteras i det kommande avsnittet \textit{Diskussion
- - Resultat}.
+hur detta gått diskuteras i det kommande avsnittet \textit{\ref{sec:resDisk} - \nameref{sec:resDisk}}.
 
-\subsection{Resultat}
+\subsection{Resultatdiskussion}
+\label{sec:resDisk}
 Den slutgiltiga produkten uppfyller alla delar av
 produktspecifikationen med ett undantag. Ambitionen var att
 läromaterialet skulle täcka in hela kursen \textit{TSS}. I nuläget
@@ -1494,7 +1500,7 @@ Laplacetransform och Z-transform utan att först implementera Fouriertransform. 
 till avsnitt om Laplacetransform och Z-transform som kan utvecklas i framtiden.
 
 %TODO: fixa \label ovan och \ref eller \nameref här
-Som beskrivs i avsnittet \textit{Resultat} ställde sig testgrupppen
+Som beskrivs i avsnittet \textit{\ref{sec:resDisk} - \nameref{sec:resDisk}} ställde sig testgrupppen
 väldigt positiv till läromaterialet. Det är dock värt att påpeka att
 testgruppen bestod av en relativt liten grupp, total 13 personer.
 Även om testgruppens svar är en positiv indikation är det därför svårt
@@ -1564,7 +1570,7 @@ läromaterialet in hela kursen \textit{TSS}
 
 En annat vidareutveckling av materialet skulle kunna vara utökad
 implementation av funktioner i kontinuerlig tid. Som vi tidigare nämnt
-i \textit{Diskussion - Metod} är detta ett relativt komplext problem
+i \textit{\ref{sec:metDisk} - \nameref{sec:metDisk}} är detta ett relativt komplext problem
 som i vårt fall löstes med en kompromiss. Detta är dock ett område där
 djupare studier säkerligen skulle kunna ge bättre implementationer.
 
@@ -1594,7 +1600,7 @@ eftersom \textit{Reglerteknik} till viss del bygger på innehållet i
 
 Även andra kursen än de som tas upp i denna rapport skulle kanske
 kunna gagnas av liknande läromaterial. Som vi nämner i
-\textit{inledning} och \textit{Teknisk bakgrund - Relaterad forskning}
+\textit{inledning} och \textit{\ref{sec:relForsk} - \nameref{sec:relForsk}}
 finns liknande problem även inom andra områden.
 
 
@@ -1605,7 +1611,7 @@ finns liknande problem även inom andra områden.
 
 Projektets mål var att ta fram ett kompletterande läromaterial till
 kursen \textit{TSS} inspirerat av \textit{DSLsofMath} som uppfyller
-produktspecifikationen som beskrivs i avsnitt \textit{4 - Produktspecifikation}.
+produktspecifikationen som beskrivs i avsnitt \textit{\ref{sec:prodSpec} - \nameref{sec:prodSpec}}.
 
 Projektgruppen har utifrån detta tagit fram ett material som finns
 samlat på en hemsida. Materialet innehåller förklarande text och exempel, bilder
@@ -1647,6 +1653,7 @@ Bilaga 3 - Utdrag ur läromaterialet \textit{TSS med DSL}
 % * Utdrag ur intervju med examinatorer?
 % * Utdrag ur enkätsvar?
 \subsection{Bilaga 1}
+\label{bil:1}
 Denna bilaga är ett utdrag ur den enkätundersökning som genomfördes av
 kandidatgruppen under våren 2015 via \textit{webbenkater.com}. Bilagan
 innehåller endast de delar av undersökningen som bedömts som relevanta
@@ -1678,6 +1685,7 @@ både Bo och Ants.
 \newpage
 
 \subsection{Bilaga 3}
+\label{bil:3}
 Denna bilaga är ett utdrag ur det läromaterial projektgruppen
 utvecklat. Utdraget beskriver udda och jämna signaler och är hämtat
 från avsnitt 2 i läromaterialet.
