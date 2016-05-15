@@ -474,12 +474,12 @@ till enbart en oberoende variabel som beskriver tid och de system som
 som betraktas är linjära och tidsinvarianta, så kallade LTI-system.
 
 För att kunna lösa problem med denna typ av signaler och system så kan
-man utveckla signalen i en fourierserie eller använda sig av olika
+man utveckla signalen i en Fourierserie eller använda sig av olika
 typer av transformer, vilket gör det möjligt att betrakta signalen i
 en annan domän. %De transformer som tas upp i kursen \textit{TSS} är
 %\textit{fouriertransform}, \textit{laplacetransform} och
 %\textit{Z-transformen}.
-En av transformerna som tas upp i kursen är fouriertransform.
+En av transformerna som tas upp i kursen är Fouriertransform.
 %TODO: välj en stil: två av tre slutar på "form" och en på "formen"
 %TODO: homogenisera: "laplacetransform" eller "Laplacetransform"
 
@@ -804,7 +804,7 @@ introduktionen följer det första avsnittet, vilket kort beskriver
 komplexa tal och Eulers formel samt introducerar studenten till vårt
 DSL. Det andra avsnittet beskriver olika typer av signaler och deras
 egenskaper, det tredje beskriver LTI-system och det fjärde och sista
-beskriver Fourierserier och Fouriertransformen. De ämnen avsnitten
+beskriver Fourierserier och Fouriertransform. De ämnen avsnitten
 beskriver valdes, som nämns i avsnittet \textit{Utveckling av
  läromaterialet - Inledande forskning}, utifrån information från
 kursen, intervjun med examinatorerna samt studenternas enkätsvar.
@@ -836,13 +836,13 @@ som tas upp i \textit{TSS}. Avsnittet tar även upp faltning och hur
 detta fungerar i LTI-system.
 
 Det fjärde avsnittet beskriver Fourierserier och
-Fouriertransformen. Dessa är centrala begrepp i kursen och något som
+Fouriertransform. Dessa är centrala begrepp i kursen och något som
 många datastudenter upplever som svårt. Därför valde gruppen, då det
 konstaterades att det inte fanns tid att beskriva alla transformer som
 finns med i \textit{TSS}, att fokusera på Fourier. En anledning till
-detta var att Fouriertransformen är nära besläktad med såväl
-laplacetransformen som Z-transformen och gruppen bedömde att
-förståelse för Fouriertransformen sannolikt skulle bidra till
+detta var att Fouriertransform är nära besläktad med såväl
+Laplacetransform som Z-transform och gruppen bedömde att
+förståelse för Fouriertransform sannolikt skulle bidra till
 förståelse för de andra två transformerna.
 
 Mer information om hur avsnitten utformats för att uppmuntra till
@@ -1373,7 +1373,7 @@ förstå. Det har varit en ständig avvägning av att få med de mest
 vitala delarna i \textit{TSS} och att implementera kod som är
 begriplig. \textit{The Fastest Fourier Transform in the
  West} \cite{fastestfourier} %Osäker på om denna referens är korrekt, kontrollera gärna 
-är ett exempel på hur fouriertransform kan implementeras relativt
+är ett exempel på hur Fouriertransform kan implementeras relativt
 effektivt i Haskell, men problemet är att koden då hamnar på en nivå
 som överstiger förmågan hos många studenter i målgruppen. Kod av detta
 slag är alltså, oavsett hur effektiv den är, inte önskvärd i vårt
@@ -1440,16 +1440,16 @@ hur detta gått diskuteras i det kommande avsnittet \textit{Diskussion
 Den slutgiltiga produkten uppfyller alla delar av
 produktspecifikationen med ett undantag. Ambitionen var att
 läromaterialet skulle täcka in hela kursen \textit{TSS}. I nuläget
-saknas dock avsnitt som beskriver Laplacetransformen och
-Z-transformen. Som nämns i avsnittet \textit{Metod} prioriterades
+saknas dock avsnitt som beskriver Laplacetransform och
+Z-transform. Som nämns i avsnittet \textit{Metod} prioriterades
 detta bort på grund av tidsbrist i slutet av projektet. Projektgruppen
-hamnade i läget att de kunde fokusera på antingen fouriertransformen
-eller laplacetransformen och Z-transformen. Anledningen till att
-gruppen valde att fokusera på Fouriertransformen var att den är nära
+hamnade i läget att de kunde fokusera på antingen Fouriertransform
+eller Laplacetransform och Z-transform. Anledningen till att
+gruppen valde att fokusera på Fouriertransform var att den är nära
 besläktad med Laplacetransformen och Z-transformen. Ur 
 programmeringssynpunkt var det även svårt att implementera
-laplacetransformen och Z-transformen utan att först implementera fouriertransformen. Det finns emellertid ett utkast
-till avsnitt om laplacetransformen och Z-transformen som kan utvecklas i framtiden.
+Laplacetransform och Z-transform utan att först implementera Fouriertransform. Det finns emellertid ett utkast
+till avsnitt om Laplacetransform och Z-transform som kan utvecklas i framtiden.
 
 %TODO: fixa \label ovan och \ref eller \nameref här
 Som beskrivs i avsnittet \textit{Resultat} ställde sig testgrupppen
