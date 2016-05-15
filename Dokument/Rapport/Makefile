@@ -1,3 +1,4 @@
+SHELL=/bin/bash
 LATEXOPTS=-shell-escape
 FILE=rapport
 TEXHOME=$(HOME)/texmf/tex/latex
@@ -11,7 +12,7 @@ report:
 	latexmk $(LATEXOPTS) -pdf $(FILE).tex
 
 cleanup:
-	rm *.{aux,bbl,bcf,blg,fdb_latexmk,fls,log,out}
+	rm *.{aux,bbl,blg,fdb_latexmk,fls,glg,glo,gls,ist,log,out,toc}
 
 clean: cleanup
 	rm *.pdf
