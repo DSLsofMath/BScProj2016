@@ -431,17 +431,40 @@ figur \ref{fig:hask_partfunapp} nedan.
 \end{figure}
 
 Haskell är ett funktionellt programmeringsspråk med stöd för partiell
-funktionsapplikation, högre ordningens funktioner, algebraiska datatyper
-samt lat evaluering. Lat evaluering betyder att Haskell inte
-evaluerar ett uttryck förrän det behövs, vilket gör att man kan arbeta
-med oändliga datastrukturer utan att Haskell hänger sig. I Haskell är
-det enkelt att definiera egna datatyper vilket gör att man exempelvis
-kan inkapsla redan existerande typer för att göra deras syfte mer
-tydligt. Det finns även stöd för algebraiska datatyper med vilka man kan
-bygga ett abstrakt syntaxträd. Med högre ordningens funktioner kan man
-dessutom skapa generella funktioner som arbetar på dessa typers
-strukturer. Detta gör att Haskell lämpar sig bra som värdspråk för
-djupa domänspecifika språk.
+funktionsapplikation, högre ordningens funktioner, algebraiska
+datatyper samt lat evaluering. Lat evaluering betyder att Haskell inte
+evaluerar ett uttryck förrän det behövs och detta gör det möjligt för
+Haskell att hantera oändliga datastrukturer utan att processen kräver
+allt virtuellt minne och terminerar.
+
+Algebraiska datatyper är typer som består av flera andra typer. Tack
+vare Haskells mönstermatchning är det lätt att definiera rekursiva
+funktioner som matchar på kontruerare i de algebraiska datatyperna
+vilket visas i exemplet i figur \ref{fig:hask_alg_type}.
+
+\begin{figure}[H]
+  \begin{minted}{haskell}
+    data Tree a = Leaf | Node a (Tree a) (Tree a)
+
+    mapTree :: (a -> b) -> Tree a -> Tree b
+    mapTree _ Leaf = Leaf
+    mapTree f (Node a l r) = Node (f a) (mapTree f l) (mapTree f r)
+  \end{minted}
+  \caption{Figuren visar den algebraiska datatypen
+    \mintinline{haskell}{Tree a} som beskriver en trädstruktur och den
+    generella funktionen \mintinline{haskell}{mapTree} som använder
+    mönstermatchning för att manipulera trädstrukturen.}
+  \label{fig:hask_alg_type}
+\end{figure}
+
+I Haskell är det enkelt att definiera egna datatyper vilket gör att
+man exempelvis kan inkapsla redan existerande typer för att göra deras
+syfte mer tydligt. Man kan också med algebraiska datatyper
+implementera typer som kan fungera som ett abstrakt syntaxträd. Med
+högre ordningens funktioner kan man dessutom skapa generella
+funktioner som arbetar på dessa typers strukturer. Detta gör att
+Haskell lämpar sig bra som värdspråk för inbäddade domänspecifika
+språk.
 
 \subsection{Domänspecifika språk}
 % Allmänt om DSL
