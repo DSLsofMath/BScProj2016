@@ -1,5 +1,6 @@
 LATEXOPTS=-shell-escape
 FILE=rapport
+TEXHOME=$(HOME)/texmf/tex/latex
 
 all: report
 
@@ -14,3 +15,12 @@ cleanup:
 
 clean: cleanup
 	rm *.pdf
+
+install: glossaries ieeetran
+
+glossaries:
+	mkdir -p "$(TEXHOME)/glossaries-swedish"
+	cp include/packages/* $(TEXHOME)/glossaries-swedish/
+	cd $(TEXHOME)/glossaries-swedish
+	latex glossaries-swedish.ins > /dev/null
+
