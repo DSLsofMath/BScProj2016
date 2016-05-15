@@ -4,7 +4,7 @@ FILE=rapport
 all: report
 
 report:
-	latex $(LATEXOPTS) $(FILE).tex
+	pdflatex $(LATEXOPTS) $(FILE).tex
 	makeglossaries $(FILE).glo
 	bibtex $(FILE)
 	latexmk $(LATEXOPTS) -pdf $(FILE).tex
