@@ -379,53 +379,6 @@ lättåtkomlig för andra utvecklare.
 För ytterligare information om GitHub se hemsidan \url{https://github.com}.
 %TODO: kanske bra ställe att också länka till ert eget projekt på github som exempel.
 
-\subsection{Domänspecifika språk}
-% Allmänt om DSL
-Ett domänspecifikt språk (\gls{DSL}) är ett programmeringsspråk som
-till skillnad från generella programmeringsspråk är anpassat för en
-specifik domän. Att skapa domänspecifika språk är ingenting nytt, det
-finns tvärtom många DSL som används i vid utstäckning.
-Exempel på några relativt välkända DSL är HTML, MATLAB och Game Maker
-Language.
-
-Det som är grundtanken med ett DSL är att det är relativt enkelt att
-formulera lösningar för problem inom deras domäner, exempelvis är det
-enkelt att strukturera upp text i HTML, utföra matrisoperationer i
-MATLAB eller skapa datorspel med Game Maker Language. Däremot är DSL
-ineffektiva inom andra områden än de som de är implementerade för.
-Det är till exempel inte effektivt att försöka skapa datorspel i
-MATLAB
-
-När man designar domänspecifika språk kan man välja att skapa ett
-fristående språk som kompileras till någon typ av maskinkod eller att
-utveckla sitt domänspecifika språk i ett redan existerande generellt
-programmeringsspråk, där beståndsdelarna i språket är funktionsanrop
-och konstruerare i värdspråket. Ett DSL som är inbäddat i ett
-värdspråk kallas för ``\gls{EDSL}''.
-
-Det finns även olika nivåer av EDSL; så kallade djupa EDSL (deep
-embedding) och ytliga EDSL (shallow embedding). I introduktionen till
-sin artikel skriver Svenningson och Axelsson \cite{Svenningsson2013}
-att man i ett djupt EDSL använder sig av abstrakta datatyper och att
-man med dessa bygger upp ett abstrakt syntaxträd som sedan tolkas av
-olika funktioner. Man definierar alltså egna typer och funktioner som
-bygger upp strukturer med dessa typer och skiljer på så sätt det
-domänspecifika språket från värdspråket. I ett ytligt EDSL försöker
-man däremot uttrycka sitt domänspecifika språk i termer av
-värdspråkets funktioner och typer. Ett uttryck i ett ytligt EDSL
-motsvaras alltså av ett uttryck i värdspråket och behöver inte tolkas
-ytterligare. Båda sätten att implementera ett EDSL har sina fördelar
-och nackdelar då det exempelvis i ett djupt EDSL är förhållandevis
-lätt att ge fler tolkningar av det abstrakta syntaxträdet och därmed
-kunna bygga vidare på det domänspecifika språket, men svårare att
-lägga till konstruerare eller på andra sätt ändra i typerna som bygger
-upp syntaxträdet eftersom man då måste ändra i de funktioner som
-tolkar dem. I ett ytligt EDSL är det lätt att lägga till konstruerare
-och typer eftersom man bara måste kunna representera dem i värdspråket
-och alltså inte behöver hantera ett syntaxträd, men å andra sidan är
-dess tolkning fixerad. För att lägga till nya sätt att tolka ett
-ytligt EDSL måste vi implementera om det på nytt.
-
 \subsection{Funktionell programmering}
 % -Referera till “Why functional programming matters”
 Funktionell programmering är en programmeringsparadigm där de
@@ -454,17 +407,64 @@ de saknade parametrarna. Detta kallas för partiell
 funktionsapplikation och gör det enklare att modularisera funktioner.
 
 Haskell är ett funktionellt programmeringsspråk med stöd för partiell
-funktionskomposition, högre ordningens funktioner, abstrakta datatyper
+funktionsapplikation, högre ordningens funktioner, algebraiska datatyper
 samt lat evaluering. Lat evaluering betyder att Haskell inte
 evaluerar ett uttryck förrän det behövs, vilket gör att man kan arbeta
 med oändliga datastrukturer utan att Haskell hänger sig. I Haskell är
 det enkelt att definiera egna datatyper vilket gör att man exempelvis
 kan inkapsla redan existerande typer för att göra deras syfte mer
-tydligt. Det finns även stöd för abstrakta datatyper med vilka man kan
+tydligt. Det finns även stöd för algebraiska datatyper med vilka man kan
 bygga ett abstrakt syntaxträd. Med högre ordningens funktioner kan man
 dessutom skapa generella funktioner som arbetar på dessa typers
 strukturer. Detta gör att Haskell lämpar sig bra som värdspråk för
 djupa domänspecifika språk.
+
+\subsection{Domänspecifika språk}
+% Allmänt om DSL
+Ett domänspecifikt språk (\gls{DSL}) är ett programmeringsspråk som
+till skillnad från generella programmeringsspråk är anpassat för en
+specifik domän. Att skapa domänspecifika språk är ingenting nytt, det
+finns tvärtom många DSL som används i vid utstäckning.
+Exempel på några relativt välkända DSL är HTML, MATLAB och Game Maker
+Language.
+
+Det som är grundtanken med ett DSL är att det är relativt enkelt att
+formulera lösningar för problem inom deras domäner, exempelvis är det
+enkelt att strukturera upp text i HTML, utföra matrisoperationer i
+MATLAB eller skapa datorspel med Game Maker Language. Däremot är DSL
+ineffektiva inom andra områden än de som de är implementerade för.
+Det är till exempel inte effektivt att försöka skapa datorspel i
+MATLAB
+
+När man designar domänspecifika språk kan man välja att skapa ett
+fristående språk som kompileras till någon typ av maskinkod eller att
+utveckla sitt domänspecifika språk i ett redan existerande generellt
+programmeringsspråk, där beståndsdelarna i språket är funktionsanrop
+och konstruerare i värdspråket. Ett DSL som är inbäddat i ett
+värdspråk kallas för ``\gls{EDSL}''.
+
+Det finns även olika nivåer av EDSL; så kallade djupa EDSL (deep
+embedding) och ytliga EDSL (shallow embedding). I introduktionen till
+sin artikel skriver Svenningson och Axelsson \cite{Svenningsson2013}
+att man i ett djupt EDSL använder sig av algebraiska datatyper och att
+man med dessa bygger upp ett abstrakt syntaxträd som sedan tolkas av
+olika funktioner. Man definierar alltså egna typer och funktioner som
+bygger upp strukturer med dessa typer och skiljer på så sätt det
+domänspecifika språket från värdspråket. I ett ytligt EDSL försöker
+man däremot uttrycka sitt domänspecifika språk i termer av
+värdspråkets funktioner och typer. Ett uttryck i ett ytligt EDSL
+motsvaras alltså av ett uttryck i värdspråket och behöver inte tolkas
+ytterligare. Båda sätten att implementera ett EDSL har sina fördelar
+och nackdelar då det exempelvis i ett djupt EDSL är förhållandevis
+lätt att ge fler tolkningar av det abstrakta syntaxträdet och därmed
+kunna bygga vidare på det domänspecifika språket, men svårare att
+lägga till konstruerare eller på andra sätt ändra i typerna som bygger
+upp syntaxträdet eftersom man då måste ändra i de funktioner som
+tolkar dem. I ett ytligt EDSL är det lätt att lägga till konstruerare
+och typer eftersom man bara måste kunna representera dem i värdspråket
+och alltså inte behöver hantera ett syntaxträd, men å andra sidan är
+dess tolkning fixerad. För att lägga till nya sätt att tolka ett
+ytligt EDSL måste vi implementera om det på nytt.
 
 \subsection{Transformer, signaler och system}
 Transformer, signaler och system, inom signalbehandling, beskriver
