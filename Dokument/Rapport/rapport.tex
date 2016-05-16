@@ -1040,8 +1040,6 @@ operator att implementera. Den matematiska formeln för detta ser ut
 som följer:
 \[ z / w = (z \cdot w') / (w \cdot w') \]
 där \(w'\) är \(w\):s konjugat.
-% Man förlänger både täljare och nämnare med nämnarens konjugat vilket
-% innebär att nämnaren blir helt reell.
 Man förlänger alltså både täljare och nämnare med nämnarens konjugat,
 vilket innebär att nämnaren blir helt reell. För att implementera
 division var gruppen därför tvungen att först implementera en funktion
@@ -1053,7 +1051,7 @@ såg ut så här:
 conjugate z = Complex (realPart z) (negate (imPart z))
 \end{minted}
 Vår implementation av division blev då följande:
-%TODO: för lång rad
+
 \begin{minted}{haskell}
   z / w = Complex (realPart zw' / realPart ww')
                   (imPart zw' / realPart ww')
@@ -1078,7 +1076,6 @@ euler phi = Complex (cos phi) (sin phi)
 Enligt potenslagarna %(formelsamlingen) - lämnas till reference? -Borde inte behövas
 så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och enligt Eulers formel så är
 \(e^{j b} = \cos b + j\cdot \sin b\).
-%
 Exponentialfunktionen för ett komplext tal kan därför implementeras
 enligt nedanstående kod:
 
@@ -1405,14 +1402,13 @@ möjligt att implementera på en nivå som studenterna i målgruppen kan
 förstå. Det har varit en ständig avvägning av att få med de mest
 vitala delarna i \textit{TSS} och att implementera kod som är
 begriplig. \textit{The Fastest Fourier Transform in the West}
-\cite{fastestfourier} %Osäker på om denna referens är korrekt, kontrollera gärna
-är ett exempel på hur Fouriertransform kan implementeras relativt
-effektivt i Haskell, men problemet är att koden då hamnar på en nivå
-som överstiger förmågan hos många studenter i målgruppen. Kod av detta
-slag är alltså, oavsett hur effektiv den är, inte önskvärd i vårt
-läromaterial eftersom vi vill använda koden för att förklara ett annat
-ämne. Om koden är för svårläst riskerar vi att hamna i en situation
-där studenten varken förstår programmeringen eller ämnet den
+\cite{fastestfourier} är ett exempel på hur Fouriertransform kan 
+implementeras relativt effektivt i Haskell, men problemet är att koden 
+då hamnar på en nivå som överstiger förmågan hos många studenter i 
+målgruppen. Kod av detta slag är alltså, oavsett hur effektiv den är, 
+inte önskvärd i vårt läromaterial eftersom vi vill använda koden för att 
+förklara ett annat ämne. Om koden är för svårläst riskerar vi att hamna i en 
+situation där studenten varken förstår programmeringen eller ämnet den
 beskriver.
 
 När man beslutat \textbf{vad} som ska implementeras uppstår frågan
