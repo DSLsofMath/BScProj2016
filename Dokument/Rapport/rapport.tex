@@ -998,7 +998,6 @@ viktigt då gruppen ville åstadkomma kod som kan förstås av hela
 målruppen och inte bara av studenter som är särskilt intresserade av
 Haskell.
 
-
 För att visa hur projektgruppen har tänkt vid implementationen av sitt
 DSL kommer delar av implementationen av komplexa tal nu att
 beskrivas. Vi börjar med hur ett komplext tal representeras, i vårt
@@ -1015,7 +1014,8 @@ och ett för den imaginära. Så ett komplext tal
   Complex 1 1
 \end{minted}
 
-%TODO: jag skulle(;-) föredra att gör texten mer aktiv: "ska bete sig", "behöver vi implementera", "kan implementeras", ...
+% TODO: jag skulle(;-) föredra att gör texten mer aktiv: "ska bete
+% sig", "behöver vi implementera", "kan implementeras", ...
 De implementerade komplexa talen skulle bete sig som matematikens
 komplexa tal och därför var det nödvändigt att implementera diverse
 beräkningsoperatorer för dem. Addition kunde implementeras relativt
@@ -1024,10 +1024,9 @@ de imaginära enligt formeln nedan \cite{conway1978functions}.
 \[(a, b) + (c, d) = (a + c, b + d)\]
 % TODO: Ändra så att citeringen görs i löpande text och inte "Hänger
 % lös" i början av en rad.
-% TODO: punkt i slutet av förra meningen
 Vilket i Haskell implementerades så här:
 \begin{minted}{haskell}
- z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
+  z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
 \end{minted}
 
 I kodexemplen ovan används funktioner som plockar ut den reella
@@ -1035,15 +1034,17 @@ I kodexemplen ovan används funktioner som plockar ut den reella
 (\mintinline{haskell}{imPart}) ur ett komplext tal.
 
 Multiplikationen var lite mer komplicerad än additionen, då den
-matematiska formeln för multiplikation med komplexa tal ser ut så här:
- \[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \] \cite{conway1978functions}
-
+matematiska formeln för multiplikation med komplexa tal ser ut enligt
+formeln nedan \cite{conway1978functions}.
+\[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \]
 Detta implementerades enligt följande i vårt DSL:
 % TODO: fixa sidbrytning (senare)
 \begin{minted}{haskell}
- z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
- where realZ = realPart z realW = realPart w imZ = imPart z imW =
- imPart w
+  z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
+    where realZ = realPart z
+          realW = realPart w
+          imZ = imPart z
+          imW = imPart w
 \end{minted}
 
 %Är detta nödvändigt? Vi borde liksom inte vara för förklarande.
@@ -1056,10 +1057,9 @@ Efter att dessa operationer var färdiga så var division nästa stora
 operator att implementera. Den matematiska formeln för detta ser ut
 som följer:
 \[ z / w = (z \cdot w') / (w \cdot w') \]
-%(sommarmatte.se) Kan lämnas som reference.
 där $w'$ är $w$:s konjugat.
-%Man förlänger både täljare och nämnare med nämnarens konjugat vilket innebär
-%att nämnaren blir helt reell.
+% Man förlänger både täljare och nämnare med nämnarens konjugat vilket
+% innebär att nämnaren blir helt reell.
 Man förlänger alltså både täljare och nämnare med nämnarens konjugat,
 vilket innebär att nämnaren blir helt reell. För att implementera
 division var gruppen därför tvungen att först implementera en funktion
@@ -1073,25 +1073,25 @@ conjugate z = Complex (realPart z) (negate (imPart z))
 Vår implementation av division blev då följande:
 %TODO: för lång rad
 \begin{minted}{haskell}
-z / w = Complex (realPart zw' / realPart ww')
-                (imPart zw' / realPart ww')
-  where zw' = z * (conjugate w)
-        ww' = w * (conjugate w)
+  z / w = Complex (realPart zw' / realPart ww')
+                  (imPart zw' / realPart ww')
+    where zw' = z * (conjugate w)
+          ww' = w * (conjugate w)
 \end{minted}
 
 En viktig förutsättning för att kunna koppla de komplexa talen till
 kursen TSS var att man först implementerade Eulers formel, som kan
-användas för att skapa komplexa tal utifrån en vinkel \(\phi\). Eulers
-formel ser ut så här:
-%TODO: använd helst samma variabelnamn efter j här och nedan. ("z" här känns som ett komplext tal, men texten pratar om en "vinkel" dvs. ett reellt tal)
-% \cite{trott2004}:
+användas för att skapa komplexa tal utifrån en vinkel \(\phi\)
+(phi). Eulers formel ser ut så här:
+% TODO: använd helst samma variabelnamn efter j här och nedan. ("z"
+% här känns som ett komplext tal, men texten pratar om en "vinkel"
+% dvs. ett reellt tal) \cite{trott2004}:
 \[e^{j\phi}=\cos \phi+ j \cdot \sin \phi \]
-%(encyclopediaofmath) -kan lämnas som reference
 Implementationen av den här representationen skedde i flera steg.
 Funktionen \mintinline{haskell}{euler} skapar ett komplext tal utifrån
 en given vinkel, representerad av ett flyttal.
 \begin{minted}{haskell}
-euler z = Complex (cos z) (sin z)
+euler phi = Complex (cos phi) (sin phi)
 \end{minted}
 Enligt potenslagarna %(formelsamlingen) - lämnas till reference? -Borde inte behövas
 så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och enligt Eulers formel så är
