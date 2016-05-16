@@ -1099,7 +1099,6 @@ så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och enligt Eulers formel så är
 Exponentialfunktionen för ett komplext tal kan därför implementeras
 enligt nedanstående kod:
 
-%TODO: typfel - saknas någon parentes. Jmf. Tutorial/Kod/ComplexNumbers.hs:127
 \begin{minted}{haskell}
 exp z = scale (exp (realPart z)) (euler (imPart z))
 \end{minted}
@@ -1199,7 +1198,6 @@ exempel och tillhörande uppgifter. Testgruppen fick även tillgång till
 programkoden som var skriven till uppgifterna, samt även facitkod och
 lösningar till uppgifterna.
 
-%TODO: "feedback" := "återkoppling"
 När studenterna sedan har testat produkten och gått igenom vad de
 tyckte var bra och vad de tyckte var dåligt så bearbetade vi deras
 återkoppling, utvärderade och såg ifall vi hittade några större fel
