@@ -17,17 +17,20 @@
 \setlength{\parindent}{0pt}
 
 \section*{Förord}
-Denna rapport behandlar kandidatarbetet ``Matematikens domänspecifika språk
-(DSLsofMath) för andra kurser'' som genomfördes på Chalmers tekniska högskola
- under vårterminen 2016. Vi som har gjort detta kandidatarbete är fem studenter
-från civilingenjörsprogrammen Datateknik och Teknisk Matematik på Chalmers.
+Denna rapport behandlar kandidatarbetet ``Matematikens domänspecifika
+språk (DSLsofMath) för andra kurser'' som genomfördes på Chalmers
+tekniska högskola under vårterminen 2016. Vi som har gjort detta
+kandidatarbete är fem studenter från civilingenjörsprogrammen
+Datateknik och Teknisk Matematik på Chalmers.
 
-Vi vill tacka Patrik Jansson, vår handledare, som har varit väldigt hjälpsam
-och skickat oss i rätt riktning när vi varit vilsna. Vi vill tacka Adam Sandberg Eriksson
-som har svarat på frågor vi haft och funnits tillgänglig när vi undrat saker. Vi
-vill tacka Bo Egardt och Ants Silberberg som tagit sig tid att diskutera sina
-kurser med oss. Och slutligen vill vi tacka vår fantastiska testgrupp som gått igenom vårt
-material och gett oss återkoppling för att förbättra vår produkt.
+Vi vill tacka Patrik Jansson, vår handledare, som har varit väldigt
+hjälpsam och skickat oss i rätt riktning när vi varit vilsna. Vi vill
+tacka Adam Sandberg Eriksson som har svarat på frågor vi haft och
+funnits tillgänglig när vi undrat saker. Vi vill tacka Bo Egardt och
+Ants Silberberg som tagit sig tid att diskutera sina kurser med
+oss. Och slutligen vill vi tacka vår fantastiska testgrupp som gått
+igenom vårt material och gett oss återkoppling för att förbättra vår
+produkt.
 
 \newpage
 
@@ -42,27 +45,30 @@ material och gett oss återkoppling för att förbättra vår produkt.
 %     (Läsare ska här kunna bedöma om rapporten är intressant att läsa för dem)
 % * Jättekort om syfte, resultat etc
 % Illustration: Borde inte behövas
-Denna rapport beskriver utvecklingen av läromaterialet ``TSS med DSL'' med dess
-tillhörande programmeringskod och lösningar. Läromaterialet riktar sig främst
-till studenter inom det datatekniska programmet på Chalmers tekniska högskola och har som syfte att
-vara ett kompletterande läromedel inom signallära där man utnyttjar studenternas
-kunskaper inom programmering. Materialet innehåller förklarande text och teori
-om bland annat komplexa tal, signaler, system och transformer. I materialet
-ingår även programmeringsövningar som är skrivna med domänspecifika språk i
-programmeringsspråket \gls{Haskell}.
+Denna rapport beskriver utvecklingen av läromaterialet ``TSS med DSL''
+med dess tillhörande programmeringskod och lösningar. Läromaterialet
+riktar sig främst till studenter inom det datatekniska programmet på
+Chalmers tekniska högskola och har som syfte att vara ett
+kompletterande läromedel inom signallära där man utnyttjar
+studenternas kunskaper inom programmering. Materialet innehåller
+förklarande text och teori om bland annat komplexa tal, signaler,
+system och transformer. I materialet ingår även programmeringsövningar
+som är skrivna med domänspecifika språk i programmeringsspråket
+\gls{Haskell}.
 
-Bakgrunden till detta projekt är att kursen inom signallära, TSS, på det
-aktuella programmet under många år har haft dåliga studieresultat på
-grund av studenternas ovana att hantera den typ av matematik som utgör
-grundstommen i kursen. Detta har visats sig inte vara något som är unikt
-för datastudenterna på Chalmers utan det är tvärtom ett problem inom många
-discipliner.
+Bakgrunden till detta projekt är att kursen inom signallära, TSS, på
+det aktuella programmet under många år har haft dåliga studieresultat
+på grund av studenternas ovana att hantera den typ av matematik som
+utgör grundstommen i kursen. Detta har visats sig inte vara något som
+är unikt för datastudenterna på Chalmers utan det är tvärtom ett
+problem inom många discipliner.
 
-Rapporten beskriver vidare de undersökningar och efterforskningar som gjorts
-för att ta kunna ta fram läromaterialet, samt de tester som gjorts på den
-färdiga produkten.
+Rapporten beskriver vidare de undersökningar och efterforskningar som
+gjorts för att ta kunna ta fram läromaterialet, samt de tester som
+gjorts på den färdiga produkten.
 
-Materialet som utvecklats kan ses på \url{https://github.com/DSLsofMath/BScProj}.
+Materialet som utvecklats kan ses på
+\url{https://github.com/DSLsofMath/BScProj}.
 
 \newpage
 
@@ -70,25 +76,29 @@ Materialet som utvecklats kan ses på \url{https://github.com/DSLsofMath/BScProj
 
 \section*{Abstract}
 \selectlanguage{english}
-This report describes the development of the tutorial ``TSS med DSL'' with
-associated programming code and solutions. The tutorial is directed towards students
-studying Computer Science at Chalmers University of Technology and the purpose of
-the tutorial is to be a supplementary learning material for the course
-``Transforms, Signals and Systems''. The tutorial contains explanations and
-theory concerning complex numbers, signals, systems and transforms. The
-tutorial also includes programming exercises using domain specific languages
-written in Haskell.
 
-The background for this project is that the computer science students studying
-the course ``Transforms, Signals and Systems'' have gotten poor results for
-several years due to the students' unfamiliarity with the kind of mathematics
-which is a large part of that course. Further analysis has shown this to be a
-general problem not unique to Computer science students at Chalmers.
+This report describes the development of the tutorial ``TSS med DSL''
+with associated programming code and solutions. The tutorial is
+directed towards students studying Computer Science at Chalmers
+University of Technology and the purpose of the tutorial is to be a
+supplementary learning material for the course ``Transforms, Signals
+and Systems''. The tutorial contains explanations and theory
+concerning complex numbers, signals, systems and transforms. The
+tutorial also includes programming exercises using domain specific
+languages written in Haskell.
 
-The report further describes the surveys and analyses done in order to produce
-this tutorial and the test results from the finished product.
+The background for this project is that the computer science students
+studying the course ``Transforms, Signals and Systems'' have gotten
+poor results for several years due to the students' unfamiliarity with
+the kind of mathematics which is a large part of that course. Further
+analysis has shown this to be a general problem not unique to Computer
+science students at Chalmers.
 
-The developed material can be viewed at \url{https://github.com/DSLsofMath/BScProj}.
+The report further describes the surveys and analyses done in order to
+produce this tutorial and the test results from the finished product.
+
+The developed material can be viewed at
+\url{https://github.com/DSLsofMath/BScProj}.
 
 \newpage
 
@@ -1644,7 +1654,6 @@ framtiden när det används av studenter i målgruppen i samband med
 kursen \textit{TSS}.
 
 \newpage
-
 
 \bibliographystyle{IEEEtran}
 \bibliography{include/referenser}
