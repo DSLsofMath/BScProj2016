@@ -28,7 +28,7 @@ Vi vill tacka Patrik Jansson, vår handledare, som har varit väldigt hjälpsam
 och skickat oss i rätt riktning när vi varit vilsna. Vi vill tacka Adam Sandberg Eriksson
 som har svarat på frågor vi haft och funnits tillgänglig när vi undrat saker. Vi
 vill tacka Bo Egardt och Ants Silberberg som tagit sig tid att diskutera sina
-kurser med oss. Och slutligen vill vi tacka vår testgrupp som gått igenom vårt
+kurser med oss. Slutligen vill vi tacka vår testgrupp som gått igenom vårt
 material och gett oss återkoppling för att förbättra vår produkt.
 
 \newpage
@@ -331,7 +331,7 @@ behövs för att bygga upp läromaterialet.
 \subsection{Git och GitHub}
 Git är ett versionshanteringsprogram som gör det möjligt för flera
 personer att arbeta med samma material samtidigt utan att de skriver
-över varandras arbete. Så länge inte två versioner innehåller
+över varandras arbete. När två versioner inte innehåller
 ändringar som står i konflikt med varandra, exempelvis att man
 samtidigt ändrat på samma rader, slås de ihop och bildar då en tredje
 version vars innehåll kommer från båda de tidigare versionerna. Alla
@@ -1005,7 +1005,7 @@ fall som två flyttalsvärden.
     deriving Eq
 \end{minted}
 Ett värde för den reella delen av talet
-och ett för den imaginära. Så ett komplext tal
+och ett för den imaginära delen. Det komplexa talet
 \(z = 1 + 1j = (1,1) \) representeras i vår DSL som:
 
 \begin{minted}{haskell}
@@ -1102,7 +1102,7 @@ enligt nedanstående kod:
 exp z = scale (exp (realPart z)) (euler (imPart z))
 \end{minted}
 Sedan implementerades även trigonometriska funktioner med hjälp av
-Eulers formel. Så här representeras $sin(x)$ som ett komplext tal:
+Eulers formel. $Sin(x)$ representeras enligt följande som ett komplext tal:
 \[ sin(x) = (e^{j x} - e^{-j x}) / 2 j \]
 Vilket ser ut så här i vårt DSL:
 \begin{minted}{haskell}
@@ -1502,8 +1502,8 @@ programmeringssynpunkt var det även svårt att implementera
 Laplacetransform och Z-transform utan att först implementera Fouriertransform. Det finns emellertid ett utkast
 till avsnitt om Laplacetransform och Z-transform som kan utvecklas i framtiden.
 
-%TODO: fixa \label ovan och \ref eller \nameref här
-Som beskrivs i avsnittet \textit{\ref{sec:resDisk} - \nameref{sec:resDisk}} ställde sig testgrupppen
+%TODO: fixa \label ovan och \ref eller \nameref här. Borde vara löst nu.
+Som beskrivs i avsnittet \textit{\ref{sec:test} - \nameref{sec:test}} ställde sig testgrupppen
 väldigt positiv till läromaterialet. Det är dock värt att påpeka att
 testgruppen bestod av en relativt liten grupp, totalt 13 personer.
 Även om testgruppens svar är en positiv indikation är det därför svårt
@@ -1646,7 +1646,6 @@ visa sig i framtiden när det används av studenter i målgruppen.
 
 \newpage
 
-%TODO: Lägg in länk till learn you a Haskell i bib-filen
 
 \bibliographystyle{IEEEtran}
 \bibliography{include/referenser}
