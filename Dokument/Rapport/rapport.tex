@@ -1001,12 +1001,17 @@ Haskell.
 För att visa hur projektgruppen har tänkt vid implementationen av sitt
 DSL kommer delar av implementationen av komplexa tal nu att
 beskrivas. Vi börjar med hur ett komplext tal representeras, i vårt
-fall som två flyttalsvärden. Ett värde för den reella delen av talet
+fall som två flyttalsvärden.
+\begin{minted}{haskell}
+  data Complex = Complex Double Double
+    deriving Eq
+\end{minted}
+Ett värde för den reella delen av talet
 och ett för den imaginära. Så ett komplext tal
 \(z = 1 + 1j = (1,1) \) representeras i vår DSL som:
 
 \begin{minted}{haskell}
-Complex 1 1
+  Complex 1 1
 \end{minted}
 
 %TODO: jag skulle(;-) föredra att gör texten mer aktiv: "ska bete sig", "behöver vi implementera", "kan implementeras", ...
