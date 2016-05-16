@@ -15,4 +15,5 @@
 *.glo
 *.gls
 *.gz
+*.gz(busy)
 *.pdf

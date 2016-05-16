@@ -11,6 +11,7 @@
 \makeglossaries
 
 \begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
 \pagenumbering{roman}
 
 \input{include/frontmatter/Titlepage}
@@ -800,8 +801,7 @@ arbetade fram en taktik enligt ARCS-modellen, se avsnitt \textit{\ref{sec:didakt
 - \nameref{sec:test}}, utvärderat och kompletterat det.
 
 Gruppen hade även två inspirationskällor i form av
-%Borde betterexplained också ha en riktig referens?
-\url{http://betterexplained.com/} och \textit{Learn You a Haskell for Great Good} \cite{learnyouahaskell}.
+\textit{BetterExplained} \cite{betterexplained} och \textit{Learn You a Haskell for Great Good} \cite{learnyouahaskell}.
 Detta är två läromaterial som projektgruppen upplevt är både
 informativa och underhållande läsning.
 
@@ -815,8 +815,7 @@ funktionell programmering och annan relaterad forskning.
 Under projektets tidiga fas intervjuades två personer ur
 personalstyrkan på Chalmers som undervisat och varit examinatorer i
 kurserna \textit{TSS} och \textit{Reglerteknik}.
-%TODO: homogenisera \ref till bilagorna: här "Bilaga \ref...", nedan "bilaga 1".
-Se \textit{\ref{bil:exam_intervju} - \nameref{bil:exam_intervju}} för en sammanfattning av denna
+Se avsnitt \textit{\ref{bil:exam_intervju} - \nameref{bil:exam_intervju}} för en sammanfattning av denna
 intervju. Under intervjun redogjorde examinatorerna för hur de
 upplevde studenternas problem med kurserna och vad de trodde var
 orsaken.
@@ -824,14 +823,14 @@ orsaken.
 Projektgruppen sammanställde sedan en enkät, riktad till de studenter
 som läst kurserna \textit{TSS} och \textit{Reglerteknik}, eller skulle
 läsa kurserna inom ett år. Denna enkät arbetades fram utifrån böckerna
-\textit{Enkäten i praktiken}\cite{enkaten_i_praktiken} och \textit{Enkätboken}\cite{enkatboken}.
+\textit{Enkäten i praktiken} \cite{enkaten_i_praktiken} och \textit{Enkätboken} \cite{enkatboken}.
 
 När enkäten var framtagen användes \textit{webbenkater.com} för att
 enkelt kunna hantera och analysera studenternas svar anonymt.
 %TODO: Skriv hellre "skickades" (se även "mailades" nedan)
-Länken till enkäten skickades ut till alla
-datastudenter från årgångarna 2012-2014 och gruppen erhöll totalt 77
-svar. Se \textit{\ref{bil:1} - \nameref{bil:1}} för ett utdrag ur dessa svar.
+Länken till enkäten skickades ut till alla datastudenter från
+årgångarna 2012-2014 och gruppen erhöll totalt 77 svar. Se avsnitt
+\textit{\ref{bil:1} - \nameref{bil:1}} för ett utdrag ur dessa svar.
 
 Projektgruppen sammanställde sedan den insamlade informationen om
 kursen, såsom kursplan, lärandemål samt de senaste årens
@@ -998,7 +997,6 @@ viktigt då gruppen ville åstadkomma kod som kan förstås av hela
 målruppen och inte bara av studenter som är särskilt intresserade av
 Haskell.
 
-
 För att visa hur projektgruppen har tänkt vid implementationen av sitt
 DSL kommer delar av implementationen av komplexa tal nu att
 beskrivas. Vi börjar med hur ett komplext tal representeras, i vårt
@@ -1015,7 +1013,8 @@ och ett för den imaginära. Så ett komplext tal
   Complex 1 1
 \end{minted}
 
-%TODO: jag skulle(;-) föredra att gör texten mer aktiv: "ska bete sig", "behöver vi implementera", "kan implementeras", ...
+% TODO: jag skulle(;-) föredra att gör texten mer aktiv: "ska bete
+% sig", "behöver vi implementera", "kan implementeras", ...
 De implementerade komplexa talen skulle bete sig som matematikens
 komplexa tal och därför var det nödvändigt att implementera diverse
 beräkningsoperatorer för dem. Addition kunde implementeras relativt
@@ -1024,10 +1023,9 @@ de imaginära enligt formeln nedan \cite{conway1978functions}.
 \[(a, b) + (c, d) = (a + c, b + d)\]
 % TODO: Ändra så att citeringen görs i löpande text och inte "Hänger
 % lös" i början av en rad.
-% TODO: punkt i slutet av förra meningen
 Vilket i Haskell implementerades så här:
 \begin{minted}{haskell}
- z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
+  z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
 \end{minted}
 
 I kodexemplen ovan används funktioner som plockar ut den reella
@@ -1035,15 +1033,17 @@ I kodexemplen ovan används funktioner som plockar ut den reella
 (\mintinline{haskell}{imPart}) ur ett komplext tal.
 
 Multiplikationen var lite mer komplicerad än additionen, då den
-matematiska formeln för multiplikation med komplexa tal ser ut så här:
- \[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \] \cite{conway1978functions}
-
+matematiska formeln för multiplikation med komplexa tal ser ut enligt
+formeln nedan \cite{conway1978functions}.
+\[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \]
 Detta implementerades enligt följande i vårt DSL:
 % TODO: fixa sidbrytning (senare)
 \begin{minted}{haskell}
- z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
- where realZ = realPart z realW = realPart w imZ = imPart z imW =
- imPart w
+  z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
+    where realZ = realPart z
+          realW = realPart w
+          imZ = imPart z
+          imW = imPart w
 \end{minted}
 
 %Är detta nödvändigt? Vi borde liksom inte vara för förklarande.
@@ -1056,10 +1056,9 @@ Efter att dessa operationer var färdiga så var division nästa stora
 operator att implementera. Den matematiska formeln för detta ser ut
 som följer:
 \[ z / w = (z \cdot w') / (w \cdot w') \]
-%(sommarmatte.se) Kan lämnas som reference.
 där $w'$ är $w$:s konjugat.
-%Man förlänger både täljare och nämnare med nämnarens konjugat vilket innebär
-%att nämnaren blir helt reell.
+% Man förlänger både täljare och nämnare med nämnarens konjugat vilket
+% innebär att nämnaren blir helt reell.
 Man förlänger alltså både täljare och nämnare med nämnarens konjugat,
 vilket innebär att nämnaren blir helt reell. För att implementera
 division var gruppen därför tvungen att först implementera en funktion
@@ -1073,25 +1072,25 @@ conjugate z = Complex (realPart z) (negate (imPart z))
 Vår implementation av division blev då följande:
 %TODO: för lång rad
 \begin{minted}{haskell}
-z / w = Complex (realPart zw' / realPart ww')
-                (imPart zw' / realPart ww')
-  where zw' = z * (conjugate w)
-        ww' = w * (conjugate w)
+  z / w = Complex (realPart zw' / realPart ww')
+                  (imPart zw' / realPart ww')
+    where zw' = z * (conjugate w)
+          ww' = w * (conjugate w)
 \end{minted}
 
 En viktig förutsättning för att kunna koppla de komplexa talen till
 kursen TSS var att man först implementerade Eulers formel, som kan
-användas för att skapa komplexa tal utifrån en vinkel \(\phi\). Eulers
-formel ser ut så här:
-%TODO: använd helst samma variabelnamn efter j här och nedan. ("z" här känns som ett komplext tal, men texten pratar om en "vinkel" dvs. ett reellt tal)
-% \cite{trott2004}:
+användas för att skapa komplexa tal utifrån en vinkel \(\phi\)
+(phi). Eulers formel ser ut så här:
+% TODO: använd helst samma variabelnamn efter j här och nedan. ("z"
+% här känns som ett komplext tal, men texten pratar om en "vinkel"
+% dvs. ett reellt tal) \cite{trott2004}:
 \[e^{j\phi}=\cos \phi+ j \cdot \sin \phi \]
-%(encyclopediaofmath) -kan lämnas som reference
 Implementationen av den här representationen skedde i flera steg.
 Funktionen \mintinline{haskell}{euler} skapar ett komplext tal utifrån
 en given vinkel, representerad av ett flyttal.
 \begin{minted}{haskell}
-euler z = Complex (cos z) (sin z)
+euler phi = Complex (cos phi) (sin phi)
 \end{minted}
 Enligt potenslagarna %(formelsamlingen) - lämnas till reference? -Borde inte behövas
 så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och enligt Eulers formel så är
@@ -1581,9 +1580,10 @@ läromaterialet in hela kursen \textit{TSS}.
 
 En annat vidareutveckling av materialet skulle kunna vara utökad
 implementation av funktioner i kontinuerlig tid. Som vi tidigare nämnt
-i \textit{\ref{sec:metDisk} - \nameref{sec:metDisk}} är detta ett relativt komplext problem
-som i vårt fall löstes med en kompromiss. Detta är dock ett område där
-djupare studier säkerligen skulle kunna ge bättre implementationer.
+i \textit{\ref{sec:metDisk} - \nameref{sec:metDisk}} är detta ett
+relativt komplext problem som i vårt fall löstes med en
+kompromiss. Detta är dock ett område där djupare studier säkerligen
+skulle kunna ge bättre implementationer.
 
 Om fler tester genomförs skulle materialet eventuellt kunna förbättras
 ytterligare med dessa tester som underlag. En större testgrupp och
@@ -1627,15 +1627,15 @@ produktspecifikationen som beskrivs i avsnitt \textit{\ref{sec:prodSpec} - \name
 Projektgruppen har utifrån detta tagit fram ett material som finns
 samlat på en hemsida. Materialet innehåller förklarande text och exempel, bilder
 samt programmeringsövningar. Det består av 4 delavsnitt
-som i stora drag täcker  in innehållet i kursen \textit{TSS}, med
+som i stora drag täcker in innehållet i kursen \textit{TSS}, med
 undantag för Laplacetransform och Z-transform.
 
 Enligt testgruppen är texten underhållande och informativ och
- övningarna ligger på en lagom svår nivå. På grund av testgruppens
+övningarna ligger på en lagom svår nivå. På grund av testgruppens
 ringa storlek är det svårt att dra några definitiva slutsatser,
 men testresultaten indikerar att materialet uppfyller de krav
 som ställs i produktpecifikationen. Den faktiska kvalitén på
- läromaterialet är även svår att bedöma eftersom det
+läromaterialet är även svår att bedöma eftersom det
 ännu inte har använts i samband med kursen.
 
 Sammanfattningsvis har projektgruppen alltså tagit
