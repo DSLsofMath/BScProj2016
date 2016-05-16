@@ -6,8 +6,6 @@
 
 \date{\today}
 
-%Ordlistan skapas här.
-%Måste refereras till något med \gls{ref} för att kunna visas.
 \makeglossaries
 
 \begin{document}
@@ -246,7 +244,6 @@ studenter att inte tentera Reglerteknik 2014
 \cite{kursinformation:ere102:14-15}.
 
 Kurserna i fråga, TSS och Reglerteknik, läses under tredje året på
-%TODO: Undvik att bland "Datateknik" och "datateknik". Kanske ni helt enkelt kan introducera "D" som förkortning och sedan köra med "D" hela vägen?
 Datateknik och kräver bland annat förkunskaper från de kurser i
 matematik studenterna läser under sitt första år. Reglerteknik kräver
 även förkunskaper från TSS. Det kan därför anses vara ett rimligt
@@ -272,9 +269,6 @@ för.
 % * Förklara hur produkten löser/bidrar till att lösa problemet
 
 %Illustration: Ev bild på utdrag från tutorial för att tydliggöra upplägget
-
-% TODO: Vad är målet att vår produkt ska lösa? Alltså vi borde skriva ut
-% att vi vill lära ut tss genom programmering.
 För att åtgärda det problem som beskrivs i förgående avsnitt har
 gruppen skapat en unik produkt som är anpassad speciellt för TSS på
 programmet för Datateknik på Chalmers. Den ursprungliga
@@ -350,9 +344,8 @@ material offentligt. Öppen källkod innebär att den kod som programmet
 är uppbyggt av är offentlig och tillgänglig för alla att läsa och
 kontrollera.
 
-GitHub förenklar kommunikationen mellan användare och utvecklare av program med
-%TODO: jag föreslår att ni klipper bort "av program med öppen källkod" för att göra meningen mer läsbar
-öppen källkod genom att tillhandahålla verktyg såsom möjligheter att kommentera
+GitHub förenklar kommunikationen mellan användare och utvecklare 
+genom att tillhandahålla verktyg såsom möjligheter att kommentera
 % TODO: "tillhandahålla verktyg såsom möjligheter att" är för indirekt
 på enskilda versioner av källkoden, verktyg för uppföljning av ärenden
 och problem samt dokumentation. GitHub har även verktyg för att
@@ -508,7 +501,7 @@ till enbart en oberoende variabel som beskriver tid och de system som
 som betraktas är linjära och tidsinvarianta, så kallade LTI-system.
 
 För att kunna lösa problem med denna typ av signaler och system så kan
-man utveckla signalen i en Fourierserie eller använda sig av olika
+man utveckla signalen i en Fourierserie eller använda sig av olika	
 typer av transformer, vilket gör det möjligt att betrakta signalen i
 en annan domän. %De transformer som tas upp i kursen \textit{TSS} är
 %\textit{fouriertransform}, \textit{laplacetransform} och
@@ -517,16 +510,12 @@ En av transformerna som tas upp i kursen \textit{TSS}är Fouriertransform.
 %TODO: välj en stil: två av tre slutar på "form" och en på "formen"
 %TODO: homogenisera: "laplacetransform" eller "Laplacetransform"
 
-
 \textit{Fouriertransform} är en transform i diskret eller
 kontinuerlig tid som transformerar en funktion från tidsdomänen till
 frekvensdomänen. \textit{Fouriertransform} i kontinuerlig tid är
 definierad enligt följande:
 %TODO: visa eller förklara var variabeln \omega binds
-\[\mathcal{F}[f] (\omega)
-%\mathcal{F} f \omega
-%\mathcal{F} [f] \omega
-= \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
+\[\mathcal{F} f \omega = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
 
 
 %\textit{Laplacetransformen} är en transform i kontinuerlig tid som
@@ -574,7 +563,7 @@ kommer i kontakt med det \cite{motivational_design}. Det är alltså viktigt att
 uppbyggt så att det motiverar studenterna att lära sig.
 
 %TODO: Upprepa inte hela bokens titel flera gånger
-Enligt \textit{Motivational Design for Learning and Performance}
+Enligt boken%\textit{Motivational Design for Learning and Performance}
 behöver motivations\-aktiviteter stödja inlärningsmålen för att vara
 effektiva. Motivationsmedel kan vara roliga och underhållande men om
 de inte engagerar studenten i läromålen och läromaterialet så hjälper
@@ -755,11 +744,10 @@ kan man använda sig av en modell med 10 steg vid framtagningen av nytt
 material till en kurs \cite{motivational_design}. Dessa 10 steg är som följer:
 
 \begin{enumerate}
-%TODO: Formulera om "Erhållning av". Kanske "Samla"?
-\item Erhållning av kursinformation. Hur ser situationen ut nu? Vad är
+\item Samla kursinformation. Hur ser situationen ut nu? Vad är
  nuvarande kursbeskrivning, kursmål, etc?
 
-\item Erhållning av information om studenterna. Vad har studenterna
+\item Samla information om studenterna. Vad har studenterna
  för relevant egenskaper i form av intressen och tidigare
  erfarenheter och förkunskaper?
 
@@ -825,7 +813,6 @@ läsa kurserna inom ett år. Denna enkät arbetades fram utifrån böckerna
 
 När enkäten var framtagen användes hemsidan \textit{webbenkater.com} för att
 enkelt kunna hantera och analysera studenternas svar anonymt.
-%TODO: Skriv hellre "skickades" (se även "mailades" nedan)
 Länken till enkäten skickades ut till alla datastudenter från
 årgångarna 2012-2014 och vi erhöll totalt 77 svar. Se avsnitt
 \textit{\ref{bil:1} - \nameref{bil:1}} för ett utdrag.
@@ -1004,7 +991,7 @@ fall som två flyttalsvärden.
     deriving Eq
 \end{minted}
 Ett värde för den reella delen av talet
-och ett för den imaginära. Så ett komplext tal
+och ett för den imaginära delen. Det komplexa talet
 \(z = 1 + 1j = (1,1) \) representeras i vår DSL som:
 
 \begin{minted}{haskell}
@@ -1019,8 +1006,6 @@ beräkningsoperatorer för dem. Addition kunde implementeras relativt
 enkelt då de reella delarna adderas med varandra och de imaginära med
 de imaginära enligt formeln nedan \cite{conway1978functions}.
 \[(a, b) + (c, d) = (a + c, b + d)\]
-% TODO: Ändra så att citeringen görs i löpande text och inte "Hänger
-% lös" i början av en rad.
 Vilket i Haskell implementerades så här:
 \begin{minted}{haskell}
   z + w = Complex (realPart z + realPart w) (imPart z + imPart w)
@@ -1054,9 +1039,7 @@ Efter att dessa operationer var färdiga så var division nästa stora
 operator att implementera. Den matematiska formeln för detta ser ut
 som följer:
 \[ z / w = (z \cdot w') / (w \cdot w') \]
-där $w'$ är $w$:s konjugat.
-% Man förlänger både täljare och nämnare med nämnarens konjugat vilket
-% innebär att nämnaren blir helt reell.
+där \(w'\) är \(w\):s konjugat.
 Man förlänger alltså både täljare och nämnare med nämnarens konjugat,
 vilket innebär att nämnaren blir helt reell. För att implementera
 division var gruppen därför tvungen att först implementera en funktion
@@ -1068,7 +1051,7 @@ såg ut så här:
 conjugate z = Complex (realPart z) (negate (imPart z))
 \end{minted}
 Vår implementation av division blev då följande:
-%TODO: för lång rad
+
 \begin{minted}{haskell}
   z / w = Complex (realPart zw' / realPart ww')
                   (imPart zw' / realPart ww')
@@ -1093,7 +1076,6 @@ euler z = Complex (cos z) (sin z)
 Enligt potenslagarna %(formelsamlingen) - lämnas till reference? -Borde inte behövas
 så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och enligt Eulers formel så är
 \(e^{j b} = \cos b + j\cdot \sin b\).
-%
 Exponentialfunktionen för ett komplext tal kan därför implementeras
 enligt nedanstående kod:
 
@@ -1101,7 +1083,7 @@ enligt nedanstående kod:
 exp z = scale (exp (realPart z)) (euler (imPart z))
 \end{minted}
 Sedan implementerades även trigonometriska funktioner med hjälp av
-Eulers formel. Så här representeras $sin(x)$ som ett komplext tal:
+Eulers formel. $Sin(x)$ representeras enligt följande som ett komplext tal:
 \[ sin(x) = (e^{j x} - e^{-j x}) / 2 j \]
 Vilket ser ut så här i vårt DSL:
 \begin{minted}{haskell}
@@ -1231,7 +1213,7 @@ avsnitt har även ett tillhörande kodpaket med förimplementerad kod
 till övningarna och lösningar till dessa. De fyra avsnitten behandlar
 i huvudsak komplexa tal, signaler, LTI-system och Fouriertransform.
 Ytterligare avsnitt, som beskriver Laplacetransform och
-Z-transform, var planerat men detta fick bortprioriteras på grund av
+Z-transform, var planerade men detta fick bortprioriteras på grund av
 tidsbrist.
 
 Läromaterialet finns samlat på en hemsida, där det även är möjligt att
@@ -1325,7 +1307,6 @@ fall lösas genom att till exempel ge TSS i årskurs två. Det är dock
 osäkert om detta är en tillräckligt stor del av problemet för att en
 förändring i kursupplägget skulle ge synbar effekt.
 
-%TODO: använd \ref för att hänvisa till bilagan
 Under intervjun med examinatorerna, se \textit{\ref{bil:exam_intervju} - \nameref{bil:exam_intervju}}, framgick det
 att de tror att en stor del av problemet ligger i svårigheten att
 koppla den formella matematiken till dess praktiska tolkning.
@@ -1414,20 +1395,17 @@ möjligt att implementera på en nivå som studenterna i målgruppen kan
 förstå. Det har varit en ständig avvägning av att få med de mest
 vitala delarna i \textit{TSS} och att implementera kod som är
 begriplig. \textit{The Fastest Fourier Transform in the West}
-\cite{fastestfourier} %Osäker på om denna referens är korrekt, kontrollera gärna
-är ett exempel på hur Fouriertransform kan implementeras relativt
-effektivt i Haskell, men problemet är att koden då hamnar på en nivå
-som överstiger förmågan hos många studenter i målgruppen. Kod av detta
-slag är alltså, oavsett hur effektiv den är, inte önskvärd i vårt
-läromaterial eftersom vi vill använda koden för att förklara ett annat
-ämne. Om koden är för svårläst riskerar vi att hamna i en situation
-där studenten varken förstår programmeringen eller ämnet den
+\cite{fastestfourier} är ett exempel på hur Fouriertransform kan 
+implementeras relativt effektivt i Haskell, men problemet är att koden 
+då hamnar på en nivå som överstiger förmågan hos många studenter i 
+målgruppen. Kod av detta slag är alltså, oavsett hur effektiv den är, 
+inte önskvärd i vårt läromaterial eftersom vi vill använda koden för att 
+förklara ett annat ämne. Om koden är för svårläst riskerar vi att hamna i en 
+situation där studenten varken förstår programmeringen eller ämnet den
 beskriver.
 
 När man beslutat \textbf{vad} som ska implementeras uppstår frågan
 \textbf{hur} det ska implementeras. Som nämndes i
-% TODO: Byt ut alla dessa "handgjorda" referenser till riktiga
-% LaTeX-referenser - kanske något i stil med mitt exempel nedan.
 avsnitt \textit{\ref{sec:implDSL} - \nameref{sec:implDSL}}
 finns det flera sätt att hantera detta. När man arbetar med signaler
 finns det två grundtyper; diskreta signaler och kontinuerliga
@@ -1452,8 +1430,7 @@ gör det å andra sidan möjligt att definiera typfall som
 studenten kan känna igen i kursen \textit{TSS}.
 
 Vad är då bäst i vårt fall, att använda en approximation som ger
-större möjlighet att abstrahera
-% och
+större möjlighet att %abstrahera och
 sammanfatta kärnan i ämnet eller
 en mer matematiskt korrekt variant som använder formler som studenten
 kan känna igen? Detta är en fråga som projektgruppen inte har kunnat
@@ -1492,10 +1469,9 @@ programmeringssynpunkt var det även svårt att implementera
 Laplacetransform och Z-transform utan att först implementera Fouriertransform. Det finns emellertid ett utkast
 till avsnitt om Laplacetransform och Z-transform som kan utvecklas i framtiden.
 
-%TODO: fixa \label ovan och \ref eller \nameref här
-Som beskrivs i avsnittet \textit{\ref{sec:resDisk} - \nameref{sec:resDisk}} ställde sig testgrupppen
+Som beskrivs i avsnittet \textit{\ref{sec:test} - \nameref{sec:test}} ställde sig testgrupppen
 väldigt positiv till läromaterialet. Det är dock värt att påpeka att
-testgruppen bestod av en relativt liten grupp, total 13 personer.
+testgruppen bestod av en relativt liten grupp, totalt 13 personer.
 Även om testgruppens svar är en positiv indikation är det därför svårt
 att dra några definitiva slutsatser om huruvida vårt läromaterial
 uppnår sitt mål i nuläget.
@@ -1637,23 +1613,23 @@ kursen \textit{TSS}.
 
 \newpage
 
-%TODO: Lägg in länk till learn you a Haskell i bib-filen
 
 \bibliographystyle{IEEEtran}
 \bibliography{include/referenser}
 
 \newpage
 
-\section{Bilagor}
-Bilaga 1 - Enkätundersökning
+\appendix
+% \section{Bilagor}
+% Bilaga 1 - Enkätundersökning
 
-Bilaga 2 - Intervju med examiniatorer
+% Bilaga 2 - Intervju med examiniatorer
 
-Bilaga 3 - Utdrag ur läromaterialet \textit{TSS med DSL}
-% * Utdrag ur tutorial?
-% * Utdrag ur intervju med examinatorer?
-% * Utdrag ur enkätsvar?
-\subsection{Bilaga 1}
+% Bilaga 3 - Utdrag ur läromaterialet \textit{TSS med DSL}
+% % * Utdrag ur tutorial?
+% % * Utdrag ur intervju med examinatorer?
+% % * Utdrag ur enkätsvar?
+\section{Bilaga 1}
 \label{bil:1}
 Denna bilaga är ett utdrag ur den enkätundersökning som genomfördes av
 kandidatgruppen under våren 2015 via \textit{webbenkater.com}. Bilagan
@@ -1672,9 +1648,25 @@ Samtliga bilder i bilagan kommer från
 \textit{webbenkater.com}.
 %TODO: saknas
 %infoga bilaga 1
+\begin{figure}
+  \centerline{\includegraphics[page=1]{Bilagor/Bilaga1.pdf}}
+\end{figure}
+\begin{figure}
+  \centerline{\includegraphics[page=2]{Bilagor/Bilaga1.pdf}}
+\end{figure}
+\begin{figure}
+  \centerline{\includegraphics[page=3]{Bilagor/Bilaga1.pdf}}
+\end{figure}
+\begin{figure}
+  \centerline{\includegraphics[page=4]{Bilagor/Bilaga1.pdf}}
+\end{figure}
+\begin{figure}
+  \centerline{\includegraphics[page=5]{Bilagor/Bilaga1.pdf}}
+\end{figure}
+
 \newpage
 
-\subsection{Bilaga 2}
+\section{Bilaga 2}
 \label{bil:exam_intervju}
 Denna bilaga är en sammanfattning av den intervju projektgruppen höll
 med Bo Egardt och Ants Silberberg. Bo och Ants har under flera år
@@ -1683,14 +1675,29 @@ varit både lärare och examinatorer i \textit{Reglerteknik} respektive
 både Bo och Ants.
 %TODO: saknas
 %infoga bilaga 2
+\begin{figure}
+  \centerline{\includegraphics[page=1]{Bilagor/Bilaga2.pdf}}
+\end{figure}
 \newpage
 
-\subsection{Bilaga 3}
+\section{Bilaga 3}
 \label{bil:3}
 Denna bilaga är ett utdrag ur det läromaterial projektgruppen
 utvecklat. Utdraget beskriver udda och jämna signaler och är hämtat
 från avsnitt 2 i läromaterialet.
 %TODO: saknas
 %infoga bilaga 3
+\begin{figure}
+  \centerline{\includegraphics[page=1]{Bilagor/Bilaga3.pdf}}
+\end{figure}
+\begin{figure}
+  \centerline{\includegraphics[page=2]{Bilagor/Bilaga3.pdf}}
+\end{figure}
+\begin{figure}
+  \centerline{\includegraphics[page=3]{Bilagor/Bilaga3}}
+\end{figure}
+\begin{figure}
+  \centerline{\includegraphics[page=4]{Bilagor/Bilaga3}}
+\end{figure}
 
 \end{document}
