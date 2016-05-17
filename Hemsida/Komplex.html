@@ -201,8 +201,7 @@ printComplex z
 <div class="alert alert-success alert-block fade in" id="showSol3">
 	<button type="button" class="close">&times;</button>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">instance</span> <span class="dt">Num</span> <span class="dt">Complex</span> <span class="kw">where</span>
-    z <span class="fu">+</span> w           <span class="fu">=</span> <span class="dt">Complex</span> (realPart z <span class="fu">+</span>
-                        realPart w, imPart z <span class="fu">+</span> imPart w)</code></pre></div>
+    z <span class="fu">+</span> w           <span class="fu">=</span> <span class="dt">Complex</span> (realPart z <span class="fu">+</span> realPart w) (imPart z <span class="fu">+</span> imPart w)</code></pre></div>
 </div><!--End alert-->
     					<hr>
 
