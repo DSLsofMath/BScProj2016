@@ -52,13 +52,13 @@ instance Show Complex where
     show = printComplex
 
 {-
-   | Printfunktionen för complexa tal
    Exempel på hur utskriften bör funka:
    Complex 1 1    <-> 1.0 + 1.0j
    Complex 0 1    <-> 1.0j
    Complex 1 0    <-> 1.0
    Complex 1 (-1) <-> 1.0 - 1.0j
 -}
+-- | Printfunktionen för complexa tal
 printComplex :: Complex -> String
 printComplex = undefined
 
@@ -70,6 +70,7 @@ euler phi = Complex (cos phi) (sin phi)
 instance Num Complex where
 -- Plus är förhållandevist trivialt
   z + w = undefined
+
 -- Multiplikationen följer ifrån att vi multiplicerar komponenterna
 -- parvis med varandra (i likhet med (a+b) * (c+d))
   z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
@@ -78,46 +79,48 @@ instance Num Complex where
           imZ   = imPart z
           imW   = imPart w
 
--- Negationen av ett komplext tal är ett komplext tal där båda komponenter är negerade
-
+-- Negationen av ett komplext tal är ett komplext tal där båda
+-- komponenter är negerade
   negate z = undefined
 
--- Den naturliga generaliseringen av signum från reella till komplexa tal:
-
+-- Den naturliga generaliseringen av signum från reella till komplexa
+-- tal:
   signum z = z / abs z
 
--- Absolutbeloppet av ett komplext tal är pythagoras sats på dess komponenter.
-
+-- Absolutbeloppet av ett komplext tal är pythagoras sats på dess
+-- komponenter.
   abs z = undefined
 
 -- Heltal är bara komplexa tal utan imaginärdel
-
   fromInteger n = Complex (fromInteger n) 0
 
 instance Fractional Complex where
--- Division utförs genom att man förlänger hela bråket med nämnarens konjugat
+-- Division utförs genom att man förlänger hela bråket med nämnarens
+-- konjugat
   z / w = Complex (realPart zw' / realPart ww') (imPart zw' / realPart ww')
     where zw' = z * (conjugate w)
           ww' = w * (conjugate w)
 
--- En kvot av två heltal är helt reell och därför kommer imaginärdelen vara 0
+-- En kvot av två heltal är helt reell och därför kommer imaginärdelen
+-- vara 0
   fromRational z = Complex re 0
     where re = fromInteger (numerator z) / fromInteger (denominator z)
 
 instance Floating Complex where
--- Det komplexa talet pi är ett tal med realdelen pi och imaginärdelen 0
+-- Det komplexa talet pi är ett tal med realdelen pi och imaginärdelen
+-- 0
   pi = Complex pi 0
 
 {-
-   Potenslagarna ger att e^(a+bj) <=> e^a * e^bj och
-   Eulers formel ger att e^bj <=> cos b + jsin b
+   Potenslagarna ger att e^(a+bj) <=> e^a * e^bj och Eulers formel ger
+   att e^bj <=> cos b + jsin b
 -}
   exp z = scale (exp (realPart z)) (euler (imPart z))
 
 {-
    Eulers formel ger att man kan skriva om sin x som (e^jx - e^-jx)/2j
-   Eftersom vi definerat exponentialfunktionen för komplexa tal kan vi använda
-   eulers formel som vår sinus implementation för komplexa tal
+   Eftersom vi definerat exponentialfunktionen för komplexa tal kan vi
+   använda eulers formel som vår sinus implementation för komplexa tal.
 -}
   sin z = (exp (j*z) - exp (-(j*z)))/(scale 2 j)
 
@@ -131,16 +134,19 @@ instance Floating Complex where
                    (cos (realPart z) * sinh (imPart z))
 
 {-
-   Eulers formel ger att z = re^(j*phi) och eftersom log och exponentialfunktionen
-   är varandras inverser och logaritmlagarna ger ex. `log (a*b)` <=> `log a + log b`.
-   Därför kan vi skriva log `z = log r + log (e^(j*phi))` = `log r + j*phi`
+   Eulers formel ger att z = re^(j*phi) och eftersom log och
+   exponentialfunktionen är varandras inverser och logaritmlagarna ger
+   ex. `log (a*b)` <=> `log a + log b`.
+
+   Därför kan vi skriva log `z = log r + log (e^(j*phi))` = `log r +
+   j*phi`
 -}
   log z = Complex (logR (abs z)) (arg z)
     where logR = log . realPart
 
 {-
-  Funktioner vi troligen / förhoppningsvis inte kommer behöva och som vi därför lämnar
-  odefinierade än så länge.
+  Funktioner vi troligen / förhoppningsvis inte kommer behöva och som
+  vi därför lämnar odefinierade än så länge.
 -}
   atanh = undefined
   atan  = undefined
