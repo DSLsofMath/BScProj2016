@@ -3,31 +3,31 @@
 module Signals where
 import qualified Test.QuickCheck as Q
 
---Tiden kan vara kontinuelig eller diskret, double eller int.
+-- Tiden kan vara kontinuelig eller diskret, double eller int.
 type ContTime = Double
 type DiscTime = Integer
 
---Skalet för en generell signal
+-- Skalet för en generell signal
 type Signal a b = (a -> b)
 
---Skalet för en kontinuerlig respektive diskret signal
+-- Skalet för en kontinuerlig respektive diskret signal
 type ContSignal a = Signal ContTime a
 type DiscSignal a = Signal DiscTime a
 
---En "färdig" signal, dvs en kontinuerlig eller diskret funktion
---Gäller för alla funktioner double -> double, t.ex. sin och cos
-type ContTimeFun = ContSignal Double -- namnförslag: Continous Signal Function
-type DiscTimeFun = DiscSignal Double -- namnförslag: Discrete Signal Sample
+-- En "färdig" signal, dvs en kontinuerlig eller diskret funktion
+-- Gäller för alla funktioner double -> double, t.ex. sin och cos
+type ContTimeFun = ContSignal Double
+type DiscTimeFun = DiscSignal Double
 
---Diskret Impuls: 1 om n=0, annars 0
+-- Diskret Impuls: 1 om n=0, annars 0
 discImpulse :: DiscTimeFun
 discImpulse n = undefined
 
---Diskret enhetssteg: 0 om n<0, 1 om n >= 0.
+-- Diskret enhetssteg: 0 om n<0, 1 om n >= 0.
 discStep :: DiscTimeFun
 discStep n = undefined
 
---Definierar vanliga beräkningoperationer, som t.ex. + och *, för Signaler
+-- Definierar vanliga beräkningoperationer, som t.ex. + och *, för Signaler
 instance Num b => Num (Signal a b) where
     s0 + s1     = \a -> (s0 a) + (s1 a)
     s0 * s1     = \a -> (s0 a) * (s1 a)
@@ -41,8 +41,8 @@ scale :: Num b => Signal a b -> b -> Signal a b
 scale sig f = (*f) . sig
 infixl 7 `scale`
 
---En jämförelsefunktion som tillåter väldigt små fel, kan användas för att
---undvika fel som beror på avrundning
+-- En jämförelsefunktion som tillåter väldigt små fel, kan användas för att
+-- undvika fel som beror på avrundning
 (~=) :: Double -> Double -> Bool
 a ~= b = abs (a - b) < 1.0e-10
 infixl 4 ~=
