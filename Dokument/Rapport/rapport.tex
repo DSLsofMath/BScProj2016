@@ -2,16 +2,19 @@
 
 \input{include/settings/Settings.tex}
 
+\makeglossaries
+
 \loadglsentries{include/ordlista.tex}
 
 \date{\today}
 
-\makeglossaries
-
 \begin{document}
+
 \pagenumbering{roman}
 
 \input{include/frontmatter/Titlepage}
+
+\setacronymstyle{long-short-desc}
 
 \setlength{\parskip}{2mm}
 \setlength{\parindent}{0pt}
@@ -174,7 +177,9 @@ The developed material can be viewed at
 
 \newpage
 
-\printglossary[title=Ordlista,nonumberlist]
+\printglossary[type=\acronymtype,title=Akronymer]
+\glossarystyle{altlist}
+\printglossary[title=Ordlista,]
 
 \newpage
 
