@@ -1,11 +1,5 @@
 % Glossary entries
 
-\newglossaryentry{DSLsofMath}
-{
-    name=DSLsofMath,
-    description={Domain specific languages of Mathematics, ett pedagogiskt projekt som utvecklar kursen DAT325, Matematikens domänspecifika språk}
-}
-
 %\newglossaryentry{GPL}
 %{
 %    name=GPL,
@@ -42,17 +36,41 @@
     description={En hemsida som bygger på Git}
 }
 
+\newglossaryentry{tssmdsl}
+{
+    name={TSS med DSL},
+    description={Undervisningsmaterialet som beskrivs i denna rapport}
+}
+
 \newglossaryentry{gls-arcs}
 {
     name=ARCS,
     description={En didaktisk modell för att främja motivation}
 }
 
+\newglossaryentry{gls-dsl}
+{
+    name=DSL,
+    description={Domänspecifikt Språk, från engelskans 'Domain Specific Language'}
+}
+
+\newglossaryentry{gls-dslm}
+{
+    name={DSL's of Math},
+    description={Ett pedagogiskt projekt som utvecklar kursen DAT325, Matematikens domänspecifika språk}
+}
+
 % Acronym entries
-\newacronym{dsl}{DSL}{domänspecifikt språk (från engelskans domain specific language)}
+% For entries with different cases for acronym list and the text we
+% need to define both descriptions and texts.
+\newacronym[description=Domänspecifikt språk]{dsl}{DSL}{domänspecifikt språk}
 
-\newacronym{edsl}{EDSL}{inbäddat domänspecifikt språk}
+\newacronym[description=Inbäddat DSL,see={[Glossary:]{gls-dsl}}]{edsl}{EDSL}{inbäddat DSL}
 
-\newacronym{tss}{TSS}{transformer, signaler och system}
+\newacronym{tss}{TSS}{Transformer, Signaler och System}
 
 \newacronym[see={[Glossary:]{gls-arcs}}]{arcs}{ARCS}{Attention, Relevance, Confidence \& Satisfaction}
+
+\newacronym[see={[Glossary:]{gls-dslm}}]{dslm}{DSL's of Math}{Domain Specific Languages of Mathematics}
+
+\newacronym{dat325}{DAT325}{Matematikens domänspecifika språk}

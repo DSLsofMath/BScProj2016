@@ -115,7 +115,7 @@ produkt.
 %     (Läsare ska här kunna bedöma om rapporten är intressant att läsa för dem)
 % * Jättekort om syfte, resultat etc
 % Illustration: Borde inte behövas
-Denna rapport beskriver utvecklingen av läromaterialet ``TSS med DSL''
+Denna rapport beskriver utvecklingen av läromaterialet ``\gls{tssmdsl}''
 med dess tillhörande programmeringskod och lösningar. Läromaterialet
 riktar sig främst till studenter inom det datatekniska programmet på
 Chalmers tekniska högskola och har som syfte att vara ett
@@ -147,7 +147,7 @@ Materialet som utvecklats kan ses på
 \section*{Abstract}
 \selectlanguage{english}
 
-This report describes the development of the tutorial ``TSS med DSL''
+This report describes the development of the tutorial ``\gls{tssmdsl}''
 with associated programming code and solutions. The tutorial is
 directed towards students studying Computer Science at Chalmers
 University of Technology and the purpose of the tutorial is to be a
@@ -177,9 +177,15 @@ The developed material can be viewed at
 
 \newpage
 
-\printglossary[type=\acronymtype,title=Akronymer]
+\printglossary[type=acronym]
+
 \glossarystyle{altlist}
-\printglossary[title=Ordlista,]
+
+\printglossary
+
+
+%\printglossary[type=\acronymtype,title=Akronymer]
+%\printglossary[title=Ordlista,]
 
 \newpage
 
@@ -216,9 +222,8 @@ för en dator, om datorn förstår koncepten så är förklaringen
 tillräckligt detaljerad.
 
 Ett exempel på detta problem går att finna på Chalmers tekniska
-högskola.  Där finns det en lång trend där studenterna på utbildningen
-för Datateknik har haft svårigheter med kurserna \textit{Transformer,
- Signaler och System}, hädanefter omnämnd som \textit{TSS}, och
+högskola. Där finns det en lång trend där studenterna på utbildningen
+för Datateknik har haft svårigheter med kurserna \textit{\gls{tss}} och
 \textit{Reglerteknik}. Svårigheterna med dessa kurser tror
 examinatorerna till stor del beror på att studenterna inte är
 tillräckligt bekväma i det matematiska språket.
@@ -226,20 +231,20 @@ tillräckligt bekväma i det matematiska språket.
 % klarar kurserna.
 
 Inspirerat av artiklar av bland andra Sussman, Wisdom och Wells
-påbörjades ett pedagogiskt projekt på Chalmers, Domain Specific
-Languages of Mathematics (\gls{DSLsofMath}), vars syfte var att minska
-svårigheterna som studenterna hade med kursena TSS och Reglerteknik.
-Projektet har resulterat hittills i en kurs som heter
-\textit{Matematikens domänspecifika språk}. Kursen gavs första gången
-våren 2016 och är nu i utvärderingsfasen. I kursen får studenterna
-angripa matematiska problem och försöka lösa dem med ett verktyg de är
-mer familjära med än matematik, nämligen funktionell
-programmering. Språket som används i kursen är Haskell. Studenterna
-har tidigare varit i kontakt med Haskell och språket har dessutom en
-notation med fokus på tydlighet som lämpar sig väl för att lära ut
-matematiska begrepp \cite{TFPIE15_DSLsofMath_IonescuJansson}.
+påbörjades ett pedagogiskt projekt på Chalmers, \textit{\gls{dslm}},
+vars syfte var att minska svårigheterna som studenterna hade med
+kursena \gls{tss} och Reglerteknik. Projektet har resulterat hittills
+i en kurs som heter \textit{\gls{dat325}}. Kursen
+gavs första gången våren 2016 och är i skrivande stund i
+utvärderingsfasen. I kursen får studenterna angripa matematiska
+problem och försöka lösa dem med ett verktyg de är mer familjära med
+än matematik, nämligen funktionell programmering. Språket som används
+i kursen är Haskell. Studenterna har tidigare varit i kontakt med
+Haskell och språket har dessutom en notation med fokus på tydlighet
+som lämpar sig väl för att lära ut matematiska begrepp
+\cite{TFPIE15_DSLsofMath_IonescuJansson}.
 
-Detta kandidatprojekt uppstod som en avgrening ur DSLsofMath-projektet
+Detta kandidatprojekt uppstod som en avgrening ur \gls{gls-dslm}-projektet
 med fokus på att utveckla material till specifika kurser snarare än en
 allmän matematisk grund.
 
@@ -251,8 +256,8 @@ allmän matematisk grund.
 
 % Illustration:
 Syftet med denna rapport är att beskriva utvecklingen av
-läromaterialet ``TSS med DSL'', som är ett kompletterande läromaterial
-till kursen TSS för studenter på datatekniska programmet på Chalmers,
+läromaterialet ``\gls{tssmdsl}'', som är ett kompletterande läromaterial
+till kursen \gls{tss} för studenter på datatekniska programmet på Chalmers,
 samt beskriva hur det bakomliggande problemet kan kopplas till en mer
 generell problematik.
 
@@ -282,7 +287,7 @@ på den datatekniska utbildningen på Chalmers tekniska högskola.
 
 På grund av att projektet är tidsbegränsat har projektet avgränsats
 till att ta fram läromaterial till endast en kurs,
-\textit{TSS}. Läromaterialet som tagits fram är ett kompletterande
+\gls{tss}. Läromaterialet som tagits fram är ett kompletterande
 material och är inte tänkt att kunna ersätta kursen eller dess
 material.
 
@@ -324,13 +329,13 @@ och inte fastna i detaljer.
 % så blir det förhoppningsvis tydligare.
 % TODO: Knyta an till Relaterad forskning.
 Som nämndes i bakgrunden är problemet vi ska lösa i vårt projekt att
-datastudenterna på Chalmers har svårt för två av sina kurser, TSS och
+datastudenterna på Chalmers har svårt för två av sina kurser, \gls{tss} och
 Reglerteknik.
 
-Statistiken från Chalmers visar tydligt att kurserna TSS och
+Statistiken från Chalmers visar tydligt att kurserna \gls{tss} och
 Reglerteknik har en ovanligt hög andel studenter som blir underkända
 på tentamen. Under perioden 2010 till 2016 blev i genomsnitt endast
-51\% av de som skrev tentamen i TSS godkända och under samma period
+51\% av de som skrev tentamen i \gls{tss} godkända och under samma period
 blev 53\% godkända i Reglerteknik \cite{tentastatistik}.
 %Pajdiagram
 Det finns även ett mörkertal i dessa siffror eftersom inte alla
@@ -338,11 +343,11 @@ studenter som läser kursen skriver tentamen, exempelvis valde 48 av
 122 registrerade studenter att inte tentera Reglerteknik 2014
 \cite{kursinformation:ere102:14-15}.
 
-Kurserna i fråga, TSS och Reglerteknik, läses under tredje året på
+Kurserna i fråga, \gls{tss} och Reglerteknik, läses under tredje året på
 Datateknik och kräver bland annat förkunskaper från de kurser i
 matematik studenterna läser under sitt första år. Reglerteknik kräver
-även förkunskaper från TSS. Det kan därför anses vara ett rimligt
-antagande att bristande kunskaper i TSS orsakar följdproblem och utgör
+även förkunskaper från \gls{tss}. Det kan därför anses vara ett rimligt
+antagande att bristande kunskaper i \gls{tss} orsakar följdproblem och utgör
 en del av studenternas problem med Reglerteknik.
 
 % TODO: Det här känns som en upprepning av bakgrunden (ish).
@@ -367,19 +372,19 @@ för.
 
 %Illustration: Ev bild på utdrag från tutorial för att tydliggöra upplägget
 För att åtgärda det problem som beskrivs i föregående avsnitt har
-gruppen skapat en unik produkt som är anpassad speciellt för TSS på
+gruppen skapat en unik produkt som är anpassad speciellt för \gls{tss} på
 programmet för Datateknik på Chalmers. Den ursprungliga
 produktspecifikationen som gruppen tilldelades vid arbetets start var
-relativt vag. Gruppens uppgift var att ``ta fram DSLsofMath-inspirerat
+relativt vag. Gruppens uppgift var att ``ta fram `\gls{dslm}-inspirerat'
 kompletterande material för andra närliggande kurser''. Det önskade
 implementerings\-språket var Haskell och det utvecklade materialet
 skulle läggas upp på GitHub.
 
-Gruppen beslutade snabbt att fokusera på kurserna TSS och Reglerteknik
+Gruppen beslutade snabbt att fokusera på kurserna \gls{tss} och Reglerteknik
 av de anledningar som nämns i problembeskrivningen. Dock konstaterade
 gruppen en bit in i projektet att det endast fanns tid att utveckla
 material av önskvärd kvalitet till en kurs. Gruppen valde då kursen
-TSS, med motiveringen att TSS innehåller förkunskaper som är
+\gls{tss}, med motiveringen att \gls{tss} innehåller förkunskaper som är
 nödvändiga för Reglerteknik.
 
 \subsection{Produktens struktur}
@@ -392,7 +397,7 @@ text, bilder och programmeringskod och presentera dem på ett
 överskådligt sätt för studenterna i målgruppen.
 
 Det beslöts att läromaterialet skulle innehålla ett antal delavsnitt
-som tillsammans täckte in innehållet i kursen TSS i stora drag.
+som tillsammans täckte in innehållet i kursen \gls{tss} i stora drag.
 Avsikten med indelningen är att göra materialet mer överskådligt och
 även göra det möjligt för studenterna att enkelt hitta aktuellt
 material för ett specifikt område.
@@ -403,7 +408,7 @@ ta till sig för målgruppen och uppmuntrar till vidare studier av
 ämnet.
 
 Delavsnitten ska vidare innehålla exempel på hur det aktuella ämnet
-kan beskrivas med funktionell programmering och DSL, samt
+kan beskrivas med funktionell programmering och \gls{dsl}, samt
 programmeringsövningar.
 
 \subsection{Programmeringskod och övningar}
@@ -411,7 +416,7 @@ programmeringsövningar.
 Programmeringskoden och övningarna ska skrivas på ett sådant sätt att
 det endast krävs grundläggande förkunskaper i funktionell
 programmering och Haskell för att förstå dem. Studenten ska inte
-behöva ha läst kursen DSLsofMath eller motsvarande för att förstå
+behöva ha läst kursen \gls{dat325} eller motsvarande för att förstå
 övningarna, även om det självklart underlättar.
 
 Koden ska i första hand vara lättläst och pedagogiskt skriven snarare
@@ -549,16 +554,16 @@ språk.
 
 \subsection{Domänspecifika språk}
 % Allmänt om DSL
-Ett domänspecifikt språk (\gls{DSL}) är ett programmeringsspråk som
-till skillnad från generella programmeringsspråk är anpassat för en
-specifik domän. Att skapa domän\-specifika språk är ingenting nytt, det
-finns tvärtom många DSL som används i vid utstäckning. Exempel på
-några välkända DSL är HTML, MATLAB och Game Maker Language.
+Ett \gls{dsl} är ett programmeringsspråk som till skillnad från
+generella programmeringsspråk är anpassat för en specifik domän. Att
+skapa domän\-specifika språk är ingenting nytt, det finns tvärtom
+många \gls{dsl} som används i vid utstäckning. Exempel på några välkända \gls{dsl}
+är HTML, MATLAB och Game Maker Language.
 
-Det som är grundtanken med ett DSL är att det är relativt enkelt att
+Det som är grundtanken med ett \gls{dsl} är att det är relativt enkelt att
 formulera lösningar för problem inom deras domäner, exempelvis är det
 enkelt att strukturera upp text i HTML, utföra matrisoperationer i
-MATLAB eller skapa datorspel med Game Maker Language. Däremot är DSL
+MATLAB eller skapa datorspel med Game Maker Language. Däremot är \gls{dsl}
 ineffektiva inom andra områden än de som de är implementerade för.
 Det är till exempel inte effektivt att försöka skapa datorspel i
 MATLAB.
@@ -567,35 +572,35 @@ När man designar domänspecifika språk kan man välja att skapa ett
 fristående språk som kompileras till någon typ av maskinkod eller att
 utveckla sitt domänspecifika språk i ett redan existerande generellt
 programmeringsspråk, där beståndsdelarna i språket är funktionsanrop
-och konstruerare i värdspråket. Ett DSL som är inbäddat i ett
-värdspråk kallas för ``\gls{EDSL}''.
+och konstruerare i värdspråket. Ett \gls{dsl} som är implementerat på detta
+sätt kallas för ``\gls{edsl}''.
 
 % TODO: Nämna att vi valde approachen EDSL
 % TODO: Lägg till att det finns blandningar av djupa och ytliga EDSL.
 % Det går alltså att kombinera dessa två nivåer.
-Det finns även olika nivåer av EDSL; så kallade djupa EDSL (deep
-embedding) och ytliga EDSL (shallow embedding). I introduktionen till
-sin artikel \textit{Trends in Functional Programming} skriver
+Det finns även olika nivåer av \gls{edsl}; så kallade djupa \gls{edsl} (deep
+embedding) och ytliga \gls{edsl} (shallow embedding). I introduktionen till
+sin artikel \textit{Combining deep and shallow embedding for EDSL} skriver
 Svenningson och Axelsson \cite{Svenningsson2012combining} att man i ett djupt
-EDSL använder sig av algebraiska datatyper och att man med dessa
+\gls{edsl} använder sig av algebraiska datatyper och att man med dessa
 bygger upp ett abstrakt syntaxträd som sedan tolkas av olika
 funktioner. Man definierar alltså egna typer och funktioner som bygger
 upp strukturer med dessa typer och skiljer på så sätt det
-domänspecifika språket från värdspråket. I ett ytligt EDSL försöker
+domänspecifika språket från värdspråket. I ett ytligt \gls{edsl} försöker
 man däremot uttrycka sitt domänspecifika språk i termer av
-värdspråkets funktioner och typer. Ett uttryck i ett ytligt EDSL
+värdspråkets funktioner och typer. Ett uttryck i ett ytligt \gls{edsl}
 motsvaras alltså av ett uttryck i värdspråket och behöver inte tolkas
-ytterligare. Båda sätten att implementera ett EDSL har sina fördelar
-och nackdelar då det exempelvis i ett djupt EDSL är förhållandevis
+ytterligare. Båda sätten att implementera ett \gls{edsl} har sina fördelar
+och nackdelar då det exempelvis i ett djupt \gls{edsl} är förhållandevis
 lätt att ge fler tolkningar av det abstrakta syntaxträdet och därmed
 kunna bygga vidare på det domänspecifika språket, men svårare att
 lägga till konstruerare eller på andra sätt ändra i typerna som bygger
 upp syntaxträdet eftersom man då måste ändra i de funktioner som
-tolkar dem. I ett ytligt EDSL är det lätt att lägga till konstruerare
+tolkar dem. I ett ytligt \gls{edsl} är det lätt att lägga till konstruerare
 och typer eftersom man bara måste kunna representera dem i värdspråket
 och alltså inte behöver hantera ett syntaxträd, men å andra sidan är
 dess tolkning fixerad. För att lägga till nya sätt att tolka ett
-ytligt EDSL måste vi implementera om det på nytt.
+ytligt \gls{edsl} måste det implementeras om på nytt.
 
 \subsection{Transformer, signaler och system}
 Transformer, signaler och system, inom signalbehandling, beskriver
@@ -603,7 +608,7 @@ olika typer av signaler, hur de relateras till ett system och hur man
 kan modellera denna relation mellan signaler och systemet i
 matematiska termer. Ett exempel på ett system kan till exempel vara en
 fjäder vars insignal är en kraft som påverkar fjädern utifrån. I
-kursen \textit{TSS}, och så även i vårt projekt, begränsas signalen
+kursen \gls{tss}, och så även i vårt projekt, begränsas signalen
 till enbart en oberoende variabel som beskriver tid och de system som
 som betraktas är linjära och tidsinvarianta, så kallade LTI-system.
 
@@ -613,7 +618,7 @@ typer av transformer, vilket gör det möjligt att betrakta signalen i
 en annan domän. %De transformer som tas upp i kursen \textit{TSS} är
 %\textit{fouriertransform}, \textit{laplacetransform} och
 %\textit{Z-transformen}.
-En av transformerna som tas upp i kursen \textit{TSS}är Fouriertransform.
+En av transformerna som tas upp i kursen \gls{tss} är Fouriertransform.
 %TODO: välj en stil: två av tre slutar på "form" och en på "formen"
 %TODO: homogenisera: "laplacetransform" eller "Laplacetransform"
 
@@ -656,7 +661,7 @@ lärande.
 
 Som nämndes i inledningen har vårt projekt som syfte att utveckla
 läromaterial som kan fungera som ett komplement till kursen
-\textit{TSS} och väcka intresse för ämnet.  Därför är didaktik en
+\gls{tss} och väcka intresse för ämnet. Därför är didaktik en
 viktig del av projektet.
 
 En stor del av didaktik handlar om hur man kan påverka studentens
@@ -684,7 +689,7 @@ materialet tilltalande utan att det blir ren underhållning.
 
 Ett angreppssätt inom didaktik är \textit{ARCS-modellen}, som beskrivs
 i detalj i \textit{Motivational Design for Learning and Performance}.
-\gls{ARCS} är en akronym för \textit{Attention}, \textit{Relevance},
+\gls{gls-arcs} är en akronym för \textit{Attention}, \textit{Relevance},
 \textit{Confidence} och \textit{Satisfaction}, vilket är grundpelarna
 i \textit{ARCS-modellen}.
 
@@ -813,7 +818,7 @@ där man inte separerar på semantik och syntax i samma grad och där
 typerna oftast är implicita och lämnas till läsaren att själv fundera
 på.
 
-Vårt projekt bygger,som tidigare nämnts, på projektet DSLsofMath som i
+Vårt projekt bygger,som tidigare nämnts, på projektet \gls{dslm} som i
 sin tur bygger på idéerna från Wells, Sussman och Wisdom.  I kursen
 \textit{Matematikens domänspecifika språk} får studenterna med
 funktionell programmering angripa matematiska problem genom att bygga
@@ -904,19 +909,19 @@ underhållande läsning.
 \label{sec:efterforskning}
 
 Projektgruppen inledde med litteraturstudier och efterforskningar inom
-ämnet. Projektdeltagarna läste in sig på signallära, DSL, didaktik,
+ämnet. Projektdeltagarna läste in sig på signallära, \gls{dsl}, didaktik,
 funktionell programmering och annan relaterad forskning.
 
 Under projektets tidiga fas intervjuades två personer ur
 personalstyrkan på Chalmers som undervisat och varit examinatorer i
-kurserna \textit{TSS} och \textit{Reglerteknik}. Se avsnitt
+kurserna \gls{tss} och \textit{Reglerteknik}. Se avsnitt
 \textit{\ref{bil:exam_intervju} - \nameref{bil:exam_intervju}} för en
 sammanfattning av denna intervju. Under intervjun redogjorde
 examinatorerna för hur de upplevde studenternas problem med kurserna
 och vad de trodde var orsaken.
 
 Projektgruppen sammanställde sedan en enkät, riktad till de studenter
-som läst kurserna \textit{TSS} och \textit{Reglerteknik}, eller skulle
+som läst kurserna \gls{tss} och \textit{Reglerteknik}, eller skulle
 läsa kurserna inom ett år. Denna enkät arbetades fram utifrån böckerna
 \textit{Enkäten i praktiken} \cite{enkaten_i_praktiken} och
 \textit{Enkätboken} \cite{enkatboken}.
@@ -937,10 +942,10 @@ skulle täcka.
 \label{sec:struktur}
 Läromaterialet delades upp i fyra ämnesavsnitt samt en introduktion. I
 introduktionen beskrivs läromaterialet övergripande samt vilka
-förkunskaper som krävs. Där förklaras även konceptet DSL. Efter
+förkunskaper som krävs. Där förklaras även konceptet \gls{dsl}. Efter
 introduktionen följer det första avsnittet, vilket kort beskriver
 komplexa tal och Eulers formel samt introducerar studenten till vårt
-DSL. Det andra avsnittet beskriver olika typer av signaler och deras
+\gls{dsl}. Det andra avsnittet beskriver olika typer av signaler och deras
 egenskaper, det tredje beskriver LTI-system och det fjärde och sista
 beskriver Fourierserier och Fouriertransform. De ämnen avsnitten
 beskriver valdes, som nämns i avsnittet
@@ -949,19 +954,19 @@ utifrån information från kursen, intervjun med examinatorerna samt
 studenternas enkätsvar.
 
 Läromaterialets första ämnesavsnitt tillägnades komplexa tal. Eftersom
-förståelse av komplexa tal är en viktig förkunskap till \textit{TSS}
+förståelse av komplexa tal är en viktig förkunskap till \gls{tss}
 valde gruppen att inleda med repetition av detta ämne. En annan
 anledning till att inleda med komplexa tal var att detta är ett område
 datastudenter känner relativt väl till vid den tidpunkt i studierna då
-de läser \textit{TSS}. Gruppen ville ge studenterna möjlighet att
-bekanta sig med det DSL som används och hur man kan implementera
+de läser \gls{tss}. Gruppen ville ge studenterna möjlighet att
+bekanta sig med det \gls{dsl}som används och hur man kan implementera
 matematik med detta innan man började beskriva nytt material. Därför
 ansåg gruppen att det var lämpligt att inleda med ett ämne som
 datastudenterna kände sig relativt bekväma med för att de skulle kunna
-fokusera på programmeringsaspekten och förstå upplägget med DSL.
+fokusera på programmeringsaspekten och förstå upplägget med \gls{dsl}.
 
 Det andra avsnittet tillägnades signaler. Signaler är ett viktigt
-begrepp i kursen \textit{TSS} och kunskap om signaler är en nödvändig
+begrepp i kursen \gls{tss} och kunskap om signaler är en nödvändig
 grund för att förstå de följande avsnitten. Därför var det ett
 självklart val för gruppen att låta andra avsnittet handla om detta. I
 avsnittet förklaras, något förenklat, med text och figurer vad
@@ -969,16 +974,16 @@ signaler är och hur några vanliga typer av signaler, som till exempel
 enhetssteg, ser ut och beter sig.
 
 Det tredje avsnittet tillägnades LTI-system. I princip alla system som
-beskrivs i \textit{TSS} är LTI-system. Kunskap om LTI-system och dess
+beskrivs i \gls{tss} är LTI-system. Kunskap om LTI-system och dess
 egenskaper är därför avgörande för att förstå och räkna på de system
-som tas upp i \textit{TSS}. Avsnittet tar även upp faltning och hur
+som tas upp i \gls{tss}. Avsnittet tar även upp faltning och hur
 detta fungerar i LTI-system.
 
 Det fjärde avsnittet tillägnades Fourierserier och
 Fouriertransform. Dessa är centrala begrepp i kursen och något som
 många datastudenter upplever som svårt. Därför valde gruppen, då det
 konstaterades att det inte fanns tid att beskriva alla transformer som
-finns med i \textit{TSS}, att fokusera på Fouriertransform. En
+finns med i \gls{tss}, att fokusera på Fouriertransform. En
 anledning till detta var att Fouriertransform är nära besläktad med
 såväl Laplacetransform som Z-transform och gruppen bedömde att
 förståelse för Fouriertransform sannolikt skulle bidra till förståelse
@@ -1035,7 +1040,7 @@ Den andra grundpelaren, \textit{Relevance}, har vi praktiserat främst
 i inledningen av avsnitten och i
 introduktionsavsnittet. Introduktionsavsnittet förklarar att
 läromaterialet finns till för att vara ett komplement till, och hjälpa
-datastudenterna med, \textit{TSS}. Varje ämnesavsnitt inleds sedan med
+datastudenterna med, \gls{tss}. Varje ämnesavsnitt inleds sedan med
 en kort beskrivning av ämnet och vad det kan användas till. På detta
 sätt förklarar vi inledningsvis varför läromaterialet är relevant för
 studentens studier. Sedan förklarar vi mer i detalj vad de olika
@@ -1070,19 +1075,19 @@ förmåga, samt möjlighet att praktisera detta.
 \label{sec:implDSL}
 % Förklara hur komplexa tal och alla typer av transformer
 % implementerades i DSL.
-Det DSL som används i läromaterialet \textit{TSS med DSL} har
+Det \gls{dsl} som används i läromaterialet \textit{\gls{tssmdsl}} har
 utvecklats i Haskell av projektgruppen. Det har designats för att
-täcka de valda delarna av TSS som behandlas i läromaterialet. Se
+täcka de valda delarna av \gls{tss} som behandlas i läromaterialet. Se
 avsnitt \textit{\ref{sec:efterforskning} -
   \nameref{sec:efterforskning}} för mer information om hur dessa delar
 valts ut.
 
 En av dessa delar är komplexa tal, vilket används flitigt när man
 arbetar med signaler och system. Därför implementerades också komplexa
-tal som första byggstenen i vårt DSL. Därefter implementerades
+tal som första byggstenen i vårt \gls{dsl}. Därefter implementerades
 signaler, LTI-system och Fouriertransform.
 
-Själva utvecklingen av det DSL som använts har skett genom att gruppen
+Själva utvecklingen av det \gls{dsl}som använts har skett genom att gruppen
 först utvecklat all kod som behövts för ett avsnitt. När koden sedan
 hade testats och fungerade tillfredsställande delades den upp i
 kodpaket. I dessa kodpaket har vissa funktioner tagits bort för att
@@ -1099,7 +1104,7 @@ målruppen och inte bara av studenter som är särskilt intresserade av
 Haskell.
 
 För att visa hur projektgruppen har tänkt vid implementationen av sitt
-DSL kommer delar av implementationen av komplexa tal nu att
+\gls{dsl} kommer delar av implementationen av komplexa tal nu att
 beskrivas. Vi börjar med hur ett komplext tal representeras, i vårt
 fall som två flyttalsvärden.
 \begin{minted}{haskell}
@@ -1108,7 +1113,7 @@ fall som två flyttalsvärden.
 \end{minted}
 Ett värde för den reella delen av talet och ett för den imaginära
 delen. Det komplexa talet \(z = 1 + 1j = (1,1) \) representeras i vår
-DSL som:
+\gls{dsl} som:
 
 \begin{minted}{haskell}
   Complex 1 1
@@ -1135,7 +1140,7 @@ Multiplikationen var lite mer komplicerad än additionen, då den
 matematiska formeln för multiplikation med komplexa tal ser ut enligt
 formeln nedan \cite{conway1978functions}.
 \[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \]
-Detta implementerades enligt följande i vårt DSL:
+Detta implementerades enligt följande i vårt \gls{dsl}:
 % TODO: fixa sidbrytning (senare)
 \begin{minted}{haskell}
   z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
@@ -1176,7 +1181,7 @@ Vår implementation av division blev då följande:
 \end{minted}
 
 En viktig förutsättning för att kunna koppla de komplexa talen till
-kursen TSS var att man först implementerade Eulers formel, som kan
+kursen \gls{tss} var att man först implementerade Eulers formel, som kan
 användas för att skapa komplexa tal utifrån en vinkel \(\phi\)
 (phi). Eulers formel ser ut så här:
 % TODO: använd helst samma variabelnamn efter j här och nedan. ("z"
@@ -1203,7 +1208,7 @@ Sedan implementerades även trigonometriska funktioner med hjälp av
 Eulers formel. $Sin(x)$ representeras enligt följande som ett komplext
 tal:
 \[ sin(x) = (e^{j x} - e^{-j x}) / 2 j \]
-Vilket ser ut så här i vårt DSL:
+Vilket ser ut så här i vårt \gls{dsl}:
 \begin{minted}{haskell}
 sin z = (exp (j*z) - exp (-(j*z))) / (scale 2 j)
  where j = Complex 0 1
@@ -1215,7 +1220,7 @@ Den fullständiga koden kan läsas på gruppens hemsida:
 
 Ett av de största problemen vid implementationen av signaler, och all
 kod som bygger på signaler, var hur man skulle hantera kontinuerlig
-tid. Kursen \textit{TSS} behandlar både diskreta och kontinuerliga
+tid. Kursen \gls{tss} behandlar både diskreta och kontinuerliga
 signaler och det var därför önskvärt att implementera båda dessa. En
 dator kan dock under normala förhållanden inte hantera kontinuerliga
 funktioner utan endast
@@ -1320,8 +1325,8 @@ avsnittet.
 % * Utdrag ur tutorialen
 Projektgruppens uppgift var, vilket beskrivs i detalj i avsnittet
 \textit{\ref{sec:prodSpec} - \nameref{sec:prodSpec}}, att ta fram ett
-kompletterande läromaterial till \textit{TSS} inspirerat av
-\textit{DSLsofMath}.  I detta avsnitt beskrivs det resulterande
+kompletterande läromaterial till \gls{tss} inspirerat av
+\textit{\gls{dslm}}.  I detta avsnitt beskrivs det resulterande
 läromaterialet och resultat från testerna.
 
 \subsection{Läromaterialet}
@@ -1421,19 +1426,19 @@ kommentarer.
 
 
 Som nämns i inledningen har datateknologer svårt för kursen
-\textit{TSS}, eftersom de har problem med matematiken. Frågor man då
+\gls{tss}, eftersom de har problem med matematiken. Frågor man då
 kan ställa sig är vad som är orsaken till detta problem, huruvida
 problemet går att lösa helt, och om det verkligen är en bra metod att
 använda programmering för att lösa det?
 %Svara på frågorna! Hänvisa till didaktik för ingenjörslärare etc
 
 Något som möjligen är en del av orsaken till problemet är när kursen
-\textit{TSS} ges. Det nuvarande upplägget på datateknologernas studier
+\gls{tss} ges. Det nuvarande upplägget på datateknologernas studier
 är sådant att de läser ett antal kurser i matematik under sitt första
 år, knappt någon matematik under sitt andra år och sedan läser de
-\textit{TSS} i årskurs tre. Det är alltså nästan ett år mellan
-matematikkurserna och \textit{TSS}. Denna del av problemet kan i så
-fall lösas genom att till exempel ge TSS i årskurs två. Det är dock
+\gls{tss} i årskurs tre. Det är alltså nästan ett år mellan
+matematikkurserna och \gls{tss}. Denna del av problemet kan i så
+fall lösas genom att till exempel ge \gls{tss} i årskurs två. Det är dock
 osäkert om detta är en tillräckligt stor del av problemet för att en
 förändring i kursupplägget skulle ge synbar effekt.
 
@@ -1462,7 +1467,7 @@ framtida utveckling att diskuteras.
 För att utveckla ett väl fungerande läromaterial krävs goda kunskaper
 inom såväl det aktuella ämnet som didaktik. Projektgruppen består dock
 av fem studenter, vars erfarenhet inom området signal och systemlära
-var att fyra av dem läst kursen \textit{TSS}. Studenternas tidigare
+var att fyra av dem läst kursen \gls{tss}. Studenternas tidigare
 kunskap i didaktik var också ytterst begränsad. På grund av detta lade
 projekt\-gruppen en stor del av sin tid på nödvändig förberedande
 efterforskning. Detta lämnade mindre tid till själva utvecklingen av
@@ -1527,7 +1532,7 @@ programmeringskoden. För varje område som läromaterialet tar upp har
 projektgruppen behövt utvärdera vad som skulle ingå och vad som var
 möjligt att implementera på en nivå som studenterna i målgruppen kan
 förstå. Det har varit en ständig avvägning av att få med de mest
-vitala delarna i \textit{TSS} och att implementera kod som är
+vitala delarna i \gls{tss} och att implementera kod som är
 begriplig. \textit{The Fastest Fourier Transform in the West}
 \cite{fastestfourier} är ett exempel på hur Fouriertransform kan
 implementeras relativt effektivt i Haskell, men problemet är att koden
@@ -1560,7 +1565,7 @@ samma möjlighet att sammanfatta
 %och abstrahera
 området som en diskret approximation eftersom man definierar olika
 fall var för sig. Detta gör det å andra sidan möjligt att definiera
-typfall som studenten kan känna igen i kursen \textit{TSS}.
+typfall som studenten kan känna igen i kursen \gls{tss}.
 
 Vad är då bäst i vårt fall, att använda en approximation som ger
 större möjlighet att %abstrahera och
@@ -1591,7 +1596,7 @@ hur detta gått diskuteras i det kommande avsnittet
 \label{sec:resDisk}
 Den slutgiltiga produkten uppfyller alla delar av
 produktspecifikationen med ett undantag. Ambitionen var att
-läromaterialet skulle täcka in hela kursen \textit{TSS}. I nuläget
+läromaterialet skulle täcka in hela kursen \gls{tss}. I nuläget
 saknas dock avsnitt som beskriver Laplacetransform och
 Z-transform. Som nämns i avsnittet \textit{\ref{sec:struktur} -
   \nameref{sec:struktur}} prioriterades detta bort på grund av
@@ -1621,7 +1626,7 @@ detta kan ha påverkat resultatet.
 
 För en bättre utvärdering av läromaterialet krävs att fler studenter
 inom målgruppen använder sig av det i samband med kursen
-\textit{TSS}. Det kommer därför dröja innan man kan se det verkliga
+\gls{tss}. Det kommer därför dröja innan man kan se det verkliga
 resultatet. Detta kan dock vara svårt att utvärdera även då eftersom
 det finns många andra faktorer som kan påverka. Om en ökning i antalet
 godkända studenter i kursen observeras i framtiden är det svårt att
@@ -1650,7 +1655,7 @@ studenter som ännu inte läst kursen i fråga, då den skulle verka
 mindre svår om det är fler studenter som får godkänt i kursen.
 
 %---------------------OBS detta kanske är för dramatiskt....---------
-Det långsiktiga målet för projektet DSLsofMath, som vårt projekt
+Det långsiktiga målet för projektet \gls{dslm}, som vårt projekt
 baseras på, är att minska gapet mellan matematik och
 programmering. %Kanske formuleras om?
 Detta skulle kunna öppna upp för fler möjligheter att tackla framtida
@@ -1679,7 +1684,7 @@ vidareutveckla det befintliga läromaterialet. Till att börja med
 skulle man kunna komplettera materialet med avsnitt om
 Laplacetransform och Z-transform. Det finns, som tidigare nämnts,
 påbörjade utkast för dessa och om de färdigställs täcker
-läromaterialet in hela kursen \textit{TSS}.
+läromaterialet in hela kursen \gls{tss}.
 
 En annat vidareutveckling av materialet skulle kunna vara utökad
 implementation av funktioner i kontinuerlig tid. Som vi tidigare nämnt
@@ -1694,7 +1699,7 @@ anonyma svar skulle kanske kunna ge fler och mer tillförlitliga
 resultat.
 
 Det skulle även kunna vara intressant att gå igenom materialet
-tillsammans med experter inom \textit{TSS} samt Didaktik. Det är
+tillsammans med experter inom \gls{tss} samt Didaktik. Det är
 mycket möjligt att experterna har en annan syn på materialet än
 studenterna har och kan ge andra förslag på hur materialet kan
 utvecklas.
@@ -1704,14 +1709,14 @@ Hela läromaterialet finns på
 vem som helst att arbeta vidare med det eller använda det som
 inspiration för liknande projekt.
 
-I vårt projekt valde vi att fokusera på kursen \textit{TSS} men som
+I vårt projekt valde vi att fokusera på kursen \gls{tss} men som
 beskrivs i bakgrunden är den bara en av problemkurserna på
 Datatekniska programmet. En möjlighet skulle vara att i framtiden ta
 fram ett liknande läromaterial även till kursen
 \textit{Reglerteknik}. Ett sådant läromaterial skulle då kunna använda
 sig av delar av den programmeringskod som tagits fram i vårt material,
 eftersom \textit{Reglerteknik} till viss del bygger på innehållet i
-\textit{TSS}.
+\gls{tss}.
 
 Även andra kurser än de som tas upp i denna rapport skulle kanske
 kunna gagnas av liknande läromaterial. Som vi nämner i inledningen och
@@ -1726,7 +1731,7 @@ problem även inom andra områden.
 % * Vad är gjort och vad återstår att göra?
 
 Projektets mål var att ta fram ett kompletterande läromaterial till
-kursen \textit{TSS} inspirerat av \textit{DSLsofMath} som uppfyller
+kursen \gls{tss} inspirerat av \textit{\gls{dslm}} som uppfyller
 produktspecifikationen som beskrivs i avsnitt
 \textit{\ref{sec:prodSpec} - \nameref{sec:prodSpec}}.
 
@@ -1734,7 +1739,7 @@ Projektgruppen har utifrån detta tagit fram ett material som finns
 samlat på en hemsida. Materialet innehåller förklarande text och
 exempel, bilder samt programmeringsövningar. Det består av 4
 delavsnitt som i stora drag täcker in innehållet i kursen
-\textit{TSS}, med undantag för Laplacetransform och Z-transform.
+\gls{tss}, med undantag för Laplacetransform och Z-transform.
 
 Enligt testgruppen är texten underhållande och informativ och
 övningarna ligger på en lagom svår nivå. På grund av testgruppens
@@ -1750,7 +1755,7 @@ undantag av ett saknat delavsnitt. Testresultaten har varit positiva
 men är inte nog för att dra definitiva slutsatser. Hur väl detta
 material fyller sin funktion kommer förhppningsvis att visa sig i
 framtiden när det används av studenter i målgruppen i samband med
-kursen \textit{TSS}.
+kursen \gls{tss}.
 
 \newpage
 
@@ -1809,7 +1814,7 @@ Samtliga bilder i bilagan kommer från
 Denna bilaga är en sammanfattning av den intervju projektgruppen höll
 med Bo Egardt och Ants Silberberg. Bo och Ants har under flera år
 varit både lärare och examinatorer i \textit{Reglerteknik} respektive
-\textit{TSS} på Chalmers. Sammanfattningen är granskad och godkänd av
+\gls{tss} på Chalmers. Sammanfattningen är granskad och godkänd av
 både Bo och Ants.
 %TODO: saknas
 %infoga bilaga 2
