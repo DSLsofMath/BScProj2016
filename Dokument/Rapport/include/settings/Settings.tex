@@ -22,10 +22,15 @@
 \usepackage{parskip}        % Enables vertical spaces correctly
 \usepackage{url}
 \usepackage{csquotes}
+\usepackage{tocloft}
 \usepackage[acronym,nonumberlist,nogroupskip]{glossaries}
 \usepackage{pdfpages}
 
 % OPTIONAL SETTINGS (DELETE OR COMMENT TO SUPRESS)
+
+% Fix table of contents to fit in one page
+\renewcommand\cftsecafterpnum{\vskip2pt}
+\renewcommand\cftsubsecafterpnum{\vskip0pt}
 
 % Disable automatic indentation (equal to using \noindent)
 \setlength{\parindent}{0cm}
