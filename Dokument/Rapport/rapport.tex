@@ -500,32 +500,29 @@ dess tolkning fixerad. För att lägga till nya sätt att tolka ett
 ytligt \gls{edsl} måste det implementeras om på nytt.
 
 \subsection{Transformer, signaler och system}
-Inom ämnet signalbehandling beskriver transformer, signaler och system
-olika typer av signaler, hur signalerna relateras till ett system och hur man
-kan modellera denna relation mellan signaler och systemet i
-matematiska termer. Ett exempel på ett system kan till exempel vara en
-fjäder vars insignal är en kraft som påverkar fjädern utifrån. I
-kursen \gls{tss}, och så även i vårt projekt, begränsas signalen
-till enbart en oberoende variabel som beskriver tid och de system som
-som betraktas är linjära och tidsinvarianta, så kallade LTI-system.
+% TODO: Kolla på detta, jag har skrivit om lite här.
+Inom ämnet signalbehandling beskriver kursen \gls{tss} olika typer av
+signaler, hur signalerna relateras till ett system och hur man kan
+modellera denna relation mellan signaler och systemet i matematiska
+termer. Ett system kan till exempel vara en fjäder vars insignal är en
+kraft som påverkar fjädern utifrån.
 
-För att kunna lösa problem med denna typ av signaler och system så kan
-man utveckla signalen i en Fourierserie eller använda sig av olika
-typer av transformer, vilket gör det möjligt att betrakta signalen i
-en annan domän. %De transformer som tas upp i kursen \textit{TSS} är
-%\textit{fouriertransform}, \textit{laplacetransform} och
-%\textit{Z-transformen}.
-En av transformerna som tas upp i kursen \gls{tss} är Fouriertransform.
-%TODO: välj en stil: två av tre slutar på "form" och en på "formen"
-%TODO: homogenisera: "laplacetransform" eller "Laplacetransform"
-
-\textit{Fouriertransform} är en transform i diskret eller kontinuerlig
-tid som transformerar en funktion från tidsdomänen till
-frekvensdomänen. \textit{Fouriertransform} i kontinuerlig tid är
-definierad enligt följande:
-%TODO: visa eller förklara var variabeln \omega binds
-\[\mathcal{F} f \omega = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
-
+I kursen, och så även i vårt projekt, begränsas signalen till enbart
+en oberoende variabel som beskriver tid och de system som som
+betraktas är linjära och tidsinvarianta, så kallade LTI-system. För
+att kunna lösa problem med denna typ av signaler och system så kan man
+utveckla signalen i en Fourierserie eller använda sig av olika typer
+av transformer. En av de transformer som tas upp i kursen är
+fouriertransform som gör det möjligt att byta perspektiv och betrakta
+signalen i frekvensdomän istället för tidsdomän.
+%
+% \textit{Fouriertransform} är en transform i diskret eller kontinuerlig
+% tid som transformerar en funktion från tidsdomänen till
+% frekvensdomänen. \textit{Fouriertransform} i kontinuerlig tid är
+%
+Fouriertransform i kontinuerlig tid är definierad enligt följande:
+\[\mathcal{F}~f(t)~\omega = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
+% Slut på omskrivning
 
 %\textit{Laplacetransformen} är en transform i kontinuerlig tid som
 %transformerar en funktion från tidsdomänen till s-domänen. s-domänen
