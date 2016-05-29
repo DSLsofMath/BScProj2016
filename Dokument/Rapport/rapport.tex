@@ -734,19 +734,8 @@ med~\cite{kursplan:dslsofmath}.
 % * Ev. hänvisa kort till relaterad forskning
 
 %Illustrationer: Statisktik från kurserna, pajdiagram
-
-%Problemanalysen skall leda fram till produktspecen
-% TODO: Här hade det vart najs om vi kunde knyta an till bakgrunden om att
-% anledningen till att vi har svårt för TSS och Reglerteknik kan vara att den
-% matematiska notationen är lite otydlig och att med programmeringsperspektiv
-% så blir det förhoppningsvis tydligare.
-% TODO: Knyta an till Relaterad forskning.
-%Som nämndes i bakgrunden är problemet vi ska lösa i vårt projekt att
-%datastudenterna på Chalmers har svårt för två av sina kurser, \gls{tss} och
-%\gls{regler}.
 Som nämndes i bakgrunden är problemet i projektet att datastudenterna på
 Chalmers har svårt för två av sina kurser, \gls{tss} och \gls{regler}.
-
 
 Statistiken från Chalmers visar tydligt att kurserna \gls{tss} och
 \gls{regler} har en ovanligt hög andel studenter som blir underkända
@@ -1199,13 +1188,10 @@ en given vinkel, representerad av ett flyttal.
 \begin{minted}{haskell}
 euler phi = Complex (cos phi) (sin phi)
 \end{minted}
-Enligt potenslagarna
-% (formelsamlingen) - lämnas till reference? -Borde inte behövas
-så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och enligt Eulers formel så är
-\(e^{j b} = \cos b + j\cdot \sin b\).
+Enligt potenslagarna så är \(e^{a+jb} = e^{a} \cdot e^{jb}\) och
+enligt Eulers formel så är \(e^{j b} = \cos b + j\cdot \sin b\).
 Exponentialfunktionen för ett komplext tal kan därför implementeras
 enligt nedanstående kod:
-
 \begin{minted}{haskell}
 exp z = scale (exp (realPart z)) (euler (imPart z))
 \end{minted}
@@ -1788,23 +1774,6 @@ redan läst kursen.
 
 Samtliga bilder i bilagan kommer från \textit{webbenkater.com}.
 \includepdf[pages=-]{Bilagor/Bilaga1.pdf}
-%infoga bilaga 1
-%\begin{figure}
-%  \centerline{\includegraphics[page=1]{Bilagor/Bilaga1.pdf}}
-%\end{figure}
-%\begin{figure}
-%  \centerline{\includegraphics[page=2]{Bilagor/Bilaga1.pdf}}
-%\end{figure}
-%\begin{figure}
-%  \centerline{\includegraphics[page=3]{Bilagor/Bilaga1.pdf}}
-%\end{figure}
-%\begin{figure}
-%  \centerline{\includegraphics[page=4]{Bilagor/Bilaga1.pdf}}
-%\end{figure}
-%\begin{figure}
-%  \centerline{\includegraphics[page=5]{Bilagor/Bilaga1.pdf}}
-%\end{figure}
-
 \newpage
 
 \section{Bilaga 2}
@@ -1816,10 +1785,6 @@ på Chalmers. Sammanfattningen är granskad och godkänd av både Bo och
 Ants.
 
 \includepdf[pages=-]{Bilagor/Bilaga2.pdf}
-%infoga bilaga 2
-%\begin{figure}
-%  \centerline{\includegraphics[page=1]{Bilagor/Bilaga2.pdf}}
-%\end{figure}
 \newpage
 
 \section{Bilaga 3}
@@ -1827,19 +1792,6 @@ Ants.
 Denna bilaga är ett utdrag ur det läromaterial projektgruppen
 utvecklat. Utdraget beskriver udda och jämna signaler och är hämtat
 från avsnitt 2 i läromaterialet.
-\includepdf[pages=-]{Bilagor/Bilaga3.pdf}
-%infoga bilaga 3
-%\begin{figure}
-%  \centerline{\includegraphics[page=1]{Bilagor/Bilaga3.pdf}}
-%\end{figure}
-%\begin{figure}
-%  \centerline{\includegraphics[page=2]{Bilagor/Bilaga3.pdf}}
-%\end{figure}
-%\begin{figure}
-%  \centerline{\includegraphics[page=3]{Bilagor/Bilaga3}}
-%\end{figure}
-%\begin{figure}
-%  \centerline{\includegraphics[page=4]{Bilagor/Bilaga3}}
-%\end{figure}
 
+\includepdf[pages=-]{Bilagor/Bilaga3.pdf}
 \end{document}
