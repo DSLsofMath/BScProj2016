@@ -13,6 +13,8 @@ Projektinformation
 Lärmaterialinformation
 -----------------------
 
+TODO: Uppdatera listan så den pekar på läromaterialet samt slutrapport.
+
 * [Material till tutorialen](tutorial-outline.md)
 * [Planeringsrapporten](Dokument/Planeringsrapport/planeringsrapport.md)
 * [TODOs](TODO.org)
