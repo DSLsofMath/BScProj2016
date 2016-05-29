@@ -172,13 +172,14 @@ science students at Chalmers.
 The report further describes the surveys and analyses done in order to
 produce this tutorial and the test results from the finished product.
 
-The final result is a tutorial consisting of a webpage with explanations,
-examples, images,  quizzes and programming excersizes. The webpage
-can be accessed at\\
+The final result is a tutorial consisting of a webpage with
+explanations, examples, images, quizzes and programming
+excersizes. The webpage can be accessed at \\
 \url{http://tinyurl.com/DSLsHemsida}
 
 The source code and other material is also available on GitHub for
-eventual further future development, see \url{https://github.com/DSLsofMath/BScProj}.
+eventual further future development, see
+\url{https://github.com/DSLsofMath/BScProj}.
 
 \newpage
 
@@ -191,10 +192,6 @@ eventual further future development, see \url{https://github.com/DSLsofMath/BScP
 \setlength{\parskip}{1mm}
 \glossarystyle{altlist}
 \printglossaries
-
-
-%\printglossary[type=\acronymtype,title=Akronymer]
-%\printglossary[title=Ordlista,]
 
 \newpage
 
@@ -232,8 +229,8 @@ tillräckligt detaljerad.
 
 Ett exempel på detta problem går att finna på Chalmers tekniska
 högskola. Där finns det en lång trend där studenterna på utbildningen
-för Datateknik har haft svårigheter med kurserna \textit{\gls{tss}} och
-\textit{\gls{regler}}. Svårigheterna med dessa kurser tror
+för Datateknik har haft svårigheter med kurserna \textit{\gls{tss}}
+och \textit{\gls{regler}}. Svårigheterna med dessa kurser tror
 examinatorerna till stor del beror på att studenterna inte är
 tillräckligt bekväma i det matematiska språket.
 % Detta syns bland annat i statistiken av hur många datastudenter som
@@ -253,9 +250,9 @@ språket har dessutom en notation med fokus på tydlighet som lämpar sig
 väl för att lära ut matematiska begrepp
 \cite{TFPIE15_DSLsofMath_IonescuJansson}.
 
-Detta kandidatprojekt uppstod som en avgrening ur \gls{gls-dslm}-projektet
-med fokus på att utveckla material till specifika kurser snarare än en
-allmän matematisk grund.
+Detta kandidatprojekt uppstod som en avgrening ur
+\gls{gls-dslm}-projektet med fokus på att utveckla material till
+specifika kurser snarare än en allmän matematisk grund.
 
 \subsection{Rapportens syfte}
 
@@ -265,10 +262,10 @@ allmän matematisk grund.
 
 % Illustration:
 Syftet med denna rapport är att beskriva utvecklingen av
-läromaterialet ``\gls{tssmdsl}'', som är ett kompletterande läromaterial
-till kursen \gls{tss} för studenter på datatekniska programmet på Chalmers,
-samt beskriva hur det bakomliggande problemet kan kopplas till en mer
-generell problematik.
+läromaterialet ``\gls{tssmdsl}'', som är ett kompletterande
+läromaterial till kursen \gls{tss} för studenter på datatekniska
+programmet på Chalmers, samt beskriva hur det bakomliggande problemet
+kan kopplas till en mer generell problematik.
 
 \subsection{Projektets mål}
 % Huvudpoänger:
@@ -293,7 +290,6 @@ på den datatekniska utbildningen på Chalmers tekniska högskola.
 % * Vad behandlar vi inte i rapporten och varför?
 % * Vad tas inte med i vårt projekt och varför?
 % Illustrationer: Borde inte behövas
-
 På grund av att projektet är tidsbegränsat har projektet avgränsats
 till att ta fram läromaterial till endast en kurs,
 \gls{tss}. Läromaterialet som tagits fram är ett kompletterande
@@ -331,9 +327,9 @@ behövs för att bygga upp läromaterialet.
 % * Ta upp och introducera tekniken vi bygger vår tutorial på.
 
 \subsection{Git och GitHub}
-\gls{Git} är ett versionshanteringsprogram som gör det möjligt för flera
-personer att arbeta med samma material samtidigt utan att de skriver
-över varandras arbete. Så länge inte två versioner innehåller
+\gls{Git} är ett versionshanteringsprogram som gör det möjligt för
+flera personer att arbeta med samma material samtidigt utan att de
+skriver över varandras arbete. Så länge inte två versioner innehåller
 ändringar som står i konflikt med varandra, till exempel att flera
 personer samtidigt ändrar på samma rad, slås de ihop och bildar då en
 tredje version vars innehåll kommer från båda de tidigare
@@ -345,8 +341,8 @@ varandra krävs däremot en del manuellt arbete.
 För ytterligare information om Git se hemsidan
 \url{https://git-scm.com}.
 
-\gls{GitHub} är en hemsida som använder Git. GitHub gör det möjligt för
-utvecklare av program med öppen källkod att utveckla kod och annat
+\gls{GitHub} är en hemsida som använder Git. GitHub gör det möjligt
+för utvecklare av program med öppen källkod att utveckla kod och annat
 material offentligt. Öppen källkod innebär att den kod som programmet
 är uppbyggt av är offentlig och tillgänglig för alla att läsa och
 kontrollera.
@@ -456,47 +452,48 @@ skapa domän\-specifika språk är ingenting nytt, det finns tvärtom
 många \gls{dsl} som används i vid utstäckning. Exempel på några
 välkända \gls{dsl} är HTML, MATLAB och Game Maker Language.
 
-Det som är grundtanken med ett \gls{dsl} är att det är relativt enkelt att
-formulera lösningar för problem inom deras domäner, exempelvis är det
-enkelt att strukturera upp text i HTML, utföra matrisoperationer i
-MATLAB eller skapa datorspel med Game Maker Language. Däremot är \gls{dsl}
-ineffektiva inom andra områden än de som de är implementerade för.
-Det är till exempel inte effektivt att försöka skapa datorspel i
-MATLAB.
+Det som är grundtanken med ett \gls{dsl} är att det är relativt enkelt
+att formulera lösningar för problem inom deras domäner, exempelvis är
+det enkelt att strukturera upp text i HTML, utföra matrisoperationer i
+MATLAB eller skapa datorspel med Game Maker Language. Däremot är
+\gls{dsl} ineffektiva inom andra områden än de som de är
+implementerade för.  Det är till exempel inte effektivt att försöka
+skapa datorspel i MATLAB.
 
 När man designar domänspecifika språk kan man välja att skapa ett
 fristående språk som kompileras till någon typ av maskinkod eller att
 utveckla sitt domänspecifika språk i ett redan existerande generellt
 programmeringsspråk, där beståndsdelarna i språket är funktionsanrop
-och konstruerare i värdspråket. Ett \gls{dsl} som är implementerat på detta
-sätt kallas för ``\gls{edsl}''.
+och konstruerare i värdspråket. Ett \gls{dsl} som är implementerat på
+detta sätt kallas för ``\gls{edsl}''.
 
 % TODO: Nämna att vi valde approachen EDSL
 % TODO: Lägg till att det finns blandningar av djupa och ytliga EDSL.
 % Det går alltså att kombinera dessa två nivåer.
-Det finns även olika nivåer av \gls{edsl}; så kallade djupa \gls{edsl} (deep
-embedding) och ytliga \gls{edsl} (shallow embedding). I introduktionen till
-sin artikel \textit{Combining deep and shallow embedding for EDSL} skriver
-Svenningson och Axelsson \cite{Svenningsson2012combining} att man i ett djupt
-\gls{edsl} använder sig av algebraiska datatyper och att man med dessa
-bygger upp ett abstrakt syntaxträd som sedan tolkas av olika
-funktioner. Man definierar alltså egna typer och funktioner som bygger
-upp strukturer med dessa typer och skiljer på så sätt det
-domänspecifika språket från värdspråket. I ett ytligt \gls{edsl} försöker
-man däremot uttrycka sitt domänspecifika språk i termer av
-värdspråkets funktioner och typer. Ett uttryck i ett ytligt \gls{edsl}
-motsvaras alltså av ett uttryck i värdspråket och behöver inte tolkas
-ytterligare. Båda sätten att implementera ett \gls{edsl} har sina fördelar
-och nackdelar då det exempelvis i ett djupt \gls{edsl} är förhållandevis
-lätt att ge fler tolkningar av det abstrakta syntaxträdet och därmed
-kunna bygga vidare på det domänspecifika språket, men svårare att
-lägga till konstruerare eller på andra sätt ändra i typerna som bygger
-upp syntaxträdet eftersom man då måste ändra i de funktioner som
-tolkar dem. I ett ytligt \gls{edsl} är det lätt att lägga till konstruerare
-och typer eftersom man bara måste kunna representera dem i värdspråket
-och alltså inte behöver hantera ett syntaxträd, men å andra sidan är
-dess tolkning fixerad. För att lägga till nya sätt att tolka ett
-ytligt \gls{edsl} måste det implementeras om på nytt.
+Det finns även olika nivåer av \gls{edsl}; så kallade djupa \gls{edsl}
+(deep embedding) och ytliga \gls{edsl} (shallow embedding). I
+introduktionen till sin artikel \textit{Combining deep and shallow
+  embedding for EDSL} skriver Svenningson och Axelsson
+\cite{Svenningsson2012combining} att man i ett djupt \gls{edsl}
+använder sig av algebraiska datatyper och att man med dessa bygger upp
+ett abstrakt syntaxträd som sedan tolkas av olika funktioner. Man
+definierar alltså egna typer och funktioner som bygger upp strukturer
+med dessa typer och skiljer på så sätt det domänspecifika språket från
+värdspråket. I ett ytligt \gls{edsl} försöker man däremot uttrycka
+sitt domänspecifika språk i termer av värdspråkets funktioner och
+typer. Ett uttryck i ett ytligt \gls{edsl} motsvaras alltså av ett
+uttryck i värdspråket och behöver inte tolkas ytterligare. Båda sätten
+att implementera ett \gls{edsl} har sina fördelar och nackdelar då det
+exempelvis i ett djupt \gls{edsl} är förhållandevis lätt att ge fler
+tolkningar av det abstrakta syntaxträdet och därmed kunna bygga vidare
+på det domänspecifika språket, men svårare att lägga till konstruerare
+eller på andra sätt ändra i typerna som bygger upp syntaxträdet
+eftersom man då måste ändra i de funktioner som tolkar dem. I ett
+ytligt \gls{edsl} är det lätt att lägga till konstruerare och typer
+eftersom man bara måste kunna representera dem i värdspråket och
+alltså inte behöver hantera ett syntaxträd, men å andra sidan är dess
+tolkning fixerad. För att lägga till nya sätt att tolka ett ytligt
+\gls{edsl} måste det implementeras om på nytt.
 
 \subsection{Transformer, signaler och system}
 % TODO: Kolla på detta, jag har skrivit om lite här.
@@ -522,21 +519,21 @@ signalen i frekvensdomän istället för tidsdomän.
 Fouriertransform i kontinuerlig tid är definierad enligt följande:
 \[\mathcal{F}~f(t)~\omega = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
 % Slut på omskrivning
-
+%
 %\textit{Laplacetransformen} är en transform i kontinuerlig tid som
 %transformerar en funktion från tidsdomänen till s-domänen. s-domänen
 %är en generalisering av den kontinuerliga
 %frekvensdomänen. \textit{Laplacetransformen} är definierad som:
 %TODO: visa eller förklara var variabeln s binds
-
+%
 %\[ \mathcal{L} f = \int_{0}^{\infty} f(t)e^{-st} dt \]
-
+%
 %\textit{Z-transformen} är en transform i diskret tid som transformerar
 %en funktion från tidsdomänen till z-domänen. z-domänen är en
 %generalisering av den diskreta frekvensdomänen. \textit{Z-transformen}
 %är definierad som:
 %TODO: visa eller förklara var variabeln z binds
-
+%
 %\[\mathcal{Z} x = \sum_{n=-\infty}^{\infty} x[n] \cdot z^{-n}\]
 
 Området transformer, signaler och system innehåller även andra begrepp
@@ -553,21 +550,21 @@ lär sig utan snarare om hur läraren skapar en situation lämplig för
 lärande.
 
 Som nämndes i inledningen har vårt projekt som syfte att utveckla
-läromaterial som kan fungera som ett komplement till kursen
-\gls{tss} och väcka intresse för ämnet. Därför är didaktik en
-viktig del av projektet.
+läromaterial som kan fungera som ett komplement till kursen \gls{tss}
+och väcka intresse för ämnet. Därför är didaktik en viktig del av
+projektet.
 
 En stor del av didaktik handlar om hur man kan påverka studentens
 motivation. I \textit{Didaktik för ingenjörslärare} sammanfattas
-motivationens betydelse enligt följande: ``Varje kurs behöver motiveras
-för studenterna. Med motiverade studenter blir resultatet bättre.''.
-Boken hävdar även att långt ifrån alla studenter som går en kurs utgår
-från att den är läsvärd. Även i \textit{Motivational Design for
-  Learning and Performance} påpekas det orimliga i att anta att alla
-studenter är motiverade att lära sig ett ämne redan när de först
-kommer i kontakt med det \cite{motivational_design}. Det är alltså
-viktigt att ett läromedel är uppbyggt så att det motiverar studenterna
-att lära sig.
+motivationens betydelse enligt följande: ``Varje kurs behöver
+motiveras för studenterna. Med motiverade studenter blir resultatet
+bättre.''.  Boken hävdar även att långt ifrån alla studenter som går
+en kurs utgår från att den är läsvärd. Även i \textit{Motivational
+  Design for Learning and Performance} påpekas det orimliga i att anta
+att alla studenter är motiverade att lära sig ett ämne redan när de
+först kommer i kontakt med det \cite{motivational_design}. Det är
+alltså viktigt att ett läromedel är uppbyggt så att det motiverar
+studenterna att lära sig.
 
 Enligt boken behöver motivations\-aktiviteter stödja inlärningsmålen
 för att vara effektiva. Motivationsmedel kan vara roliga och
@@ -581,15 +578,16 @@ vuxna studenter.  Motivationsdesign har alltså utmaningen att göra
 materialet tilltalande utan att det blir ren underhållning.
 
 Ett angreppssätt inom didaktik är \textit{ARCS-modellen}, som beskrivs
-i detalj i \textit{Motivational Design for Learning and Performance}\cite{motivational_design}.
-\gls{gls-arcs} är en akronym för \textit{Attention}, \textit{Relevance},
-\textit{Confidence} och \textit{Satisfaction}, vilket är grundpelarna
-i \textit{ARCS-modellen}. Nedan följer en summering av
-modellens fyra grundpelare.
+i detalj i \textit{Motivational Design for Learning and Performance}
+\cite{motivational_design}. \gls{gls-arcs} är en akronym för
+\textit{Attention}, \textit{Relevance}, \textit{Confidence} och
+\textit{Satisfaction}, vilket är grundpelarna i
+\textit{ARCS-modellen}. Nedan följer en summering av modellens fyra
+grundpelare.
 
 Den första grundpelaren \textit{Attention}, uppmärksamhet på svenska,
-syftar till att väcka studentens uppmärksamhet och nyfikenhet.
-Detta åstadkoms med perceptuell stimulans, frågor och variation.
+syftar till att väcka studentens uppmärksamhet och nyfikenhet.  Detta
+åstadkoms med perceptuell stimulans, frågor och variation.
 Perceptuell stimulans innebär att man på något sätt ändrar i
 undervisningsmiljön för att väcka studentens uppmärksamhet. Dessa
 miljöförändringar kan vara av varierande typ som till exempel en
@@ -714,8 +712,8 @@ där man inte separerar på semantik och syntax i samma grad och där
 typerna oftast är implicita och lämnas till läsaren att själv fundera
 på.
 
-Vårt projekt bygger, som tidigare nämnts, på projektet \gls{dslm} som i
-sin tur bygger på idéerna från Wells, Sussman och Wisdom.  I kursen
+Vårt projekt bygger, som tidigare nämnts, på projektet \gls{dslm} som
+i sin tur bygger på idéerna från Wells, Sussman och Wisdom.  I kursen
 \textit{Matematikens domänspecifika språk} får studenterna med
 funktionell programmering angripa matematiska problem genom att bygga
 domänspecifika språk för att kunna hantera problemen
@@ -734,37 +732,39 @@ med~\cite{kursplan:dslsofmath}.
 % * Ev. hänvisa kort till relaterad forskning
 
 %Illustrationer: Statisktik från kurserna, pajdiagram
-Som nämndes i bakgrunden är problemet i projektet att datastudenterna på
-Chalmers har svårt för två av sina kurser, \gls{tss} och \gls{regler}.
+Som nämndes i bakgrunden är problemet i projektet att datastudenterna
+på Chalmers har svårt för två av sina kurser, \gls{tss} och
+\gls{regler}.
 
 Statistiken från Chalmers visar tydligt att kurserna \gls{tss} och
 \gls{regler} har en ovanligt hög andel studenter som blir underkända
 på tentamen. Under perioden 2010 till 2016 blev i genomsnitt endast
-51\% av de som skrev tentamen i \gls{tss} godkända och under samma period
-blev 53\% godkända i \gls{regler} \cite{tentastatistik}.
+51\% av de som skrev tentamen i \gls{tss} godkända och under samma
+period blev 53\% godkända i \gls{regler} \cite{tentastatistik}.
 %Pajdiagram
 Det finns även ett mörkertal i dessa siffror eftersom inte alla
 studenter som läser kursen skriver tentamen, exempelvis valde 48 av
 122 registrerade studenter att inte tentera \gls{regler}
 \cite{kursinformation:ere102:14-15}.
 
-Kurserna i fråga, \gls{tss} och \gls{regler}, läses under tredje året på
-Datateknik och kräver bland annat förkunskaper från de kurser i
+Kurserna i fråga, \gls{tss} och \gls{regler}, läses under tredje året
+på Datateknik och kräver bland annat förkunskaper från de kurser i
 matematik studenterna läser under sitt första år. \gls{regler} kräver
-även förkunskaper från \gls{tss}. Det kan därför anses vara ett rimligt
-antagande att bristande kunskaper i \gls{tss} orsakar följdproblem och utgör
-en del av studenternas problem med \gls{regler}.
+även förkunskaper från \gls{tss}. Det kan därför anses vara ett
+rimligt antagande att bristande kunskaper i \gls{tss} orsakar
+följdproblem och utgör en del av studenternas problem med
+\gls{regler}.
 
 % TODO: Det här känns som en upprepning av bakgrunden (ish).
 Kursernas examinatorer tror att studenternas svårigheter med kurserna
 till stor del beror på att studenterna inte är tillräckligt bekväma i
-det matematiska språket. Se \appendixref{bil:exam_intervju} för
-en sammanfattning av hela intervjun. Examinatorerna tror att
-studenterna på Datateknik inte har tillräcklig vana att tolka
-innebörden av de matematiska beskrivningarna och är allmänt ovana vid
-matematiskt hantverk. De tror att datastudenterna därför lägger det
-mesta av sin energi på att få ihop matematiken rent praktiskt,
-istället för att se vad matematiken står för.
+det matematiska språket. Se \appendixref{bil:exam_intervju} för en
+sammanfattning av hela intervjun. Examinatorerna tror att studenterna
+på Datateknik inte har tillräcklig vana att tolka innebörden av de
+matematiska beskrivningarna och är allmänt ovana vid matematiskt
+hantverk. De tror att datastudenterna därför lägger det mesta av sin
+energi på att få ihop matematiken rent praktiskt, istället för att se
+vad matematiken står för.
 
 \newpage
 
@@ -775,13 +775,12 @@ istället för att se vad matematiken står för.
 %     kommentera vilka val vi har gjort.
 % * Förklara hur produkten löser/bidrar till att lösa problemet
 %Todo: Här används "gruppen" nästan varje mening...
-
 %Illustration: Ev bild på utdrag från tutorial för att tydliggöra upplägget
 För att åtgärda det problem som beskrivs i föregående avsnitt har
-gruppen skapat en unik produkt som är anpassad speciellt för \gls{tss} på
-programmet för Datateknik på Chalmers. Den ursprungliga
-produktspecifikationen som tilldelades vid arbetets start var
-relativt vag. Gruppens uppgift var att ``ta fram `\gls{dslm}-inspirerat'
+gruppen skapat en unik produkt som är anpassad speciellt för \gls{tss}
+på programmet för Datateknik på Chalmers. Den ursprungliga
+produktspecifikationen som tilldelades vid arbetets start var relativt
+vag. Gruppens uppgift var att ``ta fram `\gls{dslm}-inspirerat'
 kompletterande material för andra närliggande kurser''. Det önskade
 implementerings\-språket var Haskell och det utvecklade materialet
 skulle läggas upp på GitHub.
@@ -795,7 +794,8 @@ kurs. Gruppen valde då kursen \gls{tss}, med motiveringen att
 
 \subsection{Produktens struktur}
 \label{sec:prodSpec}
-För att göra läromaterialet så lättillgängligt som möjligt beslutades det
+För att göra läromaterialet så lättillgängligt som möjligt beslutades
+det
 % TODO: kolla användningen av ordet "materiel" (här) jmf. med
 % "material" (som ni skriver i övrigt)
 att materialet skulle samlas på en hemsida. På detta sätt kunde man
@@ -809,12 +809,11 @@ Avsikten med indelningen var att göra materialet mer överskådligt och
 material för ett specifikt område.
 
 Varje delavsnitt innehåller förklaringar och exempel i löpande
-text. Texten skrevs på ett sådant sätt att den är lätt att
-ta till sig för målgruppen och uppmuntrar till vidare studier av
-ämnet.
+text. Texten skrevs på ett sådant sätt att den är lätt att ta till sig
+för målgruppen och uppmuntrar till vidare studier av ämnet.
 
-Delavsnitten innehåller även exempel på hur det aktuella ämnet
-kan beskrivas med funktionell programmering och \gls{dsl}, samt
+Delavsnitten innehåller även exempel på hur det aktuella ämnet kan
+beskrivas med funktionell programmering och \gls{dsl}, samt
 programmeringsövningar.
 
 \subsection{Programmeringskod och övningar}
@@ -859,36 +858,36 @@ följer:
 
 \begin{enumerate}
 \item Samla kursinformation. Hur ser situationen ut nu? Vad är
- nuvarande kursbeskrivning, kursmål, etc?
+  nuvarande kursbeskrivning, kursmål, etc?
 
-\item Samla information om studenterna. Vad har studenterna
- för relevant egenskaper i form av intressen och tidigare
- erfarenheter och förkunskaper?
+\item Samla information om studenterna. Vad har studenterna för
+  relevant egenskaper i form av intressen och tidigare erfarenheter
+  och förkunskaper?
 
 \item Analys av studenterna. Vad har studenterna för motivation och
- syn på kursen?
+  syn på kursen?
 
 \item Analys av existerande material. Finns det någon
- motivationstaktik i det nuvarande materialet och är den i så fall
- lämplig?
+  motivationstaktik i det nuvarande materialet och är den i så fall
+  lämplig?
 
 \item Lista mål och utvärderingar. Vad vill jag åstadkomma och hur
- bedömer jag om jag lyckas?
+  bedömer jag om jag lyckas?
 
 \item Lista möjliga taktiker. Vilka möjliga taktiker kan uppnå de
- satta målen?
+  satta målen?
 
 \item Välj och designa taktik. Vilken/vilka taktiker passar bäst för
- den här publiken, ämnet etc.
+  den här publiken, ämnet etc.
 
 \item Integrera med instruktion. Hur kan jag kombinera
- motivationskomponenterna med ämnesinformationen?
+  motivationskomponenterna med ämnesinformationen?
 
 \item Välj och utveckla material. Hur hittar eller skapar jag material
- för dessa mål?
+  för dessa mål?
 
 \item Utvärdera och iterera vid behov. Hur kan jag utvärdera de
- väntade och oväntade effekterna av resultatet?
+  väntade och oväntade effekterna av resultatet?
 
 \end{enumerate}
 
@@ -911,19 +910,20 @@ underhållande läsning.
 \label{sec:efterforskning}
 
 Projektgruppen inledde med litteraturstudier och efterforskningar inom
-ämnet. Projektdeltagarna läste in sig på signallära, \gls{dsl}, didaktik,
-funktionell programmering och annan relaterad forskning.
+ämnet. Projektdeltagarna läste in sig på signallära, \gls{dsl},
+didaktik, funktionell programmering och annan relaterad forskning.
 
 Under projektets tidiga fas intervjuades två personer ur
 personalstyrkan på Chalmers som undervisat och varit examinatorer i
-kurserna \gls{tss} och \gls{regler}. Se \appendixref{bil:exam_intervju}
-för en sammanfattning av denna intervju. Under intervjun redogjorde
-examinatorerna för hur de upplevde studenternas problem med kurserna
-och vad de trodde var orsaken.
+kurserna \gls{tss} och \gls{regler}. Se
+\appendixref{bil:exam_intervju} för en sammanfattning av denna
+intervju. Under intervjun redogjorde examinatorerna för hur de
+upplevde studenternas problem med kurserna och vad de trodde var
+orsaken.
 
 Projektgruppen sammanställde sedan en enkät, riktad till de studenter
-som läst kurserna \gls{tss} och \gls{regler}, eller skulle
-läsa kurserna inom ett år. Denna enkät arbetades fram utifrån böckerna
+som läst kurserna \gls{tss} och \gls{regler}, eller skulle läsa
+kurserna inom ett år. Denna enkät arbetades fram utifrån böckerna
 \textit{Enkäten i praktiken} \cite{enkaten_i_praktiken} och
 \textit{Enkätboken} \cite{enkatboken}.
 
@@ -958,8 +958,8 @@ förståelse av komplexa tal är en viktig förkunskap till \gls{tss}
 valde gruppen att inleda med repetition av detta ämne. En annan
 anledning till att inleda med komplexa tal var att detta är ett område
 datastudenter känner relativt väl till vid den tidpunkt i studierna då
-de läser \gls{tss}. Gruppen ville ge studenterna möjlighet att
-bekanta sig med det \gls{dsl}som används och hur man kan implementera
+de läser \gls{tss}. Gruppen ville ge studenterna möjlighet att bekanta
+sig med det \gls{dsl}som används och hur man kan implementera
 matematik med detta innan man började beskriva nytt material. Därför
 ansåg gruppen att det var lämpligt att inleda med ett ämne som
 datastudenterna kände sig relativt bekväma med för att de skulle kunna
@@ -976,18 +976,18 @@ enhetssteg, ser ut och beter sig.
 Det tredje avsnittet tillägnades LTI-system. I princip alla system som
 beskrivs i \gls{tss} är LTI-system. Kunskap om LTI-system och dess
 egenskaper är därför avgörande för att förstå och räkna på de system
-som tas upp i \gls{tss}. Avsnittet tar även upp faltning och hur
-detta fungerar i LTI-system.
+som tas upp i \gls{tss}. Avsnittet tar även upp faltning och hur detta
+fungerar i LTI-system.
 
 Det fjärde avsnittet tillägnades Fourierserier och
 Fouriertransform. Dessa är centrala begrepp i kursen och något som
 många datastudenter upplever som svårt. Därför valde gruppen, då det
 konstaterades att det inte fanns tid att beskriva alla transformer som
-finns med i \gls{tss}, att fokusera på Fouriertransform. En
-anledning till detta var att Fouriertransform är nära besläktad med
-såväl Laplacetransform som Z-transform och gruppen bedömde att
-förståelse för Fouriertransform sannolikt skulle bidra till förståelse
-för de andra två transformerna.
+finns med i \gls{tss}, att fokusera på Fouriertransform. En anledning
+till detta var att Fouriertransform är nära besläktad med såväl
+Laplacetransform som Z-transform och gruppen bedömde att förståelse
+för Fouriertransform sannolikt skulle bidra till förståelse för de
+andra två transformerna.
 
 Mer information om hur avsnitten utformats för att uppmuntra till
 inlärning följer i nästa avsnitt.
@@ -1035,15 +1035,14 @@ saknad kod. Vi har alltså siktat på att göra studenternas eget arbete
 omväxlande för att att de inte ska bli uttråkade och ge upp.
 
 Den andra grundpelaren, \textit{Relevance}, har vi praktiserat främst
-i inledningen av avsnitten och i
-introduktionsavsnittet. Introduktionsavsnittet förklarar att
-läromaterialet finns till för att vara ett komplement till, och hjälpa
-datastudenterna med, \gls{tss}. Varje ämnesavsnitt inleds sedan med
-en kort beskrivning av ämnet och vad det kan användas till. På detta
-sätt förklarar vi inledningsvis varför läromaterialet är relevant för
-studentens studier. Sedan förklarar vi mer i detalj vad de olika
-ämnesområdena kan användas till när studenten stöter på dem i
-materialet.
+i inledningen av avsnitten och i introduktionsavsnittet.
+Introduktionsavsnittet förklarar att läromaterialet finns till för att
+vara ett komplement till, och hjälpa datastudenterna med,
+\gls{tss}. Varje ämnesavsnitt inleds sedan med en kort beskrivning av
+ämnet och vad det kan användas till. På detta sätt förklarar vi
+inledningsvis varför läromaterialet är relevant för studentens
+studier. Sedan förklarar vi mer i detalj vad de olika ämnesområdena
+kan användas till när studenten stöter på dem i materialet.
 
 Den tredje grundpelaren, \textit{Confidence}, har vi praktiserat genom
 att skapa övningar och uppgifter av varierande svårighetsgrad och ett
@@ -1076,17 +1075,17 @@ förmåga, samt möjlighet att praktisera detta.
 Det \gls{dsl} som används i läromaterialet \textit{\gls{tssmdsl}} har
 utvecklats i Haskell av projektgruppen. Det har designats för att
 täcka de valda delarna av \gls{tss} som behandlas i läromaterialet. Se
-avsnitt \internref{sec:efterforskning} för mer information om hur dessa delar
-valts ut.
+avsnitt \internref{sec:efterforskning} för mer information om hur
+dessa delar valts ut.
 
 En av dessa delar är komplexa tal, vilket används flitigt när man
 arbetar med signaler och system. Därför implementerades också komplexa
 tal som första byggstenen i vårt \gls{dsl}. Därefter implementerades
 signaler, LTI-system och Fouriertransform.
 
-Själva utvecklingen av det \gls{dsl}som använts har skett genom att gruppen
-först utvecklat all kod som behövts för ett avsnitt. När koden sedan
-hade testats och fungerade tillfredsställande delades den upp i
+Själva utvecklingen av det \gls{dsl}som använts har skett genom att
+gruppen först utvecklat all kod som behövts för ett avsnitt. När koden
+sedan hade testats och fungerade tillfredsställande delades den upp i
 kodpaket. I dessa kodpaket har vissa funktioner tagits bort för att
 lämnas som övningar till läsarna att implementera. Resterande kod i
 paketen kan användas av studenten så att hen kan köra sin egen kod
@@ -1111,11 +1110,9 @@ fall som två flyttalsvärden.
 Ett värde för den reella delen av talet och ett för den imaginära
 delen. Det komplexa talet \(z = 1 + 1j = (1,1) \) representeras i vår
 \gls{dsl} som:
-
 \begin{minted}{haskell}
   Complex 1 1
 \end{minted}
-
 % TODO: jag skulle(;-) föredra att gör texten mer aktiv: "ska bete
 % sig", "behöver vi implementera", "kan implementeras", ...
 De implementerade komplexa talen skulle bete sig som matematikens
@@ -1157,13 +1154,13 @@ Efter att dessa operationer var färdiga så var division nästa stora
 operator att implementera. Den matematiska formeln för detta ser ut
 som följer:
 \[ z / w = (z \cdot w') / (w \cdot w') \]
-där \(w'\) är \(w\):s konjugat.
-Man förlänger alltså både täljare och nämnare med nämnarens konjugat,
-vilket innebär att nämnaren blir helt reell. För att implementera
-division var gruppen därför tvungen att först implementera en funktion
-som tar fram konjugatet av ett komplext tal. Detta innebär att man
-byter tecknet på den imaginära delen av talet. Vår funktion för det
-såg ut så här:
+där \(w'\) är \(w\):s
+konjugat. Man förlänger alltså både täljare och nämnare med nämnarens
+konjugat, vilket innebär att nämnaren blir helt reell. För att
+implementera division var gruppen därför tvungen att först
+implementera en funktion som tar fram konjugatet av ett komplext
+tal. Detta innebär att man byter tecknet på den imaginära delen av
+talet. Vår funktion för det såg ut så här:
 
 \begin{minted}{haskell}
 conjugate z = Complex (realPart z) (negate (imPart z))
@@ -1178,8 +1175,8 @@ Vår implementation av division blev då följande:
 \end{minted}
 
 En viktig förutsättning för att kunna koppla de komplexa talen till
-kursen \gls{tss} var att man först implementerade Eulers formel, som kan
-användas för att skapa komplexa tal utifrån en vinkel \(\phi\)
+kursen \gls{tss} var att man först implementerade Eulers formel, som
+kan användas för att skapa komplexa tal utifrån en vinkel \(\phi\)
 (phi). Eulers formel ser ut så här:
 \[e^{j\phi}=\cos \phi+ j \cdot \sin \phi \]
 Implementationen av den här representationen skedde i flera steg.
@@ -1214,8 +1211,8 @@ kod som bygger på signaler, var hur man skulle hantera kontinuerlig
 tid. Kursen \gls{tss} behandlar både diskreta och kontinuerliga
 signaler och det var därför önskvärt att implementera båda dessa. En
 dator kan dock under normala förhållanden inte hantera kontinuerliga
-funktioner utan endast
-diskreta. %Osäker på hur man borde uttrycka detta för att det ska vara korrekt
+funktioner utan endast diskreta.
+%Osäker på hur man borde uttrycka detta för att det ska vara korrekt
 
 Ett sätt att hantera detta är att simulera ingående data till en
 kontinuerlig funktion med diskret data, där man låter avståndet mellan
