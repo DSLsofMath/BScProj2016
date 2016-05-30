@@ -751,7 +751,7 @@ följdproblem och utgör en del av studenternas problem med
 skulle därför även kunna bidra till att ge ökad förståelse av \gls{regler}.
 
 % TODO: Det här känns som en upprepning av bakgrunden (ish).
-Kursernas examinatorer tror att studenternas svårigheter med 
+Kursernas examinatorer tror att studenternas svårigheter med
 såväl \gls{tss} som \gls{regler}
 till stor del beror på att studenterna inte är tillräckligt bekväma i
 det matematiska språket. Se \appendixref{bil:exam_intervju} för en
@@ -1017,7 +1017,7 @@ funktion, att främja intresse och förståelse för ämnet, undvikts. För att 
 väcka ett mer varaktigt intresse hos studenten ställes frågor i
 löpande text och övningar. Varje avsnitt inleds med en fråga av typen
 ``Vad är det här egentligen för något och vad används det till?''. För
-att behålla studentens intresse genom hela läromaterialet har upplägget 
+att behålla studentens intresse genom hela läromaterialet har upplägget
 på avsnitten varierats till viss del. Eftersom det är eftertraktansvärt att
 behålla en läsvänlig och överskådlig struktur i hela läromaterialet
 har materialet  främst varierats med olika typer av exempel
@@ -1035,7 +1035,7 @@ vara ett komplement till, och hjälpa datastudenterna med,
 ämnet och vad det kan användas till. På detta sätt förklaras
 först varför läromaterialet är relevant för studentens
 studier och Sedan förklaras vad de olika ämnesområdena
-kan användas til mer i detalj  efterhand som studenten stöter 
+kan användas til mer i detalj efterhand som studenten stöter
 på dem i materialet.
 
 Den tredje grundpelaren, \textit{Confidence}, har praktiserats genom
@@ -1202,7 +1202,7 @@ Den fullständiga koden kan läsas på gruppens hemsida:
 Ett av de största problemen vid implementationen av signaler, och all
 kod som bygger på signaler, var hur kontinuerlig tid skulle
 hanteras. Kursen \gls{tss} behandlar både diskreta och kontinuerliga
-signaler och det var därför önskvärt att implementera \\båda dessa. En
+signaler och det var därför önskvärt att implementera båda dessa. En
 dator kan dock under normala förhållanden inte hantera kontinuerliga
 funktioner utan endast diskreta.
 %Osäker på hur man borde uttrycka detta för att det ska vara korrekt
@@ -1210,10 +1210,10 @@ funktioner utan endast diskreta.
 Ett sätt att hantera detta är att simulera ingående data till en
 kontinuerlig funktion med diskret data, där man låter avstånden mellan
 de diskreta värden datan kan anta vara väldigt små. Ju mindre dessa
-steg är desto bättre approximation av en kontinuerlig funktion erhålles.
-Frågan som uppstår är hur lämplig en diskret approximation är för
-att främja förståelsen av signaler mm i kontinuerlig tid. Se avsnitt
-\internref{sec:diskussion} för vidare diskussion kring detta.
+steg är desto bättre approximation av en kontinuerlig funktion
+erhålles. Frågan som uppstår är hur lämplig en diskret approximation
+är för att främja förståelsen av signaler mm i kontinuerlig tid. Se
+avsnitt \internref{sec:diskussion} för vidare diskussion kring detta.
 
 Ett annat sätt att implementera kontinuerliga fall är med så kallad
 \gls{patternmatching}. Det man då gör är att implementera olika utfall
@@ -1251,9 +1251,9 @@ att läsa och det blir därmed enklare att felsöka problem i kodningen.
 
 Dessutom så använde vi oss av Bootstrap som stöd för hemsidan för att inte
 behöva lägga alltför mycket tid på utseendet då Bootstrap har CSS kod,
-som skapar själva designen av sidan. Med hjälp av denna kod så så 
-behövdes det inte läggas lika mycket tid på designen av hemsidan utan det 
-löstes för det mesta direkt. Bootstrap gör det även simpelt att göra hemsidan 
+som skapar själva designen av sidan. Med hjälp av denna kod så så
+behövdes det inte läggas lika mycket tid på designen av hemsidan utan det
+löstes för det mesta direkt. Bootstrap gör det även simpelt att göra hemsidan
 responsiv, vilket gör att hemsidan skalas om efter skärmstorleken utan att
 spendera mycket tid för att få en läsbar design. På grund av den responsiva
 hemsidan blir det möjligt att använda vilken skärm man har tillgänglig, vare
@@ -1461,12 +1461,12 @@ kunskap i didaktik var också ytterst begränsad. På grund av detta lade
 projekt\-gruppen en stor del av sin tid på nödvändig förberedande
 efterforskning. Detta lämnade mindre tid till utvecklingen av
 läromaterialet, vilket förorsakde att att projektgruppen inte hade
-tillräckligt med tid att utarbeta ett lika utförligt material som den från 
+tillräckligt med tid att utarbeta ett lika utförligt material som den från
 början avsett. På grund av detta inkluderades inte Z-transform,
 Laplacetransform eller kursen \gls{regler} i materialet, vilket var den
 ursprungliga avsikten.
 %Todo: Vi har inte upprepat, för många gånger om varför vi inte tar upp regler
-%och de andra transformerna? Har inte kollat men kommer ihåg att det tas 
+%och de andra transformerna? Har inte kollat men kommer ihåg att det tas
 %upp igen i resultatdiskussionen. Lämnas som påminnelse.
 
 Man kan ställa sig frågan om det överhuvudtaget är en bra idé att låta
@@ -1551,12 +1551,10 @@ signal med en diskret. Använder man väldigt små steg kan man få en
 relativt bra approximation på detta sätt, men det är fortfarande
 endast en approximation och därför blir resultatet inte fullständigt
 korrekt.
-% TODO: "pattern matching" = mönstermatchning (ni kanske vill ange
-% båda första gången ni använder ordet)
-En annan variant är att använda \textit{mönstermatchning}, där
-funktioner definieras exakt för ett antal givna insignaler som
-definieras var för sig. Detta ger mer korrekta svar, men ger inte
-samma möjlighet att sammanfatta
+En annan variant är att använda \gls{patternmatching}, där funktioner
+definieras exakt för ett antal givna insignaler som definieras var för
+sig. Detta ger mer korrekta svar, men ger inte samma möjlighet att
+sammanfatta
 %och abstrahera
 området som en diskret approximation eftersom man definierar olika
 fall var för sig. Detta gör det å andra sidan möjligt att definiera
