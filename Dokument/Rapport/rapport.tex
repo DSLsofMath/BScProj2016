@@ -410,10 +410,9 @@ Haskell att hantera oändliga datastrukturer utan att processen kräver
 allt virtuellt minne och terminerar.
 
 Algebraiska datatyper är typer som består av flera andra typer. Tack
-vare Haskells mönstermatchning (\textit{pattern matching}) är det lätt
-att definiera rekursiva funktioner som matchar på kontruerare i de
-algebraiska datatyperna vilket visas i exemplet i figur
-\ref{fig:hask_alg_type}.
+vare Haskells \textit{\gls{patternmatching}} är det lätt att definiera rekursiva
+funktioner som matchar på kontruerare i de algebraiska datatyperna
+vilket visas i exemplet i figur \ref{fig:hask_alg_type}.
 
 \begin{figure}[H]
   \begin{minted}{haskell}
@@ -426,7 +425,7 @@ algebraiska datatyperna vilket visas i exemplet i figur
   \caption{Figuren visar den algebraiska datatypen
     \mintinline{haskell}{Tree a} som beskriver en trädstruktur och den
     generella funktionen \mintinline{haskell}{mapTree} som använder
-    mönstermatchning för att manipulera trädstrukturen.}
+    \gls{patternmatching} för att manipulera trädstrukturen.}
   \label{fig:hask_alg_type}
 \end{figure}
 
@@ -1217,18 +1216,18 @@ att främja förståelsen av signaler mm i kontinuerlig tid. Se avsnitt
 \internref{sec:diskussion} för vidare diskussion kring detta.
 
 Ett annat sätt att implementera kontinuerliga fall är med så kallad
-\textit{mönstermatchning} (pattern matching). Det man då gör är att
-implementera olika utfall av en funktion var för sig. Funktioner som
-implementeras på detta sett ger svar som är mer matematiskt korrekta
-än en diskret approximation. Detta ger dock inte samma möjlighet att
-se mönster och att sammanfatta området i en funktion som
-med en diskret approximation.
+\gls{patternmatching}. Det man då gör är att implementera olika utfall
+av en funktion var för sig. Funktioner som implementeras på detta sett
+ger svar som är mer matematiskt korrekta än en diskret
+approximation. Detta ger dock inte samma möjlighet att se mönster och
+att sammanfatta området i en funktion som med en diskret
+approximation.
 
 Projektgruppen valde till slut en kompromiss av dessa två angreppssätt
-och använde både diskreta approximationer och
-mönstermatchning för att beskriva kontinuerliga fall. Gruppen
-har växlat mellan varianterna beroende på vilken av dem som föreföll
-ge den tydligaste förklaringen av det aktuella ämnet.
+och använde både diskreta approximationer och \gls{patternmatching}
+för att beskriva kontinuerliga fall. Gruppen har växlat mellan
+varianterna beroende på vilken av dem som föreföll ge den tydligaste
+förklaringen av det aktuella ämnet.
 
 \subsection{Presentation av läromaterialet}
 %* PDF
