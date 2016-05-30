@@ -1058,19 +1058,18 @@ förmåga, samt möjlighet att praktisera denna.
 \label{sec:implDSL}
 % Förklara hur komplexa tal och alla typer av transformer
 % implementerades i DSL.
-Det \gls{dsl} som används i läromaterialet \textit{\gls{tssmdsl}} har
+Det \gls{dsl} som används i läromaterialet \gls{tssmdsl} har
 utvecklats i Haskell av projektgruppen. Det har designats för att
-täcka de valda delarna av \gls{tss} som behandlas i läromaterialet. Se
-avsnitt \internref{sec:efterforskning} för mer information om hur
-dessa delar valts ut.
+täcka de valda delarna av \gls{tss} som behandlas i läromaterialet. 
 
-En av dessa delar är komplexa tal, vilket används flitigt när man
-arbetar med signaler och system. Därför implementerades också komplexa
-tal som första byggstenen i vårt \gls{dsl}. Därefter implementerades
+En av dessa delar är komplexa tal, vilket är ett ämnesområde som används flitigt när man
+arbetar med signaler och system. Därför implementerades komplexa
+tal som första byggstenen i läromaterialets \gls{dsl}. Därefter implementerades
 signaler, LTI-system och Fouriertransform.
 
-Själva utvecklingen av det \gls{dsl}som använts har skett genom att
-gruppen först utvecklat all kod som behövts för ett avsnitt. När koden
+Utvecklingen av det \gls{dsl} som använts har skett genom att
+all kod som behövts för ett avsnitt först utvecklats fristående från 
+det övriga lärometerialet. När koden
 sedan hade testats och fungerade tillfredsställande delades den upp i
 kodpaket. I dessa kodpaket har vissa funktioner tagits bort för att
 lämnas som övningar till läsarna att implementera. Resterande kod i
@@ -1081,7 +1080,7 @@ Samtliga funktionerna har givits så beskrivande namn som
 möjligt. Projektgruppen har även försökt åstadkomma en så lättläst
 syntax som möjligt där alla implementerade funktioner kan läsas och
 förstås av någon som behärskar grundläggande Haskell. Detta var
-viktigt då gruppen ville åstadkomma kod som kan förstås av hela
+viktigt då avsikten var att åstadkomma kod som kan förstås av hela
 målruppen och inte bara av studenter som är särskilt intresserade av
 Haskell.
 
@@ -1193,31 +1192,32 @@ Den fullständiga koden kan läsas på gruppens hemsida:
 \url{https://github.com/DSLsofMath/BScProj/tree/master/Tutorial/}
 
 Ett av de största problemen vid implementationen av signaler, och all
-kod som bygger på signaler, var hur man skulle hantera kontinuerlig
-tid. Kursen \gls{tss} behandlar både diskreta och kontinuerliga
-signaler och det var därför önskvärt att implementera båda dessa. En
+kod som bygger på signaler, var hur kontinuerlig
+tid  skulle hanteras. Kursen \gls{tss} behandlar både diskreta och kontinuerliga
+signaler och det var därför önskvärt att implementera \\båda dessa. En
 dator kan dock under normala förhållanden inte hantera kontinuerliga
 funktioner utan endast diskreta.
 %Osäker på hur man borde uttrycka detta för att det ska vara korrekt
 
 Ett sätt att hantera detta är att simulera ingående data till en
-kontinuerlig funktion med diskret data, där man låter avståndet mellan
+kontinuerlig funktion med diskret data, där man låter avstånden mellan
 de diskreta värden datan kan anta vara väldigt små. Ju mindre dessa
-steg är desto bättre approximation av en kontinuerlig funktion får
-man. Frågan som uppstår är hur lämplig en diskret approximation är för
+steg är desto bättre approximation av en kontinuerlig funktion erhålles.
+Frågan som uppstår är hur lämplig en diskret approximation är för
 att främja förståelsen av signaler mm i kontinuerlig tid. Se avsnitt
-\internref{sec:diskussion} för vidare diskussion om detta.
+\internref{sec:diskussion} för vidare diskussion kring detta.
 
 Ett annat sätt att implementera kontinuerliga fall är med så kallad
 \textit{mönstermatchning} (pattern matching). Det man då gör är att
 implementera olika utfall av en funktion var för sig. Funktioner som
 implementeras på detta sett ger svar som är mer matematiskt korrekta
 än en diskret approximation. Detta ger dock inte samma möjlighet att
-se mönster och att sammanfatta området i en funktion.
+se mönster och att sammanfatta området i en funktion som
+med en diskret approximation.
 
 Projektgruppen valde till slut en kompromiss av dessa två angreppssätt
 och använde både diskreta approximationer och
-\textit{mönstermatchning} för att beskriva kontinuerliga fall. Gruppen
+mönstermatchning för att beskriva kontinuerliga fall. Gruppen
 har växlat mellan varianterna beroende på vilken av dem som föreföll
 ge den tydligaste förklaringen av det aktuella ämnet.
 
