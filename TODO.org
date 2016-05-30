@@ -5,24 +5,8 @@
 
 * Tutorial
 ** Patriks kommentarer under genomläsning 2016-05-29:
-*** TODO index.html: "learnyouahaskell.com" borde vara en klickbar länk.
-*** TODO index.html: "kursen DSLofMath" := "kursen DSLsofMath"
-*** TODO index.html: "språk(" := "språk ("
-*** TODO index.html: "medans" := "medan"
-*** TODO index.html: "Denna tutorial, eller handledning" - i rapporten skriver ni "läromaterial"
-*** TODO index.html: "är uppdelade i" := "är uppdelad i"
-*** TODO index.html: "text editor" := "texteditor"
-*** TODO index.html: "t.ex.Sublime Text 2" := "t.ex. Sublime Text 2"
-*** TODO index.html: "hoppa in Komplexa tal!" := "hoppa in i Komplexa tal!" eller "hoppa till Komplexa tal!". Gör också "Komplexa tal" till en länk.
-*** TODO Komplex.html: "tar roten ur" := "drar roten ur"
-*** TODO Komplex.html: "vilken negativt tal" := "vilket negativt tal"
-*** TODO Komplex.html: "som det positiva" := "som i det positiva"
-*** TODO Komplex.html: "realPart(Complex" := "realPart (Complex"
-*** TODO Komplex.html: I lösningen till Övn 2: " r = realPart z" := "r  = realPart z" dvs. indenteringen måste vara samma för im och r. Jag rekommenderar också att döpa om r till re.
-*** TODO Komplex.html: Efter "Vilket blir samma sak som" kommer en snutt matematik där de (av symmetriskäl) bör finnas ett multiplikationstecken mellan z och w i vänsterledet. Jag rekommenderar också att hitta en operator som är mer centrerad vertikalt än den upphöjda asterisk ni använder i högerledet.
-*** TODO Komplex.html: Övn. 4: "kodskellet" := "kodskelett"
-*** TODO Komplex.html: Även här är indenteringen fel: hyp, r och im måste börja i samma kolumn.
-*** TODO Komplex.html: Vid "knapparna" vore det bra med en tydlig indikation om riktningen: en pil bakåt (åt vänster) nära Introduktion och tvärtom nära Signaler (som också bör vara mer framträdande - kanske genom "Fortsätt med " före).
+*** TODO Komplex.html: Efter "Vilket blir samma sak som" kommer en snutt matematik där de (av symmetriskäl) bör finnas ett multiplikationstecken mellan z och w i vänsterledet. Jag rekommenderar också att hitta en operator som är mer centrerad vertikalt än den upphöjda asterisk ni använder i högerledet. (Ett alternativ är &times;, vilket är ett x men vertikalt centrerat i alla fall. Joakim)
+
 ** Generellt
    * Dela upp kursmaterial mellan deltagarna
    * Läsa igenom ens del av kursmaterialet och anteckna oklarheter + grad av "implementerbarhet"

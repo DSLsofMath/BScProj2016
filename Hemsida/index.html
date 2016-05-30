@@ -81,9 +81,9 @@
 						<h2>Förkunskap</h2>
 						<p>Denna tutorial är skriven för att hjälpa studenter på Dataprogrammet på Chalmers med kurserna TSS och Reglerteknik och därför förutsätter vi att läsaren har de förkunskaper en Datastudent har efter andra läsåret eller motsvarande. Vi kommer därför förutsätta att du har grundläggande kunskaper inom matematisk analys, komplexa tal och annat smått och gott. </p>
 						
-						<p>För att du ska kunna förstå exemplen och göra övningarna behöver du också grundläggande kunskaper i Haskell. Om du känner att dina Haskellkunskaper är lite ringrostiga så rekommenderar vi varmt sidan learnyouahaskell.com. Den är enkel, effektiv och innehåller förvånansvärt många bilder på djur. </p>
+						<p>För att du ska kunna förstå exemplen och göra övningarna behöver du också grundläggande kunskaper i Haskell. Om du känner att dina Haskellkunskaper är lite ringrostiga så rekommenderar vi varmt sidan <a href="www.learnyouahaskell.com">learnyouahaskell.com</a>. Den är enkel, effektiv och innehåller förvånansvärt många bilder på djur. </p>
 
-						<p>Det är ett plus att ha läst kursen DSLofMath, men så länge dina Haskellkunskaper är hyfsade så ska det här nog gå bra ändå. Ni som har läst DSLofMath kan nu passa på att ge er själva en klapp på axeln och le belåtet över att ni kommer göra övningarna lite snabbare än alla andra. Om man känner att ens Haskell-kunskaper är obefintliga och man inte tänkt ändra på det, så kan man fortfarande läsa igenom vår tutorial men strunta i att göra övningarna och se ifall lite teori kanske fastnar ändå.</p>
+						<p>Det är ett plus att ha läst kursen DSLsofMath, men så länge dina Haskellkunskaper är hyfsade så ska det här nog gå bra ändå. Ni som har läst DSLofMath kan nu passa på att ge er själva en klapp på axeln och le belåtet över att ni kommer göra övningarna lite snabbare än alla andra. Om man känner att ens Haskell-kunskaper är obefintliga och man inte tänkt ändra på det, så kan man fortfarande läsa igenom vår tutorial men strunta i att göra övningarna och se ifall lite teori kanske fastnar ändå.</p>
 
 						<p>Nu till saken!</p>
 
@@ -91,13 +91,13 @@
 
 						<h2>Vad är DSL och varför ska vi använda det?</h2>
 
-						<p>DSL är en förkortning för Domain Specific Language, Domänspecifikt språk på svenska. Ett domänspecifikt språk är helt enkelt ett lite snävare programmeringsspråk som är specialanpassat för ett specifikt område, till skillnad från vanliga programmeringsspråk som t.ex. C och Java som man kan skriva alla möjliga typer av program i för att lösa alla möjliga typer av problem. Några välkända exempel på DSLer skulle exempelvis kunna vara SQL för databasrelaterade uppgifter, HTML för strukturering av data och CSS för utseende- och stilmanipulering av data, sen finns det även mindre kända språk(eller språk som mest dyker upp i vissa kretsar) som MATLAB som är till för att kunna göra olika matematiska uträkningar och VHDL som används för att beskriva hårdvara.</p>
+						<p>DSL är en förkortning för Domain Specific Language, Domänspecifikt språk på svenska. Ett domänspecifikt språk är helt enkelt ett lite snävare programmeringsspråk som är specialanpassat för ett specifikt område, till skillnad från vanliga programmeringsspråk som t.ex. C och Java som man kan skriva alla möjliga typer av program i för att lösa alla möjliga typer av problem. Några välkända exempel på DSLer skulle exempelvis kunna vara SQL för databasrelaterade uppgifter, HTML för strukturering av data och CSS för utseende- och stilmanipulering av data, sen finns det även mindre kända språk (eller språk som mest dyker upp i vissa kretsar) som MATLAB som är till för att kunna göra olika matematiska uträkningar och VHDL som används för att beskriva hårdvara.</p>
 
 						<p>Ett DSL kan man skriva från scratch eller bädda in i ett annat språk. Vi har valt att bädda in vårt språk i Haskell då det fungerar bra för att skriva DSLer som är inriktade mot matematik. Sen skadar det ju inte heller att Datateknologer faktiskt har erfarenhet av Haskell sen tidigare.</p>
 
 						<p>Varför använder vi då DSL? “Är det inte lättare att bara använda gamla hederliga programmeringsspråk så att jag slipper lära mig nya saker?”, frågar du då. Eh, nej. Att skriva något sånär korrekt matematisk notation i vanliga programmeringsspråk är i många fall omöjligt eller åtminstone riktigt besvärligt. </p>
 						
-						<p>Exempelvis skulle vi, om vi skulle komma på tanken, stöta på problem av astronomiska mått (okej kanske inte, men jobbigt hade det varit) om vi vill utföra matrismultiplikation i Haskell eller för den delen C, medans i Matlab (som man skulle kunna se som ett DSL för bland annat matrisaritmetik) är det busenkelt.</p>
+						<p>Exempelvis skulle vi, om vi skulle komma på tanken, stöta på problem av astronomiska mått (okej kanske inte, men jobbigt hade det varit) om vi vill utföra matrismultiplikation i Haskell eller för den delen C, medan i Matlab (som man skulle kunna se som ett DSL för bland annat matrisaritmetik) är det busenkelt.</p>
 
 						<p>OBS: Varning alla programmerare! Även om DSLer är nice på många sätt så bör man inte alltid använda sig av det. Ett DSL är skräddarsytt för en viss typ av problem som den löser väldigt bra men försök inte använda den till att lösa alla möjliga problem, det blir i bästa fall ineffektivt. Som Abraham Maslow sa, så är det lätt hänt att behandla allt som spik om man har en hammare. Sensmoral: Sätt inte in fönsterrutor med hammare och använd inte denna eller andra DSLer till att lösa all världens problem. </p>
 
@@ -105,7 +105,7 @@
 
 						<h2>Upplägg</h2>
 
-						<p>Denna tutorial, eller handledning om man så vill, är uppdelade i 4 stycken delavsnitt plus introduktionsavsnittet du läser nu. Varje avsnitt kommer innehålla teori och exempel inom diverse ämnen samt ett antal förståelsefrågor och programmeringsövningar. </p>
+						<p>Detta läromaterialet är uppdelat i 4 stycken delavsnitt plus introduktionsavsnittet du läser nu. Varje avsnitt kommer innehålla teori och exempel inom diverse ämnen samt ett antal förståelsefrågor och programmeringsövningar. </p>
 
 						<p>Till varje avsnitt finns det ett tillhörande kodpaket med fördefinierat material. Tanken är att du ska kunna skriva dina programmeringsövningar direkt i denna fördefinierade kod och på så sätt ha allt du behöver för att kunna köra och testa dina lösningar utan en massa onödigt kodande från din sida.</p>
 
@@ -117,14 +117,14 @@
 
 						<ol>
 							<li><a href="https://www.haskell.org/platform/">Ladda ner haskell</a>
-							<li>Fixa en vettig text editor med stöd för syntaxmarkering t.ex.<a href="http://www.sublimetext.com/2">Sublime Text 2</a></li>
+							<li>Fixa en vettig texteditor med stöd för syntaxmarkering t.ex.<a href="http://www.sublimetext.com/2">Sublime Text 2</a></li>
 							<li><a href="https://github.com/DSLsofMath/BScProj/tree/master/Tutorial/Kod/Kodpaket%20till%20studenterna">Ladda ner vår skelettkod att arbeta med</a></li>
-							<li>Nu är det bara att hoppa in Komplexa tal!</li>
+							<li>Nu är det bara att hoppa in i <a href="#Komplex.html">Komplexa tal</a>!</li>
 						</ol>
 
 						<hr>
 
-						<a href="Komplex.html" role="button" class="btn btn-primary pull-right">Komplexa tal</a>
+						<a href="Komplex.html" role="button" class="btn btn-primary pull-right">Komplexa tal<span class="glyphicon glyphicon-arrow-right"></span></a>
 
 					</div><!--end well-->
 				</div><!--end col-12-->
