@@ -2,9 +2,9 @@
 
 \input{include/settings/Settings.tex}
 
-\makeglossaries
-
 \loadglsentries{include/ordlista.tex}
+
+\makeglossaries
 
 \date{\today}
 
@@ -192,6 +192,7 @@ Vi inleder med att gå igenom bakgrunden till projektet och hur det
 uppstod, samt beskriva projektets mål och rapportens syfte.
 
 \subsection{Bakgrund}
+\label{sec:bakgrund}
 % Huvudpoänger:
 % * Problem med kurserna på data
 % * Var kommer vårt projekt ifrån? Spinoff till DSLsofMathprojektet.
@@ -274,15 +275,18 @@ på den datatekniska utbildningen på Chalmers tekniska högskola.
 \newpage
 
 \section{Avgränsningar}
+\label{sec:avgrans}
 % Huvudpoänger:
 % * Vad behandlar vi inte i rapporten och varför?
 % * Vad tas inte med i vårt projekt och varför?
 % Illustrationer: Borde inte behövas
 På grund av att projektet är tidsbegränsat har projektet avgränsats
 till att ta fram läromaterial till endast en kurs,
-\gls{tss}. Läromaterialet som tagits fram är ett kompletterande
+\gls{tss}. Något material till kursen \gls{regler} har inte tagist fram,
+annat än indirekt i form av förkunskaper. Läromaterialet som tagits
+fram är ett kompletterande
 material och är inte tänkt att kunna ersätta kursen eller dess
-material.
+material. 
 
 % TODO: kolla upp avstavningarna - kanske någon LaTeX-inställning är
 % fel? Det borde inte bli "matem-atisk", "tex-tens", etc.
@@ -723,9 +727,9 @@ med~\cite{kursplan:dslsofmath}.
 % * Ev. hänvisa kort till relaterad forskning
 
 %Illustrationer: Statisktik från kurserna, pajdiagram
-Som nämndes i bakgrunden är problemet i projektet att datastudenterna
-på Chalmers har svårt för två av sina kurser, \gls{tss} och
-\gls{regler}.
+Som nämndes i \internref{sec:bakgrund} är det bakomliggande
+problemet till detta projekt att datastudenterna
+på Chalmers har svårt för kurserna \gls{tss} och \gls{regler}.
 
 Statistiken från Chalmers visar tydligt att kurserna \gls{tss} och
 \gls{regler} har en ovanligt hög andel studenter som blir underkända
@@ -744,10 +748,12 @@ matematik studenterna läser under sitt första år. \gls{regler} kräver
 även förkunskaper från \gls{tss}. Det kan därför anses vara ett
 rimligt antagande att bristande kunskaper i \gls{tss} orsakar
 följdproblem och utgör en del av studenternas problem med
-\gls{regler}.
+\gls{regler}. Ett läromaterial som ger ökad förståelse av \gls{tss}
+skulle därför även kunna bidra till att ge ökad förståelse av \gls{regler}.
 
 % TODO: Det här känns som en upprepning av bakgrunden (ish).
-Kursernas examinatorer tror att studenternas svårigheter med kurserna
+Kursernas examinatorer tror att studenternas svårigheter med 
+såväl \gls{tss} som \gls{regler}
 till stor del beror på att studenterna inte är tillräckligt bekväma i
 det matematiska språket. Se \appendixref{bil:exam_intervju} för en
 sammanfattning av hela intervjun. Examinatorerna tror att studenterna
