@@ -1062,21 +1062,21 @@ förmåga, samt möjlighet att praktisera detta.
 % implementerades i DSL.
 Det \gls{dsl} som används i läromaterialet \gls{tssmdsl} har
 utvecklats i Haskell av projektgruppen. Det har designats för att
-täcka de valda delarna av \gls{tss} som behandlas i läromaterialet. 
+täcka de valda delarna av \gls{tss} som behandlas i läromaterialet.
 
-En av dessa delar är komplexa tal, vilket är ett ämnesområde som används flitigt när man
-arbetar med signaler och system. Därför implementerades komplexa
-tal som första byggstenen i läromaterialets \gls{dsl}. Därefter implementerades
-signaler, LTI-system och Fouriertransform.
+En av dessa delar är komplexa tal, vilket är ett ämnesområde som
+används flitigt när man arbetar med signaler och system. Därför
+implementerades komplexa tal som första byggstenen i läromaterialets
+\gls{dsl}. Därefter implementerades signaler, LTI-system och
+Fouriertransform.
 
-Utvecklingen av det \gls{dsl} som använts har skett genom att
-all kod som behövts för ett avsnitt först utvecklats fristående från 
-det övriga lärometerialet. När koden
-sedan hade testats och fungerade tillfredsställande delades den upp i
-kodpaket. I dessa kodpaket har vissa funktioner tagits bort för att
-lämnas som övningar till läsarna att implementera. Resterande kod i
-paketen kan användas av studenten så att hen kan köra sin egen kod
-direkt och testa sina lösningar.
+Utvecklingen av det \gls{dsl} som använts har skett genom att all kod
+som behövts för ett avsnitt först utvecklats fristående från det
+övriga lärometerialet. När koden sedan hade testats och fungerade
+tillfredsställande delades den upp i kodpaket. I dessa kodpaket har
+vissa funktioner tagits bort för att lämnas som övningar till läsarna
+att implementera. Resterande kod i paketen kan användas av studenten
+så att hen kan köra sin egen kod direkt och testa sina lösningar.
 
 Samtliga funktionerna har givits så beskrivande namn som
 möjligt. Projektgruppen har även försökt åstadkomma en så lättläst
@@ -1194,8 +1194,8 @@ Den fullständiga koden kan läsas på gruppens hemsida:
 \url{https://github.com/DSLsofMath/BScProj/tree/master/Tutorial/}
 
 Ett av de största problemen vid implementationen av signaler, och all
-kod som bygger på signaler, var hur kontinuerlig
-tid  skulle hanteras. Kursen \gls{tss} behandlar både diskreta och kontinuerliga
+kod som bygger på signaler, var hur kontinuerlig tid skulle
+hanteras. Kursen \gls{tss} behandlar både diskreta och kontinuerliga
 signaler och det var därför önskvärt att implementera \\båda dessa. En
 dator kan dock under normala förhållanden inte hantera kontinuerliga
 funktioner utan endast diskreta.
