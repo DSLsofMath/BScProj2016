@@ -3,6 +3,12 @@ module FourierTransform where
 import Expression
 import ComplexNumbers
 
+-- TODO:
+-- * fourier :: TimeExpression -> FreqExpression
+-- * invFourier :: FreqExpression -> TimeExpression
+-- * prop_fourierIdentity x = x == (invFourier . fourier) x
+
+
 -- | Fourier transforms an Expression
 transform :: Expression Complex -> Expression Complex
 transform (Const a)   = Const a :*: Impulse
