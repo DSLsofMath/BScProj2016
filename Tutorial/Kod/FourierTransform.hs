@@ -3,32 +3,40 @@ module FourierTransform where
 import Expression
 import ComplexNumbers
 
+-- För att göra transformationerna tydligare
+type TimeExpression = Expression Complex
+type FreqExpression = Expression Complex
+
 -- TODO:
 -- * fourier :: TimeExpression -> FreqExpression
 -- * invFourier :: FreqExpression -> TimeExpression
 -- * prop_fourierIdentity x = x == (invFourier . fourier) x
 
-
--- | Fourier transforms an Expression
-transform :: Expression Complex -> Expression Complex
-transform (Const a)   = Const a :*: Impulse
-transform Pi          = Pi :*: Impulse
-transform Id          = Id
-transform Impulse     = 1
-transform (e0 :+: e1) = transform e0 + transform e1
-transform (e0 :-: e1) = transform e0 - transform e1
--- TODO: x :-: y == x :+: (negate y) which means transform (x :-: y) == transform x :-: transform y
--- TODO: To exppress time shift you need another operation on Expressions. Is that what Shift is for?
--- | Time shift property
-transform (Id :-: Const a) = Exp (Const (-j) :*: Const a :*: Id)
--- | Frequency shift property
-transform (Exp (Const j :*: Const omega :*: Id) :*: exp) = Shift omega (transform exp)
--- | Convolution theorem
-transform (Conv e0 e1) = transform e0 :*: transform e1
-transform (Exp (Const a :*: Id)) = Const 1 :/: (Const a :-: (Const j :*: Id))
-transform (Const e0 :*: e1) = Const e0 * transform e1
-transform (e0 :*: Const e1) = Const e1 * transform e0
-transform (e0 :*: e1) = Conv (transform e0) (transform e1)
-transform exp         = error ("transform: The transform (" ++ show exp ++ ") is not yet implemented.")
+-- | Fouriertransform, transformerar ett uttryck från tidsdomän
+--   till frekvensdomän
+fourier :: TimeExpression -> FreqExpression
+fourier Impulse                = 1
+fourier (Const a)              = Const a * Impulse
+fourier (Const a :*: Const b)  = Const (a*b) * Impulse
+fourier Pi                     = Pi * Impulse
+fourier Id                     = Id
+fourier (Exp (Const a :*: Id)) = Const 1 :/: (Const a :-: (Const j :*: Id))
+-- Tidsförskjutning
+fourier (Shift t expr) = Exp (Const j * (Const (-t)) * Id) * fourier expr
+-- Frekvensförskjutning
+fourier (Exp (Const j :*: Const omega :*: Id) :*: expr) =
+  Shift omega (fourier expr)
+fourier (expr :*: Exp (Const j :*: Const omega :*: Id)) =
+  Shift omega (fourier expr)
+-- Linjäritet
+fourier (Const a :*: e0) = Const a * fourier e0
+fourier (e0 :*: Const a) = fourier e0 * Const a
+fourier (e0 :+: e1) = fourier e0 + fourier e1
+fourier (e0 :-: e1) = fourier e0 - fourier e1
+-- Faltning (Convolution theorem)
+fourier (e0 :*: e1) = Conv (fourier e0) (fourier e1)
+fourier (Conv e0 e1) = fourier e0 * fourier e1
+-- För odefinierade transformer
+fourier exp = error ("fourier: Fouriertransformen för uttrycket (" ++ show exp ++ ") är ännu inte implementerad")
 
 -- TODO: please add some property to enable checking these rules.
