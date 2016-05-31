@@ -51,23 +51,25 @@ Med andra ord, en massa olika system vilket även innefattar LTI-system!
 
 Då ska vi börja med fourierserier!
 
-För att vi ska introducera fourierserier, så får du föreställa dig en
-trivial signal $sin(\omega_0 t)$.
-Om vi skriver om sinus med hjälp av Eulers formel får vi följande utseende:
+Vi börjar med ett exempel för att få ett hum om hur fourierserier fungerar.
+ Säg att vi har en relativt enkel signal, $sin(\omega_0 t)$.
+Om vi skriver om den här signalen med hjälp av Eulers formel får vi följande utseende:
 
 \begin{displaymath}
   sin(\omega_0 t) = \frac{e^{j \omega_0 t}  - e^{-j \omega_0 t}}{2i}
 \end{displaymath}
 
-Detta är egentligen en form av en fourierserie.
-För att förklara detta i mer detalj så tar vi upp ett exempel.
+Detta är en form av en fourierserie.
+För att få lite intuition om vad det här egentligen är för något så
+använder vi en liknelse med smothies. Allt blir bättre med smothies.
 
-Föreställ dig nu den bästa smoothien du någonsin har druckit och så fort den är
-slut då måste du ha en till! Men så känner du att du skulle vilja ha samma
-smoothie som du dricker fast med choklad i istället för jordgubb.
-Då kan du antingen fråga om en ny smoothie från han som sitter i kassan,
+Föreställ dig nu den bästa smoothien du någonsin har druckit. Så fort den är
+slut så måste du ha en till! Men så känner du att du skulle vilja ha samma
+smoothie som du nyss drack fast med choklad i istället för jordgubb.
+Då kan du antingen fråga om en ny smoothie från snubben som sitter i kassan,
 eller så bryter du ner smoothien i dess ingredienser, tar bort all jordgubb
-och tillsätter choklad istället. Det andra alternativet låter väl ändå roligare?
+och tillsätter choklad istället. Självklart väljer man då det andra alternativet,
+eftersom snubben i kassan instisterar på han ska få betalt.
 Då representerar vi smoothien med ett system med insignalen:
 
 \begin{displaymath}
@@ -251,7 +253,7 @@ Där integranden som tur konvergerar. Integralen till en exponentialekvation är
   \int_{0}^{N} e^{-t(j \omega + 2)} = 
   [\frac{e^{-t(\omega + 2)}}{-(j \omega + 2)}]_{0}^N 
   = \frac{e^{-N (\omega + 2)}}{-(j \omega + 2)} + \frac{1}{(j \omega + 2)}
-  \underset{\rightarrow}{N \to \infty} \frac{1}{(j \omega + 2) 
+  \underset{\rightarrow}{N \to \infty} \frac{1}{(j \omega + 2)}
 \end{displaymath}
 Eftersom \( \frac{e^{-N (\omega + 2)}}{-(j \omega + 2)} \to 0 \) då N går mot oändligheten. Slut på exempel!
 %------------------------------Slut på exempel--------------------
