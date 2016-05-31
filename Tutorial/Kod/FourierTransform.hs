@@ -39,4 +39,32 @@ fourier (Conv e0 e1) = fourier e0 * fourier e1
 -- För odefinierade transformer
 fourier exp = error ("fourier: Fouriertransformen för uttrycket (" ++ show exp ++ ") är ännu inte implementerad")
 
+-- | Invers fouriertransform, transformerar ett funktionsuttryck från
+--   frekvensdomän till tidsdomän.
+invFourier :: FreqExpression -> TimeExpression
+invFourier Impulse   = 1
+invFourier (Const a) = Const a * Impulse
+invFourier (Const a :*: Const b) = Const (a*b) * Impulse
+invFourier Pi        = Pi * Impulse
+invFourier Id        = Id
+invFourier (Const 1 :/: (Const a :-: (Const j :*: Id))) = Exp (Const a :*: Id)
+-- Tidsförskjutning
+invFourier (Exp (Const j :*: Id :*: Const t0) :*: expr) =
+  Shift (- t0) (invFourier expr)
+invFourier (expr :*: Exp (Const j :*: Id :*: Const t0)) =
+  Shift (- t0) (invFourier expr)
+-- Frekvensförskjutning
+invFourier (Shift omega0 expr) =
+  invFourier expr * Exp (Const j * Const omega0 * Id)
+-- Linjäritet
+invFourier (Const a :*: e0) = Const a * invFourier e0
+invFourier (e0 :*: Const a) = invFourier e0 * Const a
+
+invFourier (e0 :+: e1) = invFourier e0 + invFourier e1
+invFourier (e0 :-: e1) = invFourier e0 - invFourier e1
+-- Faltning (Convolution theorem)
+invFourier (e0 :*: e1) = Conv (invFourier e0) (invFourier e1)
+invFourier (Conv e0 e1) = invFourier e0 * invFourier e1
+-- För odefinierade transformer
+invFourier exp = error ("invFourier: Inversa fouriertransformen för uttrycket (" ++ show exp ++ ") är ännu inte implementerad")
 -- TODO: please add some property to enable checking these rules.
