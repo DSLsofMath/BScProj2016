@@ -127,3 +127,31 @@ traverseExpE e (e0 :+: e1) = (e e0) :+: (e e1)
 traverseExpE e (e0 :-: e1) = (e e0) :-: (e e1)
 traverseExpE e (e0 :/: e1) = (e e0) :/: (e e1)
 traverseExpE e exp         = e exp
+
+-- | Minimerar en Expression datatyp tills två minimeringar returernar
+-- samma värde
+minE :: (Num a, Eq a) => Expression a -> Expression a
+minE e
+     | e == e' = e
+     | otherwise = minE e'
+     where e' = minE' e
+
+-- | Minimerar en Expression-datatyp genom att ta bort onödiga termer.
+minE' :: (Num a, Eq a) => Expression a -> Expression a
+minE' (e :*: Const 1) = minE' e
+minE' (Const 1 :*: e) = minE' e
+minE' (e0 :*: e1) = minE' e0 :*: minE' e1
+minE' (e :/: Const 1) = minE' e
+minE' (Const 1 :/: e) = minE' e
+minE' (e0 :/: e1) = minE' e0 :/: minE' e1
+
+minE' (e :+: Const 0) = minE' e
+minE' (Const 0 :+: e) = minE' e
+minE' (e0 :+: e1) = minE' e0 :+: minE' e1
+minE' (e :-: Const 0) = minE' e
+minE' (Const 0 :-: e) = minE' e
+minE' (e0 :-: e1) = minE' e0 :-: minE' e1
+
+minE' (Shift 0 e) = minE' e
+minE' (Exp (Const 0)) = Const 1
+minE' expr = expr
