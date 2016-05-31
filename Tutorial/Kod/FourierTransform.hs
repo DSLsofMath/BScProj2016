@@ -37,7 +37,8 @@ fourier (e0 :-: e1) = fourier e0 - fourier e1
 fourier (e0 :*: e1) = Conv (fourier e0) (fourier e1)
 fourier (Conv e0 e1) = fourier e0 * fourier e1
 -- För odefinierade transformer
-fourier exp = error ("fourier: Fouriertransformen för uttrycket (" ++ show exp ++ ") är ännu inte implementerad")
+fourier exp = error ("fourier: Fouriertransformen för uttrycket (" ++
+                     show exp ++ ") är ännu inte implementerad")
 
 -- | Invers fouriertransform, transformerar ett funktionsuttryck från
 --   frekvensdomän till tidsdomän.
@@ -67,4 +68,7 @@ invFourier (e0 :*: e1) = Conv (invFourier e0) (invFourier e1)
 invFourier (Conv e0 e1) = invFourier e0 * invFourier e1
 -- För odefinierade transformer
 invFourier exp = error ("invFourier: Inversa fouriertransformen för uttrycket (" ++ show exp ++ ") är ännu inte implementerad")
+
 -- TODO: please add some property to enable checking these rules.
+prop_fourierIdentity exp = exp == fId exp
+  where fId = invFourier . fourier
