@@ -4,9 +4,6 @@
    Om vi hittar något felaktigt rättar vi felet och skickar en pull-request.
 
 * Tutorial
-** Patriks kommentarer under genomläsning 2016-05-29:
-*** TODO Komplex.html: Efter "Vilket blir samma sak som" kommer en snutt matematik där de (av symmetriskäl) bör finnas ett multiplikationstecken mellan z och w i vänsterledet. Jag rekommenderar också att hitta en operator som är mer centrerad vertikalt än den upphöjda asterisk ni använder i högerledet. (Ett alternativ är &times;, vilket är ett x men vertikalt centrerat i alla fall. Joakim)
-
 ** Patriks kommentarer under genomläsning 2016-05-30:
 *** TODO Signaler.html: "Fourier serie" := "Fourierserie"
 *** TODO Signaler.html: Efter figure 11: "else" := "otherwise"
