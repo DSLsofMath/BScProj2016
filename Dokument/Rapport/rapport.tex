@@ -2,10 +2,6 @@
 
 \input{include/settings/Settings.tex}
 
-\loadglsentries{include/ordlista.tex}
-
-\makeglossaries
-
 \date{\today}
 
 \begin{document}
@@ -1576,8 +1572,8 @@ kursen \gls{tss}.
 
 \newpage
 
-\bibliographystyle{IEEEtran}
-\bibliography{include/referenser}
+\setlength{\bibitemsep}{3mm}
+\printbibliography
 
 \newpage
 

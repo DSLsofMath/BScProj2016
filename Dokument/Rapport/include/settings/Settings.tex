@@ -24,8 +24,17 @@
 \usepackage{csquotes}
 \usepackage{tocloft}
 \usepackage{hyperref}
-\usepackage[acronym,nonumberlist,nogroupskip]{glossaries}
 \usepackage{pdfpages}
+
+% Använda biblatex med ieee-stil
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{include/referenser.bib}
+
+% Använd glossaries och lägg tikl ordlistan
+\usepackage[acronym,nonumberlist,nogroupskip]{glossaries}
+\loadglsentries{include/ordlista.tex}
+\makeglossaries
+
 
 % OPTIONAL SETTINGS (DELETE OR COMMENT TO SUPRESS)
 
