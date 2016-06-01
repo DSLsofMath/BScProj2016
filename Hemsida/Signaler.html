@@ -221,7 +221,7 @@ contHasPeriod signal step period <span class="fu">=</span>
 						<img src="images/Signaler/image11.png" class="figure" alt="" />
 						<p class="text-center"><span data-label=""><strong>Figure 7</strong></span></p>
 						</div>
-						<p>Vad har man då för nytta av att kunna avgöra om en signal är periodisk? Jo, en periodisk signal kan utvecklas till en Fourier serie. Mer om detta i avsnitt 3.</p>
+						<p>Vad har man då för nytta av att kunna avgöra om en signal är periodisk? Jo, en periodisk signal kan utvecklas till en Fourierserie. Mer om detta i avsnitt 3.</p>
 
 
 						<hr>
@@ -398,15 +398,15 @@ contIsEven signal step limit <span class="fu">=</span> and <span class="fu">$</s
 						<img src="images/Signaler/delta.png" class="figure" />
 						<p class="text-center"><strong>Figure 11</strong></p>
 						</div>
-						<p>En enhetsimpuls kallas också för en dirac delta funktion och är i det diskreta fallet definierad som: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>=</mo><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>e</mi><mi>l</mi><mi>s</mi><mi>e</mi></mtd></mtr></mtable></mrow><mo>,</mo><mi>n</mi><mo>∈</mo><mstyle mathvariant="double-struck"><mi>ℤ</mi></mstyle></mrow><annotation encoding="application/x-tex">\delta[n]=
+						<p>En enhetsimpuls kallas också för en dirac delta funktion och är i det diskreta fallet definierad som: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo stretchy="false" form="prefix">[</mo><mi>n</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>=</mo><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>otherwise</mi></mtd></mtr></mtable></mrow><mo>,</mo><mi>n</mi><mo>∈</mo><mstyle mathvariant="double-struck"><mi>ℤ</mi></mstyle></mrow><annotation encoding="application/x-tex">\delta[n]=
 						\begin{cases}
 						    1,\quad n = 0 \\
-						    0, \quad else
+						    0, \quad otherwise
 						\end{cases}, n \in \mathbb{Z}</annotation></semantics></math> Och i det kontinuerliga fallet är den definerad som:</p>
 						<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>∞</mi></mrow><mi>∞</mi></msubsup><mi>δ</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>t</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\int_{-\infty}^{\infty} \delta(t) dt = 1</annotation></semantics></math> där <span class="math display">$$\delta(t)=
 						\begin{cases}
 						&quot;\infty&quot;,\quad t = 0 \\
-						0, \quad else
+						0, \quad otherwise
 						\end{cases}, t\in \mathbb{R}$$</span> 
 						<p>Det vill säga, den är oändligt hög och oändligt smal då argumentet, t.ex. t, är 0 och annars tar den värdet 0. </p>
 						<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mo>−</mo><mi>∞</mi></mrow><mi>∞</mi></msubsup><mi>δ</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>t</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\int_{-\infty}^{\infty} \delta(t-\tau) f(t) dt = f(\tau)</annotation></semantics></math></p>
@@ -438,7 +438,7 @@ discImpulse n <span class="fu">|</span> n <span class="fu">==</span> <span class
 						<img src="images/Signaler/heavy.png" class="figure" />
 						<p class="text-center"><strong>Figure 12</strong></p>
 						</div>
-						<p>En enhetstegsfunktion kallas även för en heavyside function och är i det diskreta fallet definierad som: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo stretchy="false" form="prefix">[</mo><mi>t</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>&lt;</mo><mn>0</mn></mtd></mtr><mtr><mtd><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>≥</mo><mn>0</mn></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">u[t] =
+						<p>En enhetsstegsfunktion kallas även för en heavyside function och är i det diskreta fallet definierad som: <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo stretchy="false" form="prefix">[</mo><mi>t</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>&lt;</mo><mn>0</mn></mtd></mtr><mtr><mtd><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>≥</mo><mn>0</mn></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">u[t] =
 						\begin{cases}
 						0, \quad n &lt; 0 \\
 						1, \quad n \geq 0
