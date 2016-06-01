@@ -12,7 +12,8 @@ report:
 	latexmk $(LATEXOPTS) -pdf $(FILE).tex
 
 cleanup:
-	rm *.{acn,aux,bbl,blg,fdb_latexmk,fls,glg,glo,gls,ist,log,out,toc}
+	latexmk -c
+	rm *.dvi *.ps
 
 clean: cleanup
 	rm *.pdf
