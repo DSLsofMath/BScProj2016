@@ -1063,9 +1063,9 @@ enligt nedanstående kod:
 exp z = scale (exp (realPart z)) (euler (imPart z))
 \end{minted}
 Sedan implementerades även trigonometriska funktioner med hjälp av
-Eulers formel. $Sin(x)$ representeras enligt följande som ett komplext
+Eulers formel. \(\sin(x)\) representeras enligt följande som ett komplext
 tal:
-\[ sin(x) = (e^{j x} - e^{-j x}) / 2 j \]
+\[ \sin(x) = (e^{j x} - e^{-j x}) / 2 j \]
 Vilket ser ut så här i vårt \gls{dsl}:
 \begin{minted}{haskell}
 sin z = (exp (j*z) - exp (-(j*z))) / (scale 2 j)
