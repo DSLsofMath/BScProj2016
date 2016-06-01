@@ -21,48 +21,15 @@
 % Generellt i rapporten
 % ------------------------
 % * Ta bort onödiga `vi`.
-% * Ta bort Reglerteknik ifrån texterna, det är inte vårt fokus.
 % * Mer akademiskt, mindre talspråk, exempelvis inte skriva gruppen 80 ggr.
-% * Datateknik bör skrivas på samma sätt och nämnas mer sällan.
-%     Referera till det som utbildningen eller liknande.
-% * (Ev. korta stycken i början, vilket kan ge sämre flyt i texten.)
-% * Konsekventifiera referering till böcker och författare.
-% * (Ev. för många interna referenser.)
-% * Inkonsekvent intern referering. Ibland bara avsnitt nummer,
-%     ibland namn + avsnittsnummer.
-%
-% Produktspecifikation
-% ------------------------
-% * Tempus skiftar lite (produktspec).
-%
-% Teknisk Bakgrund
-% ------------------------
-% * Banta ner avsnittet om versionshantering.
-% * Första meningen i Transformer, Signaler och System är krånglig.
-% * Inledningen till `Relaterad forskning` är redundant, omformulera?
 %
 % Utveckling av läromaterial
 % -------------------------
-% * Många (kanske onödiga) avsnittsreferenser i.
-% * Pattern matching förklaras inte tidigare
-%     (kanske bör skrivas i Teknisk Bakgrund).
 % * Förklara mer om varför vi använder Bootstrap.
-% * Lägga till att det finns fler modeller vid sidan av ARCS och
-%     varför vi valde ARCS.
-%
-% Resultat
-% -------------------------
-% * Inkorporera ett (litet) utdrag ifrån läromaterialet.
 %
 % Diskussion
 % -------------------------
 % * Tänk igenom hur produkten ändrades utifrån test-feedbacken.
-% * Nämna varför vi inte tog upp Reglerteknik och föreslå som
-%     framtida utveckling. -Detta är klar tror jag?
-%
-% Slutsatser
-% -------------------------
-% * (Vidare utveckling / Forskning?)
 %
 % Referenser
 % -------------------------
@@ -91,14 +58,6 @@ produkt.
 \thispagestyle{plain}
 
 \section*{Sammandrag}
-  %Ett Sammandrag
-%Subject to Change!--------------------------------------------
-% Huvudpoänger:
-% * Vad handlar rapporten om?
-%     Vad är det för projekt vi beskriver utvecklingen av?
-%     (Läsare ska här kunna bedöma om rapporten är intressant att läsa för dem)
-% * Jättekort om syfte, resultat etc
-% Illustration: Borde inte behövas
 Denna rapport beskriver utvecklingen av läromaterialet ``\gls{tssmdsl}''
 med dess tillhörande programmeringskod och lösningar. Läromaterialet
 riktar sig främst till studenter inom det datatekniska programmet på
@@ -185,14 +144,6 @@ uppstod, samt projektets mål och rapportens syfte.
 
 \subsection{Bakgrund}
 \label{sec:bakgrund}
-% Huvudpoänger:
-% * Problem med kurserna på data
-% * Var kommer vårt projekt ifrån? Spinoff till DSLsofMathprojektet.
-% * Ev. ta upp i korthet att detta är en del av ett större problem.
-%     Hänvisa till TFPIE-artikelns källor.
-%
-% Illustrationer: Borde inte behövas
-
 Det finns flera studier som visar på att det matematiska språket
 används på ett för otydligt sätt i undervisningssammanhang och att man
 antar att studenterna är betydligt mer vana vid och bevandrade i
@@ -236,12 +187,6 @@ Detta kandidatprojekt uppstod som en avgrening ur
 specifika kurser snarare än en allmän matematisk grund.
 
 \subsection{Rapportens syfte}
-
-% Huvudpoänger:
-% *Vad vill vi säga med rapporten? Vad vill vi visa på?
-% *Vad har vi försökt göra i korthet?
-
-% Illustration:
 Syftet med denna rapport är att beskriva utvecklingen av
 läromaterialet ``\gls{tssmdsl}'', som är ett kompletterande
 läromaterial till kursen \gls{tss} för studenter på datatekniska
@@ -249,8 +194,6 @@ programmet på Chalmers, samt beskriva hur det bakomliggande problemet
 kan kopplas till en mer generell problematik.
 
 \subsection{Projektets mål}
-% Huvudpoänger:
-% *Beskriv projektets syfte och mål, vad ska vi åstadkomma för produkt?
 Syftet med projektet är att underlätta för studenter inom Datateknik
 att ta till sig signal- och systemteoretiska ämnen genom att utnyttja
 studenternas kunskaper inom programmering och även underlätta för dem
@@ -268,10 +211,6 @@ på den datatekniska utbildningen på Chalmers tekniska högskola.
 
 \section{Avgränsningar}
 \label{sec:avgrans}
-% Huvudpoänger:
-% * Vad behandlar vi inte i rapporten och varför?
-% * Vad tas inte med i vårt projekt och varför?
-% Illustrationer: Borde inte behövas
 På grund av att projektet är tidsbegränsat har projektet avgränsats
 till att ta fram läromaterial till endast en kurs,
 \gls{tss}. Något material till kursen \gls{regler} har inte tagits fram,
@@ -306,12 +245,8 @@ material som främjar förståelse och inte fastna i detaljer.
 \newpage
 
 \section{Teknisk bakgrund}
-%I detta kapitel beskriver vi kortfattat de områden och programvara som
 Detta kapitel beskriver kortfattat de områden och programvara som
 behövs för att bygga upp läromaterialet.
-
-% Huvudpoänger:
-% * Ta upp och introducera tekniken vi bygger vår tutorial på.
 
 \subsection{Git och GitHub}
 \gls{Git} är ett versionshanteringsprogram som gör det möjligt för
@@ -345,11 +280,8 @@ utvecklare vilket underlättar vid framtida vidareutveckling av kod.
 
 För ytterligare information om GitHub se hemsidan
 \url{https://github.com}.
-% TODO: kanske bra ställe att också länka till ert eget projekt på
-% github som exempel.
 
 \subsection{Funktionell programmering}
-% -Referera till “Why functional programming matters”
 Funktionell programmering är en programmeringsparadigm där de
 huvudsakliga byggstenarna är funktioner. Som Hughes nämner i sin
 välciterade \textit{Why Functional Programming Matters}
@@ -431,7 +363,6 @@ Haskell lämpar sig bra som värdspråk för inbäddade domänspecifika
 språk.
 
 \subsection{Domänspecifika språk}
-% Allmänt om DSL
 Ett \gls{dsl} är ett programmeringsspråk som till skillnad från
 generella programmeringsspråk är anpassat för en specifik domän. Att
 skapa domän\-specifika språk är ingenting nytt, det finns tvärtom
@@ -482,13 +413,11 @@ tolkning fixerad. För att lägga till nya sätt att tolka ett ytligt
 \gls{edsl} måste det implementeras om på nytt.
 
 \subsection{Transformer, signaler och system}
-% TODO: Kolla på detta, jag har skrivit om lite här.
 Inom ämnet signalbehandling beskriver kursen \gls{tss} olika typer av
 signaler, hur signalerna relateras till ett system och hur man kan
 modellera denna relation mellan signaler och systemet i matematiska
 termer. Ett system kan till exempel vara en fjäder vars insignal är en
 kraft som påverkar fjädern utifrån.
-%Ett exempel till ett system är en fjäder vars insignal är en kraft som påverkar den utifrån.
 
 I kursen, och så även i detta projekt, begränsas signalen till enbart
 en oberoende variabel som beskriver tid och de system som som
@@ -498,14 +427,9 @@ utveckla signalen i en Fourierserie eller använda sig av olika typer
 av transformer. En av de transformer som tas upp i kursen är
 Fouriertransform som gör det möjligt att byta perspektiv och betrakta
 signalen i frekvensdomän istället för tidsdomän.
-%
-% \textit{Fouriertransform} är en transform i diskret eller kontinuerlig
-% tid som transformerar en funktion från tidsdomänen till
-% frekvensdomänen. \textit{Fouriertransform} i kontinuerlig tid är
-%
+
 Fouriertransform i kontinuerlig tid är definierad enligt följande:
 \[\mathcal{F}[\;f\;]~\omega = \int_{-\infty}^{\infty} f(t) e^{-j \omega t} dt\]
-% Slut på omskrivning
 
 Området transformer, signaler och system innehåller även andra begrepp
 och operatorer som komplexa tal, faltning, sampling med flera. Alla
@@ -525,9 +449,8 @@ läromaterial som kan fungera som ett komplement till kursen \gls{tss}
 och väcka intresse för ämnet. Därför är didaktik en viktig del av
 projektet.
 
-%Todo: Undvik radbyte här. " " := "~". Syftar på "I Didaktik för ingenjörslärare." 
 En stor del av didaktik handlar om hur man kan påverka studentens
-motivation. \\I \textit{Didaktik för ingenjörslärare} sammanfattas
+motivation.\\I \textit{Didaktik för ingenjörslärare} sammanfattas
 motivationens betydelse enligt följande: ``Varje kurs behöver
 motiveras för studenterna. Med motiverade studenter blir resultatet
 bättre.''.  Boken hävdar även att långt ifrån alla studenter som går
@@ -643,7 +566,6 @@ Hur dessa didaktiska modeller och metoder har använts i läromaterialet
 
 \subsection{Relaterad forskning}
 \label{sec:relForsk}
-%I detta avsnitt kommer vi i korthet beskriva några studier som
 Detta avsnitt beskriver i korthet tre studier som är nära relaterade
 till detta projekt.
 
@@ -696,13 +618,6 @@ med~\cite{kursplan:dslsofmath}.
 \newpage
 
 \section{Problemanalys}
-%Huvudpoänger:
-% * Vad är det för problem projektet ska lösa?
-% * Varför har vi har vi valt att lösa problemet så här?
-% * Knyter vårt problem an till ett större problem?
-% * Ev. hänvisa kort till relaterad forskning
-
-%Illustrationer: Statisktik från kurserna, pajdiagram
 Som nämndes i \internref{sec:bakgrund} är det bakomliggande
 problemet till detta projekt att datastudenterna
 på Chalmers har svårt för kurserna \gls{tss} och \gls{regler}.
@@ -712,7 +627,7 @@ Statistiken från Chalmers visar tydligt att kurserna \gls{tss} och
 på tentamen. Under perioden 2010 till 2016 blev i genomsnitt endast
 51\% av de som skrev tentamen i \gls{tss} godkända och under samma
 period blev 53\% godkända i \gls{regler} \cite{tentastatistik}.
-%Pajdiagram
+%Pajdiagram?
 Det finns även ett mörkertal i dessa siffror eftersom inte alla
 studenter som läser kursen skriver tentamen, exempelvis valde 48 av
 122 registrerade studenter att inte tentera \gls{regler}
@@ -727,7 +642,6 @@ följdproblem och utgör en del av studenternas problem med
 \gls{regler}. Ett läromaterial som ger ökad förståelse av \gls{tss}
 skulle därför även kunna bidra till att ge ökad förståelse av \gls{regler}.
 
-% TODO: Det här känns som en upprepning av bakgrunden (ish).
 Kursernas examinatorer tror att studenternas svårigheter med
 såväl \gls{tss} som \gls{regler}
 till stor del beror på att studenterna inte är tillräckligt bekväma i
@@ -742,13 +656,6 @@ vad matematiken står för.
 \newpage
 
 \section{Produktspecifikation}
-% Huvudpoänger:
-% * Beskriv produktbeskrivningen vi fick från början
-% * Bena ut i detalj hur produktbeskrivningen vi tagit fram ser ut och
-%     kommentera vilka val vi har gjort.
-% * Förklara hur produkten löser/bidrar till att lösa problemet
-%Todo: Här används "gruppen" nästan varje mening...
-%Illustration: Ev bild på utdrag från tutorial för att tydliggöra upplägget
 För att åtgärda det problem som beskrivs i föregående avsnitt har
 gruppen skapat en unik produkt som är anpassad speciellt för \gls{tss}
 på programmet för Datateknik på Chalmers. Den ursprungliga
@@ -769,8 +676,6 @@ kurs. Gruppen valde då kursen \gls{tss}, med motiveringen att
 \label{sec:prodSpec}
 För att göra läromaterialet så lättillgängligt som möjligt beslutades
 det
-% TODO: kolla användningen av ordet "materiel" (här) jmf. med
-% "material" (som ni skriver i övrigt)
 att materialet skulle samlas på en hemsida. På detta sätt kunde man
 enkelt samla text, bilder och programmeringskod och presentera dem på
 ett överskådligt sätt för studenterna i målgruppen.
@@ -807,19 +712,6 @@ i andra sammanhang än i undervisningssyfte.
 
 \section{Utveckling av läromaterialet}
 \label{sec:utveckling}
-
-% Huvudpoänger:
-% * Förstudier, intervjuer mm
-% * Enkätundersökning
-%    * Hänvisa till böckerna “Enkäten i praktiken” och “Enkätboken”
-% * Didaktik, hur vi skrivit vår tutorial och varför
-%    * Hänvisa till “Didaktik för ingenjörer” och “Motivational Design
-%        for Learning and Performance”
-% * TSS, hur vi har tacklat ämnet
-% * Funktionell programmering och dsl, hur vi valt att
-%     implementera det hela och varför
-% * Testning
-
 I detta avsnitt beskrivs hur projektgruppen gått till väga under
 utvecklingen av läromaterialet, samt vilka verktyg och metoder som
 använts och hur dessa tillämpats.
@@ -987,7 +879,7 @@ materialet är motiverande, eftersom studenten läser det vid sidan av
 sina vanliga studier. Därför ansåg gruppen ARCS-modellen var
 ett bra val, eftersom den lägger stor vikt vid just motivation.
 Ytterligare en anledning till att använda ARCS-modellen
-var att ARCS är en didaktisk modell som var relativt lätt att 
+var att ARCS är en didaktisk modell som var relativt lätt att
 anpassa för ett skriftligt material.
 ARCS-modellen beskrivs i mer detalj i avsnitt \internref{sec:didaktik}.
 
@@ -1091,8 +983,6 @@ delen. Det komplexa talet \(z = 1 + 2j = (1,2) \) representeras i vår
 \begin{minted}{haskell}
   Complex 1 2
 \end{minted}
-% TODO: jag skulle(;-) föredra att gör texten mer aktiv: "ska bete
-% sig", "behöver vi implementera", "kan implementeras", ...
 De implementerade komplexa talen skulle bete sig som matematikens
 komplexa tal och därför var det nödvändigt att implementera diverse
 beräkningsoperatorer för dem. Addition kunde implementeras relativt
@@ -1113,7 +1003,6 @@ matematiska formeln för multiplikation med komplexa tal ser ut enligt
 formeln nedan \cite{conway1978functions}.
 \[(a, b) \cdot (c, d) = (ac - bd, ad + bc) \]
 Detta implementerades enligt följande i vårt \gls{dsl}:
-% TODO: fixa sidbrytning (senare)
 \begin{minted}{haskell}
   z * w = Complex (realZ*realW - imZ*imW) (realZ*imW + realW*imZ)
     where realZ = realPart z
@@ -1122,7 +1011,6 @@ Detta implementerades enligt följande i vårt \gls{dsl}:
           imW = imPart w
 \end{minted}
 
-%Är detta nödvändigt? Vi borde liksom inte vara för förklarande.
 Här skapades även hjälpdefinitioner, vilka är de funktioner man finner
 efter \mintinline{haskell}{where} i koden. Detta var för att undvika
 att skriva samma kod om och om igen, samtidigt som det koden mer
@@ -1217,9 +1105,6 @@ diskret data använts i kapitlen om signaler och system och i kapitlet
 om fouriertransform har djup inbäddning och \gls{patternmatching} använts.
 
 \subsection{Presentation av läromaterialet}
-%* PDF
-%* Bootstrap
-%* GitHub
 Efter att utkast till läromaterialet utvecklats gjordes detta om till
 LaTeX-format. Det var ett förhållandevis enkelt sätt att få en överskådlig
 struktur och ett bra utseende på vårt läromaterial.
@@ -1231,7 +1116,7 @@ text mellan olika språk. Endast ett fåtal manuella kompleteringar
 krävs.  En annan fördel med att arbeta med HTML-sidor i stället för
 PDF är att man kan använda sig av JavaScript, vilket ger möjligheten
 att kunna göra uppgifterna interaktiva.
-%Todo: Hur hanterar ni ändringar i hemsidan? ^ 
+%Todo: Hur hanterar ni ändringar i hemsidan? ^
 %Genererar ni HTML igen eller redigerar direkt?
 %Erfarenhet/lärdom av detta?
 
@@ -1293,16 +1178,6 @@ avsnittet.
 \newpage
 
 \section{Resultat}
-
-% Huvudpoänger:
-% *Vad blev det för produkt? Tutorial på hemsida med 6 delavsnitt?
-% *Hänvisa till hemsidan
-% *Vad tyckte testgruppen?
-% * *Citat från testgruppen
-
-%
-% Illustrationer:
-% * Utdrag ur tutorialen
 Projektgruppens uppgift var, vilket beskrivs i detalj i avsnitt
 \internref{sec:prodSpec}, att ta fram ett kompletterande läromaterial
 till \gls{tss} inspirerat av \textit{\gls{dslm}}. I detta avsnitt
@@ -1310,7 +1185,8 @@ beskrivs det resulterande läromaterialet och resultat från testerna.
 
 \subsection{Läromaterialet}
 
-%Todo: Den fjärde kapitlet kommer visas i hemsidan va?
+%Todo: Det fjärde kapitlet kommer visas i hemsidan va?
+%Det är tanken
 Läromaterialet består av fyra avsnitt samt en introduktion. Avsnitten
 innehåller förklarande text, bilder, kodexempel och uppgifter. Varje
 avsnitt har även ett tillhörande kodpaket med förimplementerad kod
@@ -1395,23 +1271,12 @@ kommentarer.
 \section{Diskussion}
 \label{sec:diskussion}
 
-% Huvudpoänger:
-% * Har vi löst problemet?
-% * Går problemet att lösa?
-% * Vad är i grund och botten orsaken till problemet?
-% * Vilka problem har dykt upp?
-% * Vilka problem kan man undvika om man gör ett liknande arbete?
-% * Stämmer vårt resultat överens med tidigare forskning?
-% * Hur kan man bygga vidare på detta?
-
-
 Som nämns i inledningen har datateknologer svårt för kursen
-\gls{tss} och enligt examinatorerna beror detta på att de har svårt för 
+\gls{tss} och enligt examinatorerna beror detta på att de har svårt för
 matematiken, se \appendixref{bil:exam_intervju}. Frågor man då
 kan ställa sig är vad som är orsaken till detta problem, huruvida
 problemet går att lösa helt, och om det verkligen är en bra metod att
 använda programmering för att lösa det?
-%Svara på frågorna! Hänvisa till didaktik för ingenjörslärare etc
 
 Något som möjligen är en del av orsaken till problemet är när kursen
 \gls{tss} ges. Det nuvarande upplägget på datateknologernas studier
@@ -1449,8 +1314,6 @@ För att utveckla ett väl fungerande läromaterial krävs goda kunskaper
 inom såväl det aktuella ämnet som didaktik. Projektgruppen består dock
 av fem studenter, vars erfarenhet inom området signal och systemlära
 var att fyra av dem läst kursen \gls{tss}. Studenternas tidigare
-%Todo: Med varierande resultat? Syftar på "Projektgruppen består dock av fem studenter,
-%vars erfarenhet inom området signal och systemlära var att fyra av dem läst kursen TSS.
 kunskap i didaktik var också ytterst begränsad. På grund av detta lade
 projekt\-gruppen en stor del av sin tid på nödvändig förberedande
 efterforskning. Detta lämnade mindre tid till utvecklingen av
@@ -1497,23 +1360,6 @@ Denna och andra kommentarer från testgruppen är starka argument för
 att denna typ av läromaterial kan fungera bra som komplement till
 annan undervisning.
 
-% Vill vi ha med detta stycke? Känns lite malplacerat. Borde nog
-% utvecklas mer elller tas bort.  Eftersom projektet inledningsvis var
-% relativt oklart definierat behövde projektgruppen även lägga mycket
-% tid på att arbeta fram en produktspecifikation.
-
-% På grund av projektgruppens bristande erfarenhet av denna typ av
-% projektarbete uppstod problem med arbetets upplägg, rollfördelning
-% och struktur. Detta var ett internt problem som vi identifierade och
-% åtgärdade så fort vi kunde, men projektet hade saknat en tydlig
-% projektledare i början av arbetet och på grund av att ämnet för vårt
-% projekt var såpass oklart definierat så rörde sig projektet väldigt
-% långsamt framåt i början. Det var ungefär efter att halva tiden för
-% projektet hade passerat som vi lyckades identifiera var vår
-% projektstruktur hade varit bristande och försökte åtgärda problemet
-% med hjälp av en mer genomtänkt omstrukturering av arbetet och
-% gruppen.
-
 En stor del av utmaningen med detta projekt har varit att det inte
 fanns någon uppenbar lösning på vad som skulle implementeras i
 programmeringskoden. För varje område som läromaterialet tar upp har
@@ -1548,13 +1394,12 @@ En annan variant är att använda \gls{patternmatching}, där funktioner
 definieras exakt för ett antal givna insignaler som definieras var för
 sig. Detta ger mer korrekta svar, men ger inte samma möjlighet att
 sammanfatta
-%och abstrahera
 området som en diskret approximation eftersom man definierar olika
 fall var för sig. Detta gör det å andra sidan möjligt att definiera
 typfall som studenten kan känna igen i kursen \gls{tss}.
 
 Vad är då bäst i vårt fall, att använda en approximation som ger
-större möjlighet att %abstrahera och
+större möjlighet att
 sammanfatta kärnan i ämnet eller en mer matematiskt korrekt variant
 som använder formler som studenten kan känna igen? Detta är en fråga
 som projektgruppen inte har kunnat ta fram ett generellt svar
@@ -1617,19 +1462,12 @@ godkända studenter i kursen observeras i framtiden är det svårt att
 säga med säkerhet i vilken utsträckning denna förändring beror på vårt
 läromaterial.
 
-%Stämmer vårt resultat överens med tidigare forskning? Har vi fått samma resultat som liknande projekt?
-
 \subsection{Den sociala dimensionen}
-%Social dimension - Bygga upp och bevara sociala institutioner och
-%strukturer som är viktiga för mänskligt välbefinnande. T.ex så är det
-%viktigt för universitet att upprätthålla kunskap och ideer som idag
-%inte är så centrala men som kan vara viktigt i
-%framtiden. Undervisningsorganisationer etc.
 
 Ett läromaterial som lyckas få datastudenter att \emph{förstå}
 innehållet i en kurs, som de annars uppfatta som svår, kommer att leda
 till positiva påverkan i den sociala
-dimensionen. %Kan någon hjälpa mig formulera om detta?
+dimensionen.
 
 Det direkta resultatet från ett väl fungerande läromaterial är att
 andelen godkända studenter i kursen höjs. Detta skulle i sin tur
@@ -1638,16 +1476,14 @@ klara kursen. Det skulle också möjligen medföra en minskad oro hos de
 studenter som ännu inte läst kursen i fråga, då den skulle förefalla
 mindre svår om det är fler studenter som får godkänt i kursen.
 
-%---------------------OBS detta kanske är för dramatiskt....---------
 Det långsiktiga målet för projektet \gls{dslm}, som vårt projekt
 baseras på, är att minska gapet mellan matematik och
-programmering. %Kanske formuleras om?
+programmering.
 Detta skulle kunna öppna upp för fler möjligheter att tackla framtida
 utmaningar, eftersom det skulle utbildas fler ingenjörer som inte är
 begränsade till enbart ett tankesätt.
-% och väldigt optimistiskt....
+
 Läromaterial som vårt är då i bästa fall ett \emph{socialt stöd} (social support)
-% finns det ett svenskt uttryck för detta?
 som hjälper studenterna att få en bättre förståelse inom båda
 domänerna. Detta skulle i så fall kunna både förbättra studenternas
 välbefinnande och även vara till nytta för samhället där de framtida
@@ -1660,9 +1496,6 @@ och andra liknande studier som om ett projekt som vårt kan vara ett
 bidrag till att minska gapet mellan matematik och programmering.
 
 \subsection{Framtida utveckling}
-%* Hur kan man bygga vidare på detta?
-%* 		Implementera fler transformer + Regler
-%* 		Testa mer mot målgruppen
 Vad återstår då att utveckla i framtiden? En möjlighet är givetvis att
 vidareutveckla det befintliga läromaterialet. Till att börja med
 skulle man kunna komplettera materialet med avsnitt om
@@ -1706,17 +1539,13 @@ Hela läromaterialet finns på
 \url{https://github.com/DSLsofMath/BScProj} under\\licensen
 \textit{Creative Commons erkännande, dela lika}.
 Det är med andra ord fritt fram för
-vem som helst att arbeta vidare med materialet förutstatt att man anger 
+vem som helst att arbeta vidare med materialet förutstatt att man anger
 upphovsman och använder samma licens för vidareutvecklingar som bygger på
 vårt material.
 
 \newpage
 
 \section{Slutsatser}
-% Huvudpoänger:
-% * Sammanfattar vad vi kommit fram till i diskussion och resultat
-% * Vad är gjort och vad återstår att göra?
-
 Projektets mål var att ta fram ett kompletterande läromaterial till
 kursen \gls{tss} inspirerat av \textit{\gls{dslm}} som uppfyller
 produktspecifikationen som beskrivs i avsnitt \internref{sec:prodSpec}.
@@ -1751,15 +1580,7 @@ kursen \gls{tss}.
 \newpage
 
 \appendix
-% \section{Bilagor}
-% Bilaga 1 - Enkätundersökning
 
-% Bilaga 2 - Intervju med examiniatorer
-
-% Bilaga 3 - Utdrag ur läromaterialet \textit{TSS med DSL}
-% % * Utdrag ur tutorial?
-% % * Utdrag ur intervju med examinatorer?
-% % * Utdrag ur enkätsvar?
 \section{Bilaga 1}
 \label{bil:1}
 Denna bilaga är ett utdrag ur den enkätundersökning som genomfördes av
