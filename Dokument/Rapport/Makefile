@@ -7,7 +7,7 @@ all: report
 
 report:
 	pdflatex $(LATEXOPTS) $(FILE).tex
-	makeglossaries $(FILE).glo
+	makeglossaries $(FILE)
 	biber $(FILE)
 	latexmk $(LATEXOPTS) -pdf $(FILE).tex
 
