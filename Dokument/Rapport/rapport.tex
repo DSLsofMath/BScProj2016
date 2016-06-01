@@ -2,10 +2,6 @@
 
 \input{include/settings/Settings.tex}
 
-\loadglsentries{include/ordlista.tex}
-
-\makeglossaries
-
 \date{\today}
 
 \begin{document}
@@ -72,7 +68,7 @@ förklarande text och teori om bland annat komplexa tal, signaler,
 system och transformer. \\I materialet ingår även programmeringsövningar
 som är skrivna med domänspecifika språk i programmeringsspråket
 \gls{Haskell}. Rapporten beskriver vidare de undersökningar och efterforskningar som
-gjorts för att ta kunna ta fram läromaterialet, samt de tester som
+gjorts för att kunna ta fram läromaterialet, samt de tester som
 gjorts på den färdiga produkten.
 
 Bakgrunden till detta projekt är att kursen inom signallära,
@@ -84,7 +80,7 @@ data\-studenterna på Chalmers utan det är tvärtom ett problem inom många
 discipliner.
 
 Det slutliga resultatet är ett läromaterial bestående av en hemsida med
-förklarande text, exempel,  bilder, kryssfrågor och programmeringsövningar.
+förklarande text, exempel, bilder, kryssfrågor och programmeringsövningar.
 Hemsidan kan ses på \url{http://tinyurl.com/DSLsHemsida}.
 
 Källkod och övrigt material finns på GitHub för eventuell framtida utveckling, se
@@ -241,7 +237,7 @@ uppnås. Textens detaljer är då inte lika intressanta som textens
 budskap, förståelse, sammanhang och principer. Snarare än att lära sig
 'det man måste' utantill för reproduktion, sker ett personligt
 tillägnande relaterat till tidigare kunskap''
-\cite{didaktik_for_ingenjorslararesid}.
+\cite[s~236]{didaktik_for_ingenjorslarare}.
 \end{displayquote}
 I detta projekt är det alltså viktigt att ta fram ett interaktivt
 material som främjar förståelse och inte fastna i detaljer.
@@ -865,7 +861,7 @@ det utifrån sina tidigare kunskaper. Projektgrupen ville åstadkomma ett aktivt
 lärande som ger studenten långvarig förståelse och intresse för ämnet,
 snarare än kunskap studenten lär sig tillfälligt
 utantill. \textit{Didaktik för ingenjörslärare}
-\cite{didaktik_for_ingenjorslararesid} beskriver aktivt lärande enligt
+\cite[s~236]{didaktik_for_ingenjorslarare} beskriver aktivt lärande enligt
 följande: ``Idéen bakom aktivt lärande är att en lärprocess bygger på
 en konkret erfarenhet som följs av reflektion och observation.'' Med
 bakgrund av detta har projektgruppen fokuserat på att göra
@@ -1063,9 +1059,9 @@ enligt nedanstående kod:
 exp z = scale (exp (realPart z)) (euler (imPart z))
 \end{minted}
 Sedan implementerades även trigonometriska funktioner med hjälp av
-Eulers formel. $Sin(x)$ representeras enligt följande som ett komplext
+Eulers formel. \(\sin(x)\) representeras enligt följande som ett komplext
 tal:
-\[ sin(x) = (e^{j x} - e^{-j x}) / 2 j \]
+\[ \sin(x) = (e^{j x} - e^{-j x}) / 2 j \]
 Vilket ser ut så här i vårt \gls{dsl}:
 \begin{minted}{haskell}
 sin z = (exp (j*z) - exp (-(j*z))) / (scale 2 j)
@@ -1578,8 +1574,8 @@ kursen \gls{tss}.
 
 \newpage
 
-\bibliographystyle{IEEEtran}
-\bibliography{include/referenser}
+\setlength{\bibitemsep}{3mm}
+\printbibliography
 
 \newpage
 
