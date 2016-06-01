@@ -10,28 +10,28 @@
 		<!-- Website Title & Description for Search Engine purposes -->
 		<title>LTI-system</title>
 		<meta name="description" content="">
-		
+
 		<!-- Mobile viewport optimized -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		
+
 		<!-- Bootstrap CSS -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
-		
+
 		<!-- Custom CSS -->
 		<link href="includes/css/styles.css" rel="stylesheet">
-		
+
 		<!-- Include Modernizr in the head, before any other Javascript -->
 		<script src="includes/js/modernizr-2.6.2.min.js"></script>
 
 		<!-- Latex script -->
 		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-		
+
 	</head>
 	<body>
-	
+
 		<div class="container" id="main">
-		
+
 			<div class="navbar navbar-fixed-top">
 				<div class="container">
 
@@ -66,7 +66,7 @@
 								<a href="http://www.github.com/DSLsofMath/BScProj">GitHub</a>
 							</li>
 						</ul><!--End nav pull-right-->
-							
+
 					</div> <!--End nav-collapse-->
 
 				</div> <!--End Container-->
@@ -77,38 +77,38 @@
 					<div class="well clearfix">
 						<div class="page-header text-center"><h1>LTI</h1>
 							<h1><small> Om LTI-system, stegsvar, impulssvar, faltning och annat matnyttigt</small></h1></div><!--end page-header-->
-						
+
 						<h2 id="vad-menas-med-lti-system">Vad menas med LTI-system?</h2>
-						
+
 						<img src="images/LTI/LTI1.png">
-						
-						<p>Linjära tidsinvarianta system, eller LTI-system, är logiskt nog system som är linjära och tidsinvarianta. Hurra för logik! Men för att den förklaringen ska bli lite mer begriplig kan det ju vara bra att reda ut vad som menas med “Linjär” och “Tidsinvariant”. Med ett linjärt system menar man, lite förenklat uttryckt, ett system där man kan separera signalerna i sina beståndsdelar. Ett tidsinvariant system är ett system vars egenskaper inte ändras med tiden. En mer detaljerad beskrivning av dessa egenskaper kommer senare men inledelsevis kan vi konstatera att ett LTI-system är ett system med fina konsekventa ekvationer som är relativt enkla att räkna på. Så rysligt praktiskt! </p> 
+
+						<p>Linjära tidsinvarianta system, eller LTI-system, är logiskt nog system som är linjära och tidsinvarianta. Hurra för logik! Men för att den förklaringen ska bli lite mer begriplig kan det ju vara bra att reda ut vad som menas med “Linjär” och “Tidsinvariant”. Med ett linjärt system menar man, lite förenklat uttryckt, ett system där man kan separera signalerna i sina beståndsdelar. Ett tidsinvariant system är ett system vars egenskaper inte ändras med tiden. En mer detaljerad beskrivning av dessa egenskaper kommer senare men inledningsvis kan vi konstatera att ett LTI-system är ett system med fina konsekventa ekvationer som är relativt enkla att räkna på. Så rysligt praktiskt! </p>
 
 						<p>LTI-system är något man använder sig av väldigt mycket inom signallära. Även system som egentligen inte är linjära och tidsinvarianta approximeras ofta till LTI-system, eftersom det är så mycket trevligare att räkna på LTI-system. Alla älskar LTI-system! Åtminstone jämfört med andra system som ändrar sig hela tiden och är odrägliga att försöka räkna på, usch och fy!</p>
-						
+
 						<hr>
 
 						<h2 id="egenskaper-hos-lti-system">Egenskaper hos LTI-system</h2>
 						<p>LTI-system har många trevliga egenskaper som gör att deras vänner gillar dem och deras fiender avundas dem. Nu ska vi ta en kik på ett par av de viktigaste egenskaperna.</p>
-						
+
 						<hr>
 
 						<h3 id="linjäritet">Linjäritet</h3>
 						<p>För att ett system ska vara linjärt måste det uppfylla superpositionsprincipen, vilket innebär att det är både additivt och homogent för er som tycker om att svänga er med fina ord.</p>
-						
+
 						<p>I ett system som är additivt kan man dela upp insignalen i mindre komponenter och kika på dessa komponenters utsignaler och dessa kan sedan kombineras till hela insignalens utsignal. Mycket praktiskt! <img src="images/LTI/LTI2.png">
 						</p>
-						
+
 						<p>I ett homogent system kan man bryta ut skalningsfaktorer ifrån insignalen och skala om utsignalen med dessa istället. <img src="images/LTI/LTI3.png"></p>
-						
+
 						<p>Det är dessa två egenskaper som tillsammans utgör superpositionsprincipen. Superpositionsprincipen gör att man kan se insignalerna, och dess komponenter, till ett linjärt system som så grundläggande signaler som möjligt och sen bara skalar och kombinerar utsignalerna de genererar. Kan man visa att ett system uppfyller superpositionsprincipen har man visat att det är linjärt. Hur vet man då om systemet uppfyller superpositionsprincipen? Jo, säg att vi har två signaler <span class="math inline">\(x_1\)</span> och <span class="math inline">\(x_2\)</span>.</p>
-						
+
 						<p>Om systemet uppfyller superpositionsprincipen gäller då att: <img src="images/LTI/LTI4.png">
 						Och därmed är systemet linjärt!<br />
-						
+
 						<hr>
 
-						<div class="well"> 
+						<div class="well">
 						<p><strong>Övning 1:</strong> Här följer ett kodskelett till en funktion som undersöker om ett system är Linjärt. Fyll i det som saknas.</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isLinearDisc ::</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Insignal 1</span>
              <span class="ot">-&gt;</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Insignal 2</span>
@@ -122,7 +122,7 @@ isLinearDisc x0 x1 sys a b t <span class="fu">=</span> undefined</code></pre></d
 						<p><strong>Tips!</strong> Du kommer behöva skala om signalerna, kolla i <span>Signals.hs</span> efter en lämplig funktion.</p>
 
 						<button type="button" class="btn btn-primary" id="LTISol1">Lösning</button>
-						
+
 <div class="alert alert-success alert-block fade in" id="showSol1">
 	<button type="button" class="close">&times;</button>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">isLinearDisc x0 x1 sys a b t <span class="fu">=</span> testAt (y0&#39; <span class="fu">+</span> y1&#39;) (y0 <span class="ot">`scale`</span> a <span class="fu">+</span> y1 <span class="ot">`scale`</span> b) t
@@ -137,9 +137,9 @@ isLinearDisc x0 x1 sys a b t <span class="fu">=</span> undefined</code></pre></d
 
 						<hr>
 						<h3 id="tidsinvarians">Tidsinvarians</h3>
-						
+
 						<p>Med hur är det då med tidsinvarians? Vad är det för egenskaper som gäller där? Jo, ett system är tidsinvariant om en tidsförskjutning i insignalen ger samma tidsförskjutning i utsignalen. Alltså: <img src="images/LTI/LTI5.png"></p>
-						
+
 						<div class="well">
 						<p><strong>Övning 2:</strong> Implementera en funktion som undersöker om ett system är tidsinvariant i kontinuerlig tid enligt följande:</p>
 						<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isTimeInvCont ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span> <span class="dt">ContSystem</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span></code></pre></div><p><strong>Tips!</strong> Använd dig av följande funktion för tidsskift:<br />
@@ -148,9 +148,9 @@ isLinearDisc x0 x1 sys a b t <span class="fu">=</span> undefined</code></pre></d
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">timeShift ::</span> <span class="dt">Num</span> time <span class="ot">=&gt;</span> <span class="dt">Signal</span> time val
           <span class="ot">-&gt;</span> time <span class="ot">-&gt;</span> time <span class="ot">-&gt;</span> <span class="dt">Signal</span> time val
 timeShift sig o t <span class="fu">=</span> sig (t <span class="fu">-</span> o)</code></pre></div>
-						
+
 						<button type="button" class="btn btn-primary" id="LTISol2">Lösning</button>
-						
+
 <div class="alert alert-success alert-block fade in" id="showSol2">
 	<button type="button" class="close">&times;</button>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isTimeInvCont ::</span> <span class="dt">ContTimeFun</span> <span class="ot">-&gt;</span> <span class="dt">ContSystem</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">ContTime</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span>
@@ -160,7 +160,7 @@ isTimeInvCont x sys t c <span class="fu">=</span> y&#39; t <span class="fu">~=</
           y&#39; <span class="fu">=</span> contOutSignal sys x&#39;</code></pre></div>
 </div>
 						</div>
-						
+
 						<div class="well">
 						<p><strong>Övning 3:</strong> Implementera en funktion som undersöker om ett system är ett LTI-system. Använd dig av funktionerna från övning 1 och 2.<br />
 
@@ -187,7 +187,7 @@ isTimeInvCont x sys t c <span class="fu">=</span> y&#39; t <span class="fu">~=</
 
 						<p>Kortfattat och fint!</p>
 						<p>Just för LTI-system så har man särskild nytta av impulssvaret. Det är nämligen så att man kan beräkna ett LTI-systems utsignal genom faltning av insignalen med impulssvaret. <span class="math display">\[y(t)=x * h(t),\]</span> utsignalen kan fås genom faltning av insignalen med impulssvaret. Detta för oss genast till frågan: Vad tusan är faltning för något?</p>
-						
+
 						<hr>
 
 						<h2 id="faltning">Faltning</h2>
@@ -207,26 +207,26 @@ isTimeInvCont x sys t c <span class="fu">=</span> y&#39; t <span class="fu">~=</
 
 						Där a och b är konstanter och f, g och h är funktioner. Det borde även nämnas att följande lagar innefattar även att <span class="math display">\[f * g(t) = \int_{0}^t  f(s) g(t-s) ds = \int_{0}^t  f(t-s) g(s)ds = f * g(t)\]</span></p>
 						<p>Så oroa er inte om integrandens ordning! Det finns även en diskret faltning och även denna följer samma lagar som det kontinuerliga fallet.</p>
-						<p><span class="math display">\[a_n * b_n = \sum_{k=0}^{N-1} a_k b_{[n-k]}, \quad [n-k] = 
+						<p><span class="math display">\[a_n * b_n = \sum_{k=0}^{N-1} a_k b_{[n-k]}, \quad [n-k] =
 						\begin{cases}
 						n-k, \quad  \; n \geq k \\
 						n-k+N, \quad  n &lt; k
 						\end{cases}\]</span></p>
 						<p>Så hur hör allt detta tillsammans med LTI-system? En tolkning av faltning är en kontinuerlig superposition av f (eller g). Men om man inte vill gå in i för djupa detaljer så är faltning i ett nötskal, inom detta området, systemets respons till en insignal. Det vill säga givet insignalen <span class="math inline">\(x(t)\)</span> och system responsen <span class="math inline">\(h(t)\)</span>, systemets utsignal <span class="math inline">\(y(t)\)</span> kan beräknas från <span class="math display">\[y(t) = x * h(t)\]</span> Det vill säga utsignalen fås av en faltning mellan impulssvaret och insignalen. Om du inte vill gå in djupare på teorin så får du helt enkelt acceptera det.<br />
-						
+
 						<hr>
 
 						<div class="well">
 						<strong>Övning 4:</strong> Här följer ett kodskelett till en implementering av diskret faltning. Fyll i det som saknas.</p>
-						
+
 						<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">discConvolution ::</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Signal 1</span>
                 <span class="ot">-&gt;</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Signal 2</span>
                 <span class="ot">-&gt;</span> <span class="dt">DiscTime</span> <span class="co">-- ^ Interval length -M start</span>
                 <span class="ot">-&gt;</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Returnfunktion</span><p id="left">discConvolution s0 s1 start stop <span class="fu">=</span> <span class="fu">...</span></p></code></pre></div>
-							
+
 						<button type="button" class="btn btn-primary" id="LTISol4">Lösning</button>
 
-						
+
 <div class="alert alert-success alert-block fade in" id="showSol4">
 	<button type="button" class="close">&times;</button>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">discConvolution s0 s1 interval <span class="fu">=</span> sum <span class="fu">$</span> map conv points
@@ -266,7 +266,7 @@ isTimeInvCont x sys t c <span class="fu">=</span> y&#39; t <span class="fu">~=</
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
-					
+
 					</div><!--end col-sm-2-->
 
 					<div class="col-sm-4">
@@ -296,7 +296,7 @@ isTimeInvCont x sys t c <span class="fu">=</span> y&#39; t <span class="fu">~=</
 					</div><!--end col-sm-2-->
 
 					<div class="col-sm-2">
-					
+
 					</div><!--end col-sm-2-->
 				</div><!--end row-->
 			</div><!--end container-->
@@ -343,16 +343,15 @@ isTimeInvCont x sys t c <span class="fu">=</span> y&#39; t <span class="fu">~=</
 
 	<!-- First try for the online version of jQuery-->
 	<script src="http://code.jquery.com/jquery.js"></script>
-	
+
 	<!-- If no online access, fallback to our hardcoded version of jQuery -->
 	<script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
-	
+
 	<!-- Bootstrap JS -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
-	
+
 	<!-- Custom JS -->
 	<script src="includes/js/script.js"></script>
-	
+
 	</body>
 </html>
-

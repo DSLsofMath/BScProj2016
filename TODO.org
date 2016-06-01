@@ -19,6 +19,14 @@
 *** TODO LTI.html: "innan du går vidare till nästa kapitel!" - Länk till nästa kapitel saknas.
 *** TODO LTI.html: Jag tror att det här kapitlet skulle må bra av att delas i två delas: ett för LTI-system (+ lägg till ett par exempel, som glidande medelvärde) och ett för faltning.
 
+** TODO Patriks kommentarer under genomläsning 2016-06-01:
+*** DONE Allmänt: Det ser mycket bättre ut nu!
+*** TODO Intro: länken från punkt 4 till Komplex.html är trasig.
+*** TODO Komplex: Förklara eller byt ut "undefined" i Övning 2
+*** TODO LTI: en figur har kvar "additativt"
+*** TODO LTI: "f * g(t)" := "(f * g)(t)" för tydlighets skull (2-3 gånger). Samma för x * h(t) strax innan.
+*** DONE Allmänt: Jag fixat några stavningsproblem direkt på sidorna.
+
 ** Generellt
    * Dela upp kursmaterial mellan deltagarna
    * Läsa igenom ens del av kursmaterialet och anteckna oklarheter + grad av "implementerbarhet"

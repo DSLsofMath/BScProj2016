@@ -8,28 +8,28 @@
 		<!-- Website Title & Description for Search Engine purposes -->
 		<title>Komplexa tal</title>
 		<meta name="description" content="">
-		
+
 		<!-- Mobile viewport optimized -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		
+
 		<!-- Bootstrap CSS -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
-		
+
 		<!-- Custom CSS -->
 		<link href="includes/css/styles.css" rel="stylesheet">
-		
+
 		<!-- Include Modernizr in the head, before any other Javascript -->
 		<script src="includes/js/modernizr-2.6.2.min.js"></script>
 
 		<!-- Mathjax -->
 		<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-		
+
 	</head>
 	<body>
-	
+
 		<div class="container" id="main">
-		
+
 			<div class="navbar navbar-fixed-top">
 				<div class="container">
 
@@ -54,7 +54,7 @@
 									<li><a href="index.html">Introduktion</a></li>
 									<li><a href="Komplex.html">Komplexa tal</a></li>
 									<li><a href="Signaler.html">Signaler</a></li>
-									<li><a href="LTI.html">LTI</a></li>	
+									<li><a href="LTI.html">LTI</a></li>
 								</ul><!--End dropdown menu-->
 							</li>
 						</ul> <!--End list-->
@@ -64,7 +64,7 @@
 								<a href="http://www.github.com/DSLsofMath/BScProj">GitHub</a>
 							</li>
 						</ul><!--End nav pull-right-->
-							
+
 					</div> <!--End nav-collapse-->
 
 				</div> <!--End Container-->
@@ -86,7 +86,7 @@
 						<p>Vi kommer dock inte använda oss av beteckningen <em>i</em> i våra texter, eftersom att man inom fysik, elektronik och flera andra ämnen redan använder bokstaven i för att beteckna en ström. Därfor brukar man ofta använda j inom signallära istället, för att undvika missförstånd, och det kommer vi också göra. Komplexa tal kan ses som ett par utav reella värden, där första värdet i talet är reellt och det andra värdet är den imaginära delen. Det kan dock vara så att en eller båda av dessa delar är noll. T.ex. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>+</mo><mn>0</mn><mo>*</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">7+0*j</annotation></semantics></math> blir ju bara 7.</p>
 
 						<div class="well" id="komplexQ1">
-							<h5><strong>Kryssfråga 1:</strong> Vad är den reela delen av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>+</mo><mn>5</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">10 + 5 j</annotation></semantics></math>?</h5>
+							<h5><strong>Kryssfråga 1:</strong> Vad är den reella delen av <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>+</mo><mn>5</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">10 + 5 j</annotation></semantics></math>?</h5>
 							<ul class="unstyled">
 								<li>a) <input type="radio" name="radio1" id="1a" value="1a"> 5</li>
 								<li>b) <input type="radio" name="radio1" id="1b" value="1b"> 10</li>
@@ -136,7 +136,7 @@
 
 						<p>Nu kan vi enkelt få ut realdelen ifrån <i>leet</i>:</p>
 
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> realPart leet 
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> realPart leet
 <span class="dv">  13</span></code></pre></div>
 
 						<p>Se så enkelt det blev! Så för att få ut den imaginära delen av talet så gör vi en funktion imPart.</p>
@@ -154,14 +154,14 @@ imPart (<span class="dt">Complex</span> re im) <span class="fu">=</span> im</cod
 
 						<div class="well">
 						<p><strong>Övning 2:</strong> Om vi nu skulle vilja skriva ut talet på vanligt mattespråk så skulle vi kunna göra en funktion som kan heta <i>printComplex</i>. Här får du ett kodskelett för en sådan funktion.
-						Fyll i det som saknas.</p>						
+						Fyll i det som saknas.</p>
 
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">  printComplex ::</span> <span class="dt">Complex</span> <span class="ot">-&gt;</span> <span class="dt">String</span>
   printComplex z
 <span class="fu block">    |</span> re <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> show im <span class="fu">++</span> <span class="st">&quot;j&quot;</span>
-<span class="fu">    |</span> im <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> undefined 
-<span class="fu">    |</span> otherwise <span class="fu">=</span> undefined 
-<span class="kw">       where</span> im <span class="fu">=</span> imPart z 
+<span class="fu">    |</span> im <span class="fu">==</span> <span class="dv">0</span> <span class="fu">=</span> undefined
+<span class="fu">    |</span> otherwise <span class="fu">=</span> undefined
+<span class="kw">       where</span> im <span class="fu">=</span> imPart z
               re <span class="fu">=</span> realPart z</code></pre></div>
 
               			<button type="button" class="btn btn-primary" id="komplexSol2">Lösning</button>
@@ -180,7 +180,7 @@ printComplex z
               			</div>
 
 						<p><strong>Exempel:</strong></p>
-						
+
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> printComplex (<span class="dt">Complex</span> <span class="dv">5</span> <span class="dv">12</span>)
   <span class="ot">&quot;</span><span class="dv">5</span> <span class="fu">+</span> 12j&quot;</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  ghci<span class="fu">&gt;</span> printComplex leet
@@ -223,16 +223,16 @@ printComplex z
 						</div>
 
 						<p>Multiplikation blir lite krångligare. Om vi multiplicerar två komplexa tal, vi kallar dem z och w, ser det ut såhär:</p>
-						
+
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">  z <span class="fu">*</span> w <span class="fu">=</span> <span class="dt">Complex</span> (realZ<span class="fu">*</span>realW <span class="fu">-</span> imZ<span class="fu">*</span>imW) (realZ<span class="fu">*</span>imW <span class="fu">+</span> realW<span class="fu">*</span>imZ)
 	<span class="kw">   where</span> realZ <span class="fu">=</span> realPart z
 	         realW <span class="fu">=</span> realPart w
 	         imZ   <span class="fu">=</span> imPart z
 	         imW   <span class="fu">=</span> imPart w</code></pre></div>
 
-						<p>Vilket då blir samma sak som: 
-						
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z &sdot; w</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo> &sdot; </mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo> &sdot; </mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix" linebreak="newline" linebreakstyle="before" indentshift="1.35em">(</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo> &sdot; </mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo> &sdot; </mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">z \; w = (Re(Z)  &sdot;  Re(W) - Im(Z) &sdot; Im(W)) + (Re(Z) &sdot; Im(W) + Re(W) &sdot; Im(Z))j</annotation></semantics></math> 
+						<p>Vilket då blir samma sak som:
+
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z &sdot; w</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo> &sdot; </mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo> &sdot; </mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mo stretchy="false" form="prefix" linebreak="newline" linebreakstyle="before" indentshift="1.35em">(</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo> &sdot; </mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>R</mi><mi>e</mi><mo stretchy="false" form="prefix">(</mo><mi>W</mi><mo stretchy="false" form="postfix">)</mo><mo> &sdot; </mo><mi>I</mi><mi>m</mi><mo stretchy="false" form="prefix">(</mo><mi>Z</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">z \; w = (Re(Z)  &sdot;  Re(W) - Im(Z) &sdot; Im(W)) + (Re(Z) &sdot; Im(W) + Re(W) &sdot; Im(Z))j</annotation></semantics></math>
 
 						<div class="well">
 						<strong>Test 2:</strong> Vad får man om man <u>multiplicerar</u> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>+</mo><mn>5</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">10 + 5j</annotation></semantics></math> med <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>−</mo><mn>1</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">2 -1j</annotation></semantics></math>? Testa med programmet. <b>Svara utan mellanrum! a+bj</b></p>
@@ -255,7 +255,7 @@ printComplex z
 
 						<div class="well">
 						<p><strong>Övning 4:</strong> Här är ett kodskelett till funktionen negate. Fyll i det som ska stå i parentesen.</p>
-				
+
 						<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">negate z        <span class="fu">=</span> <span class="dt">Complex</span> (<span class="fu">...</span>)</code></pre></div>
 
 						<button type="button" class="btn btn-primary" id="komplexSol4">Lösning</button>
@@ -272,8 +272,8 @@ printComplex z
 						<p><strong>Övning 5:</strong> Här är ett kodskelett till en funktion som ger absolutbeloppet av ett komplext tal. Fyll i det som saknas.</p>
 
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"> abs z <span class="fu">=</span> <span class="dt">Complex</span> hyp <span class="dv">0</span>
-<span class="kw">           where</span> hyp <span class="fu">=</span> <span class="fu">...</span> 
-                 re  <span class="fu">=</span> realPart z 
+<span class="kw">           where</span> hyp <span class="fu">=</span> <span class="fu">...</span>
+                 re  <span class="fu">=</span> realPart z
                  im  <span class="fu">=</span> imPart z</code></pre></div>
 
                  		<button type="button" class="btn btn-primary" id="komplexSol5">Lösning</button>
@@ -284,7 +284,7 @@ printComplex z
         <span class="kw">where</span> hyp   <span class="fu">=</span> sqrt (re<span class="fu">*</span>re <span class="fu">+</span> im<span class="fu">*</span>im)
               re    <span class="fu">=</span> realPart z
               im    <span class="fu">=</span> imPart z</code></pre></div>
-</div><!--End alert-->                 		
+</div><!--End alert-->
 						</div>
 
 						<div class="well">
@@ -325,10 +325,10 @@ printComplex z
 						<hr>
 
 						<h2 id="eulers-formel">Eulers formel</h2>
-						
+
 						<p>Eulers formel, eller Enigmatic Euler’s Formula som den också kallas, är en formel för att skriva om komplexa tal från en exponentiell funktion till trigonometriska funktioner och tvärtom.</p>
 
-						<p>Är det någon som verkligen vet hur trigonometiska funktioner funkar? Förmodligen..., men det skulle väl inte skada om det fanns ett sätt att skriva om trigonometiska funktioner till komplexa tal och tvärtom. Här kommer Eulers formel in! <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>j</mi><mi>t</mi></mrow></msup><mo>=</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">e^{jt} = cos(t) + jsin(t)</annotation></semantics></math> 
+						<p>Är det någon som verkligen vet hur trigonometriska funktioner funkar? Förmodligen..., men det skulle väl inte skada om det fanns ett sätt att skriva om trigonometriska funktioner till komplexa tal och tvärtom. Här kommer Eulers formel in! <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>j</mi><mi>t</mi></mrow></msup><mo>=</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>j</mi><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">e^{jt} = cos(t) + jsin(t)</annotation></semantics></math>
 
 						<div class="well" id="komplexQ3">
 							<p><strong>Kryssfråga 3:</strong> Vad blir <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mn>3</mn><mi>j</mi><mi>t</mi></mrow></msup><annotation encoding="application/x-tex">e^{3jt}</annotation></semantics></math> omskrivet med Eulers formel?</p>
@@ -398,7 +398,7 @@ printComplex z
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
-					
+
 					</div><!--end col-sm-2-->
 
 					<div class="col-sm-4">
@@ -428,7 +428,7 @@ printComplex z
 					</div><!--end col-sm-2-->
 
 					<div class="col-sm-2">
-					
+
 					</div><!--end col-sm-2-->
 				</div><!--end row-->
 			</div><!--end container-->
@@ -459,7 +459,7 @@ printComplex z
 <p><strong>Test 3:</strong> 6,708</p>
 
 <p><strong>Test 4:</strong> fromInteger 5</p>
-						
+
 					</div><!--end komplexFacit-->
 				</div><!--modal-body-->
 
@@ -474,15 +474,15 @@ printComplex z
 
 	<!-- First try for the online version of jQuery-->
 	<script src="http://code.jquery.com/jquery.js"></script>
-	
+
 	<!-- If no online access, fallback to our hardcoded version of jQuery -->
 	<script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
-	
+
 	<!-- Bootstrap JS -->
 	<script src="bootstrap/js/bootstrap.min.js"></script>
-	
+
 	<!-- Custom JS -->
 	<script src="includes/js/script.js"></script>
-	
+
 	</body>
 </html>
