@@ -1113,43 +1113,42 @@ diskret data använts i kapitlen om signaler och system och i kapitlet
 om fouriertransform har djup inbäddning och \gls{patternmatching} använts.
 
 \subsection{Presentation av läromaterialet}
-Efter att utkast till läromaterialet utvecklats gjordes detta om till
-LaTeX-format. Det var ett förhållandevis enkelt sätt att få en överskådlig
-struktur och ett bra utseende på vårt läromaterial.
+Efter att utkast till läromaterialets avsnitt utvecklats gjordes dessa om till
+LaTeX-format. Anledningen till detta var att det var ett
+förhållandevis enkelt sätt att få en överskådlig
+struktur och ett bra utseende på läromaterialet.
 
-När de olika delarna i läromaterialet blivit färdiga så skrevs de om
-till HTML, med hjälp av Pandoc, för att kunna skapa en hemsida så att
-det blir mer lätt\-åtkomligt. Pandoc är ett program som översätter
+När avsnitten i läromaterialet var färdiga så skrevs de om
+till HTML, med hjälp av Pandoc, för att kunna skapa en hemsida för att
+materialet  lätt\-åtkomligt. Pandoc är ett program som översätter
 text mellan olika språk. Endast ett fåtal manuella kompleteringar
 krävs.  En annan fördel med att arbeta med HTML-sidor i stället för
 PDF är att man kan använda sig av JavaScript, vilket ger möjligheten
 att kunna göra uppgifterna interaktiva. Vid ändringar på sidan så
 redigeras det direkt i HTML koden, detta för att behålla strukturen på
-hemsidan. Skulle man ha mer efarenhet av att arbeta med HTML skulle
+hemsidan. Om projektgruppen hade haft mer efarenhet av att arbeta med HTML skulle
 man kunnat redigera i LaTeX för att sedan generera HTML koden igen,
-men det hittades ingen simpel lösning till att göra detta samtidigt
-som strukturen behölls.
+men det hittades ingen simpel lösning till att göra detta och samtidigt
+behålla strukturen på läromaterialet.
 
-Vid arbete med uppgifter så användes jQuery, vilket är ett JavaScript-
-bibliotek, för att göra det lättare att arbeta med JavaScript. JQuery
-ansågs mer lättläsligt än vanlig JavaScript och det blir därmed
+För uppgifterna i läromaterialet användes jQuery, vilket är ett JavaScript-
+bibliotek, för att göra det lättare att arbeta med JavaScript. Anledningen
+till detta var att projektgruppen ansåg att JQuery
+var mer lättläsligt än vanlig JavaScript och det var därmed
 lättare att felsöka i koden.
 
-När det kom till designen av hemsidan användes verktyget
+Beträffande designen av hemsidan användes verktyget
 Bootstrap. Detta för att Bootstrap har CSS kod, som används vid design
 av hemsidor, som man kan använda sig av. Bootstrap gör det även lätt
 att skapa en responsiv hemsida, vilket gör att hemsidan skalas om
 efter skärmstorleken utan att spendera mycket tid för att få en läsbar
 design. På grund av den responsiva hemsidan blir det möjligt att
-använda vilken skärm man har tillgänglig, vare sig det är en dator
-eller mobil, utan att hemsidan blir dåligt optimerad, vilket skulle
-distrahera läsaren bort från texten vilket aldrig är något att sträva
-efter.
+använda den skärm man har tillgänglig, vare sig det är en dator
+eller mobil, utan att hemsidan blir dåligt optimerad. På detta vis undviks
+att läsaren distraheras bort från texten på grund av dålig optmering.
 
 De figurer som gjorts till läromaterialet i form av funktionskurvor
 och liknande är skapade i Matlab och \url{fooplot.com/}.
-
-Läromaterialets delar har efter hand lagts upp på GitHub.
 
 \subsection{Test av läromaterialet}
 \label{sec:test}
