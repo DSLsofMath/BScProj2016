@@ -13,6 +13,9 @@
 *.dvi
 *.ist
 *.glo
+*.acn
+*.acr
+*.alg
 *.gls
 *.gz
 *.gz(busy)
