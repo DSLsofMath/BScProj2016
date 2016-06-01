@@ -1,22 +1,22 @@
-# Konstiga filer från LaTeX.
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.toc
-*.bbl
-*.bcf
-*.blg
-*.run.xml
-*.glg
-*.dvi
-*.ist
-*.glo
+# Konstiga filer från LaTeX
 *.acn
 *.acr
 *.alg
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
 *.gls
 *.gz
 *.gz(busy)
+*.ist
+*.log
+*.out
 *.pdf
+*.run.xml
+*.toc
