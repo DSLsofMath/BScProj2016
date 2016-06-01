@@ -36,6 +36,8 @@
 % * Online-resurser ska ha en `Läst den` grej.
 % * Sidanvisningar till böcker för specifika saker som citat.
 
+\lefthyphenmin4
+\righthyphenmin4
 
 \section*{Förord}
 Denna rapport behandlar kandidatarbetet ``Matematikens domänspecifika
@@ -124,6 +126,10 @@ possible further future development, see
 \newpage
 
 \selectlanguage{swedish}
+% Strängare avstavningsregler
+\lefthyphenmin4
+\righthyphenmin4
+
 \tableofcontents
 
 \newpage
@@ -140,8 +146,10 @@ possible further future development, see
 \setlength{\parskip}{2mm plus2mm}
 
 \section{Inledning}
+\begin{flushleft}
 Detta kapitel beskriver bakgrunden till projektet och hur det
 uppstod, samt projektets mål och rapportens syfte.
+\end{flushleft}
 
 \subsection{Bakgrund}
 \label{sec:bakgrund}
@@ -482,7 +490,7 @@ i detalj i \textit{Motivational Design for Learning and Performance}
 grundpelare.
 
 Den första grundpelaren \textit{Attention}, uppmärksamhet på svenska,
-syftar till att väcka studentens uppmärksamhet och nyfikenhet.  Detta
+syftar till att väcka studentens uppmärksamhet och nyfikenhet. Detta
 åstadkoms med perceptuell stimulans, frågor och variation.
 Perceptuell stimulans innebär att man på något sätt ändrar i
 undervisningsmiljön för att väcka studentens uppmärksamhet. Dessa
@@ -493,7 +501,7 @@ uppmärksamhet och måste därför följas av frågor och variation för att
 ge en varaktig effekt. Därför är det viktigt att i detta skede
 omedelbart följa upp med frågor som väcker studentens nyfikenhet. För
 att behålla studentens nyfikenhet och intresse är det även viktigt med
-variation undervisningen. Oavsett hur bra struktur man har i sin
+variation i undervisningen. Oavsett hur bra struktur man har i sin
 undervisning kommer studenterna att tappa intresset om man inte
 varierar upplägget.
 
@@ -522,7 +530,7 @@ självförtroende. Vissa studenter kan rentav vara rädda för ämnet. På
 grund av detta är det viktigt att utveckla materialet så att studenten
 övertygas om att hen kan lära sig ämnet. Därför behöver man med hjälp
 av relevanta uppgifter ge studenter en upplevelse av framgång så fort
-som möjligt. Detta kan vara en viktigt stimulans för fortsatt
+som möjligt. Detta kan vara en viktig stimulans för fortsatt
 motivation, förutsatt att uppgiften kräver så pass mycket ansträngning
 att det betyder något att lyckas med den, men inte kräver så mycket
 att det uppgiften leder till allvarlig oro eller hot om misslyckande.
@@ -607,10 +615,10 @@ typerna oftast är implicita och lämnas till läsaren att själv fundera
 på.
 
 %Todo: Kolla igenom nedanför stycke om den är ok.
-Detta projekt bygger, som tidigare nämnts, på projektet \gls{dslm} som
-i sin tur bygger på idéerna från Wells, Sussman och Wisdom.  I kursen
+Detta kandidatprojekt bygger, som tidigare nämnts, på projektet \gls{dslm} som
+i sin tur bygger på idéerna från Wells, Sussman och Wisdom. I kursen
 \textit{Matematikens domänspecifika språk} får studenterna
-angripa matematiska problem i ett programmerings perspektiv
+angripa matematiska problem ur ett programmeringsperspektiv
 genom att bygga domänspecifika språk. För att kunna göra detta måste
 studenterna fundera över vad de faktiskt ska modellera och vilka typer
 de kan tänkas behöva för att uttrycka problemet
@@ -957,7 +965,7 @@ Fouriertransform.
 Utvecklingen av det \gls{dsl} som använts har skett genom att all kod
 som behövts för ett avsnitt först utvecklats fristående från det
 övriga lärometerialet. När koden sedan hade testats och fungerade
-tillfredsställande delades den upp i kodpaket. I dessa kodpaket har
+tillfredsställande delades den upp i kodpaket. \\I dessa kodpaket har
 vissa funktioner tagits bort för att lämnas som övningar till läsarna
 att implementera. Resterande kod i paketen kan användas av studenten
 så att hen kan köra sin egen kod direkt och testa sina lösningar.
