@@ -24,3 +24,6 @@ Links:
 * **Communicating Mathematics: Useful Ideas from Computer Science**,
   Charles Wells, *American Mathematical Monthly*, May 1995.  [URL](http://www.cwru.edu/artsci/math/wells/pub/pdf/commath.pdf)
   This article was one of the main triggers of the DSLsofMath project.
+
+## Licens
+Läromaterialet och allt annat innehåll är licensierat under en [Creative Commons Erkännande-DelaLika 4.0 Internationell Licens](http://creativecommons.org/licenses/by-sa/4.0/).
