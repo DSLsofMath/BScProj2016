@@ -154,8 +154,8 @@ uppstod, samt projektets mål och rapportens syfte.
 \subsection{Bakgrund}
 \label{sec:bakgrund}
 Det finns flera studier som visar på att det matematiska språket
-används på ett otydligt sätt i undervisningssammanhang och att man
-antar att studenterna är betydligt mer bevandrade i
+används på ett för otydligt sätt i undervisningssammanhang och att man
+antar att studenterna är betydligt mer vana vid och bevandrade i
 matematiken än de oftast är \cite{sussman2002role}
 \cite{wells1995communicating}. Detta gör att vissa grundläggande
 detaljer, som då antas vara allmän kunskap, utelämnas och de studenter
@@ -165,7 +165,7 @@ ofta används på fel detaljnivå. Hur ska man då veta på vilken nivå man
 bör lägga sina förklaringar? En lösning som Sussman och Wisdom
 föreslår i sin studie \textit{The role of programming in the
   formulation of ideas} \cite{sussman2002role} är att försöka förklara
-matematiska koncept för en dator, om en dator förstår konceptet är förklaringen
+för en dator, om en dator förstår konceptet är förklaringen
 tillräckligt detaljerad.
 
 Ett exempel på detta problem går att finna på Chalmers tekniska
@@ -173,12 +173,12 @@ högskola. Där finns det en lång trend där studenterna på utbildningen
 för Datateknik har haft svårigheter med kurserna \textit{\gls{tss}}
 och \textit{\gls{regler}}. Svårigheterna med dessa kurser tror
 examinatorerna till stor del beror på att studenterna inte är
-tillräckligt bekväma i det matematiska språket, se \nameref{bil:exam_intervju}.
+tillräckligt bekväma i det matematiska språket.
 % Detta syns bland annat i statistiken av hur många datastudenter som
 % klarar kurserna.
 
 Inspirerat av artiklar av bland andra Sussman, Wisdom och Wells
-påbörjades år 2014 ett pedagogiskt projekt på Chalmers, \textit{\gls{dslm}},
+påbörjades ett pedagogiskt projekt på Chalmers, \textit{\gls{dslm}},
 vars syfte var att minska svårigheterna som studenterna hade med
 kurserna \gls{gls-tss} och \gls{regler}. Projektet har resulterat
 hittills i en kurs som heter \textit{\gls{dat325}}. Kursen gavs första
@@ -205,7 +205,7 @@ kan kopplas till en mer generell problematik.
 \subsection{Projektets mål}
 Syftet med projektet är att underlätta för studenter inom Datateknik
 att ta till sig signal- och systemteoretiska ämnen genom att utnyttja
-studenternas kunskaper inom programmering samt även underlätta för dem
+studenternas kunskaper inom programmering och även underlätta för dem
 att betrakta ämnet ur en programmerares perspektiv. Tanken bakom detta
 är att man ska göra gapet mellan datateknik och signalteori mindre och
 minska problemen som nämns i bakgrundsavsnittet.
@@ -221,12 +221,11 @@ på den datatekniska utbildningen på Chalmers tekniska högskola.
 \section{Avgränsningar}
 \label{sec:avgrans}
 På grund av att projektet är tidsbegränsat har projektet avgränsats
-till att ta fram läromaterial till endast en kurs, \gls{tss}. Läromaterialet
-som tagits fram är ett
-kompletterande material och är inte tänkt att kunna ersätta kursen
-eller dess material.  Något
+till att ta fram läromaterial till endast en kurs, \gls{tss}. Något
 material till kursen \gls{regler} har inte tagits fram, annat än
-indirekt i form av förkunskaper.
+indirekt i form av förkunskaper. Läromaterialet som tagits fram är ett
+kompletterande material och är inte tänkt att kunna ersätta kursen
+eller dess material.
 
 % TODO: kolla upp avstavningarna - kanske någon LaTeX-inställning är
 % fel? Det borde inte bli "matem-atisk", "tex-tens", etc.
@@ -260,7 +259,7 @@ behövs för att bygga upp läromaterialet.
 \subsection{Git och GitHub}
 \gls{Git} är ett versionshanteringsprogram som gör det möjligt för
 flera personer att arbeta med samma material samtidigt utan att de
-skriver över varandras arbete. Så länge inte två versioner av materialet innehåller
+skriver över varandras arbete. Så länge inte två versioner innehåller
 ändringar som står i konflikt med varandra, till exempel att flera
 personer samtidigt ändrar på samma rad, slås de ihop och bildar då en
 tredje version vars innehåll kommer från båda de tidigare
@@ -284,14 +283,14 @@ enskilda versioner av källkoden, följa upp ärenden och problem samt
 dokumentera sitt projekt. \gls{GitHub} har även verktyg för att
 underlätta samarbete mellan utvecklare genom att man kan klona
 varandras projekt och bidra med egna ändringar som huvudutvecklaren
-kan godkänna. Eftersom materialet lagras offentligt på \gls{GitHub} så är
+kan godkänna. Eftersom koden lagras offentligt på \gls{GitHub} så är
 den lättåtkomlig för andra utvecklare vilket underlättar vid framtida
-vidareutveckling.
+vidareutveckling av kod.
 
 För ytterligare information om \gls{GitHub} se hemsidan
 \url{https://github.com}.
 
-\subsection{Funktionell programmering och Haskell}
+\subsection{Funktionell programmering}
 Funktionell programmering är en programmeringsparadigm där de
 huvudsakliga byggstenarna är funktioner. Som Hughes nämner i sin
 välciterade \textit{Why Functional Programming Matters}
@@ -300,7 +299,7 @@ om att göra det möjligt att skriva så modulär kod som möjligt.
 Anledningen är att det enklaste sättet att angripa ett problem är
 genom att bryta ner problemet i delproblem, lösa delproblemen, och sen
 sammanfoga lösningarna till en helhetslösning. Hur mycket man kan
-bryta ned ett problem beror på hur enkelt man sedan kan sammanfoga
+bryta ned ett problem beror då på hur enkelt man sedan kan sammanfoga
 delproblemens lösningar igen när man är klar.
 
 Vad som gör funktioner till grundläggande byggstenar i funktionella
@@ -341,7 +340,7 @@ funktionsapplikation, högre ordningens funktioner, algebraiska
 datatyper samt lat evaluering. Lat evaluering betyder att Haskell inte
 evaluerar ett uttryck förrän det behövs och detta gör det möjligt för
 Haskell att hantera oändliga datastrukturer utan att processen kräver
-för mycket virtuellt minne och terminerar.
+allt virtuellt minne och terminerar.
 
 Algebraiska datatyper är typer som består av flera andra typer. Tack
 vare Haskells \textit{\gls{patternmatching}} är det lätt att definiera rekursiva
@@ -410,7 +409,7 @@ värdspråket. I ett ytligt \gls{edsl} försöker man däremot uttrycka
 sitt domänspecifika språk i termer av värdspråkets funktioner och
 typer. Ett uttryck i ett ytligt \gls{edsl} motsvaras alltså av ett
 uttryck i värdspråket och behöver inte tolkas ytterligare. Båda sätten
-att implementera ett \gls{edsl} har sina för- och nackdelar då det
+att implementera ett \gls{edsl} har sina fördelar och nackdelar då det
 exempelvis i ett djupt \gls{edsl} är förhållandevis lätt att ge fler
 tolkningar av det abstrakta syntaxträdet och därmed kunna bygga vidare
 på det domänspecifika språket, men svårare att lägga till konstruerare
@@ -455,7 +454,7 @@ lär sig utan snarare om hur läraren skapar en situation lämplig för
 lärande.
 
 Som nämndes i inledningen har detta projekt som syfte att utveckla
-ett läromaterial som kan fungera som ett komplement till kursen \gls{tss}
+läromaterial som kan fungera som ett komplement till kursen \gls{tss}
 och väcka intresse för ämnet. Därför är didaktik en viktig del av
 projektet.
 
@@ -483,12 +482,12 @@ vuxna studenter.  Motivationsdesign har alltså utmaningen att göra
 materialet tilltalande utan att det blir ren underhållning.
 
 Ett angreppssätt inom didaktik är \textit{ARCS-modellen}, som beskrivs
-i detalj i boken \textit{Motivational Design for Learning and Performance}
+i detalj i \textit{Motivational Design for Learning and Performance}
 \cite{motivational_design}. \gls{gls-arcs} är en akronym för
 \textit{Attention}, \textit{Relevance}, \textit{Confidence} och
 \textit{Satisfaction}, vilket är grundpelarna i
 \textit{ARCS-modellen}. Nedan följer en summering av modellens fyra
-grundpelare utifrån boken.
+grundpelare.
 
 Den första grundpelaren \textit{Attention}, uppmärksamhet på svenska,
 syftar till att väcka studentens uppmärksamhet och nyfikenhet. Detta
@@ -496,7 +495,7 @@ syftar till att väcka studentens uppmärksamhet och nyfikenhet. Detta
 Perceptuell stimulans innebär att man på något sätt ändrar i
 undervisningsmiljön för att väcka studentens uppmärksamhet. Dessa
 miljöförändringar kan vara av varierande typ som till exempel en
-förändring i lärarens röstläge, temperatur i en undervisningssal eller ett skämt.
+ändring i röstläge, temperatur i en undervisningssal eller ett skämt.
 Denna typ av miljöförändringar väcker dock endast en tillfällig
 uppmärksamhet och måste därför följas av frågor och variation för att
 ge en varaktig effekt. Därför är det viktigt att i detta skede
@@ -539,7 +538,7 @@ att det uppgiften leder till allvarlig oro eller hot om misslyckande.
 Studentens självförtroende kan byggas upp genom lärokrav, möjlighet
 till fram\-gång och personlig kontroll. Det är viktigt att sätta upp
 tydliga lärokrav eftersom det är en stor källa till oro och osäkerhet
-för studenten att inte veta vad som förväntas av hen. Efter att ha
+för studenten att inte veta vad som förväntas. Efter att ha
 skapat en förväntan av framgång är det viktigt att ge studenten
 möjlighet att lyckas med krävande och meningsfulla uppgifter. Dessa
 uppgifter bör se olika ut beroende på vilken nivå studenten befinner
@@ -593,13 +592,13 @@ Det huvudsakliga problemet med att uttrycka idéer och koncept i det
 matematiska språket är dock inte språket i sig utan snarare att man,
 som med naturliga språk, antar att den man talar med eller förklarar
 för är van vid det matematiska språket och därför delar samma
-kunskapsbas om matematik som man själv. Detta gör, enligt Sussman och
+kunskapsbas om matematik som en själv. Detta gör, enligt Sussman och
 Wisdom, att man istället för att förklara matematiken så tydligt som
 man bör snarare skissar upp en lösning, vilken för den matematiskt
 ovane studenten blir i det närmaste obegriplig.
 
 I artikeln föreslås en lösning på hur man hittar den detaljnivå som
-krävs för att otvetydigt förklara ett matematiskt koncept, nämligen att försöka
+krävs för att otvetydigt förklara något matematiskt är att försöka
 förklara det för en dator. En dator försöker inte tänka själv och
 accepterar inte halvfärdiga instruktioner där resten lämnas till
 intuitionen.
@@ -618,8 +617,7 @@ på.
 %Todo: Kolla igenom nedanför stycke om den är ok.
 Detta kandidatprojekt bygger, som tidigare nämnts, på projektet \gls{dslm} som
 i sin tur bygger på idéerna från Wells, Sussman och Wisdom. I kursen
- som utvecklats i projektet,
-\textit{Matematikens domänspecifika språk}, får studenterna
+\textit{Matematikens domänspecifika språk} får studenterna
 angripa matematiska problem ur ett programmeringsperspektiv
 genom att bygga domänspecifika språk. För att kunna göra detta måste
 studenterna fundera över vad de faktiskt ska modellera och vilka typer
@@ -697,7 +695,7 @@ Avsikten med indelningen var att göra materialet mer överskådligt och
 material för ett specifikt område.
 
 Varje delavsnitt innehåller förklaringar och exempel i löpande
-text. Texten ska vara skriven på ett sådant sätt att den är lätt att ta till sig
+text. Texten skrevs på ett sådant sätt att den är lätt att ta till sig
 för målgruppen och uppmuntrar till vidare studier av ämnet.
 
 Delavsnitten innehåller även exempel på hur det aktuella ämnet kan
@@ -828,10 +826,9 @@ Fouriertransform. De ämnen avsnitten beskriver valdes, som nämns i
 föregående avsnitt, utifrån information från kursen, intervjun med
 examinatorerna samt studenternas enkätsvar.
 
-Läromaterialets första ämnesavsnitt tillägnades komplexa tal, eftersom
-förståelse av komplexa tal är en viktig förkunskap till \gls{tss}. Detta var
-en anledning till att
-gruppen valde att inleda med repetition av detta ämne. En annan
+Läromaterialets första ämnesavsnitt tillägnades komplexa tal. Eftersom
+förståelse av komplexa tal är en viktig förkunskap till \gls{tss}
+valde gruppen att inleda med repetition av detta ämne. En annan
 anledning till att inleda med komplexa tal var att detta är ett område
 datastudenter känner relativt väl till vid den tidpunkt i studierna då
 de läser \gls{tss}. Gruppen ville ge studenterna möjlighet att bekanta
@@ -887,7 +884,7 @@ läromaterialet TSS med DSL var ARCS-modellen. Eftersom
 läromaterialet ska fungera som ett komplement till en
 redan existerande kurs bedömde gruppen att det är extra viktigt att
 materialet är motiverande, eftersom studenten läser det vid sidan av
-sina vanliga studier. Därför ansåg gruppen att ARCS-modellen var
+sina vanliga studier. Därför ansåg gruppen ARCS-modellen var
 ett bra val, eftersom den lägger stor vikt vid just motivation.
 Ytterligare en anledning till att använda ARCS-modellen
 var att ARCS är en didaktisk modell som var relativt lätt att
@@ -921,7 +918,7 @@ I introduktionsavsnittet förklaras att läromaterialet finns till för att
 vara ett komplement till, och hjälpa datastudenterna med,
 \gls{tss}. Varje ämnesavsnitt inleds sedan med en kort beskrivning av
 ämnet och vad det kan användas till. På detta sätt förklaras
-först varför läromaterialet som helhet är relevant för studentens
+först varför läromaterialet är relevant för studentens
 studier och sedan förklaras vad de olika ämnesområdena
 kan användas til mer i detalj efterhand som studenten stöter
 på dem i materialet.
@@ -929,7 +926,7 @@ på dem i materialet.
 Den tredje grundpelaren, \textit{Confidence}, har praktiserats genom
 att skapa övningar och uppgifter av varierande svårighetsgrad och ett
 upplägg där studenten själv kontrollerar sin inlärning. Beträffande
-övningarna så inlededs läromaterialet i det första avsnittet med enklare
+övningarna så inledes läromaterialet i det första avsnittet med enklare
 kryssfrågor och relativt enkla programmeringsövningar. Kryssfrågorna
 kan kryssas i direkt på hemsidan, varpå de rättas automatiskt för att ge
 studenten omedelbar bekräftelse. Det finns även lösningsförslag till
@@ -946,8 +943,8 @@ kryssfrågorna får studenten omedelbar bekräftelse när hen har lärt sig
 något eller kan det sedan innan. Efter att studenten har läst teorin
 inom ett område följs detta upp med övningar där studenten får
 praktisera sin nyvunna kunskap. Varje avsnitt i läromaterialet
-avslutas till sist med en lista på vad studenten har lärt
-sig i avsnittet. Studenten får alltså både ett erkännande av sin kunskap och
+avslutas till sist med en lista på vad studenten nu har lärt
+sig. Studenten får alltså både ett erkännande av sin kunskap och
 förmåga, samt möjlighet att praktisera denna.
 
 \subsection{Implementationen av vårt DSL}
@@ -965,13 +962,12 @@ implementerades komplexa tal som första byggstenen i läromaterialets
 Fouriertransform.
 
 Utvecklingen av det \gls{dsl} som använts har skett genom att all kod
-för ett avsnitt först utvecklats fristående från det
+som behövts för ett avsnitt först utvecklats fristående från det
 övriga lärometerialet. När koden sedan hade testats och fungerade
 tillfredsställande delades den upp i kodpaket. \\I dessa kodpaket har
 vissa funktioner tagits bort för att lämnas som övningar till läsarna
 att implementera. Resterande kod i paketen kan användas av studenten
-så att hen kan köra sin egen kod direkt och testa sina lösningar utan att
-behöva implementera bakomliggande kod som är irrelevant för inlärningen.
+så att hen kan köra sin egen kod direkt och testa sina lösningar.
 
 Samtliga funktionerna har givits så beskrivande namn som
 möjligt. Projektgruppen har även försökt åstadkomma en så lättläst
@@ -990,12 +986,12 @@ fall som två flyttalsvärden.
     deriving Eq
 \end{minted}
 Ett värde för den reella delen av talet och ett för den imaginära
-delen. Det komplexa talet \(z = 1 + 2j \) representeras i vår
+delen. Det komplexa talet \(z = 1 + 2j = (1,2) \) representeras i vår
 \gls{dsl} som:
 \begin{minted}{haskell}
   Complex 1 2
 \end{minted}
-De implementerade komplexa talen ska bete sig som matematikens
+De implementerade komplexa talen skulle bete sig som matematikens
 komplexa tal och därför var det nödvändigt att implementera diverse
 beräkningsoperatorer för dem. Addition kunde implementeras relativt
 enkelt då de reella delarna adderas med varandra och de imaginära med
@@ -1025,7 +1021,7 @@ Detta implementerades enligt följande i vårt \gls{dsl}:
 
 Här skapades även hjälpdefinitioner, vilka är de funktioner man finner
 efter \mintinline{haskell}{where} i koden. Detta var för att undvika
-att skriva samma kod om och om igen, samtidigt som det gör koden mer
+att skriva samma kod om och om igen, samtidigt som det koden mer
 tydlig och lättläst för studenten.
 
 Efter att dessa operationer var färdiga så var division nästa stora
@@ -1082,7 +1078,7 @@ sin z = (exp (j*z) - exp (-(j*z))) / (scale 2 j)
 
 Den fullständiga koden finns på GitHub:
 
-\url{https://github.com/DSLsofMath/BScProj/tree/master/Tutorial/Kod}
+\url{https://github.com/DSLsofMath/BScProj/tree/master/Tutorial/}
 
 Ett av de största problemen vid implementationen av signaler, och all
 kod som bygger på signaler, var hur kontinuerlig tid skulle
@@ -1165,13 +1161,13 @@ eftersom kursen endast ges under höstterminen. Därför kontaktades
 studenter som läst kursen tidigare och studenter som skulle läsa den
 nästa hösttermin och hade läst de kurser som är nödvändig förkunskap.
 Dessa studenter kontaktades i samband med enkäten som beskrivs i
-avsnitt \internref{sec:efterforskning}. De studenter som sedan var villiga att
+avsnitt \internref{sec:efterforskning}. De som sedan var villiga att
 delta i testandet av vår produkt lämnade en e-postadress. Detta
 resulterade i en testgrupp på 13 personer.
 
 När projektgruppen ansåg att läromaterialets tre första avsnitt var
 redo att testas skickades dessa ut till testgruppen. Testningen
-fungerade så att testpersonerna fick ta del av materialet, arbeta med
+fungerade så att testpersonen fick ta del av materialet, arbeta med
 detta och sedan ge återkoppling till projektgruppen. Det material som
 testgruppen fick innefattade texter, exempel, programkod och uppgifter
 samt lösningar till uppgifterna.
@@ -1184,7 +1180,7 @@ och bättre anpassat till målgruppen.
 
 Det sista avsnittet skickades inte ut till testgruppen utan
 utvärderades endast internt av gruppens medlemmar då detta avsnitt
-inte blev färdigt i tillräckligt god tid för att ge testgruppen en rimlig
+inte var klart i tillräckligt god tid för att ge testgruppen en rimlig
 chans att arbeta med materialet. Den mer generella återkoppling som gavs
 på de tre första avsnitten tillämpades dock även på det sista
 avsnittet.
@@ -1207,7 +1203,7 @@ avsnitt har även ett tillhörande kodpaket med förimplementerad kod
 till övningarna och lösningar till dessa. De fyra avsnitten behandlar
 i huvudsak komplexa tal, signaler, LTI-system och Fouriertransform.
 Ytterligare avsnitt, som beskriver Laplacetransform och Z-transform,
-var planerade och påbörjade men detta fick bortprioriteras på grund av tidsbrist.
+var planerade men detta fick bortprioriteras på grund av tidsbrist.
 
 Läromaterialet finns samlat på en hemsida, där det även är möjligt att
 ladda ner materialet i form av en PDF-fil. Följ länken nedan för att
@@ -1215,8 +1211,7 @@ se hela materialet:
 \url{https://cdn.rawgit.com/DSLsofMath/BScProj/master/Hemsida/index.html}
 
 Bilaga \nameref{bil:3} innehåller ett delavsnitt ur läromaterialet som
-beskriver \textit{Udda och Jämna signaler}. De övriga avsnitten har samma 
-grundläggande upplägg som detta. Delavsnittet inleds med
+beskriver \textit{Udda och Jämna signaler}. Det inleds med
 övergripande definitioner och förklaringar av vad som menas med udda
 och jämna signaler inom signallära, detta illustreras sedan med
 figurer. Därefter följer kryssfrågor där studenten ska avgöra om den
@@ -1341,10 +1336,10 @@ ursprungliga avsikten.
 %i resultatdiskussionen. Är det ok eller känns det lite för repetitivt?
 
 Man kan ställa sig frågan om det överhuvudtaget är en bra idé att låta
-studenter ta fram den här typen av läromaterial. En nackdel med detta är att
+studenter ta fram den här typen av läromaterial. En nackdel är att
 studenterna som skriver materialet behöver lägga en stor del av tiden
 på att lära sig ämnet och nödvändig didaktik tillräckligt bra, precis
-som vår projektgrupp har behövt göra.  En följd av detta blir dock att
+som projektgruppen har behövt göra.  En följd av detta blir dock att
 studenterna får en djupare förståelse för ämnet samt får nya eller
 förbättrade kunskaper inom didaktik.  Man kan rentav argumentera för
 att det är ett bra läromedel just att utveckla denna typ av läromedel.
@@ -1406,8 +1401,8 @@ relativt bra approximation på detta sätt, men det är fortfarande
 endast en approximation och därför blir resultatet inte fullständigt
 korrekt.
 En annan variant är att använda \gls{patternmatching}, där funktioner
-definieras exakt för ett antal givnatypfall av insignaler som definieras var för
-sig. Detta ger mer korrekta svar, men inte samma möjlighet att
+definieras exakt för ett antal givna insignaler som definieras var för
+sig. Detta ger mer korrekta svar, men ger inte samma möjlighet att
 sammanfatta
 området som en diskret approximation eftersom man definierar olika
 fall var för sig. Detta gör det å andra sidan möjligt att definiera
@@ -1450,7 +1445,7 @@ och Z-transform. Anledningen till att gruppen valde att fokusera på
 Fouriertransform var att den är nära besläktad med Laplacetransform
 och Z-transform. Ur programmeringssynpunkt var det även svårt att
 implementera Laplacetransform och Z-transform utan att först
-implementera Fouriertransform. Det finns emellertid utkast till
+implementera Fouriertransform. Det finns emellertid ett utkast till
 avsnitt om Laplacetransform och Z-transform som kan utvecklas i
 framtiden.
 
@@ -1508,8 +1503,7 @@ Det förefaller dock ytterst osannolikt att endast ett läromaterial kan
 åstadkomma en tillräckligt stor effekt för att orsaka alla dessa
 positiva konsekvenser. Dock förefaller det utifrån våra testresultat
 och andra liknande studier som om ett projekt som vårt kan vara ett
-bidrag till att minska gapet mellan matematik och programmering och 
-bidra till dessa konsekvenser.
+bidrag till att minska gapet mellan matematik och programmering.
 
 \subsection{Framtida utveckling}
 Vad återstår då att utveckla i framtiden? En möjlighet är givetvis att
@@ -1517,7 +1511,7 @@ vidareutveckla det befintliga läromaterialet. Till att börja med
 skulle man kunna komplettera materialet med avsnitt om
 Laplacetransform och Z-transform. Det finns, som tidigare nämnts,
 påbörjade utkast för dessa och om de färdigställs täcker
-läromaterialet in hela kursen \gls{tss} i stora drag.
+läromaterialet in hela kursen \gls{tss}.
 
 En annan vidareutveckling av materialet skulle kunna vara utökad
 implementation av funktioner i kontinuerlig tid. Som vi tidigare nämnt
@@ -1528,8 +1522,7 @@ djupare studier säkerligen skulle kunna ge bättre implementationer.
 Om fler tester genomförs skulle materialet eventuellt kunna förbättras
 ytterligare med dessa tester som underlag. En större testgrupp och
 anonyma svar skulle kanske kunna ge fler och mer tillförlitliga
-resultat. Det skulle också vara värdefullt att testa produkten
-tillsamans med kursen \gls{tss}.
+resultat.
 
 %Todo: Skicka till Eva Fülöp för kommentarer.
 Det skulle även kunna vara intressant att gå igenom materialet
@@ -1564,7 +1557,7 @@ vårt material.
 
 \section{Slutsatser}
 Projektets mål var att ta fram ett kompletterande läromaterial till
-kursen \gls{tss} inspirerat av \gls{dslm} som uppfyller
+kursen \gls{tss} inspirerat av \textit{\gls{dslm}} som uppfyller
 produktspecifikationen som beskrivs i avsnitt \internref{sec:prodSpec}.
 
 Projektgruppen har utifrån detta tagit fram ett material som finns
@@ -1603,7 +1596,7 @@ kursen \gls{tss}.
 Denna bilaga är ett utdrag ur den enkätundersökning som genomfördes av
 kandidatgruppen under våren 2016 via \textit{webbenkater.com}. Bilagan
 innehåller endast de delar av undersökningen som bedömts som relevanta
-för rapporten och är även tömd på all information som kan länkas till
+för rapporten och är tömd på all information som kan länkas till
 enskilda individer.
 
 Observera att antalet deltagare varierar markant. Detta beror på att
