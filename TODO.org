@@ -5,27 +5,20 @@
 
 * Tutorial
 ** Patriks kommentarer under genomläsning 2016-05-30:
-*** TODO Signaler.html: "Fourier serie" := "Fourierserie"
-*** TODO Signaler.html: Efter figure 11: "else" := "otherwise"
 *** TODO Signaler.html: "då enhetsimpulsen antar värdet 1" := "i den punkt där enhetsimpulsen inte är noll". Eller skriv om på annat sätt.
 *** TODO Signaler.html: Fig. 12: "Kontinuerlig Enhetsteg" := "Kontinuerligt enhetssteg" + motsvarande för det diskreta.
-*** TODO Signaler.html: Nedanför Fig. 12: rätta stavning på enhetsstegfunktion
-*** TODO Signaler.html: "additativt" := "additivt" på ett par ställen
+
 *** TODO LTI.html: Vad är ett "system"? Det verkar vara en funktion F : Signal a b -> Signal a b eftersom "boxarna" tar in funktionen x och ger ut funktionen y, men i övning 3 längre ned frågas bara om en viss _signal_ är linjär eller ej.
 *** TODO LTI.html: Vad är typen "DiscSystem"? I koden är det lika med "DiscTimeFun" men det är inte korrekt. Ett exempel på ett "system" är F f = \t -> (f t + f (t-1))/2.
-*** TODO LTI.html: Fixa indenteringen på typerna så att :: hamnar rakt ovanför ->
-*** TODO LTI.html: "Kommer du inte ihåg vad en enhetsimpuls eller ett enhetssteg är för något så titta tillbaka på kapitlet som heter Introduktion" - skall vara kapitlet Signaler
 *** TODO LTI.html: Definitionen av \delta är fel: värdet i noll skall vara +Inf.
 *** TODO LTI.html: "utsignalen kan fås genom faltning av insignalen med impulssvaret" := "" tror jag.
-*** TODO LTI.html: Notera att "*" är en binär operator som tar två funktioner och ger en funktion. Så man bör skriva "(f*g)(t)" inte "f(t) * g(t)" eller i varja fall förklara båda.
-*** TODO LTI.html: Jag känner inte igen definitionen av faltning från wikipedia: https://sv.wikipedia.org/wiki/Faltning - där har de hela tiden -Inf till Inf som integrationsgränser.
-*** TODO LTI.html: Lagar om faltning: lagarna blir lättare att läsa som ni tar bort alla "(t)"
+
 *** TODO LTI.html: Jag gillar inte definitionen av "diskret faltning": varför har ni "wrap-around" i [n-k] när ni inte har det i det kontiuerliga fallet? Och varifrån kommer N?
 *** TODO LTI.html: Vänligen förklara att den partiella applikationen "(f *)" är ett LTI-system för varje f. Om f dessutom är lika med impulssvaret för ett LTI-system F så är F = (f *), dvs. y = F x = f * x.
 *** TODO LTI.html: Definitionen av discConvolution är fel.
-*** TODO LTI.html: "Fourier kapitlet" := "Fourierkapitlet". Men det verkar inte finnas något Fourierkapitel?
 *** TODO LTI.html: "innan du går vidare till nästa kapitel!" - Länk till nästa kapitel saknas.
 *** TODO LTI.html: Jag tror att det här kapitlet skulle må bra av att delas i två delas: ett för LTI-system (+ lägg till ett par exempel, som glidande medelvärde) och ett för faltning.
+
 ** Generellt
    * Dela upp kursmaterial mellan deltagarna
    * Läsa igenom ens del av kursmaterialet och anteckna oklarheter + grad av "implementerbarhet"

@@ -94,9 +94,9 @@
 						<hr>
 
 						<h3 id="linjäritet">Linjäritet</h3>
-						<p>För att ett system ska vara linjärt måste det uppfylla superpositionsprincipen, vilket innebär att det är både additativt och homogent för er som tycker om att svänga er med fina ord.</p>
+						<p>För att ett system ska vara linjärt måste det uppfylla superpositionsprincipen, vilket innebär att det är både additivt och homogent för er som tycker om att svänga er med fina ord.</p>
 						
-						<p>I ett system som är additativt kan man dela upp insignalen i mindre komponenter och kika på dessa komponenters utsignaler och dessa kan sedan kombineras till hela insignalens utsignal. Mycket praktiskt! <img src="images/LTI/LTI2.png">
+						<p>I ett system som är additivt kan man dela upp insignalen i mindre komponenter och kika på dessa komponenters utsignaler och dessa kan sedan kombineras till hela insignalens utsignal. Mycket praktiskt! <img src="images/LTI/LTI2.png">
 						</p>
 						
 						<p>I ett homogent system kan man bryta ut skalningsfaktorer ifrån insignalen och skala om utsignalen med dessa istället. <img src="images/LTI/LTI3.png"></p>
@@ -111,12 +111,12 @@
 						<div class="well"> 
 						<p><strong>Övning 1:</strong> Här följer ett kodskelett till en funktion som undersöker om ett system är Linjärt. Fyll i det som saknas.</p>
 <div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">isLinearDisc ::</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Insignal 1</span>
-            <span class="ot">-&gt;</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Insignal 2</span>
-            <span class="ot">-&gt;</span> <span class="dt">DiscSystem</span>  <span class="co">-- ^ System</span>
-            <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="co">-- ^ Skalningsfaktor 1</span>
-            <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="co">-- ^ Skalningsfaktor 2</span>
-            <span class="ot">-&gt;</span> <span class="dt">DiscTime</span> <span class="co">-- ^ Tid då vi mäter</span>
-            <span class="ot">-&gt;</span> <span class="dt">Bool</span>
+             <span class="ot">-&gt;</span> <span class="dt">DiscTimeFun</span> <span class="co">-- ^ Insignal 2</span>
+             <span class="ot">-&gt;</span> <span class="dt">DiscSystem</span>  <span class="co">-- ^ System</span>
+             <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="co">-- ^ Skalningsfaktor 1</span>
+             <span class="ot">-&gt;</span> <span class="dt">Double</span> <span class="co">-- ^ Skalningsfaktor 2</span>
+             <span class="ot">-&gt;</span> <span class="dt">DiscTime</span> <span class="co">-- ^ Tid då vi mäter</span>
+             <span class="ot">-&gt;</span> <span class="dt">Bool</span>
 isLinearDisc x0 x1 sys a b t <span class="fu">=</span> undefined</code></pre></div>
 
 						<p><strong>Tips!</strong> Du kommer behöva skala om signalerna, kolla i <span>Signals.hs</span> efter en lämplig funktion.</p>
@@ -177,7 +177,7 @@ isTimeInvCont x sys t c <span class="fu">=</span> y&#39; t <span class="fu">~=</
 						<hr>
 
 						<h2 id="stegsvar-och-impulsvar">Stegsvar och Impulsvar</h2>
-						<p>Impulssvar och stegsvar är härligt nog ganska precis vad de låter som. Ett systems impulssvar är den utsignal man får när man skickar in en enhetsimpuls som insignal till systemet och stegsvar är systemets utsignal när man skickar in ett enhetssteg som insignal. Kommer du inte ihåg vad en enhetsimpuls eller ett enhetssteg är för något så titta tillbaka på kapitlet som heter Introduktion. I korthet så är en enhetsimpuls en signal som är definierad som 0 vid alla tidpunkter utom tiden 0 och enhetssteg är en signal definierad som 0 för negativa tidpunkter och 1 för positiva tidpunkter.</p>
+						<p>Impulssvar och stegsvar är härligt nog ganska precis vad de låter som. Ett systems impulssvar är den utsignal man får när man skickar in en enhetsimpuls som insignal till systemet och stegsvar är systemets utsignal när man skickar in ett enhetssteg som insignal. Kommer du inte ihåg vad en enhetsimpuls eller ett enhetssteg är för något så titta tillbaka på kapitlet som heter Signaler. I korthet så är en enhetsimpuls en signal som är definierad som 0 vid alla tidpunkter utom tiden 0 och enhetssteg är en signal definierad som 0 för negativa tidpunkter och 1 för positiva tidpunkter.</p>
 
 						<img src="images/LTI/StegImp1.png">
 
@@ -186,25 +186,33 @@ isTimeInvCont x sys t c <span class="fu">=</span> y&#39; t <span class="fu">~=</
 						<p>kan alltså skrivas så här: <img src="images/LTI/StegImp3.png"></p>
 
 						<p>Kortfattat och fint!</p>
-						<p>Just för LTI-system så har man särskild nytta av impulssvaret. Det är nämligen så att man kan beräkna ett LTI-systems utsignal genom faltning av insignalen med impulssvaret. <span class="math display">\[y(t)=x(t)*h(t),\]</span> utsignalen kan fås genom faltning av insignalen med impulssvaret Detta för oss genast till frågan: Vad tusan är faltning för något?</p>
+						<p>Just för LTI-system så har man särskild nytta av impulssvaret. Det är nämligen så att man kan beräkna ett LTI-systems utsignal genom faltning av insignalen med impulssvaret. <span class="math display">\[y(t)=x * h(t),\]</span> utsignalen kan fås genom faltning av insignalen med impulssvaret. Detta för oss genast till frågan: Vad tusan är faltning för något?</p>
 						
 						<hr>
 
 						<h2 id="faltning">Faltning</h2>
-						<p>Faltning av en signal f(t) med en signal g(t) skrivs: <span class="math inline">\(f(t)*g(t)\)</span>, dvs det skrivs precis som man ofta skriver multiplikation. Är inte det väldigt dumt undrar ni då? Svaret är ja. Ja, det är jättedumt. Dessvärre så är det så standarden ser ut. Var därför väldigt noga med att inte blanda ihop faltning och multiplikation, det har orsakat många pinsamma misstag genom tiderna.</p>
+						<p>Faltning av en signal f(t) med en signal g(t) skrivs: <span class="math inline">\(f * g(t)\)</span>, dvs det skrivs precis som man ofta skriver multiplikation. Är inte det väldigt dumt undrar ni då? Svaret är ja. Ja, det är jättedumt. Dessvärre så är det så standarden ser ut. Var därför väldigt noga med att inte blanda ihop faltning och multiplikation, det har orsakat många pinsamma misstag genom tiderna.</p>
 
 						<p>Ett tips när man beskriver signaler är att skriva multiplikation av signalerna <span class="math inline">\(x_1\)</span> och <span class="math inline">\(x_2\)</span> som <em><span class="math inline">\(x_1\)</span> <span class="math inline">\(x_2\)</span></em>, alltså att man skriver ihop dem, och faltningen av <span class="math inline">\(x_1\)</span> och <span class="math inline">\(x_2\)</span> betecknas <span class="math inline">\(x_1 * x_2\)</span>. Men se upp för att det kan blir syntaxkrockar i programmeringssammanhang, då det är standard att använda <span class="math inline">\(*\)</span> för multiplikation där, medans faltning ofta betecknas med <em>conv</em>, från engelskans convolution, eller liknande.</p>
 						<p>Faltning ses ofta som en operator som är svår att förstå sig på eftersom det kan vara lite besvärligt att få en intuitiv känsla för hur och varför den fungerar. Men vi tar och benar ut den i stora drag i alla fall. Faltning har följande definition i det kontinuerliga fallet:</p>
 
-						<p><span class="math display">\[f(t) * g(t) = \int_{0}^t  f(s) g(t-s) ds\]</span></p>
-						<p>Lagar om faltning! En tumregel är att den i princip följer samma lagar som multiplikation! <span class="math display">\[f(t) * (a g(t) + b h(t) ) = a(f(t) * g(t)) + b(f(t) * h(t))\]</span> <span class="math display">\[f(t) * g(t) = g(t) * f(t)\]</span> <span class="math display">\[f(t) * (g(t) * h(t)) = (f(t) * g(t)) * h(t)\]</span> Där a och b är konstanter och f, g och h är funktioner. Det borde även nämnas att följande lagar innefattar även att <span class="math display">\[f(t) * g(t) = \int_{0}^t  f(s) g(t-s) ds = \int_{0}^t  f(t-s) g(s)ds = g(t) * f(t)\]</span></p>
+						<p><span class="math display">\[f * g(t) = \int_{-&infin;}^&infin;  f(s) g(t-s) ds\]</span></p>
+						<p>Lagar om faltning! En tumregel är att den i princip följer samma lagar som multiplikation! <br>
+
+						Linjär:  <span class="math display">\[f * (a g + b h ) = a(f * g) + b(f * h)\]</span> <br>
+
+						Kommutativ:  <span class="math display">\[f * g = g * f\]</span> <br>
+
+						Associativ:  <span class="math display">\[f * (g * h) = (f * g) * h\]</span> <br>
+
+						Där a och b är konstanter och f, g och h är funktioner. Det borde även nämnas att följande lagar innefattar även att <span class="math display">\[f * g(t) = \int_{0}^t  f(s) g(t-s) ds = \int_{0}^t  f(t-s) g(s)ds = f * g(t)\]</span></p>
 						<p>Så oroa er inte om integrandens ordning! Det finns även en diskret faltning och även denna följer samma lagar som det kontinuerliga fallet.</p>
 						<p><span class="math display">\[a_n * b_n = \sum_{k=0}^{N-1} a_k b_{[n-k]}, \quad [n-k] = 
 						\begin{cases}
 						n-k, \quad  \; n \geq k \\
 						n-k+N, \quad  n &lt; k
 						\end{cases}\]</span></p>
-						<p>Så hur hör allt detta tillsammans med LTI-system? En tolkning av faltning är en kontinuerlig superposition av f (eller g). Men om man inte vill gå in i för djupa detaljer så är faltning i ett nötskal, inom detta området, systemets respons till en insignal. Det vill säga givet insignalen <span class="math inline">\(x(t)\)</span> och system responsen <span class="math inline">\(h(t)\)</span>, systemets utsignal <span class="math inline">\(y(t)\)</span> kan beräknas från <span class="math display">\[y(t) = x(t) * h(t)\]</span> Det vill säga utsignalen fås av en faltning mellan impulssvaret och insignalen. Om du inte vill gå in djupare på teorin så får du helt enkelt acceptera det.<br />
+						<p>Så hur hör allt detta tillsammans med LTI-system? En tolkning av faltning är en kontinuerlig superposition av f (eller g). Men om man inte vill gå in i för djupa detaljer så är faltning i ett nötskal, inom detta området, systemets respons till en insignal. Det vill säga givet insignalen <span class="math inline">\(x(t)\)</span> och system responsen <span class="math inline">\(h(t)\)</span>, systemets utsignal <span class="math inline">\(y(t)\)</span> kan beräknas från <span class="math display">\[y(t) = x * h(t)\]</span> Det vill säga utsignalen fås av en faltning mellan impulssvaret och insignalen. Om du inte vill gå in djupare på teorin så får du helt enkelt acceptera det.<br />
 						
 						<hr>
 
@@ -229,7 +237,7 @@ isTimeInvCont x sys t c <span class="fu">=</span> y&#39; t <span class="fu">~=</
 						</div>
 						<hr>
 
-						<p>En kanske enklare metod att beräkna faltningar presenteras i Fourier kapitlet.</p>
+						<p>En kanske enklare metod att beräkna faltningar presenteras i Fourierkapitlet.</p>
 						<h2 id="sammanfattning">Sammanfattning</h2>
 						<p>Gratulerar! Du har nu lärt dig</p>
 							<ul>
