@@ -1,6 +1,5 @@
 module ComplexNumbers where
 import GHC.Real
-import qualified Test.QuickCheck as Q
 
 -- Komplexa tal kan ses som ett par av reella värden.
 
@@ -71,9 +70,6 @@ printComplex z
 -- | Skapar ett komplext tal utifrån en vinkel.
 euler :: Double -> Complex
 euler phi = Complex (cos phi) (sin phi)
-
-instance Read Complex where
-  read = readComplex
 
 instance Num Complex where
 -- Plus är förhållandevist trivialt
@@ -160,9 +156,3 @@ instance Floating Complex where
   asin  = undefined
   acosh = undefined
   acos  = undefined
-
-instance Q.Arbitrary Complex where
-  arbitrary = do
-     re <- Q.arbitrary
-     im <- Q.arbitrary
-     return (Complex re im)

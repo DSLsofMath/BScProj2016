@@ -8,11 +8,16 @@
 > mapFst f (a, c) = (f a, c)
 > mapReadS :: (a->b) -> (ReadS a -> ReadS b)
 > mapReadS f p = map (mapFst f) . p
->
+
 > instance Read Complex where
->   readsPrec p = mapReadS (Complex . unPair) (readsPrec p)
->
+>   readsPrec p = mapReadS (toComplex . unPair) (readsPrec p)
+>     where toComplex (re,im) = Complex re im
+
 > f =^= g = \x -> f x == g x
 > testRoundTrip  =  (read . printComplex) =^= id
->
->
+
+> instance Arbitrary Complex where
+>    arbitrary = do
+>       re <- arbitrary
+>       im <- arbitrary
+>       return (Complex re im)
