@@ -1,7 +1,6 @@
 > module ComplexNumbers.Parse where
 > import Control.Applicative (Applicative(..))
 > import Control.Monad       (liftM, ap)
-> import ComplexNumbers
 
 Eftersom projektet fokuserar på matematik är parsning inte
 centralt. Därför lägger jag detta i en separat fil.
@@ -62,15 +61,10 @@ och några motexempel (som man kanske skulle vilja hantera).
 
 Steg 3: Översätt grammatiken till en parser
 
-> pairP :: (Num a, Read a) => P (Pair a)
-> pairP = do re <- realP
->            im <- return 0 ||| signedImP
->            return $ Pair (re, im)
-
-> complexP :: P Complex
+> complexP :: (Num a, Read a) => P (Pair a)
 > complexP = do re <- realP
 >               im <- return 0 ||| signedImP
->               return $ Complex re im
+>               return $ Pair (re, im)
 
 > signedImP :: (Num a, Read a) => P a
 > signedImP = do si <- signP
@@ -93,9 +87,6 @@ Steg 4: Skriv en Read-instans
 >   deriving (Eq, Show)
 
 > instance (Read a, Num a) => Read (Pair a) where
->   readsPrec _p = unP pairP
-
-> instance Read Complex where
 >   readsPrec _p = unP complexP
 
 Ett par hjälpinstanser.
