@@ -70,5 +70,4 @@ invFourier (Conv e0 e1) = invFourier e0 * invFourier e1
 invFourier exp = error ("invFourier: Inversa fouriertransformen för uttrycket (" ++ show exp ++ ") är ännu inte implementerad")
 
 -- TODO: please add some property to enable checking these rules.
-prop_fourierIdentity exp = exp == fId exp
-  where fId = invFourier . fourier
+-- In progress, tests will appear in FourierTransform.Test
