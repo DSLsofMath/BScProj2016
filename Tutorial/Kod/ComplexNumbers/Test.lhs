@@ -14,7 +14,11 @@
 >     where toComplex (re,im) = Complex re im
 
 > f =^= g = \x -> f x == g x
-> testRoundTrip  =  (read . printComplex) =^= id
+> testRoundTrip = (read . printComplex) =^= id
+
+  Arbitrary instans för komplexa tal, tillåter QuickCheck att generera
+  godtyckliga komplexa tal, där realdelen och imaginärdelen är
+  godtyckliga doubles.
 
 > instance Arbitrary Complex where
 >    arbitrary = do

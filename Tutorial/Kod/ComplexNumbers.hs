@@ -61,11 +61,13 @@ printComplex :: Complex -> String
 printComplex z
   | r == 0    = imj
   | im == 0   = show r
-  | im < 0    = show r ++ " - " ++ show (abs im) ++ "j"
-  | otherwise = show r ++ " + " ++ imj
+  | im < 0    = show r ++ "-" ++ show (abs im) ++ "j"
+  | otherwise = show r ++ "+" ++ imj
     where im  = imPart z
           r   = realPart z
-          imj = show im ++ "j"
+          imj
+            | im == 0  = "0"
+            | otherwise = show im ++ "j"
 
 -- | Skapar ett komplext tal utifrån en vinkel.
 euler :: Double -> Complex
