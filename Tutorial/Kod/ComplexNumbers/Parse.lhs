@@ -61,15 +61,15 @@ C ::=  R [ ('+' | '-') R 'j' ]
 
 Ge några exempel som ingår i språket definierat av den här grammatiken:
 
-> ex1 = ["3", "1+2j", "2-4j"]
+> ex1 = ["3", "2j", "1+2j", "2-4j", "1 + 2j"]
 > ex1' :: Num a => [Pair a]
-> ex1' = map Pair [(3,0), (1,2), (2,-4)]
+> ex1' = map Pair [(3,0), (0,2), (1,2), (2,-4), (1,2)]
 > check1D = map read ex1 == (ex1' :: [Pair Double])
 > check1I = map read ex1 == (ex1' :: [Pair Int])
 
 och några motexempel (som man kanske skulle vilja hantera).
 
-> notEx1 = ["2j", "+1", "1+2i", "1 + 2j"]
+> notEx1 = ["+1", "1+2i"]
 
 Steg 3: Översätt grammatiken till en parser
 
@@ -78,6 +78,11 @@ Steg 3: Översätt grammatiken till en parser
 >               idP ||| whiteSpaceP
 >               im <- return 0 ||| signedImP
 >               return $ Pair (re, im)
+
+> imP :: (Num a, Read a) => P (Pair a)
+> imP = do im <- realP
+>          _ <- symbolP 'j'
+>          return $ Pair (0, im)
 
 > signedImP :: (Num a, Read a) => P a
 > signedImP = do si <- signP
@@ -100,7 +105,7 @@ Steg 4: Skriv en Read-instans
 >   deriving (Eq, Show)
 
 > instance (Read a, Num a) => Read (Pair a) where
->   readsPrec _p = unP complexP
+>   readsPrec _p = unP  (imP ||| complexP)
 
 Ett par hjälpinstanser.
 
