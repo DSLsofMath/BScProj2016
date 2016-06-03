@@ -22,6 +22,6 @@
 
 > instance Arbitrary Complex where
 >    arbitrary = do
->       re <- arbitrary
->       im <- arbitrary
+>       re <- frequency [(8,arbitrary), (2,return 0)]
+>       im <- frequency [(8,arbitrary), (2,return 0)]
 >       return (Complex re im)
