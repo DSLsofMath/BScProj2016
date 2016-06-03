@@ -1,6 +1,7 @@
 > module ComplexNumbers.Parse where
 > import Control.Applicative (Applicative(..))
 > import Control.Monad       (liftM, ap)
+> import Data.Char
 
 Eftersom projektet fokuserar på matematik är parsning inte
 centralt. Därför lägger jag detta i en separat fil.
@@ -27,6 +28,11 @@ som vi kan bädda in och göra till en Monad.
 > bindP :: P a -> (a -> P b) -> P b
 > bindP (P p) g = P $ concatMap (uncurry (unP . g)) . p
 
+Vi behöver någon form av identitetsparser som inte konsumerar strängen.
+
+> idP :: P a
+> idP = P $ \s -> [(error "No operation", s)]
+
 Vi behöver också en implementation av "eller":
 
 > orP :: P a -> P a -> P a
@@ -42,6 +48,12 @@ samt ett sätt att kräva en viss symbol (ett visst tecken):
 >   where sP [] = []
 >         sP (x:cs) | c == x    =  [(c, cs)]
 >                   | otherwise =  []
+
+> whiteSpaceP :: P Char
+> whiteSpaceP = P sP
+>   where sP [] = []
+>         sP (c:cs) | isSpace c = [(c,cs)]
+>                   | otherwise = []
 
 Steg 2: Definiera en grammatik
 
@@ -63,6 +75,7 @@ Steg 3: Översätt grammatiken till en parser
 
 > complexP :: (Num a, Read a) => P (Pair a)
 > complexP = do re <- realP
+>               idP ||| whiteSpaceP
 >               im <- return 0 ||| signedImP
 >               return $ Pair (re, im)
 
