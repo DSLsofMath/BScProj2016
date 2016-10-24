@@ -22,7 +22,8 @@ slutrapport.
 * [Material till tutorialen](tutorial-outline.md)
 * [Planeringsrapporten](Dokument/Planeringsrapport/planeringsrapport.md)
 * [TODOs](TODO.org)
-* [Nuvarande version av matieralet](http://tinyurl.com/DSLsHemsida)
+* [Nuvarande version av materialet](http://tinyurl.com/DSLsHemsida)
+* [Publicerad slutrapport](http://studentarbeten.chalmers.se/publication/243894-programmering-som-undervisningsverktyg-for-transformer-signaler-och-system-utvecklingen-av-laromater)
 
 Links:
 * [TFPIE 2016](http://wiki.science.ru.nl/tfpie/TFPIE2016)
